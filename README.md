@@ -4,12 +4,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
-🚀 **Website**: [xswarm.ai](https://xswarm.ai)  
-📦 **NPM Package**: [npmjs.com/package/xswarm](https://www.npmjs.com/package/xswarm)  
+🚀 **Website**: [xswarm.ai](https://xswarm.ai)
+📦 **NPM Package**: [npmjs.com/package/xswarm](https://www.npmjs.com/package/xswarm)
 🐙 **GitHub**: [github.com/xswarm/xswarm](https://github.com/xswarm/xswarm)
 
 ## Core Vision: AI Support Teams for Developers
 XSwarm is not a generic agent orchestration system. It's a highly specialized implementation that provides each developer with a complete AI support team, transforming individual productivity by leveraging the natural coordination capabilities of Git and GitHub.
+
+![xswarm logo](xswarm.png)
 
 **The Sweet Spot:** Where LLMs, Git, GitHub, SQLite, Turso, MCP servers, TailwindCSS, ShadCN components, and CSS variables converge to create a complete development support ecosystem that works within any existing repository structure, from small feature enhancements to full application development.
 
@@ -95,7 +97,7 @@ Unlike generic frameworks such as CrewAI or AutoGen, XSwarm ships with productio
 
 **Not Targeting:**
 - Generic business process automation
-- Non-software development workflows  
+- Non-software development workflows
 - Enterprise-scale system integration
 - Complex multi-system orchestration
 
@@ -137,7 +139,7 @@ graph TD
     XS --> CS[Content Strategist]
     XS --> DO[DevOps Engineer]
     XS --> SE[Security Expert]
-    
+
     PA --> Output[Complete Feature Delivery]
     TA --> Output
     FP --> Output
@@ -146,7 +148,7 @@ graph TD
     CS --> Output
     DO --> Output
     SE --> Output
-    
+
     Output --> Code[Working Code]
     Output --> Tests[Comprehensive Tests]
     Output --> Docs[Documentation]
@@ -174,16 +176,16 @@ flowchart TD
     Detect --> |Mobile App| MobileExperts[Assemble Mobile Development Team]
     Detect --> |Library| LibExperts[Assemble Library Development Team]
     Detect --> |Enterprise| EntExperts[Assemble Enterprise Development Team]
-    
+
     WebExperts --> Interview{Brief Interview}
     MobileExperts --> Interview
     LibExperts --> Interview
     EntExperts --> Interview
-    
+
     Interview --> |Simple Feature| MinimalTeam[Core Implementation Team]
     Interview --> |Complex Product| FullTeam[Full Development + Marketing Team]
     Interview --> |Open Source| CommunityTeam[Community + Documentation Team]
-    
+
     MinimalTeam --> Work[Begin Development Coordination]
     FullTeam --> Work
     CommunityTeam --> Work
@@ -202,7 +204,7 @@ XSwarm intelligently analyzes the current directory to understand project contex
 
 **Smart Context Detection:**
 - Analyzes existing files to understand project type and technology stack
-- Detects current development patterns and coding standards  
+- Detects current development patterns and coding standards
 - Identifies existing documentation and project management approaches
 - Assesses team size and collaboration patterns from Git history
 
@@ -239,7 +241,7 @@ The XSwarm folder adapts to project needs, containing only relevant directories:
 - Basic technical documentation as needed
 
 **Full Configuration (Complex Projects):**
-- Comprehensive planning and architecture documentation  
+- Comprehensive planning and architecture documentation
 - Marketing content creation and asset management
 - User guides, tutorials, and educational materials
 - Performance benchmarks and security audit reports
@@ -324,7 +326,7 @@ graph TB
         PF7[Crypto Functions]
         PF8[Math Utilities]
     end
-    
+
     subgraph "Sprint 2: Business Logic (Builds on Pure Functions)"
         BL1[User Service] --> PF1
         BL1 --> PF2
@@ -333,7 +335,7 @@ graph TB
         BL3[Data Service] --> PF3
         BL3 --> PF5
     end
-    
+
     subgraph "Sprint 3: Application Layer (Composes Business Logic)"
         AL1[API Endpoints] --> BL1
         AL1 --> BL2
@@ -342,7 +344,7 @@ graph TB
         AL3[Integration Layer] --> BL2
         AL3 --> BL3
     end
-    
+
     subgraph "Sprint 4: Full Integration"
         INT[Complete Application] --> AL1
         INT --> AL2
@@ -363,23 +365,23 @@ gantt
     title XSwarm Development Cycle
     dateFormat X
     axisFormat %s
-    
+
     section Sprint 1: Pure Functions
     Email Validation     :done, task1, 0, 2
     Password Hashing     :done, task2, 0, 2
     Data Transformation  :done, task3, 0, 2
     Token Generation     :done, task4, 0, 2
-    
+
     section Sprint 2: Business Logic
     Auth Service         :active, task5, 2, 6
     User Repository      :active, task6, 2, 6
     Session Manager      :active, task7, 2, 6
-    
+
     section Sprint 3: API & UI
     Auth Endpoints       :task8, 6, 9
     Login Components     :task9, 6, 9
     User Dashboard       :task10, 6, 9
-    
+
     section Sprint 4: Integration
     E2E Testing          :task11, 9, 11
     Performance Opt      :task12, 9, 11
@@ -405,7 +407,7 @@ graph LR
         TF2 --> TTime
         TF3 --> TTime
     end
-    
+
     subgraph "XSwarm Development"
         XD[1 Developer] --> XS[XSwarm.ai]
         XS --> XS1[AI Squad 1]
@@ -415,14 +417,14 @@ graph LR
         XS --> XS5[AI Squad 5]
         XS --> XSDots[...]
         XS --> XS12[AI Squad 12]
-        
+
         XS1 --> XF1[Feature 1]
         XS2 --> XF2[Feature 2]
         XS3 --> XF3[Feature 3]
         XS4 --> XF4[Feature 4]
         XS5 --> XF5[Feature 5]
         XS12 --> XF12[Feature 12]
-        
+
         XF1 --> XTime[3 weeks parallel]
         XF2 --> XTime
         XF3 --> XTime
@@ -452,17 +454,17 @@ graph TD
     XSwarm[XSwarm.ai] --> Local[Local Dashboard]
     XSwarm --> Hosted[Hosted Service]
     XSwarm --> GitHub[GitHub Pages]
-    
+
     Local --> Dev[Developer View]
     Hosted --> Client[Client Sharing]
     Hosted --> Team[Remote Team]
     GitHub --> Stakeholder[Stakeholder Updates]
-    
+
     Dev --> Progress[Real-time Progress]
     Client --> Reports[Cycle Reports]
     Team --> Kanban[Sprint Kanban]
     Stakeholder --> Timeline[Project Timeline]
-    
+
     Reports --> Business[Business Metrics]
     Kanban --> Technical[Technical Progress]
     Timeline --> Milestones[Key Milestones]
