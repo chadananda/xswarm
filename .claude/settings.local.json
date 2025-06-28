@@ -20,7 +20,8 @@
       "Bash(npm publish:*)",
       "Bash(npm view:*)",
       "Bash(npm version:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }

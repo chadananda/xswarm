@@ -11,7 +11,7 @@
 ## Core Vision: AI Support Teams for Developers
 XSwarm is not a generic agent orchestration system. It's a highly specialized implementation that provides each developer with a complete AI support team, transforming individual productivity by leveraging the natural coordination capabilities of Git and GitHub.
 
-![xswarm logo](xswarm.png)
+![xswarm logo](https://xswarm.ai/xswarm.png)
 
 **The Sweet Spot:** Where LLMs, Git, GitHub, SQLite, Turso, MCP servers, TailwindCSS, ShadCN components, and CSS variables converge to create a complete development support ecosystem that works within any existing repository structure, from small feature enhancements to full application development.
 
