@@ -19,7 +19,8 @@
       "Bash(npm run update:site:*)",
       "Bash(npm publish:*)",
       "Bash(npm view:*)",
-      "Bash(npm version:*)"
+      "Bash(npm version:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }
