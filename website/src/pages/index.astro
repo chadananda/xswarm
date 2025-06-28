@@ -1,84 +1,248 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+// Get latest blog posts
+const blogPosts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 ---
 
-<Layout title="XSwarm.ai - Transform yourself into a Team of One">
-  <main class="container mx-auto px-4 py-16 max-w-4xl">
-    <header class="text-center mb-16">
-      <h1 class="text-6xl font-bold text-gray-900 dark:text-white mb-4">
-        XSwarm.ai
-      </h1>
-      <p class="text-2xl text-gray-600 dark:text-gray-300">
-        Transform yourself into a Team of One
-      </p>
-    </header>
+<Layout title="XSwarm - Transform into a Team of One with AI">
+	<Navbar />
+	
+	<main>
+		<!-- Hero Section -->
+		<section class="hero relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10"></div>
+			<div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+				<div class="text-center max-w-4xl mx-auto">
+					<img src="/xswarm.png" alt="XSwarm Logo" class="w-24 h-24 mx-auto mb-8 animate-float" />
+					<h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+						Transform into a <span class="text-gradient">Team of One</span>
+					</h1>
+					<p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+						XSwarm empowers developers to achieve 10x productivity through intelligent AI coordination. 
+						Build faster, smarter, and with unprecedented efficiency.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<Button href="/blog/getting-started-guide" size="lg">
+							Get Started
+						</Button>
+						<Button href="https://github.com/xswarmai/xswarm" variant="outline" size="lg">
+							View on GitHub
+						</Button>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Animated background elements -->
+			<div class="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+			<div class="absolute bottom-20 right-10 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+		</section>
 
-    <section class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12">
-      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-        AI-Powered Development Coordination
-      </h2>
-      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
-        XSwarm.ai empowers solo developers with coordinated AI expert teams, 
-        enabling parallel development workflows that deliver comprehensive features 
-        with automatic testing, documentation, and marketing content generation.
-      </p>
-      <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6 font-mono text-sm">
-        <p class="text-gray-800 dark:text-gray-200 mb-2">$ npx xswarm</p>
-        <p class="text-gray-600 dark:text-gray-400"># Coming soon - Q2 2025</p>
-      </div>
-    </section>
+		<!-- Features Section -->
+		<section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+			<div class="container mx-auto px-4 max-w-6xl">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+						Your AI Development Team
+					</h2>
+					<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+						Each AI agent specializes in a specific domain, working together to multiply your capabilities
+					</p>
+				</div>
+				
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<Card 
+						icon="🏗️" 
+						title="Architect Agent" 
+						description="Designs system architecture, evaluates trade-offs, and ensures scalability for your projects"
+					/>
+					<Card 
+						icon="💻" 
+						title="Developer Agent" 
+						description="Writes clean, efficient code following best practices and your project's conventions"
+					/>
+					<Card 
+						icon="🧪" 
+						title="Testing Agent" 
+						description="Creates comprehensive test suites, identifies edge cases, and ensures code reliability"
+					/>
+					<Card 
+						icon="📝" 
+						title="Documentation Agent" 
+						description="Maintains clear, up-to-date documentation and generates usage examples"
+					/>
+					<Card 
+						icon="🔍" 
+						title="Review Agent" 
+						description="Provides instant code reviews with actionable suggestions for improvement"
+					/>
+					<Card 
+						icon="🚀" 
+						title="DevOps Agent" 
+						description="Handles deployment, monitoring, and infrastructure optimization"
+					/>
+				</div>
+			</div>
+		</section>
 
-    <section class="grid md:grid-cols-2 gap-8 mb-12">
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-          🤖 AI Expert Teams
-        </h3>
-        <p class="text-gray-700 dark:text-gray-300">
-          Coordinate multiple AI agents working in parallel, each specializing in 
-          different aspects of your development workflow.
-        </p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-          🚀 Comprehensive Delivery
-        </h3>
-        <p class="text-gray-700 dark:text-gray-300">
-          From code to tests to documentation to marketing materials - deliver 
-          complete features, not just code.
-        </p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-          ⚡ Parallel Development
-        </h3>
-        <p class="text-gray-700 dark:text-gray-300">
-          Break down complex tasks into parallel workflows, dramatically reducing 
-          time from idea to deployment.
-        </p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-          📝 Auto Documentation
-        </h3>
-        <p class="text-gray-700 dark:text-gray-300">
-          Generate comprehensive documentation, API references, and user guides 
-          automatically as you build.
-        </p>
-      </div>
-    </section>
+		<!-- Benefits Section -->
+		<section class="py-20">
+			<div class="container mx-auto px-4 max-w-6xl">
+				<div class="grid md:grid-cols-2 gap-16 items-center">
+					<div>
+						<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+							Achieve More with Less Effort
+						</h2>
+						<div class="space-y-6">
+							<div class="flex items-start space-x-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+									<span class="text-2xl">⚡</span>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">10x Productivity</h3>
+									<p class="text-gray-600 dark:text-gray-400">Complete complex tasks in minutes instead of hours with parallel AI assistance</p>
+								</div>
+							</div>
+							<div class="flex items-start space-x-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+									<span class="text-2xl">🎯</span>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Consistent Quality</h3>
+									<p class="text-gray-600 dark:text-gray-400">Maintain high standards across your codebase with AI-powered reviews and best practices</p>
+								</div>
+							</div>
+							<div class="flex items-start space-x-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+									<span class="text-2xl">🔄</span>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Seamless Workflow</h3>
+									<p class="text-gray-600 dark:text-gray-400">Integrate AI agents into your existing development process without disruption</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="relative">
+						<div class="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl flex items-center justify-center">
+							<div class="text-center">
+								<div class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
+									75%
+								</div>
+								<p class="text-lg text-gray-700 dark:text-gray-300 font-semibold">
+									Less Time on Repetitive Tasks
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <section class="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-lg p-8 text-white">
-      <h2 class="text-3xl font-bold mb-4">Join the Waitlist</h2>
-      <p class="text-xl mb-6">
-        Be among the first to transform your development workflow
-      </p>
-      <p class="text-lg">
-        Follow our progress on <a href="https://github.com/xswarm/xswarm" class="underline font-semibold">GitHub</a>
-      </p>
-    </section>
+		<!-- Latest Blog Posts -->
+		<section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+			<div class="container mx-auto px-4 max-w-6xl">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+						Latest Insights
+					</h2>
+					<p class="text-lg text-gray-600 dark:text-gray-400">
+						Learn how to maximize your productivity with AI-powered development
+					</p>
+				</div>
+				
+				<div class="grid md:grid-cols-3 gap-8 mb-12">
+					{blogPosts.map((post) => (
+						<article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="p-6">
+								<time class="text-sm text-gray-500 dark:text-gray-400">
+									{new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(post.data.publishDate)}
+								</time>
+								<h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-2 mb-3">
+									<a href={`/blog/${post.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+										{post.data.title}
+									</a>
+								</h3>
+								<p class="text-gray-600 dark:text-gray-400 line-clamp-3">
+									{post.data.description}
+								</p>
+								<Button href={`/blog/${post.slug}`} variant="ghost" size="sm" class="mt-4">
+									Read more →
+								</Button>
+							</div>
+						</article>
+					))}
+				</div>
+				
+				<div class="text-center">
+					<Button href="/blog" variant="outline">
+						View All Articles
+					</Button>
+				</div>
+			</div>
+		</section>
 
-    <footer class="text-center mt-16 text-gray-600 dark:text-gray-400">
-      <p>&copy; 2024 XSwarm.ai - MIT License</p>
-    </footer>
-  </main>
+		<!-- CTA Section -->
+		<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+			<div class="container mx-auto px-4 max-w-4xl text-center">
+				<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+					Ready to Transform Your Development Workflow?
+				</h2>
+				<p class="text-xl text-blue-100 mb-8">
+					Join thousands of developers who are building faster and smarter with XSwarm
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<Button href="https://www.npmjs.com/package/xswarm" size="lg" class="bg-white text-blue-600 hover:bg-gray-100">
+						Install XSwarm
+					</Button>
+					<Button href="/blog/getting-started-guide" variant="outline" size="lg" class="text-white border-white hover:bg-white/10">
+						Read the Guide
+					</Button>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
 </Layout>
+
+<style>
+	.text-gradient {
+		background-image: linear-gradient(45deg, #3b82f6, #8b5cf6);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.line-clamp-3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-20px);
+		}
+	}
+	
+	.animate-float {
+		animation: float 6s ease-in-out infinite;
+	}
+	
+	.delay-1000 {
+		animation-delay: 1s;
+	}
+</style>

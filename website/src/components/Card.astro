@@ -1,0 +1,33 @@
+---
+export interface Props {
+  icon?: string;
+  title: string;
+  description?: string;
+  class?: string;
+  hover?: boolean;
+}
+
+const { icon, title, description, class: className = '', hover = true } = Astro.props;
+
+const hoverClasses = hover ? 'hover:shadow-xl hover:scale-105 hover:border-blue-500 dark:hover:border-blue-400' : '';
+const classes = `bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 transition-all duration-300 ${hoverClasses} ${className}`;
+---
+
+<div class={classes}>
+  {icon && (
+    <div class="text-4xl mb-4">
+      {icon}
+    </div>
+  )}
+  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+    {title}
+  </h3>
+  {description && (
+    <p class="text-gray-600 dark:text-gray-400">
+      {description}
+    </p>
+  )}
+  <div class="mt-4">
+    <slot />
+  </div>
+</div>

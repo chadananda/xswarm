@@ -21,7 +21,8 @@
       "Bash(npm view:*)",
       "Bash(npm version:*)",
       "Bash(git checkout:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }

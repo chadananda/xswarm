@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import { getCollection } from 'astro:content';
+import readingTime from 'reading-time';
+
+// Get all blog posts, filter out drafts
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Group posts by tag for the filter
+const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+---
+
+<Layout title="Blog - XSwarm.ai" description="Insights on AI-powered development, productivity, and the future of software engineering.">
+  <Navbar />
+  
+  <main class="pt-24 pb-16">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          XSwarm Blog
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Insights on AI-powered development, productivity tips, and the future of software engineering with XSwarm.
+        </p>
+      </div>
+
+      <!-- Tag Filter -->
+      {tags.length > 0 && (
+        <div class="mb-12 flex flex-wrap gap-2 justify-center">
+          <button 
+            data-tag="all"
+            class="tag-filter px-4 py-2 rounded-full bg-blue-600 text-white transition-colors"
+          >
+            All Posts
+          </button>
+          {tags.map((tag) => (
+            <button 
+              data-tag={tag}
+              class="tag-filter px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <!-- Blog Posts Grid -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => {
+          const stats = readingTime(post.body);
+          const formattedDate = new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          }).format(post.data.publishDate);
+          
+          return (
+            <article 
+              class="blog-post bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              data-tags={JSON.stringify(post.data.tags)}
+            >
+              {post.data.image && (
+                <div class="aspect-video overflow-hidden">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.imageAlt || post.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              
+              <div class="p-6">
+                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  <time datetime={post.data.publishDate.toISOString()}>{formattedDate}</time>
+                  <span>•</span>
+                  <span>{stats.text}</span>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <a href={`/blog/${post.slug}`} class="hover:underline">
+                    {post.data.title}
+                  </a>
+                </h2>
+                
+                <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                  {post.data.description}
+                </p>
+                
+                {post.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {post.data.tags.map((tag) => (
+                      <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                
+                <Button href={`/blog/${post.slug}`} variant="ghost" size="sm" class="group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                  Read more →
+                </Button>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      {posts.length === 0 && (
+        <div class="text-center py-16">
+          <p class="text-gray-600 dark:text-gray-400 text-lg">
+            No blog posts yet. Check back soon!
+          </p>
+        </div>
+      )}
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Tag filtering functionality
+  const tagButtons = document.querySelectorAll('.tag-filter');
+  const blogPosts = document.querySelectorAll('.blog-post');
+
+  tagButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedTag = button.getAttribute('data-tag');
+      
+      // Update button states
+      tagButtons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+      });
+      button.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+      button.classList.add('bg-blue-600', 'text-white');
+      
+      // Filter posts
+      blogPosts.forEach(post => {
+        if (selectedTag === 'all') {
+          post.style.display = 'block';
+        } else {
+          const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
+          if (postTags.includes(selectedTag)) {
+            post.style.display = 'block';
+          } else {
+            post.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
