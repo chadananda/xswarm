@@ -13,7 +13,13 @@
       "Bash(npm run lint)",
       "Bash(npm run lint:*)",
       "Bash(ls:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm run update:site:*)",
+      "Bash(npm publish:*)",
+      "Bash(npm view:*)",
+      "Bash(npm version:*)"
     ],
     "deny": []
   }
