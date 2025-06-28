@@ -1,0 +1,54 @@
+{
+  "name": "xswarm",
+  "version": "0.1.0",
+  "description": "XSwarm.ai CLI - Transform yourself into a Team of One",
+  "type": "module",
+  "main": "./src/index.js",
+  "bin": {
+    "xswarm": "./bin/xswarm"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "build": "echo \"No build needed for JavaScript\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xswarm/xswarm.git",
+    "directory": "cli"
+  },
+  "keywords": [
+    "xswarm",
+    "ai",
+    "cli",
+    "development",
+    "team-of-one",
+    "productivity",
+    "ai-agents"
+  ],
+  "author": {
+    "name": "Chad Jones",
+    "email": "chadananda@gmail.com",
+    "url": "https://xswarm.ai"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xswarm/xswarm/issues"
+  },
+  "homepage": "https://xswarm.ai",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.6.0",
+    "vitest": "^1.6.0"
+  }
+}

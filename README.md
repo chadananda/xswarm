@@ -1,9 +1,38 @@
-# XSwarm.ai - Transforming developers into a Team of One
+# XSwarm.ai - Transform yourself into a Team of One
+
+[![npm version](https://badge.fury.io/js/xswarm.svg)](https://www.npmjs.com/package/xswarm)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
+
+🚀 **Website**: [xswarm.ai](https://xswarm.ai)  
+📦 **NPM Package**: [npmjs.com/package/xswarm](https://www.npmjs.com/package/xswarm)  
+🐙 **GitHub**: [github.com/xswarm/xswarm](https://github.com/xswarm/xswarm)
 
 ## Core Vision: AI Support Teams for Developers
 XSwarm is not a generic agent orchestration system. It's a highly specialized implementation that provides each developer with a complete AI support team, transforming individual productivity by leveraging the natural coordination capabilities of Git and GitHub.
 
 **The Sweet Spot:** Where LLMs, Git, GitHub, SQLite, Turso, MCP servers, TailwindCSS, ShadCN components, and CSS variables converge to create a complete development support ecosystem that works within any existing repository structure, from small feature enhancements to full application development.
+
+> ⚠️ **Current Status**: XSwarm.ai is in active development. The CLI placeholder and website are live. Full functionality coming Q2 2025.
+
+## Quick Start
+
+### Installation
+
+```bash
+# Try it immediately with npx (no installation required)
+npx xswarm
+
+# Or install globally for repeated use
+npm install -g xswarm
+```
+
+### Current Features
+
+- ✅ Professional CLI with branded header
+- ✅ Live website at [xswarm.ai](https://xswarm.ai)
+- ✅ npm package namespace secured
+- 🚧 Full AI agent coordination (coming Q2 2025)
 
 ### Utility-First Approach
 XSwarm operates seamlessly within existing repositories. Simply navigate to any project directory and run the tool - it initializes itself after conducting a brief project interview. No manual setup, folder creation, or workflow changes required.
@@ -445,3 +474,164 @@ Dashboards serve as the primary interface for communicating project progress to 
 
 ### Sprint Visualization
 The Kanban interface focuses on current sprint progress while maintaining historical context. Stakeholders can review past cycles, understand current sprint progress, and see projected completion timelines without getting overwhelmed by task-level details.
+
+## Project Structure
+
+```
+xswarm/
+├── cli/                    # CLI package (published to npm)
+│   ├── src/               # CLI source code
+│   │   ├── index.js       # Main entry point
+│   │   ├── header.js      # Branded terminal header
+│   │   └── placeholder.js # Coming soon message
+│   ├── bin/               # Executable scripts
+│   └── package.json       # CLI package configuration
+├── website/               # Astro static website
+│   ├── src/               # Website source
+│   │   ├── pages/         # Static pages
+│   │   ├── layouts/       # Page layouts
+│   │   └── components/    # Reusable components
+│   └── package.json       # Website dependencies
+├── scripts/               # Development and deployment scripts
+│   ├── dev.js            # Concurrent development
+│   ├── build.js          # Build both packages
+│   ├── deploy-cli.js     # Publish CLI to npm
+│   └── update-site.js    # Deploy website
+└── package.json          # Monorepo root configuration
+```
+
+## Development
+
+### Prerequisites
+
+- Node.js >= 18.0.0
+- npm >= 8.0.0
+- Git
+
+### Local Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/xswarm/xswarm.git
+cd xswarm
+
+# Install dependencies
+npm install
+
+# Start development environment (CLI + Website)
+npm run dev
+```
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start concurrent development (CLI + Website) |
+| `npm run build` | Build both CLI and website |
+| `npm run build:cli` | Build CLI package only |
+| `npm run build:website` | Build website only |
+| `npm run test` | Run tests across all workspaces |
+| `npm run lint` | Lint all JavaScript and Astro files |
+| `npm run format` | Format code with Prettier |
+| `npm run deploy:cli` | Publish CLI to npm (requires NPM_TOKEN) |
+| `npm run update:site` | Deploy website to GitHub Pages |
+
+## Contributing
+
+We welcome contributions! Please follow these guidelines:
+
+### Code Style
+
+- No blank lines in code - use comments to separate sections
+- Single-line if statements when possible
+- Functional/compact style with chaining
+- All functions exported inline: `export const functionName = () => {}`
+- JSDoc headers for all functions
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes following our code style
+4. Run tests and linting (`npm test && npm run lint`)
+5. Commit with conventional commits (`feat:`, `fix:`, `docs:`, etc.)
+6. Push to your fork and open a Pull Request
+
+### Commit Message Format
+
+```
+feat: add new agent coordination system
+
+- Implemented parallel task execution
+- Added test coverage for new features
+- Updated documentation
+```
+
+## Deployment
+
+### CLI Publishing (Manual)
+
+```bash
+# Ensure you have NPM_TOKEN configured
+export NPM_TOKEN=your-npm-token
+
+# Publish to npm
+npm run deploy:cli
+```
+
+### Website Deployment
+
+```bash
+# Build and deploy to GitHub Pages
+npm run update:site
+```
+
+## Roadmap
+
+### Phase 1: Foundation (Current) ✅
+- [x] Secure npm namespace
+- [x] Launch website at xswarm.ai
+- [x] Create CLI placeholder
+- [x] Setup monorepo structure
+
+### Phase 2: Core Implementation (Q1 2025)
+- [ ] Agent base classes
+- [ ] KaibanJS integration
+- [ ] Git worktree management
+- [ ] Basic task coordination
+
+### Phase 3: Full Launch (Q2 2025)
+- [ ] Complete expert agent library
+- [ ] Interactive chat interface
+- [ ] Project dashboard system
+- [ ] Marketing content generation
+
+## Technology Stack
+
+- **CLI**: Node.js 18+, ESM modules
+- **Website**: Astro, TailwindCSS
+- **Deployment**: GitHub Pages, npm registry
+- **Development**: npm workspaces, concurrent execution
+- **Future**: KaibanJS, Claude Code SDK, Git worktrees
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details
+
+## Documentation
+
+- 📚 [Development Guide](docs/DEVELOPMENT.md) - Complete development workflow
+- 🚀 [Deployment Guide](docs/DEPLOYMENT.md) - CLI and website deployment
+- 🔐 [GitHub Secrets Setup](docs/GITHUB_SECRETS.md) - Configure automated deployments
+- 🧪 [Testing Guide](docs/TESTING.md) - Test coverage and running tests
+- 🤖 [Claude Instructions](CLAUDE.md) - AI development guidelines
+
+## Support
+
+- 📧 Email: chadananda@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/xswarm/xswarm/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/xswarm/xswarm/discussions)
+
+---
+
+**XSwarm.ai** - Empowering solo developers with AI-powered development teams

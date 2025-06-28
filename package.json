@@ -1,0 +1,57 @@
+{
+  "name": "xswarm-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XSwarm.ai - Transform yourself into a Team of One",
+  "workspaces": [
+    "cli",
+    "website"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js",
+    "build:website": "cd website && npm run build",
+    "build:cli": "cd cli && npm run build",
+    "test:cli": "cd cli && npm test",
+    "deploy:cli": "node scripts/deploy-cli.js",
+    "update:site": "node scripts/update-site.js",
+    "deploy:all": "node scripts/deploy.js",
+    "test": "npm run test --workspaces && npm run test:scripts",
+    "test:scripts": "vitest run scripts/__tests__",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write .",
+    "security:check": "npm audit --audit-level=moderate",
+    "security:fix": "npm audit fix"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "vitest": "^1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xswarm/xswarm.git"
+  },
+  "keywords": [
+    "xswarm",
+    "ai",
+    "development",
+    "cli",
+    "team-of-one"
+  ],
+  "author": {
+    "name": "Chad Jones",
+    "email": "chadananda@gmail.com",
+    "url": "https://xswarm.ai"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xswarm/xswarm/issues"
+  },
+  "homepage": "https://xswarm.ai",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

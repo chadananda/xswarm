@@ -1,0 +1,95 @@
+name: Publish CLI
+on:
+  push:
+    branches: [main]
+    paths: ['cli/**', 'package.json']
+
+permissions:
+  contents: write
+  packages: write
+    
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run tests
+        run: npm run test:cli
+      
+      - name: Check npm authentication
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Get current version
+        id: current_version
+        run: |
+          cd cli
+          echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+      
+      - name: Increment version
+        id: new_version
+        run: |
+          cd cli
+          npm version patch --no-git-tag-version
+          echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+      
+      - name: Commit version bump
+        run: |
+          git add cli/package.json
+          git commit -m "chore: bump CLI version to ${{ steps.new_version.outputs.version }} [skip ci]"
+          git tag "v${{ steps.new_version.outputs.version }}"
+      
+      - name: Push changes
+        run: |
+          git push origin main
+          git push origin "v${{ steps.new_version.outputs.version }}"
+      
+      - name: Publish to npm
+        run: |
+          cd cli
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.new_version.outputs.version }}
+          release_name: CLI v${{ steps.new_version.outputs.version }}
+          body: |
+            ## XSwarm CLI v${{ steps.new_version.outputs.version }}
+            
+            ### Installation
+            ```bash
+            npm install -g xswarm@${{ steps.new_version.outputs.version }}
+            # or
+            npx xswarm@${{ steps.new_version.outputs.version }}
+            ```
+            
+            ### Changes
+            See [commit history](https://github.com/${{ github.repository }}/compare/v${{ steps.current_version.outputs.version }}...v${{ steps.new_version.outputs.version }}) for details.
+          draft: false
+          prerelease: false
