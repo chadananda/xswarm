@@ -2,7 +2,6 @@ name: Publish CLI
 on:
   push:
     branches: [main]
-    paths: ['cli/**', 'package.json']
 
 permissions:
   contents: write
@@ -11,6 +10,7 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     permissions:
       contents: write
       packages: write
@@ -40,14 +40,16 @@ jobs:
         id: current_version
         run: |
           cd cli
-          echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
       
       - name: Increment version
         id: new_version
         run: |
           cd cli
-          npm version patch --no-git-tag-version
-          echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+          npm version minor --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
       
       - name: Configure Git
         run: |
