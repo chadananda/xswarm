@@ -32,7 +32,9 @@
       "Bash(cat:*)",
       "Bash(npm update:*)",
       "Bash(npm outdated)",
-      "Bash(npm run generate-images:*)"
+      "Bash(npm run generate-images:*)",
+      "Bash(git pull:*)",
+      "Bash(npm run generate-logo:*)"
     ],
     "deny": []
   }

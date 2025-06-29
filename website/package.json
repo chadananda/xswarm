@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "echo \"No tests for website yet\"",
-    "generate-images": "node scripts/generate-blog-images.js"
+    "generate-images": "node scripts/generate-blog-images.js",
+    "generate-logo": "node scripts/generate-logo.js"
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.0",
