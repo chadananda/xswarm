@@ -1,0 +1,31 @@
+---
+import Card from './Card.astro';
+import type { Agent } from '../types/agent';
+
+export interface Props extends Omit<Agent, 'image'> {
+  class?: string;
+}
+
+const { icon, title, role, description, class: className = '' } = Astro.props;
+
+// Generate stable image path based on corporate role
+const imageName = role.toLowerCase()
+  .replace(/\//g, '-')      // Replace slashes with hyphens
+  .replace(/\s+/g, '-')     // Replace spaces with hyphens
+  .replace(/[^\w-]/g, '');  // Remove any other special characters
+
+const imagePath = `/agents/${imageName}.png`;
+---
+
+<Card 
+  icon={icon}
+  title={title}
+  role={role}
+  description={description}
+  image={imagePath}
+  class={className}
+/>
+
+<style>
+  /* Agent-specific styles can be added here if needed */
+</style>

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
+import Agent from '../components/Agent.astro';
 import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
 
@@ -85,20 +86,14 @@ const blogPosts = (await getCollection('blog'))
 								</span>
 							</h3>
 							<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
-								{category.data.agents.map((agent) => {
-									// Use role-based image naming for stability
-									const imageName = agent.role.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
-									const imagePath = `/agents/${imageName}.png`;
-									return (
-										<Card 
-											icon={agent.icon}
-											title={agent.title}
-											role={agent.role}
-											description={agent.description}
-											image={imagePath}
-										/>
-									);
-								})}
+								{category.data.agents.map((agent) => (
+									<Agent 
+										icon={agent.icon}
+										title={agent.title}
+										role={agent.role}
+										description={agent.description}
+									/>
+								))}
 							</div>
 						</>
 					);
