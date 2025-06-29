@@ -80,6 +80,23 @@
   pointer-events: none;
   opacity: 0.4;
   z-index: 12;
+  transition: all 0.3s ease;
+}
+/* Corner hover effects */
+.trading-card:hover .card-corner {
+  opacity: 0.8;
+}
+.trading-card:hover .card-corner-tl {
+  transform: translate(-2px, -2px);
+}
+.trading-card:hover .card-corner-tr {
+  transform: translate(2px, -2px);
+}
+.trading-card:hover .card-corner-bl {
+  transform: translate(-2px, 2px);
+}
+.trading-card:hover .card-corner-br {
+  transform: translate(2px, 2px);
 }
 /* Compact corner accents */
 .trading-card-compact .card-corner {
@@ -140,32 +157,57 @@
 }
 
 /* Hover effects */
+.trading-card {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 .trading-card:hover {
-  transform: translateY(-6px) rotateX(5deg) rotateY(-2deg);
+  transform: translateY(-8px) rotateX(5deg) rotateY(-2deg) scale(1.05);
+}
+.trading-card:hover .card-main-content {
   box-shadow: 
     /* Stronger highlight */
-    inset 0 2px 6px rgba(255, 255, 255, 0.2),
+    inset 0 2px 6px rgba(255, 255, 255, 0.3),
     /* Deeper shadows */
-    0 4px 8px rgba(0, 0, 0, 0.9),
-    0 8px 16px rgba(0, 0, 0, 0.7),
-    0 16px 32px rgba(0, 0, 0, 0.5),
-    0 24px 48px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.9),
+    0 16px 32px rgba(0, 0, 0, 0.7),
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 32px 64px rgba(0, 0, 0, 0.3),
     /* Stronger glow */
-    0 0 60px rgba(0, 255, 255, 0.1);
+    0 0 80px rgba(0, 255, 255, 0.2),
+    0 0 120px rgba(255, 0, 255, 0.1);
+}
+/* Character image hover effect */
+.trading-card:hover .card-character-image {
+  filter: contrast(1.2) saturate(1.4) brightness(1.05);
+  transform: scale(1.02);
+}
+/* Rarity indicator pulse on hover */
+.trading-card:hover .card-rarity {
+  animation: pulse-glow 0.5s ease-in-out infinite, rotate-holo 4s linear infinite;
+  transform: scale(1.2);
 }
 
 /* Card texture overlay */
 .card-texture {
   position: absolute;
   inset: 0;
-  opacity: 0.4;
+  opacity: 0.6;
   background: 
+    /* Diagonal shine pattern */
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.03) 20px,
+      rgba(255, 255, 255, 0.03) 21px
+    ),
     /* Scratches and wear */
-    url('data:image/svg+xml;utf8,<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"><g opacity="0.1"><path d="M 50,50 L 250,350" stroke="white" stroke-width="0.5"/><path d="M 100,20 L 180,380" stroke="white" stroke-width="0.3"/><path d="M 20,200 L 280,180" stroke="white" stroke-width="0.4"/></g></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"><g opacity="0.15"><path d="M 50,50 L 250,350" stroke="white" stroke-width="0.5"/><path d="M 100,20 L 180,380" stroke="white" stroke-width="0.3"/><path d="M 20,200 L 280,180" stroke="white" stroke-width="0.4"/></g></svg>'),
     /* Fine paper grain */
-    url('data:image/svg+xml;utf8,<svg width="4" height="4" viewBox="0 0 4 4" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="1" height="1" fill="white" opacity="0.05"/><rect x="2" y="2" width="1" height="1" fill="white" opacity="0.05"/></svg>');
-  background-size: 100% 100%, 4px 4px;
-  background-repeat: no-repeat, repeat;
+    url('data:image/svg+xml;utf8,<svg width="4" height="4" viewBox="0 0 4 4" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="1" height="1" fill="white" opacity="0.08"/><rect x="2" y="2" width="1" height="1" fill="white" opacity="0.08"/></svg>');
+  background-size: 100% 100%, 100% 100%, 4px 4px;
+  background-repeat: repeat, no-repeat, repeat;
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 10;
@@ -179,28 +221,55 @@
     linear-gradient(
       135deg,
       transparent 0%,
-      rgba(0, 255, 255, 0.1) 45%,
-      rgba(255, 0, 255, 0.1) 50%,
-      rgba(0, 255, 255, 0.1) 55%,
+      rgba(0, 255, 255, 0.15) 25%,
+      rgba(255, 0, 255, 0.2) 45%,
+      rgba(255, 255, 0, 0.2) 50%,
+      rgba(0, 255, 255, 0.2) 55%,
+      rgba(255, 0, 255, 0.15) 75%,
       transparent 100%
     );
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
   z-index: 11;
+  border-radius: 13px;
 }
 
 .trading-card:hover .card-holographic {
-  opacity: 0.3;
-  animation: holographic-sweep 2s ease-in-out infinite;
+  opacity: 0.4;
+  animation: holographic-sweep 1.5s ease-in-out infinite;
+}
+/* Enhanced shine effect */
+.trading-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 55%,
+    transparent 60%
+  );
+  transform: rotate(45deg) translateY(-100%);
+  transition: transform 0.6s;
+  pointer-events: none;
+  z-index: 20;
+}
+.trading-card:hover::before {
+  transform: rotate(45deg) translateY(100%);
 }
 
 @keyframes holographic-sweep {
   0% {
-    transform: translateX(-100%) translateY(-100%);
+    transform: translateX(-100%) translateY(-100%) rotate(15deg);
   }
   100% {
-    transform: translateX(100%) translateY(100%);
+    transform: translateX(100%) translateY(100%) rotate(15deg);
   }
 }
 
@@ -348,25 +417,31 @@
   width: 35px;
   height: 35px;
   background: 
+    /* White core for visibility */
+    radial-gradient(circle at center, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(255, 255, 255, 0.7) 30%, 
+      transparent 60%
+    ),
     /* Holographic foil effect */
     conic-gradient(
       from 0deg,
-      rgba(255, 100, 100, 0.8),
-      rgba(255, 215, 0, 0.8),
-      rgba(100, 255, 100, 0.8),
-      rgba(100, 200, 255, 0.8),
-      rgba(255, 100, 255, 0.8),
-      rgba(255, 100, 100, 0.8)
-    ),
-    radial-gradient(circle, 
-      rgba(255, 255, 255, 0.9) 0%, 
-      rgba(255, 255, 255, 0.3) 50%, 
-      transparent 70%
+      rgba(255, 100, 100, 0.9),
+      rgba(255, 215, 0, 0.9),
+      rgba(100, 255, 100, 0.9),
+      rgba(100, 200, 255, 0.9),
+      rgba(255, 100, 255, 0.9),
+      rgba(255, 100, 100, 0.9)
     );
   border-radius: 50%;
-  mix-blend-mode: screen;
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(0, 255, 255, 0.3);
+  mix-blend-mode: normal;
   animation: pulse-glow 2s ease-in-out infinite, rotate-holo 8s linear infinite;
-  z-index: 2;
+  z-index: 3;
+  transition: all 0.3s ease;
 }
 /* Compact rarity indicator */
 .trading-card-compact .card-rarity {
@@ -391,6 +466,19 @@
     opacity: 1;
   }
 }
+/* Scan lines animation */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+/* Add animation to scan effect in Card.astro */
+.animate-scan {
+  animation: scan 8s linear infinite;
+}
 /* Image background container */
 .card-image-background {
   position: absolute;
@@ -412,13 +500,30 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  opacity: 0.9; /* Slight transparency to show texture */
+  opacity: 0.85; /* More transparency to show texture */
+  mix-blend-mode: multiply; /* Blend with background texture */
+  filter: contrast(1.1) saturate(1.2); /* Enhance cyberpunk feel */
 }
 /* Image overlay for better text contrast */
 .card-image-overlay {
   position: absolute;
   inset: 0;
   background: 
+    /* Cyberpunk grid overlay */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      rgba(0, 255, 255, 0.03) 50px,
+      rgba(0, 255, 255, 0.03) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(255, 0, 255, 0.03) 50px,
+      rgba(255, 0, 255, 0.03) 51px
+    ),
     /* Strong vignette for character separation */
     radial-gradient(ellipse at center top, transparent 30%, rgba(0, 0, 0, 0.4) 70%),
     /* Gradient from bottom for text area */
