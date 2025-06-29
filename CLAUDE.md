@@ -1,5 +1,12 @@
 # Claude Development Instructions for XSwarm.ai
 
+## CRITICAL: Always Use NPM Scripts
+
+**NEVER use direct bash commands or tools when an npm script exists or can be created.**
+- All common operations MUST use npm scripts (no permission needed)
+- If an npm script doesn't exist, CREATE IT FIRST in package.json
+- Direct commands require permission; npm scripts do NOT
+
 ## Getting Up to Speed (Claude Self-Onboarding)
 
 ### Required Reading (In Order)
@@ -192,6 +199,27 @@ Watch for these and stop immediately:
 2. **Update existing code if enhancement needed**
 3. **Add tests for existing code if missing**
 
+## NPM Scripts Best Practices
+
+### ALWAYS Use NPM Scripts Over Direct Commands
+
+- **NEVER use direct bash commands** when an npm script can do the job
+- **Create npm scripts for ALL common operations** - including dev server management, testing, linting, building
+- **No permission needed for npm scripts** - these are considered normal operations
+- **Examples of when to use npm scripts**:
+  - Starting/stopping dev servers: `npm run start:website` NOT `pkill -f 'astro dev'`
+  - Running tests: `npm run test` NOT `vitest`
+  - Linting: `npm run lint` NOT `eslint .`
+  - Building: `npm run build` NOT direct build commands
+  - Any repetitive task should become an npm script
+
+### Creating New NPM Scripts
+
+When you need to run a command that doesn't have an npm script yet:
+1. **Add it to package.json first** as an npm script
+2. **Then use the npm script** instead of the direct command
+3. **Document the new script** in the Commands section below
+
 ## Testing Guidelines
 
 - **Always use npm scripts** - common tests should be added to package.json as npm scripts
@@ -201,16 +229,32 @@ Watch for these and stop immediately:
 
 ## Commands
 
-- Development: `npm run dev` (concurrent CLI and website development)
-- Build: `npm run build` (builds both CLI and website)
-- Build Website: `npm run build:website`
-- Build CLI: `npm run build:cli`
-- Deploy CLI: `npm run deploy:cli`
-- Update Site: `npm run update:site`
-- Deploy All: `npm run deploy:all`
-- Tests: `npm run test`
-- Lint: `npm run lint`
-- Format: `npm run format`
+### Development
+- `npm run dev` - Start concurrent CLI and website development
+- `npm run start:website` - Start website dev server (kills existing servers first)
+- `npm run preview:website` - Preview production build locally
+- `npm run kill:dev` - Kill any running Astro dev servers
+- `npm run kill:all` - Kill all Node processes
+
+### Building & Deployment
+- `npm run build` - Build both CLI and website
+- `npm run build:website` - Build website only
+- `npm run build:cli` - Build CLI only
+- `npm run deploy:cli` - Deploy CLI to npm
+- `npm run update:site` - Build and deploy website
+- `npm run deploy:all` - Deploy both CLI and website
+
+### Testing & Quality
+- `npm run test` - Run all tests
+- `npm run lint` - Check code quality
+- `npm run format` - Auto-format code
+- `npm run check:theme` - Check theme implementation (Puppeteer)
+- `npm run fix:theme` - Auto-fix common theme issues
+- `npm run test:theme` - Test dark/light mode across all pages
+
+### Security
+- `npm run security:check` - Check for vulnerabilities
+- `npm run security:fix` - Auto-fix security issues
 
 ## Code Quality
 
