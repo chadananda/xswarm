@@ -1,0 +1,37 @@
+{
+  "title": "Digital Marketing Phase",
+  "subtitle": "Growth Amplification",
+  "order": 7,
+  "agents": [
+    {
+      "icon": "🔍",
+      "title": "Search Visibility Sage",
+      "role": "SEO Specialist",
+      "description": "Manipulates search algorithms through quantum keyword entanglement"
+    },
+    {
+      "icon": "💰",
+      "title": "Paid Campaign Warlord",
+      "role": "SEM/PPC Manager",
+      "description": "Deploys micro-targeted ad swarms with surgical conversion precision"
+    },
+    {
+      "icon": "📱",
+      "title": "Viral Influence Summoner",
+      "role": "Social Media Manager",
+      "description": "Triggers exponential sharing cascades through memetic engineering"
+    },
+    {
+      "icon": "👥",
+      "title": "Tribe Leader Supreme",
+      "role": "Community Manager",
+      "description": "Cultivates digital tribes with hive-mind synchronization protocols"
+    },
+    {
+      "icon": "🤝",
+      "title": "Influencer Alliance Broker",
+      "role": "Influencer Marketing Manager",
+      "description": "Networks with cyber-celebrities to amplify brand consciousness"
+    }
+  ]
+}

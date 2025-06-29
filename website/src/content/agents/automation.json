@@ -1,0 +1,25 @@
+{
+  "title": "Email & Automation Phase",
+  "subtitle": "Systematic Engagement",
+  "order": 8,
+  "agents": [
+    {
+      "icon": "📧",
+      "title": "Inbox Enchantment Lord",
+      "role": "Email Marketing Manager",
+      "description": "Crafts messages that achieve neural resonance with recipient brainwaves"
+    },
+    {
+      "icon": "🔄",
+      "title": "Workflow Automation Mage",
+      "role": "Marketing Automation Specialist",
+      "description": "Programs self-evolving marketing sequences that adapt to user behavior"
+    },
+    {
+      "icon": "🎯",
+      "title": "Customer Journey Architect",
+      "role": "CRM Manager",
+      "description": "Maps and optimizes every neural touchpoint in the customer matrix"
+    }
+  ]
+}

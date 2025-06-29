@@ -1,0 +1,19 @@
+{
+  "title": "Sales Support Phase",
+  "subtitle": "Revenue Acceleration",
+  "order": 11,
+  "agents": [
+    {
+      "icon": "💪",
+      "title": "Sales Empowerment Sage",
+      "role": "Sales Enablement Manager",
+      "description": "Arms sales teams with neuro-persuasion tools and battle-tested tactics"
+    },
+    {
+      "icon": "🎣",
+      "title": "Lead Generation Sorcerer",
+      "role": "Lead Generation Specialist",
+      "description": "Attracts high-value prospects through algorithmic magnetism"
+    }
+  ]
+}

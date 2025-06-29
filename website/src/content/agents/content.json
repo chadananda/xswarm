@@ -1,0 +1,43 @@
+{
+  "title": "Content & Creative Phase",
+  "subtitle": "Digital Artistry",
+  "order": 6,
+  "agents": [
+    {
+      "icon": "📋",
+      "title": "Content Strategy Oracle",
+      "role": "Content Strategist",
+      "description": "Maps content journeys through predictive user behavior algorithms"
+    },
+    {
+      "icon": "✍️",
+      "title": "Persuasion Word Weaver",
+      "role": "Copywriter",
+      "description": "Crafts neuro-linguistic patterns that bypass conscious resistance"
+    },
+    {
+      "icon": "🔧",
+      "title": "Technical Lore Master",
+      "role": "Technical Content Writer",
+      "description": "Encodes complex technical knowledge into digestible data streams"
+    },
+    {
+      "icon": "🎬",
+      "title": "Visual Story Enchanter",
+      "role": "Video Content Creator",
+      "description": "Produces immersive holo-content that directly interfaces with viewer neurons"
+    },
+    {
+      "icon": "🎨",
+      "title": "Pixel Art Magician",
+      "role": "Graphic Designer",
+      "description": "Manipulates photons to create visuals that hack the human optical system"
+    },
+    {
+      "icon": "✨",
+      "title": "Motion Magic Artificer",
+      "role": "Motion Graphics Designer",
+      "description": "Animates data into hypnotic visual experiences that reprogram perceptions"
+    }
+  ]
+}

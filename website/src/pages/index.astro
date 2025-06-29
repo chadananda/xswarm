@@ -5,7 +5,10 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
-import { AGENT_DATA } from '../data/agent-data.js';
+
+// Get agent categories
+const agentCategories = await getCollection('agents');
+const sortedCategories = agentCategories.sort((a, b) => a.data.order - b.data.order);
 
 // Get latest blog posts
 const blogPosts = (await getCollection('blog'))
@@ -72,30 +75,33 @@ const blogPosts = (await getCollection('blog'))
 					</p>
 				</div>
 				
-				{Object.entries(AGENT_DATA).map(([key, category]) => (
-					<>
-						<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
-							<span class={`text-terminal-${key === 'planning' ? 'cyan' : key === 'development' || key === 'quality' ? 'green' : 'magenta'}`}>
-								// {category.title} - {category.subtitle}
-							</span>
-						</h3>
-						<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
-							{category.agents.map((agent) => {
-								const imageName = agent.title.toLowerCase().replace(/\s+/g, '-');
-								const imagePath = `/agents/${imageName}.png`;
-								return (
-									<Card 
-										icon={agent.icon}
-										title={agent.title}
-										role={agent.role}
-										description={agent.description}
-										image={imagePath}
-									/>
-								);
-							})}
-						</div>
-					</>
-				))}
+				{sortedCategories.map((category, index) => {
+					const colorClass = index < 2 ? 'cyan' : index < 4 ? 'green' : 'magenta';
+					return (
+						<>
+							<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
+								<span class={`text-terminal-${colorClass}`}>
+									// {category.data.title} - {category.data.subtitle}
+								</span>
+							</h3>
+							<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
+								{category.data.agents.map((agent) => {
+									const imageName = agent.title.toLowerCase().replace(/\s+/g, '-');
+									const imagePath = `/agents/${imageName}.png`;
+									return (
+										<Card 
+											icon={agent.icon}
+											title={agent.title}
+											role={agent.role}
+											description={agent.description}
+											image={imagePath}
+										/>
+									);
+								})}
+							</div>
+						</>
+					);
+				})}
 			</div>
 		</section>
 

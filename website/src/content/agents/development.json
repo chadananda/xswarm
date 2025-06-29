@@ -1,0 +1,37 @@
+{
+  "title": "Core Development Phase",
+  "subtitle": "Code Creation",
+  "order": 2,
+  "agents": [
+    {
+      "icon": "🎭",
+      "title": "Frontend Artificer",
+      "role": "Frontend Developer",
+      "description": "Crafts neural-responsive interfaces that adapt to user brainwave patterns in real-time"
+    },
+    {
+      "icon": "⚙️",
+      "title": "Backend Sorcerer",
+      "role": "Backend Developer",
+      "description": "Architects server-side systems with self-healing algorithms and predictive scaling"
+    },
+    {
+      "icon": "💫",
+      "title": "Full-Stack Warmaster",
+      "role": "Full-Stack Developer",
+      "description": "Commands both frontend neural networks and backend quantum processors"
+    },
+    {
+      "icon": "📱",
+      "title": "Mobile Enchanter",
+      "role": "Mobile Developer",
+      "description": "Optimizes apps for brain-computer interfaces and augmented reality overlays"
+    },
+    {
+      "icon": "💻",
+      "title": "Code Battle Artificer",
+      "role": "Senior Developer",
+      "description": "Elite programmer with cybernetic enhancements for 10x coding throughput"
+    }
+  ]
+}

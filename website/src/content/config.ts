@@ -25,7 +25,24 @@ const docsCollection = defineCollection({
   })
 });
 
+const agentsCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    order: z.number(),
+    agents: z.array(z.object({
+      icon: z.string(),
+      title: z.string(),
+      role: z.string(),
+      description: z.string(),
+      image: z.string().optional(),
+    })),
+  }),
+});
+
 export const collections = {
   'blog': blogCollection,
   'docs': docsCollection,
+  'agents': agentsCollection,
 };

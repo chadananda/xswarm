@@ -1,0 +1,37 @@
+{
+  "title": "Specialized Development",
+  "subtitle": "Advanced Technologies",
+  "order": 5,
+  "agents": [
+    {
+      "icon": "🔮",
+      "title": "Data Pipeline Artificer",
+      "role": "Data Engineer",
+      "description": "Channels petabytes through neural ETL networks with zero data loss"
+    },
+    {
+      "icon": "🧠",
+      "title": "AI Mind Crafter",
+      "role": "Machine Learning Engineer",
+      "description": "Trains synthetic consciousnesses to solve problems beyond human comprehension"
+    },
+    {
+      "icon": "🔌",
+      "title": "Interface Bridge Master",
+      "role": "API Developer",
+      "description": "Builds quantum-entangled APIs for instantaneous cross-system communication"
+    },
+    {
+      "icon": "📚",
+      "title": "Knowledge Scroll Keeper",
+      "role": "Technical Writer",
+      "description": "Translates complex algorithms into neural-downloadable documentation"
+    },
+    {
+      "icon": "🌟",
+      "title": "Community Champion",
+      "role": "Developer Advocate",
+      "description": "Amplifies developer consciousness across the global neural network"
+    }
+  ]
+}

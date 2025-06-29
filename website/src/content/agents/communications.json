@@ -1,0 +1,31 @@
+{
+  "title": "PR & Communications",
+  "subtitle": "Brand Voice",
+  "order": 10,
+  "agents": [
+    {
+      "icon": "📢",
+      "title": "Public Voice Enchanter",
+      "role": "PR Manager",
+      "description": "Shapes public perception through strategic narrative deployment"
+    },
+    {
+      "icon": "🎙️",
+      "title": "Message Craft Director",
+      "role": "Communications Director",
+      "description": "Orchestrates corporate messaging across all consciousness channels"
+    },
+    {
+      "icon": "💎",
+      "title": "Brand Guardian Supreme",
+      "role": "Brand Manager",
+      "description": "Maintains brand coherence across all dimensional touchpoints"
+    },
+    {
+      "icon": "🎪",
+      "title": "Event Summoning Master",
+      "role": "Event Marketing Manager",
+      "description": "Creates immersive experiences that alter attendee neural patterns"
+    }
+  ]
+}

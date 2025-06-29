@@ -48,12 +48,17 @@ const classes = `agent-card relative bg-gradient-to-br from-terminal-bg to-termi
   <!-- Content section (bottom half) -->
   <div class="relative p-4">
     <!-- Title with frame -->
-    <div class="relative mb-3">
+    <div class="relative mb-2">
       <div class="absolute inset-0 bg-gradient-to-r from-terminal-cyan/10 via-terminal-cyan/20 to-terminal-cyan/10 rounded"></div>
-      <h3 class="relative text-center text-lg font-bold py-2 text-terminal-green">
+      <h3 class="relative text-center text-lg font-bold pt-2 pb-1 text-terminal-green">
         <span class="relative z-10">{title}</span>
         <span class="absolute inset-0 text-terminal-cyan/20 animate-pulse blur-sm" aria-hidden="true">{title}</span>
       </h3>
+      {role && (
+        <p class="relative text-center text-sm text-terminal-cyan/70 font-mono pb-1">
+          {role}
+        </p>
+      )}
     </div>
     
     <!-- Description with scroll styling -->
