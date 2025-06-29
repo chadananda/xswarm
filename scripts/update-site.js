@@ -55,6 +55,9 @@ const deploy = async () => {
     // Create CNAME file
     writeFileSync(join(distPath, 'CNAME'), 'xswarm.ai');
     
+    // Create .nojekyll file to allow _astro directory
+    writeFileSync(join(distPath, '.nojekyll'), '');
+    
     // Deploy using git
     console.log('\n📤 Deploying to website branch...');
     
