@@ -1,328 +1,70 @@
 # Claude Development Instructions for XSwarm.ai
 
-## CRITICAL: Always Use NPM Scripts
+## Core Principles
 
-**NEVER use direct bash commands or tools when an npm script exists or can be created.**
-- All common operations MUST use npm scripts (no permission needed)
-- If an npm script doesn't exist, CREATE IT FIRST in package.json
-- Direct commands require permission; npm scripts do NOT
+1. **Always use npm scripts** - Never use direct commands. No permission needed for npm scripts.
+2. **Minimal implementation** - No extra features, only what's specified
+3. **Small commits** - Test, lint, commit frequently
+4. **No blank lines** - Use comments to separate code sections
+5. **Export inline** - `export const name = () => {}`
+6. **Test everything** - Create tests before committing
 
-## Getting Up to Speed (Claude Self-Onboarding)
+## Required Reading
 
-### Required Reading (In Order)
+1. `prd.md` - Product requirements
+2. `README.md` - Project overview
+3. Current git status - Check work in progress
 
-1. **Anthropic Claude Code Best Practices**: https://www.anthropic.com/engineering/claude-code-best-practices
-2. `prd.md` - Complete Product Requirements Document for XSwarm.ai
-3. `README.md` - Project overview and installation instructions
-4. `docs/DEVELOPMENT.md` - Development workflow guide
-5. `docs/DEPLOYMENT.md` - Deployment procedures
-6. `docs/GITHUB_SECRETS.md` - GitHub secrets setup
-7. `.github/workflows/` - CI/CD pipeline configurations (when created)
+## Project Structure
 
-### Context Files (Always check these first)
+- `cli/` - CLI implementation
+- `website/` - Astro website
+- `scripts/` - Temporary scripts (delete after use)
+- `.github/workflows/` - CI/CD pipelines
 
-- **`prd.md`** - XSwarm.ai product requirements and roadmap
-- **`cli/package.json`** - CLI package configuration
-- **`website/package.json`** - Website configuration
-- **Current git status** - Understand work in progress
+## Development Workflow
 
-### Project Status Check
+1. Check PRD requirements
+2. Search for existing code
+3. Make minimal changes
+4. `npm run lint && npm test`
+5. Commit with conventional format: `feat:`, `fix:`, `docs:`
+6. Include Claude Code attribution
 
-- Run `git status` to see current work
-- Check `cli/` for CLI implementation
-- Review `website/` for Astro site structure
-- Check GitHub Actions workflows for deployment status
+## Quality Gates
 
-## Mandatory Code Style
-
-- No blank lines in code - use comments to separate sections
-- Single-line if statements when possible
-- Functional/compact style with chaining
-- All functions exported inline: `export const functionName = () => {}`
-- JSDoc headers for all functions
-- No inline imports!
-
-## Implementation Rules
-
-- **Minimal implementation only** - no extra features
-- **One feature per git branch** - create branch before starting
-- **Break into small increments** - commit each working change
-- **Test before merge** - run tests after any change
-- **Ask before architectural decisions**
-- **Surgical changes only** - preserve existing working code
-- **Temporary scripts in scripts/ folder** - delete when no longer needed
-
-## Autonomous Development Workflow
-
-### Core Development Pipeline (Claude handles automatically)
-
-1. **Pre-Development Check**:
-   - Review PRD for feature requirements
-   - Search codebase for similar functionality
-   - Verify no redundant work
-
-2. **Development**:
-   - Follow project structure (cli/, website/, scripts/)
-   - Export all functions for testing
-   - Follow compact/functional style (no blank lines)
-
-3. **Quality Pipeline (Automatic)**:
-   - Run `npm run lint` to check issues
-   - Fix any linting issues immediately
-   - No code proceeds without passing lint
-
-4. **Testing Pipeline (Automatic)**:
-   - Create tests for new functionality
-   - Place tests in appropriate test directories
-   - Run `npm test` to verify all tests pass
-
-5. **Documentation Pipeline (Automatic)**:
-   - Update README.md if needed
-   - Add JSDoc headers to all functions
-   - Update package.json if dependencies change
-
-6. **Git Workflow (Automatic)**:
-   - Commit after each successful implementation
-   - Use conventional commit messages
-   - Small, frequent commits for safety
-   - Auto-commit when tests pass
-
-### Commit Pattern (Claude executes automatically)
-
-```bash
-# After implementing feature
-npm run lint
-npm test
-git add . && git commit -m "feat: {feature description}
-
-- Implemented {what was done}
-- Added tests for {what was tested}
-- All tests passing, lint clean
-
-🤖 Generated with Claude Code"
-```
-
-### Sub-Agent Usage (Automatic)
-
-- **Code Review Agent**: Review all code for style compliance
-- **Test Creation Agent**: Create comprehensive tests
-- **Documentation Agent**: Update all relevant documentation files
-
-## File Organization Rules
-
-- **CLI code**: Must go in `cli/` directory
-- **Website code**: Must go in `website/` directory
-- **Temporary scripts**: Only in `scripts/` folder, delete when done
-- **Core project files**: Keep root directory clean - only essential project files
-- **GitHub workflows**: Store in `.github/workflows/`
-
-## Session Workflow
-
-1. Trunk development methods -- create short-lived git branch -- merge and repeat whenever stable
-2. Break task into small, testable increments
-3. For each increment:
-   - Make minimal, surgical change
-   - Run tests (Vitest)
-   - Commit with descriptive message
-   - Refactor for simplicity if needed
-   - Test and commit refactoring
-4. Complete feature documentation
-5. Final review for simplicity and style
-6. Merge only when thoroughly tested then check out a new short-lived branch
-
-## File Creation Rules
-
-- **camelCase naming** for JavaScript files
-- **File headers required**: filename + purpose explanation
-- **Corresponding .test.js** file for testable code
-- **Temporary scripts**: only in scripts/ folder, delete when done
-
-## If Implementation Gets Complex
-
-1. **STOP** - re-read `prd.md`
-2. **Ask**: "What's the simplest possible solution?"
-3. **Remove** any unnecessary abstractions
-4. **Focus** only on current task requirements
-
-## Emergency Brake Phrases
-
-Watch for these and stop immediately:
-
-- "Let's also add..." ❌
-- "We should probably..." ❌
-- "It would be better if..." ❌
-- "For future flexibility..." ❌
-
-## Success Criteria
-
-- Feature works as specified in PRD
-- Follows all code style requirements
-- Has basic test coverage
-- No unnecessary complexity
-- No hard-coded values just to pass tests
-- Clean root directory with no temporary files
-
-## Quality Gates (All Automatic)
-
-### Mandatory Checks Before Any Commit:
-
-1. **Lint Check**: `npm run lint` must pass (no warnings/errors)
-2. **Test Suite**: `npm run test` must pass (all tests green)
-3. **Documentation**: All new functionality documented
-
-### Commit Standards:
-
-- Conventional commit format: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`
-- Include test status and lint status in commit message
-- Reference updated documentation files
-- Always include Claude Code attribution
+Before ANY commit:
+- `npm run lint` - Must pass
+- `npm run test` - Must pass
+- Update docs if needed
 
 ## Emergency Procedures
 
-### If Tests Fail:
+- **Tests fail**: Stop. Fix before continuing.
+- **Lint fails**: Fix immediately. Use `npm run lint -- --fix`
+- **Code exists**: Use it. Don't recreate.
 
-1. **STOP development immediately**
-2. **Fix failing tests before any new work**
-3. **Do not commit broken code**
-4. **Check git status and rollback if needed**
+## NPM Scripts
 
-### If Lint Fails:
+```bash
+# Development
+npm run dev                # Start CLI & website
+npm run start:website      # Start website only
+npm run kill:dev          # Kill dev servers
 
-1. **Fix all linting issues immediately**
-2. **Do not proceed with development**
-3. **Use autofix where possible**: `npm run lint -- --fix`
-4. **Manual fix for complex issues**
+# Build & Deploy
+npm run build             # Build all
+npm run deploy:all        # Deploy all
 
-### If Code Already Exists:
-
-1. **Use existing code instead of creating new**
-2. **Update existing code if enhancement needed**
-3. **Add tests for existing code if missing**
-
-## NPM Scripts Best Practices
-
-### ALWAYS Use NPM Scripts Over Direct Commands
-
-- **NEVER use direct bash commands** when an npm script can do the job
-- **Create npm scripts for ALL common operations** - including dev server management, testing, linting, building
-- **No permission needed for npm scripts** - these are considered normal operations
-- **Examples of when to use npm scripts**:
-  - Starting/stopping dev servers: `npm run start:website` NOT `pkill -f 'astro dev'`
-  - Running tests: `npm run test` NOT `vitest`
-  - Linting: `npm run lint` NOT `eslint .`
-  - Building: `npm run build` NOT direct build commands
-  - Any repetitive task should become an npm script
-
-### Creating New NPM Scripts
-
-When you need to run a command that doesn't have an npm script yet:
-1. **Add it to package.json first** as an npm script
-2. **Then use the npm script** instead of the direct command
-3. **Document the new script** in the Commands section below
-
-## Testing Guidelines
-
-- **Always use npm scripts** - common tests should be added to package.json as npm scripts
-- **Run tests via npm** - always prefer `npm run test` over direct test runner commands
-- **Add test shortcuts** - frequently used test patterns should become npm scripts
-- **Always delete temporary script files when done**
-
-## Commands
-
-### Development
-- `npm run dev` - Start concurrent CLI and website development
-- `npm run start:website` - Start website dev server (kills existing servers first)
-- `npm run preview:website` - Preview production build locally
-- `npm run kill:dev` - Kill any running Astro dev servers
-- `npm run kill:all` - Kill all Node processes
-
-### Building & Deployment
-- `npm run build` - Build both CLI and website
-- `npm run build:website` - Build website only
-- `npm run build:cli` - Build CLI only
-- `npm run deploy:cli` - Deploy CLI to npm
-- `npm run update:site` - Build and deploy website
-- `npm run deploy:all` - Deploy both CLI and website
-
-### Testing & Quality
-- `npm run test` - Run all tests
-- `npm run lint` - Check code quality
-- `npm run format` - Auto-format code
-- `npm run check:theme` - Check theme implementation (Puppeteer)
-- `npm run fix:theme` - Auto-fix common theme issues
-- `npm run test:theme` - Test dark/light mode across all pages
-
-### Security
-- `npm run security:check` - Check for vulnerabilities
-- `npm run security:fix` - Auto-fix security issues
-
-## Code Quality
-
-- **Always run format and lint after editing code** - helps catch mistakes quickly
-- **Format first, then lint** - Prettier fixes formatting, ESLint catches logic issues
-- **Address all linting errors before committing** - maintain code quality standards
-
-## Documentation Research
-
-- **Check Astro docs** for website development patterns
-- **Review npm best practices** for CLI package publishing
-- **Research before implementing** - avoid outdated patterns by checking latest documentation first
-
-## Version Management Guidelines
-
-- CLI versioning handled by GitHub Actions (automatic minor version bumps)
-- Website deployments are continuous (no versioning needed)
-- Manual version updates only for major releases
-
-
-## Project-Specific Notes
-
-- XSwarm.ai is a monorepo with separate CLI and website packages
-- GitHub Actions handle automated deployments
-- CLI publishes to npm, website deploys to GitHub Pages
-- Always use npm scripts for common tasks
-
-## CSS Theme System Best Practices
-
-### Use Centralized Color Management
-- **NEVER use dark: prefixes** - All dark/light mode switching should be handled by CSS variables
-- **Use semantic color names** - Instead of `text-gray-700 dark:text-gray-300`, use `text-secondary`
-- **Centralize theme in theme.css** - All color definitions should live in `/website/src/styles/theme.css`
-
-### CSS Variables and light-dark() Function
-The project uses the CSS `light-dark()` function for automatic color switching:
-
-```css
-/* Example from theme.css */
---color-background: light-dark(rgb(255 255 255), rgb(3 7 18)); /* white in light, gray-950 in dark */
---color-text-primary: light-dark(rgb(17 24 39), rgb(243 244 246)); /* gray-900 in light, gray-100 in dark */
+# Quality
+npm run lint              # Check code
+npm run test              # Run tests
+npm run format            # Auto-format
 ```
 
-### Tailwind Configuration
-Tailwind is configured to use CSS variables for all colors:
+## CSS Theme System
 
-```js
-// tailwind.config.mjs
-colors: {
-  background: 'var(--color-background)',
-  primary: 'var(--color-text-primary)',
-  secondary: 'var(--color-text-secondary)',
-  // etc...
-}
-```
-
-### Theme Toggle Implementation
-- Toggle between `data-theme="light"`, `data-theme="dark"`, and no attribute (system preference)
-- No classList manipulation needed - just set/remove the data-theme attribute
-- Icons visibility controlled by CSS, not JavaScript
-
-### Benefits
-- Single source of truth for colors
-- No dark mode logic in components
-- Automatic color switching based on user preference
-- Cleaner, more maintainable code
-- Better performance (no JavaScript color switching)
-
-## Development Environment Reminders
-
-- When running a local dev server, make sure to shut down any that are open so we are all using the same default port
+- **No dark: prefixes** - Use CSS variables
+- **Semantic colors only** - `text-secondary` not `text-gray-700`
+- **light-dark() function** - Automatic color switching
+- **Single source** - All colors in `/website/src/styles/theme.css`

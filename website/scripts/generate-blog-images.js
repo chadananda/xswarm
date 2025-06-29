@@ -55,12 +55,12 @@ async function generateImage(prompt, filename) {
   try {
     // Generate image with DALL-E 3
     const response = await openai.images.generate({
-      model: "dall-e-3",
+      model: 'dall-e-3',
       prompt: prompt,
       n: 1,
-      size: "1792x1024", // DALL-E 3 doesn't support custom sizes, we'll resize after
-      quality: "hd",
-      style: "vivid"
+      size: '1792x1024', // DALL-E 3 doesn't support custom sizes, we'll resize after
+      quality: 'hd',
+      style: 'vivid'
     });
     
     const imageUrl = response.data[0].url;

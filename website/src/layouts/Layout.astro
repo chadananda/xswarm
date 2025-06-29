@@ -1,5 +1,6 @@
 ---
 import '../styles/theme.css';
+import '../styles/cyberpunk-terminal.css';
 
 export interface Props {
   title: string;
@@ -33,6 +34,16 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://xswarm.ai/og-image.jpg" />
+    
+    <!-- Theme initialization (must be in head to prevent flash) -->
+    <script is:inline>
+      // Apply saved theme or default to system preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+      // If no saved theme, the CSS will use system preference via light-dark()
+    </script>
   </head>
   <body class="min-h-screen bg-background text-primary transition-colors duration-300">
     <slot />

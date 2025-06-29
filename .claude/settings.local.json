@@ -46,7 +46,8 @@
       "Bash(done)",
       "Bash(npm run fix:theme:*)",
       "Bash(node:*)",
-      "Bash(npm run kill:dev:*)"
+      "Bash(npm run kill:dev:*)",
+      "Bash(npm run generate:images:*)"
     ],
     "deny": []
   }

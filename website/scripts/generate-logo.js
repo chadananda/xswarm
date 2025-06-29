@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import OpenAI from 'openai';
 import sharp from 'sharp';
-import fs from 'fs/promises';
+// import fs from 'fs/promises'; // Unused - commented out
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -32,12 +32,12 @@ async function generateLogo() {
   try {
     // Generate logo with DALL-E 3
     const response = await openai.images.generate({
-      model: "dall-e-3",
+      model: 'dall-e-3',
       prompt: logoPrompt,
       n: 1,
-      size: "1024x1024", // Square for logo
-      quality: "hd",
-      style: "vivid"
+      size: '1024x1024', // Square for logo
+      quality: 'hd',
+      style: 'vivid'
     });
     
     const imageUrl = response.data[0].url;
