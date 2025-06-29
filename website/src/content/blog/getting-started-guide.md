@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with XSwarm: Your First Day as a Team of One"
+title: "Getting Started with XSwarm: Your First Day as an AI Team Leader"
 description: "A comprehensive guide to setting up XSwarm, understanding its core concepts, and completing your first AI-coordinated development task in under an hour."
 publishDate: 2024-01-22
 author: "Chad Jones"

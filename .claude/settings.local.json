@@ -22,7 +22,13 @@
       "Bash(npm version:*)",
       "Bash(git checkout:*)",
       "Bash(cp:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git config:*)",
+      "Bash(git branch:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(git fetch:*)",
+      "Bash(git worktree:*)"
     ],
     "deny": []
   }
