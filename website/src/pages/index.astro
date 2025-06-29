@@ -75,7 +75,7 @@ const blogPosts = (await getCollection('blog'))
 				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
 					<span class="text-terminal-cyan">// Planning & Design Phase - Interactive Control</span>
 				</h3>
-				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
 					<Card 
 						icon="🎯" 
 						title="Business Analyst" 
@@ -97,7 +97,7 @@ const blogPosts = (await getCollection('blog'))
 				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
 					<span class="text-terminal-green">// Development Phase - Parallel Execution</span>
 				</h3>
-				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
 					<Card 
 						icon="💻" 
 						title="Code Warrior" 
@@ -154,7 +154,7 @@ const blogPosts = (await getCollection('blog'))
 				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
 					<span class="text-terminal-magenta">// Marketing & Growth Phase - Amplification</span>
 				</h3>
-				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
 					<Card 
 						icon="✍️" 
 						title="Copywriter" 
@@ -209,13 +209,13 @@ const blogPosts = (await getCollection('blog'))
 							</div>
 							<div class="terminal-content p-6">
 								<p class="terminal-text mb-2">
-									<span class="text-terminal-cyan">BA Agent:</span> What's the core problem you're solving?
+									<span class="text-terminal-cyan">BA Agent:</span> Alright, what are we building today?
 								</p>
 								<p class="terminal-text mb-2">
-									<span class="text-terminal-green">You:</span> I need a real-time collaboration feature
+									<span class="text-terminal-green">You:</span> I want users to collaborate in real-time
 								</p>
 								<p class="terminal-text mb-2">
-									<span class="text-terminal-cyan">BA Agent:</span> How many concurrent users? What's the primary use case?
+									<span class="text-terminal-cyan">BA Agent:</span> Cool. How many people at once? Like Google Docs or more like Slack?
 								</p>
 								<p class="terminal-text">
 									<span class="cli-cursor"></span>
@@ -234,12 +234,12 @@ const blogPosts = (await getCollection('blog'))
 							</div>
 							<div class="terminal-content p-6">
 								<p class="terminal-text mb-4">
-									<span class="text-terminal-magenta">UX Agent:</span> Here are 3 interface approaches:
+									<span class="text-terminal-magenta">UX Agent:</span> Got three designs for you. Which vibe?
 								</p>
 								<div class="grid grid-cols-3 gap-2 text-sm">
-									<div class="border border-terminal-green p-2 text-terminal-green">Option A: Sidebar</div>
-									<div class="border border-terminal-cyan p-2 text-terminal-cyan">Option B: Modal</div>
-									<div class="border border-terminal-magenta p-2 text-terminal-magenta">Option C: Inline</div>
+									<div class="border border-terminal-green p-2 text-terminal-green">A: Sidebar chat</div>
+									<div class="border border-terminal-cyan p-2 text-terminal-cyan">B: Floating bubbles</div>
+									<div class="border border-terminal-magenta p-2 text-terminal-magenta">C: Inline comments</div>
 								</div>
 							</div>
 						</div>
@@ -434,6 +434,26 @@ const blogPosts = (await getCollection('blog'))
 	/* Subtle hover scale */
 	.hover\:scale-102:hover {
 		transform: scale(1.02);
+	}
+	
+	/* Agent card fixed width */
+	.agent-card {
+		width: 100%;
+		max-width: 280px;
+	}
+	
+	/* Scan animation */
+	@keyframes scan {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(100%);
+		}
+	}
+	
+	.animate-scan {
+		animation: scan 8s linear infinite;
 	}
 	
 	.text-gradient-cyber {
