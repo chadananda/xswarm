@@ -1,0 +1,177 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  href: string;
+  image?: string;
+  imageAlt?: string;
+  class?: string;
+}
+
+const { title, description, publishDate, href, image, imageAlt, class: className = '' } = Astro.props;
+---
+
+<article class={`article-card terminal-window ${className}`}>
+  <!-- Terminal header -->
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="terminal-button terminal-button-red"></span>
+      <span class="terminal-button terminal-button-yellow"></span>
+      <span class="terminal-button terminal-button-green"></span>
+    </div>
+    <div class="terminal-title">{title}</div>
+  </div>
+  
+  <!-- Card content -->
+  <a href={href} class="article-card-link">
+    {image && (
+      <div class="article-card-image">
+        <img src={image} alt={imageAlt || title} />
+        <div class="article-card-image-overlay"></div>
+      </div>
+    )}
+    
+    <div class="article-card-content">
+      <time class="article-card-date">
+        {new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(publishDate)}
+      </time>
+      
+      <h3 class="article-card-title">
+        <span class="cli-prompt">{title}</span>
+      </h3>
+      
+      <p class="article-card-description">
+        {description}
+      </p>
+      
+      <span class="article-card-cta">
+        Read more →
+      </span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .article-card {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .article-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .article-card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(180deg, 
+      rgba(15, 25, 35, 0.9) 0%, 
+      rgba(10, 20, 30, 0.95) 100%
+    );
+  }
+  
+  .article-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+  
+  .article-card:hover .article-card-image img {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  
+  .article-card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+      /* Cyberpunk grid */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 30px,
+        rgba(0, 255, 255, 0.02) 30px,
+        rgba(0, 255, 255, 0.02) 31px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 30px,
+        rgba(255, 0, 255, 0.02) 30px,
+        rgba(255, 0, 255, 0.02) 31px
+      ),
+      /* Gradient overlay */
+      linear-gradient(to bottom, 
+        transparent 0%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.9) 100%
+      );
+    pointer-events: none;
+  }
+  
+  .article-card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .article-card-date {
+    font-size: 0.75rem;
+    color: rgb(var(--color-terminal-cyan));
+    opacity: 0.8;
+  }
+  
+  .article-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.75rem;
+    color: rgb(var(--color-terminal-green));
+    transition: color 0.2s ease;
+  }
+  
+  .article-card:hover .article-card-title {
+    color: rgb(var(--color-terminal-cyan));
+  }
+  
+  .article-card-description {
+    font-size: 0.875rem;
+    color: rgba(var(--color-terminal-green), 0.8);
+    line-height: 1.6;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .article-card-cta {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: rgb(var(--color-terminal-cyan));
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .article-card:hover .article-card-cta {
+    transform: translateX(4px);
+    color: rgb(var(--color-terminal-magenta));
+  }
+</style>

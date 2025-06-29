@@ -10,19 +10,19 @@ const footerLinks = {
   Resources: [
     { name: 'Blog', href: '/blog' },
     { name: 'About', href: '/about' },
-    { name: 'GitHub', href: 'https://github.com/chadananda/xswarm' },
+    { name: 'GitHub', href: 'https://github.com/chadmichel/xswarm' },
   ],
   Legal: [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
-    { name: 'License', href: 'https://github.com/chadananda/xswarm/blob/main/LICENSE' },
+    { name: 'License', href: 'https://github.com/chadmichel/xswarm/blob/main/LICENSE' },
   ],
 };
 
 const socialLinks = [
   {
     name: 'GitHub',
-    href: 'https://github.com/chadananda/xswarm',
+    href: 'https://github.com/chadmichel/xswarm',
     icon: 'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z'
   },
   {
@@ -38,83 +38,253 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-background border-t border">
-  <div class="container mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
-      <!-- Brand Section -->
-      <div class="md:col-span-2">
-        <div class="flex items-center space-x-2 mb-4">
-          <img src="/xswarm.png" alt="XSwarm" class="h-8 w-8" />
-          <span class="text-xl font-bold bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
-            XSwarm.ai
-          </span>
-        </div>
-        <p class="text-secondary mb-4">
-          Transform Every Developer into an AI Team Leader.
-        </p>
-        <div class="flex space-x-4">
-          {socialLinks.map((social) => (
-            <a
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-secondary hover:text-link transition-colors"
-              aria-label={social.name}
-            >
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d={social.icon} />
-              </svg>
-            </a>
-          ))}
-        </div>
+<footer class="footer-terminal">
+  <div class="terminal-window">
+    <!-- Terminal header -->
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="terminal-button terminal-button-red"></span>
+        <span class="terminal-button terminal-button-yellow"></span>
+        <span class="terminal-button terminal-button-green"></span>
       </div>
-
-      <!-- Links Sections -->
-      {Object.entries(footerLinks).map(([category, links]) => (
-        <div>
-          <h3 class="font-semibold text-primary mb-4">{category}</h3>
-          <ul class="space-y-2">
-            {links.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-secondary hover:text-link transition-colors"
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <div class="terminal-title">xswarm@footer:~$</div>
     </div>
-
-    <!-- Bottom Section -->
-    <div class="mt-12 pt-8 border-t border">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-secondary text-sm">
-          © {currentYear} XSwarm.ai. All rights reserved.
-        </p>
-        <div class="mt-4 md:mt-0 flex items-center space-x-4">
-          <a
-            href="https://github.com/chadananda/xswarm/blob/main/LICENSE"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-secondary hover:text-link transition-colors"
-          >
-            MIT License
-          </a>
-          <span class="text-muted">•</span>
-          <a
-            href="mailto:chadananda@gmail.com"
-            class="text-sm text-secondary hover:text-link transition-colors"
-          >
-            Contact
-          </a>
+    
+    <!-- Terminal content -->
+    <div class="terminal-content">
+      <div class="container mx-auto">
+        <!-- Command prompt style info -->
+        <div class="terminal-line mb-6">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-command">cat /etc/xswarm/info.txt</span>
+        </div>
+        
+        <!-- Brand info -->
+        <div class="terminal-output mb-8">
+          <pre class="text-terminal-green">
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║
+║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║
+║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║
+║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║
+║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║
+║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║
+║                                                               ║
+║   Transform Every Developer into an AI Team Leader            ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝</pre>
+        </div>
+        
+        <!-- Directory listing style links -->
+        <div class="terminal-line mb-4">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-command">ls -la /opt/xswarm/</span>
+        </div>
+        
+        <div class="terminal-output grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div>
+            <div class="terminal-directory mb-2">./product/</div>
+            <ul class="ml-4 space-y-1">
+              {footerLinks.Product.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="terminal-link"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.name.toLowerCase()}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <div class="terminal-directory mb-2">./resources/</div>
+            <ul class="ml-4 space-y-1">
+              {footerLinks.Resources.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="terminal-link"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.name.toLowerCase()}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <div class="terminal-directory mb-2">./legal/</div>
+            <ul class="ml-4 space-y-1">
+              {footerLinks.Legal.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="terminal-link"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.name.toLowerCase()}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <div class="terminal-directory mb-2">./social/</div>
+            <ul class="ml-4 space-y-1">
+              {socialLinks.map((social) => (
+                <li>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="terminal-link flex items-center"
+                  >
+                    {social.name.toLowerCase()}
+                    <svg class="h-4 w-4 ml-2 inline-block" fill="currentColor" viewBox="0 0 24 24">
+                      <path d={social.icon} />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <!-- System info -->
+        <div class="terminal-line mb-2">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-command">uptime</span>
+        </div>
+        
+        <div class="terminal-output mb-4">
+          <span class="text-terminal-cyan">System online since:</span> 2024 | 
+          <span class="text-terminal-cyan">Current year:</span> {currentYear} | 
+          <span class="text-terminal-cyan">License:</span> MIT | 
+          <span class="text-terminal-cyan">Contact:</span> <a href="mailto:chad@xswarm.ai" class="terminal-link">chad@xswarm.ai</a>
+        </div>
+        
+        <!-- Cursor -->
+        <div class="terminal-line">
+          <span class="terminal-prompt">$</span>
+          <span class="cli-cursor"></span>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-terminal {
+    margin-top: 4rem;
+    background: var(--terminal-bg);
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+  }
+  
+  .footer-terminal .terminal-window {
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  .footer-terminal .terminal-content {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+  
+  .terminal-line {
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+  
+  .terminal-prompt {
+    color: var(--terminal-cyan);
+    margin-right: 0.5rem;
+  }
+  
+  .terminal-command {
+    color: var(--terminal-green);
+  }
+  
+  .terminal-output {
+    color: rgba(var(--color-terminal-green), 0.8);
+    font-family: monospace;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .terminal-output pre {
+    font-size: 0.625rem;
+    line-height: 1.2;
+    color: var(--terminal-cyan);
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  .terminal-directory {
+    color: var(--terminal-cyan);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .terminal-directory::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      var(--terminal-cyan) 0%, 
+      transparent 50%
+    );
+    opacity: 0.3;
+  }
+  
+  .terminal-link {
+    color: rgba(var(--color-terminal-green), 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.75rem;
+    display: inline-block;
+    position: relative;
+    padding-left: 1rem;
+  }
+  
+  .terminal-link::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--terminal-cyan);
+    opacity: 0.5;
+    transition: all 0.2s ease;
+  }
+  
+  .terminal-link:hover {
+    color: var(--terminal-cyan);
+    text-shadow: 0 0 5px currentColor;
+    transform: translateX(4px);
+  }
+  
+  .terminal-link:hover::before {
+    opacity: 1;
+    transform: translateX(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .terminal-output pre {
+      font-size: 0.5rem;
+    }
+  }
+</style>

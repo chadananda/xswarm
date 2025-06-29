@@ -35,14 +35,10 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://xswarm.ai/og-image.jpg" />
     
-    <!-- Theme initialization (must be in head to prevent flash) -->
+    <!-- Force dark theme -->
     <script is:inline>
-      // Apply saved theme or default to system preference
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      }
-      // If no saved theme, the CSS will use system preference via light-dark()
+      // Always use dark theme
+      document.documentElement.setAttribute('data-theme', 'dark');
     </script>
   </head>
   <body class="min-h-screen bg-background text-primary transition-colors duration-300">

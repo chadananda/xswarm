@@ -1,0 +1,162 @@
+---
+export interface Props {
+  label: string;
+  variant: 'sidebar' | 'floating' | 'inline';
+  class?: string;
+}
+
+const { label, variant, class: className = '' } = Astro.props;
+
+const variantStyles = {
+  sidebar: 'border-terminal-green text-terminal-green',
+  floating: 'border-terminal-cyan text-terminal-cyan',
+  inline: 'border-terminal-magenta text-terminal-magenta'
+};
+---
+
+<div class={`ui-layout-thumbnail ${variantStyles[variant]} ${className}`}>
+  <div class="ui-layout-visual">
+    {variant === 'sidebar' && (
+      <>
+        <div class="ui-sidebar"></div>
+        <div class="ui-main">
+          <div class="ui-content-line"></div>
+          <div class="ui-content-line"></div>
+          <div class="ui-content-line short"></div>
+        </div>
+      </>
+    )}
+    {variant === 'floating' && (
+      <>
+        <div class="ui-main">
+          <div class="ui-content-line"></div>
+          <div class="ui-content-line"></div>
+          <div class="ui-content-line short"></div>
+          <div class="ui-float ui-float-1"></div>
+          <div class="ui-float ui-float-2"></div>
+          <div class="ui-float ui-float-3"></div>
+        </div>
+      </>
+    )}
+    {variant === 'inline' && (
+      <>
+        <div class="ui-main">
+          <div class="ui-content-line"></div>
+          <div class="ui-inline-comment"></div>
+          <div class="ui-content-line"></div>
+          <div class="ui-inline-comment"></div>
+          <div class="ui-content-line short"></div>
+        </div>
+      </>
+    )}
+  </div>
+  <div class="ui-layout-label">{label}</div>
+</div>
+
+<style>
+  .ui-layout-thumbnail {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .ui-layout-thumbnail:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .ui-layout-visual {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .ui-layout-label {
+    font-size: 0.875rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* Layout elements */
+  .ui-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    background: currentColor;
+    opacity: 0.3;
+  }
+  
+  .ui-main {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 30%;
+    padding: 0.5rem;
+  }
+  
+  .ui-layout-thumbnail.border-terminal-green .ui-main {
+    left: 30%;
+  }
+  
+  .ui-layout-thumbnail:not(.border-terminal-green) .ui-main {
+    left: 0;
+  }
+  
+  .ui-content-line {
+    height: 3px;
+    background: currentColor;
+    opacity: 0.2;
+    margin-bottom: 6px;
+    border-radius: 1px;
+  }
+  
+  .ui-content-line.short {
+    width: 60%;
+  }
+  
+  /* Floating bubbles */
+  .ui-float {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  
+  .ui-float-1 {
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  .ui-float-2 {
+    bottom: 8px;
+    right: 32px;
+  }
+  
+  .ui-float-3 {
+    bottom: 8px;
+    right: 56px;
+  }
+  
+  /* Inline comments */
+  .ui-inline-comment {
+    height: 12px;
+    background: currentColor;
+    opacity: 0.3;
+    margin-bottom: 6px;
+    border-radius: 2px;
+    margin-left: 10px;
+  }
+</style>

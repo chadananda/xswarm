@@ -54,7 +54,7 @@ const blogPosts = (await getCollection('blog'))
 							<span class="terminal-text">npx xswarm</span>
 						</Button>
 						<Button href="https://github.com/chadananda/xswarm" variant="secondary" size="lg">
-							<span class="terminal-text">npm i -g xswarm</span>
+							<span class="terminal-text">View on GitHub</span>
 						</Button>
 					</div>
 				</div>
@@ -65,8 +65,8 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- Agent Workforce Section -->
-		<section id="features" class="py-20 terminal-bg">
-			<div class="container mx-auto px-4 max-w-7xl">
+		<section id="features" class="py-20 terminal-bg overflow-visible">
+			<div class="container mx-auto px-4 max-w-7xl overflow-visible">
 				<div class="text-center mb-16">
 					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Command Your Agent Workforce">
 						Command Your Agent Workforce
@@ -85,7 +85,7 @@ const blogPosts = (await getCollection('blog'))
 									// {category.data.title} - {category.data.subtitle}
 								</span>
 							</h3>
-							<div class="flex flex-wrap justify-center gap-4 mb-12 max-w-7xl mx-auto">
+							<div class="flex flex-wrap justify-center gap-8 mb-12 max-w-7xl mx-auto overflow-visible py-12">
 								{category.data.agents.map((agent) => (
 									<Agent 
 										icon={agent.icon}
@@ -93,6 +93,9 @@ const blogPosts = (await getCollection('blog'))
 										role={agent.role}
 										description={agent.description}
 										image={agent.image}
+										prompt={agent.prompt}
+										mcpTools={agent.mcpTools}
+										activityType={agent.activityType}
 										compact={true}
 									/>
 								))}
@@ -309,20 +312,81 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- CTA Section -->
-		<section class="py-20 terminal-window">
-			<div class="container mx-auto px-4 max-w-4xl text-center">
-				<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Join the Agentic Revolution">
+		<section class="py-24 relative overflow-hidden">
+			<!-- Animated background graphic -->
+			<div class="absolute inset-0 flex items-center justify-center opacity-20">
+				<div class="relative w-full max-w-4xl h-96">
+					<!-- Central command hub -->
+					<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-terminal-cyan animate-pulse">
+						<div class="absolute inset-0 rounded-full border border-terminal-cyan/50 animate-ping"></div>
+					</div>
+					<!-- Orbital agents -->
+					<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+						<div class="agent-orbit agent-orbit-1">
+							<div class="agent-node"></div>
+						</div>
+						<div class="agent-orbit agent-orbit-2">
+							<div class="agent-node"></div>
+						</div>
+						<div class="agent-orbit agent-orbit-3">
+							<div class="agent-node"></div>
+						</div>
+					</div>
+					<!-- Connection lines -->
+					<svg class="absolute inset-0 w-full h-full">
+						<defs>
+							<linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color:var(--terminal-cyan);stop-opacity:0" />
+								<stop offset="50%" style="stop-color:var(--terminal-cyan);stop-opacity:0.5" />
+								<stop offset="100%" style="stop-color:var(--terminal-cyan);stop-opacity:0" />
+							</linearGradient>
+						</defs>
+						<line x1="50%" y1="50%" x2="20%" y2="20%" stroke="url(#line-gradient)" stroke-width="1" class="connection-line" />
+						<line x1="50%" y1="50%" x2="80%" y2="20%" stroke="url(#line-gradient)" stroke-width="1" class="connection-line" />
+						<line x1="50%" y1="50%" x2="80%" y2="80%" stroke="url(#line-gradient)" stroke-width="1" class="connection-line" />
+						<line x1="50%" y1="50%" x2="20%" y2="80%" stroke="url(#line-gradient)" stroke-width="1" class="connection-line" />
+					</svg>
+				</div>
+			</div>
+			
+			<div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
+				<h2 class="text-4xl md:text-5xl font-bold mb-6 glitch-text" data-text="Join the Agentic Revolution">
 					Join the Agentic Revolution
 				</h2>
-				<p class="text-xl mb-8 terminal-text">
+				<p class="text-xl mb-12 terminal-text">
 					<span class="cli-prompt">Break free from solo coding. Command your agent workforce.</span>
 				</p>
+				
+				<!-- Terminal command display -->
+				<div class="terminal-window max-w-2xl mx-auto mb-8">
+					<div class="terminal-header">
+						<div class="terminal-buttons">
+							<span class="terminal-button terminal-button-red"></span>
+							<span class="terminal-button terminal-button-yellow"></span>
+							<span class="terminal-button terminal-button-green"></span>
+						</div>
+						<div class="terminal-title">Get Started</div>
+					</div>
+					<div class="terminal-content p-6 font-mono text-left">
+						<p class="text-terminal-green mb-2">
+							<span class="text-terminal-cyan">$</span> cd my-project
+						</p>
+						<p class="text-terminal-green mb-2">
+							<span class="text-terminal-cyan">$</span> npx xswarm
+						</p>
+						<p class="text-terminal-cyan mb-2 ml-4">
+							> What would you like to build today?
+							<span class="cli-cursor"></span>
+						</p>
+					</div>
+				</div>
+				
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<Button href="https://www.npmjs.com/package/xswarm" size="lg">
-						<span class="terminal-text">npm install -g xswarm</span>
+					<Button href="/docs/getting-started" size="lg">
+						<span class="terminal-text">Read Documentation</span>
 					</Button>
-					<Button href="/blog/getting-started-guide" variant="secondary" size="lg">
-						<span class="terminal-text">./read-guide.sh</span>
+					<Button href="https://github.com/chadmichel/xswarm" variant="secondary" size="lg">
+						<span class="terminal-text">View on GitHub</span>
 					</Button>
 				</div>
 			</div>
@@ -381,6 +445,74 @@ const blogPosts = (await getCollection('blog'))
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		text-shadow: 0 0 40px var(--terminal-cyan);
+	}
+	
+	/* Agent orbit animation */
+	.agent-orbit {
+		position: absolute;
+		border-radius: 50%;
+		border: 1px dashed rgba(0, 255, 255, 0.3);
+		animation: rotate 20s linear infinite;
+	}
+	
+	.agent-orbit-1 {
+		width: 200px;
+		height: 200px;
+		top: -100px;
+		left: -100px;
+	}
+	
+	.agent-orbit-2 {
+		width: 300px;
+		height: 300px;
+		top: -150px;
+		left: -150px;
+		animation-duration: 30s;
+		animation-direction: reverse;
+	}
+	
+	.agent-orbit-3 {
+		width: 400px;
+		height: 400px;
+		top: -200px;
+		left: -200px;
+		animation-duration: 40s;
+	}
+	
+	.agent-node {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		background: var(--terminal-cyan);
+		border: 2px solid var(--terminal-bg);
+		border-radius: 50%;
+		top: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		box-shadow: 0 0 20px var(--terminal-cyan);
+	}
+	
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+	
+	.connection-line {
+		opacity: 0.5;
+		animation: pulse-line 3s ease-in-out infinite;
+	}
+	
+	@keyframes pulse-line {
+		0%, 100% {
+			opacity: 0.2;
+		}
+		50% {
+			opacity: 0.6;
+		}
 	}
 	
 	.line-clamp-3 {
