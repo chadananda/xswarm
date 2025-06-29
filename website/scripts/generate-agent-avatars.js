@@ -199,7 +199,7 @@ Object.entries(AGENT_DATA).forEach(([category, data]) => {
     }
     
     AGENT_AVATARS.push({
-      name: agent.title.toLowerCase().replace(/\s+/g, '-'),
+      name: agent.role.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-'),
       title: agent.title,
       role: agent.role,
       prompt: prompt + ' Highly detailed face, epic lighting, professional portrait, game character art style.'
