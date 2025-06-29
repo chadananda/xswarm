@@ -9,25 +9,35 @@ export interface Props {
 
 const { icon, title, description, class: className = '', hover = true } = Astro.props;
 
-const hoverClasses = hover ? 'hover:shadow-xl hover:scale-105 hover:border-link' : '';
-const classes = `bg-surface rounded-xl shadow-lg border border-border p-6 transition-all duration-300 ${hoverClasses} ${className}`;
+const hoverClasses = hover ? 'hover:scale-105' : '';
+const classes = `terminal-window ${hoverClasses} ${className}`;
 ---
 
 <div class={classes}>
-  {icon && (
-    <div class="text-4xl mb-4">
-      {icon}
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="terminal-button terminal-button-red"></span>
+      <span class="terminal-button terminal-button-yellow"></span>
+      <span class="terminal-button terminal-button-green"></span>
     </div>
-  )}
-  <h3 class="text-xl font-semibold text-primary mb-3">
-    {title}
-  </h3>
-  {description && (
-    <p class="text-tertiary">
-      {description}
-    </p>
-  )}
-  <div class="mt-4">
-    <slot />
+    <div class="terminal-title">{title}</div>
+  </div>
+  <div class="terminal-content p-6">
+    {icon && (
+      <div class="text-4xl mb-4 text-terminal-cyan">
+        {icon}
+      </div>
+    )}
+    <h3 class="text-xl font-semibold mb-3 terminal-text">
+      <span class="cli-prompt">{title}</span>
+    </h3>
+    {description && (
+      <p class="text-terminal-green">
+        {description}
+      </p>
+    )}
+    <div class="mt-4">
+      <slot />
+    </div>
   </div>
 </div>

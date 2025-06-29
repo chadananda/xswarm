@@ -8,14 +8,13 @@ const navItems = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-backdrop backdrop-blur-lg border-b border">
+<nav class="fixed top-0 left-0 right-0 z-50 terminal-window border-0">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-2">
-        <img src="/xswarm.png" alt="XSwarm" class="h-8 w-8" />
-        <span class="text-xl font-bold bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
-          XSwarm.ai
+        <span class="text-xl font-bold terminal-text glitch-text" data-text="XSwarm.ai">
+          <span class="cli-prompt">XSwarm.ai</span>
         </span>
       </a>
 
@@ -24,7 +23,7 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-secondary hover:text-link transition-colors font-medium"
+            class="terminal-text hover:text-terminal-cyan transition-colors font-medium"
             target={item.href.startsWith('http') ? '_blank' : undefined}
             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           >
@@ -37,7 +36,7 @@ const navItems = [
           href="https://github.com/chadananda/xswarm"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-secondary hover:text-link transition-colors"
+          class="terminal-text hover:text-terminal-cyan transition-colors"
           aria-label="GitHub"
         >
           <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +47,7 @@ const navItems = [
         <!-- Theme Toggle -->
         <button
           id="theme-toggle"
-          class="p-2 rounded-lg bg-surface text-secondary hover:bg-surface-hover transition-colors"
+          class="p-2 neon-border text-terminal-green hover:text-terminal-cyan transition-colors"
           aria-label="Toggle theme"
         >
           <svg id="theme-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -78,7 +77,7 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="block px-4 py-2 text-secondary hover:bg-surface transition-colors font-medium"
+            class="block px-4 py-2 terminal-text hover:text-terminal-cyan transition-colors font-medium"
             target={item.href.startsWith('http') ? '_blank' : undefined}
             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           >

@@ -18,43 +18,57 @@ const blogPosts = (await getCollection('blog'))
 	
 	<main>
 		<!-- Hero Section -->
-		<section class="hero relative overflow-hidden">
-			<div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10"></div>
+		<section class="hero relative overflow-hidden terminal-window">
+			<!-- Wide Hero Image Background -->
+			<div class="absolute inset-0 z-0">
+				<img src="/teamofone.png" alt="Cyberpunk developer controlling AI swarm" class="w-full h-full object-cover opacity-30" />
+				<div class="absolute inset-0 bg-gradient-to-t from-terminal-bg via-terminal-bg/50 to-transparent"></div>
+			</div>
+			
+			<!-- Terminal Window Effect -->
+			<div class="terminal-header">
+				<div class="terminal-buttons">
+					<span class="terminal-button terminal-button-red"></span>
+					<span class="terminal-button terminal-button-yellow"></span>
+					<span class="terminal-button terminal-button-green"></span>
+				</div>
+				<div class="terminal-title">xswarm.ai</div>
+			</div>
+			
 			<div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
 				<div class="text-center max-w-4xl mx-auto">
-					<img src="/teamofone.png" alt="XSwarm Logo" class="w-24 h-24 mx-auto mb-8 animate-float" />
-					<h1 class="text-5xl md:text-7xl font-bold text-primary mb-6">
-						Transform Every Developer into an <span class="text-gradient">AI Team Leader</span>
+					<h1 class="text-5xl md:text-7xl font-bold mb-6 glitch-text" data-text="Transform Every Developer into an AI Team Leader">
+						Transform Every Developer into an <span class="text-gradient-cyber">AI Team Leader</span>
 					</h1>
-					<p class="text-xl md:text-2xl text-tertiary mb-8 leading-relaxed">
-						Command your own team of AI agents that work in parallel to multiply your impact. 
-						From solo coder to team leader—orchestrate, delegate, and deliver at scale.
+					<p class="text-xl md:text-2xl mb-8 leading-relaxed terminal-text">
+						<span class="cli-prompt">Command your own team of AI agents that work in parallel to multiply your impact.</span>
+						<span class="block mt-2">From solo coder to team leader—orchestrate, delegate, and deliver at scale.</span>
+						<span class="cli-cursor"></span>
 					</p>
 					<div class="flex flex-col sm:flex-row gap-4 justify-center">
-						<Button href="/blog/getting-started-guide" size="lg">
-							Get Started
+						<Button href="/blog/getting-started-guide" size="lg" class="neon-border-green">
+							<span class="terminal-text">./get-started.sh</span>
 						</Button>
-						<Button href="https://github.com/chadananda/xswarm" variant="outline" size="lg">
-							View on GitHub
+						<Button href="https://github.com/chadananda/xswarm" variant="outline" size="lg" class="neon-border-cyan">
+							<span class="terminal-text">git clone xswarm</span>
 						</Button>
 					</div>
 				</div>
 			</div>
 			
-			<!-- Animated background elements -->
-			<div class="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-			<div class="absolute bottom-20 right-10 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+			<!-- Matrix Rain Effect -->
+			<div class="matrix-rain"></div>
 		</section>
 
 		<!-- Features Section -->
-		<section id="features" class="py-20 bg-surface/50">
+		<section id="features" class="py-20 terminal-bg">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center mb-16">
-					<h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Your AI Development Team Awaits Your Leadership">
 						Your AI Development Team Awaits Your Leadership
 					</h2>
-					<p class="text-lg text-tertiary max-w-2xl mx-auto">
-						As team leader, you orchestrate specialized AI agents that handle implementation while you focus on strategy and vision
+					<p class="text-lg max-w-2xl mx-auto terminal-text">
+						<span class="cli-prompt">As team leader, you orchestrate specialized AI agents that handle implementation while you focus on strategy and vision</span>
 					</p>
 				</div>
 				
@@ -94,11 +108,11 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- Benefits Section -->
-		<section class="py-20">
+		<section class="py-20 terminal-bg">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="grid md:grid-cols-2 gap-16 items-center">
 					<div>
-						<h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
+						<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Achieve More with Less Effort">
 							Achieve More with Less Effort
 						</h2>
 						<div class="space-y-6">
@@ -107,8 +121,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">⚡</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold text-primary mb-2">10x Productivity</h3>
-									<p class="text-tertiary">Complete complex tasks in minutes instead of hours with parallel AI assistance</p>
+									<h3 class="text-xl font-semibold mb-2 terminal-text">10x Productivity</h3>
+									<p class="text-terminal-green">Complete complex tasks in minutes instead of hours with parallel AI assistance</p>
 								</div>
 							</div>
 							<div class="flex items-start space-x-4">
@@ -116,8 +130,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">🎯</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold text-primary mb-2">Consistent Quality</h3>
-									<p class="text-tertiary">Maintain high standards across your codebase with AI-powered reviews and best practices</p>
+									<h3 class="text-xl font-semibold mb-2 terminal-text">Consistent Quality</h3>
+									<p class="text-terminal-green">Maintain high standards across your codebase with AI-powered reviews and best practices</p>
 								</div>
 							</div>
 							<div class="flex items-start space-x-4">
@@ -125,19 +139,19 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">🔄</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold text-primary mb-2">Seamless Workflow</h3>
-									<p class="text-tertiary">Integrate AI agents into your existing development process without disruption</p>
+									<h3 class="text-xl font-semibold mb-2 terminal-text">Seamless Workflow</h3>
+									<p class="text-terminal-green">Integrate AI agents into your existing development process without disruption</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="relative">
-						<div class="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl flex items-center justify-center">
+						<div class="aspect-square terminal-window flex items-center justify-center">
 							<div class="text-center">
-								<div class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
-									75%
+								<div class="text-6xl font-bold mb-4 glitch-text" data-text="75%">
+									<span class="text-gradient-cyber">75%</span>
 								</div>
-								<p class="text-lg text-secondary font-semibold">
+								<p class="text-lg font-semibold terminal-text">
 									Less Time on Repetitive Tasks
 								</p>
 							</div>
@@ -148,30 +162,38 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- Latest Blog Posts -->
-		<section class="py-20 bg-surface/50">
+		<section class="py-20 terminal-bg">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center mb-12">
-					<h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Latest Insights">
 						Latest Insights
 					</h2>
-					<p class="text-lg text-tertiary">
+					<p class="text-lg terminal-text">
 						Learn how to maximize your productivity with AI-powered development
 					</p>
 				</div>
 				
 				<div class="grid md:grid-cols-3 gap-8 mb-12">
 					{blogPosts.map((post) => (
-						<article class="bg-surface rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-							<div class="p-6">
-								<time class="text-sm text-muted">
+						<article class="terminal-window hover:scale-105 transition-transform duration-300">
+							<div class="terminal-header">
+								<div class="terminal-buttons">
+									<span class="terminal-button terminal-button-red"></span>
+									<span class="terminal-button terminal-button-yellow"></span>
+									<span class="terminal-button terminal-button-green"></span>
+								</div>
+								<div class="terminal-title">{post.data.title}</div>
+							</div>
+							<div class="terminal-content p-6">
+								<time class="text-sm text-terminal-cyan">
 									{new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(post.data.publishDate)}
 								</time>
-								<h3 class="text-xl font-semibold text-primary mt-2 mb-3">
-									<a href={`/blog/${post.slug}`} class="hover:text-link transition-colors">
-										{post.data.title}
+								<h3 class="text-xl font-semibold mt-2 mb-3">
+									<a href={`/blog/${post.slug}`} class="terminal-text hover:text-terminal-cyan transition-colors">
+										<span class="cli-prompt">{post.data.title}</span>
 									</a>
 								</h3>
-								<p class="text-tertiary line-clamp-3">
+								<p class="text-terminal-green line-clamp-3">
 									{post.data.description}
 								</p>
 								<Button href={`/blog/${post.slug}`} variant="ghost" size="sm" class="mt-4">
@@ -191,20 +213,20 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- CTA Section -->
-		<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+		<section class="py-20 terminal-window">
 			<div class="container mx-auto px-4 max-w-4xl text-center">
-				<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Ready to Lead Your Own AI Development Team?">
 					Ready to Lead Your Own AI Development Team?
 				</h2>
-				<p class="text-xl text-blue-100 mb-8">
-					Join the open-source movement transforming developers into AI team leaders
+				<p class="text-xl mb-8 terminal-text">
+					<span class="cli-prompt">Join the open-source movement transforming developers into AI team leaders</span>
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<Button href="https://www.npmjs.com/package/xswarm" size="lg" class="bg-surface text-blue-600 hover:bg-surface-hover">
-						Install XSwarm
+					<Button href="https://www.npmjs.com/package/xswarm" size="lg" class="neon-border-green">
+						<span class="terminal-text">npm install -g xswarm</span>
 					</Button>
-					<Button href="/blog/getting-started-guide" variant="outline" size="lg" class="text-white border-white hover:bg-surface/10">
-						Read the Guide
+					<Button href="/blog/getting-started-guide" variant="secondary" size="lg" class="neon-border-cyan">
+						<span class="terminal-text">./read-guide.sh</span>
 					</Button>
 				</div>
 			</div>
@@ -215,11 +237,29 @@ const blogPosts = (await getCollection('blog'))
 </Layout>
 
 <style>
-	.text-gradient {
-		background-image: linear-gradient(45deg, #3b82f6, #8b5cf6);
+	/* Import terminal colors */
+	.terminal-bg {
+		background: var(--terminal-bg);
+	}
+	
+	.text-terminal-green {
+		color: var(--terminal-green);
+	}
+	
+	.text-terminal-cyan {
+		color: var(--terminal-cyan);
+	}
+	
+	.text-terminal-magenta {
+		color: var(--terminal-magenta);
+	}
+	
+	.text-gradient-cyber {
+		background-image: linear-gradient(45deg, var(--terminal-cyan), var(--terminal-magenta));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		text-shadow: 0 0 40px var(--terminal-cyan);
 	}
 	
 	.line-clamp-3 {
