@@ -1,0 +1,92 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+// Get all docs for navigation
+const allDocs = await getCollection('docs', ({ data }) => !data.draft);
+
+// Group docs by category
+const docsByCategory = allDocs.reduce((acc, doc) => {
+  const category = doc.data.category;
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(doc);
+  return acc;
+}, {} as Record<string, typeof allDocs>);
+
+// Sort docs within each category
+Object.keys(docsByCategory).forEach(category => {
+  docsByCategory[category].sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+});
+
+const categoryOrder = ['Getting Started', 'Core Concepts', 'Guides', 'API Reference', 'Troubleshooting'];
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title} description={description}>
+	<Navbar />
+	
+	<div class="flex min-h-screen pt-16">
+		<!-- Sidebar -->
+		<aside class="w-64 bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 overflow-y-auto">
+			<nav class="p-6 space-y-8">
+				<div>
+					<a href="/docs" class="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+						← Documentation
+					</a>
+				</div>
+				
+				{categoryOrder.map(category => docsByCategory[category] && (
+					<div key={category}>
+						<h3 class="font-semibold text-gray-900 dark:text-white mb-3">{category}</h3>
+						<ul class="space-y-2">
+							{docsByCategory[category].map(doc => {
+								const isActive = currentPath === `/docs/${doc.slug}`;
+								return (
+									<li key={doc.slug}>
+										<a
+											href={`/docs/${doc.slug}`}
+											class={`block px-3 py-2 rounded-md text-sm transition-colors ${
+												isActive
+													? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+													: 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+											}`}
+										>
+											{doc.data.title}
+										</a>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				))}
+			</nav>
+		</aside>
+		
+		<!-- Main content -->
+		<main class="flex-1 px-8 py-12">
+			<div class="max-w-4xl">
+				<slot />
+			</div>
+		</main>
+	</div>
+	
+	<Footer />
+</Layout>
+
+<style>
+	/* Ensure the sidebar is fixed height */
+	aside {
+		height: calc(100vh - 4rem);
+		position: sticky;
+		top: 4rem;
+	}
+</style>

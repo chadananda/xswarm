@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 // Get all docs
-const docs = await getCollection('docs', ({ data }) => !data.draft);
+const docs = await getCollection('docs', ({ data }) => data.draft !== true);
 
 // Group docs by category
 const docsByCategory = docs.reduce((acc, doc) => {

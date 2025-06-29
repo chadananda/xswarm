@@ -34,7 +34,13 @@
       "Bash(npm outdated)",
       "Bash(npm run generate-images:*)",
       "Bash(git pull:*)",
-      "Bash(npm run generate-logo:*)"
+      "Bash(npm run generate-logo:*)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_click",
+      "mcp__puppeteer__puppeteer_evaluate",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }
