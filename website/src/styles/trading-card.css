@@ -15,26 +15,24 @@
   position: relative;
   width: 100%;
   height: 100%;
+  /* Remove background from top section to show image */
   background: 
-    /* Metallic sheen */
-    radial-gradient(ellipse at 30% 20%, rgba(100, 200, 255, 0.15), transparent 50%),
+    /* Top transparent section for image */
+    linear-gradient(to bottom,
+      transparent 0,
+      transparent 200px,
+      rgb(18 22 28) 200px,
+      rgb(18 22 28) 100%
+    ),
+    /* Metallic sheen - only on bottom part */
+    radial-gradient(ellipse at 30% 60%, rgba(100, 200, 255, 0.15), transparent 50%),
     radial-gradient(ellipse at 70% 80%, rgba(255, 100, 200, 0.15), transparent 50%),
     /* Paper texture */
-    url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.02"/></svg>'),
-    /* Card base color */
-    linear-gradient(145deg, 
-      rgb(28 35 43) 0%, 
-      rgb(22 28 35) 20%,
-      rgb(20 25 32) 50%, 
-      rgb(22 28 35) 80%,
-      rgb(28 35 43) 100%
-    ),
-    /* Dark background */
-    rgb(18 22 28);
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.02"/></svg>');
   
   /* Solid cyberpunk border */
   border: 3px solid rgba(0, 255, 255, 0.2);
-  border-radius: 13px; /* Slightly smaller to fit inside parent */
+  border-radius: 16px; /* Match parent exactly */
   
   /* Complex layered shadows for physical appearance */
   box-shadow: 
@@ -54,6 +52,22 @@
   flex-direction: column;
   z-index: 2; /* Above image background */
   overflow: hidden; /* Clip internal content */
+}
+/* Adjust for compact cards */
+.trading-card-compact .card-main-content {
+  background: 
+    /* Top transparent section for image */
+    linear-gradient(to bottom,
+      transparent 0,
+      transparent 120px,
+      rgb(18 22 28) 120px,
+      rgb(18 22 28) 100%
+    ),
+    /* Metallic sheen - only on bottom part */
+    radial-gradient(ellipse at 30% 60%, rgba(100, 200, 255, 0.15), transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(255, 100, 200, 0.15), transparent 50%),
+    /* Paper texture */
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.02"/></svg>');
 }
 
 /* Enhanced solid border effect - removed as it's now on card-main-content */
@@ -238,8 +252,7 @@
   flex-direction: column;
   gap: 0.75rem;
   z-index: 1;
-  /* Round bottom corners to match card */
-  border-radius: 0 0 10px 10px;
+  /* Remove bottom border radius - let parent handle it */
 }
 /* Compact content section */
 .trading-card-compact .card-content-section {
@@ -385,8 +398,8 @@
   left: 3px; /* Account for border */
   right: 3px; /* Account for border */
   height: 200px; /* Match image section height */
-  z-index: 0; /* Behind everything */
-  border-radius: 10px 10px 0 0;
+  z-index: 1; /* Behind main content but visible */
+  border-radius: 13px 13px 0 0;
   overflow: hidden;
 }
 /* Compact image background */
