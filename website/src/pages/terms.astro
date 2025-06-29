@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Terms of Service - XSwarm">
+	<Navbar />
+	
+	<main class="pt-24">
+		<section class="py-20">
+			<div class="container mx-auto px-4 max-w-4xl">
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">Terms of Service</h1>
+				
+				<div class="prose prose-lg dark:prose-invert max-w-none">
+					<p class="text-sm text-gray-600 dark:text-gray-400 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">1. Acceptance of Terms</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						By using XSwarm, you agree to these Terms of Service. If you do not agree to these terms, please do not use our software.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">2. License</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-4">
+						XSwarm is distributed under the MIT License. This means:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>You can use XSwarm for any purpose, including commercial applications</li>
+						<li>You can modify and distribute XSwarm</li>
+						<li>You must include the original copyright notice and license in any copy of the software</li>
+						<li>The software is provided "as is", without warranty of any kind</li>
+					</ul>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">3. Use of the Software</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-4">
+						When using XSwarm, you agree to:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>Use the software in compliance with all applicable laws and regulations</li>
+						<li>Not use the software for any illegal or unauthorized purpose</li>
+						<li>Not attempt to disrupt or interfere with the software's functionality</li>
+						<li>Take responsibility for your use of AI-generated code and content</li>
+					</ul>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">4. AI-Generated Content</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						XSwarm uses AI to generate code and content. You acknowledge that:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>AI-generated content may contain errors or inaccuracies</li>
+						<li>You are responsible for reviewing and testing all generated code</li>
+						<li>You maintain ownership of any code or content you create using XSwarm</li>
+						<li>AI interactions may be subject to third-party terms (e.g., OpenAI's terms)</li>
+					</ul>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">5. Third-Party Services</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						XSwarm may integrate with third-party services (such as AI providers, GitHub, etc.). Your use of these services is governed by their respective terms of service and privacy policies.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">6. Disclaimer of Warranties</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						XSwarm is provided "AS IS" without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">7. Limitation of Liability</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						In no event shall the XSwarm developers be liable for any claim, damages, or other liability arising from your use of the software.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">8. Indemnification</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						You agree to indemnify and hold harmless the XSwarm developers from any claims, damages, or expenses arising from your use of the software.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">9. Open Source Contribution</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						If you contribute to XSwarm's development, you agree that your contributions will be licensed under the same MIT License as the project.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">10. Changes to Terms</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						We may update these Terms of Service from time to time. Changes will be posted on this page with an updated revision date.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">11. Governing Law</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						These terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">12. Contact Information</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						If you have questions about these Terms of Service, please:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>Open an issue on our <a href="https://github.com/chadananda/xswarm/issues" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub repository</a></li>
+						<li>Email us at: chadananda@gmail.com</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
+</Layout>

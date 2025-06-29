@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Get all docs
+const docs = await getCollection('docs', ({ data }) => !data.draft);
+
+// Group docs by category
+const docsByCategory = docs.reduce((acc, doc) => {
+  const category = doc.data.category;
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(doc);
+  return acc;
+}, {} as Record<string, typeof docs>);
+
+// Sort docs within each category by order
+Object.keys(docsByCategory).forEach(category => {
+  docsByCategory[category].sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+});
+
+const categoryOrder = ['Getting Started', 'Core Concepts', 'Guides', 'API Reference', 'Troubleshooting'];
+---
+
+<Layout title="Documentation - XSwarm">
+	<Navbar />
+	
+	<main class="pt-24">
+		<section class="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+			<div class="container mx-auto px-4 max-w-6xl">
+				<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+					Documentation
+				</h1>
+				<p class="text-xl text-gray-700 dark:text-gray-300">
+					Everything you need to know about using XSwarm to lead your AI development team.
+				</p>
+			</div>
+		</section>
+
+		<section class="py-16">
+			<div class="container mx-auto px-4 max-w-6xl">
+				{docs.length === 0 ? (
+					<div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-8 text-center">
+						<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+							Documentation Coming Soon
+						</h2>
+						<p class="text-gray-700 dark:text-gray-300 mb-6">
+							We're working on comprehensive documentation for XSwarm. In the meantime:
+						</p>
+						<div class="flex flex-col sm:flex-row gap-4 justify-center">
+							<a href="/blog/getting-started-guide" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+								Read Getting Started Guide
+							</a>
+							<a href="https://github.com/chadananda/xswarm#readme" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+								View README
+							</a>
+						</div>
+					</div>
+				) : (
+					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+						{categoryOrder.map(category => docsByCategory[category] && (
+							<div key={category} class="space-y-4">
+								<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+									{category}
+								</h2>
+								<div class="space-y-3">
+									{docsByCategory[category].map(doc => (
+										<a
+											href={`/docs/${doc.slug}`}
+											class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+										>
+											<h3 class="font-semibold text-gray-900 dark:text-white mb-1">
+												{doc.data.title}
+											</h3>
+											<p class="text-sm text-gray-600 dark:text-gray-400">
+												{doc.data.description}
+											</p>
+										</a>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				)}
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
+</Layout>

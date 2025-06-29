@@ -14,6 +14,18 @@ const blogCollection = defineCollection({
   })
 });
 
+const docsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(['Getting Started', 'Core Concepts', 'Guides', 'API Reference', 'Troubleshooting']),
+    order: z.number().optional(),
+    draft: z.boolean().optional(),
+  })
+});
+
 export const collections = {
   'blog': blogCollection,
+  'docs': docsCollection,
 };

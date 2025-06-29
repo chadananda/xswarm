@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy - XSwarm">
+	<Navbar />
+	
+	<main class="pt-24">
+		<section class="py-20">
+			<div class="container mx-auto px-4 max-w-4xl">
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">Privacy Policy</h1>
+				
+				<div class="prose prose-lg dark:prose-invert max-w-none">
+					<p class="text-sm text-gray-600 dark:text-gray-400 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Introduction</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						XSwarm ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our open-source CLI tool and website.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Information We Collect</h2>
+					<h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">CLI Tool</h3>
+					<p class="text-gray-700 dark:text-gray-300 mb-4">
+						The XSwarm CLI tool is designed with privacy in mind:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>We do not collect any personal data through the CLI tool</li>
+						<li>All processing happens locally on your machine</li>
+						<li>No code, project data, or usage analytics are transmitted to our servers</li>
+						<li>API keys (such as OpenAI keys) are stored locally and never shared with us</li>
+					</ul>
+					
+					<h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-3">Website</h3>
+					<p class="text-gray-700 dark:text-gray-300 mb-4">
+						On our website (xswarm.ai), we may collect:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>Anonymous usage statistics through privacy-respecting analytics</li>
+						<li>Information you voluntarily provide (e.g., if you contact us)</li>
+					</ul>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">How We Use Information</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-4">
+						Any information we collect is used solely to:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>Improve our open-source project</li>
+						<li>Understand how the tool is being used (website analytics only)</li>
+						<li>Respond to your inquiries or support requests</li>
+					</ul>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Data Security</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						We implement appropriate technical and organizational measures to protect any information we process. However, since XSwarm operates locally on your machine, you maintain control over your data security.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Third-Party Services</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-4">
+						XSwarm may interact with third-party services that you configure:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li><strong>AI Providers:</strong> When you use AI features, your interactions are governed by your chosen AI provider's privacy policy (e.g., OpenAI)</li>
+						<li><strong>GitHub:</strong> Integration with GitHub is subject to GitHub's privacy policy</li>
+					</ul>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Open Source Nature</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						XSwarm is open source software. The source code is publicly available on GitHub, allowing you to verify our privacy practices and ensure no hidden data collection occurs.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Children's Privacy</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						XSwarm is not intended for use by children under 13 years of age. We do not knowingly collect personal information from children under 13.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Changes to This Policy</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.
+					</p>
+					
+					<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Contact Us</h2>
+					<p class="text-gray-700 dark:text-gray-300 mb-6">
+						If you have questions about this Privacy Policy, please:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+						<li>Open an issue on our <a href="https://github.com/chadananda/xswarm/issues" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub repository</a></li>
+						<li>Email us at: chadananda@gmail.com</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
+</Layout>
