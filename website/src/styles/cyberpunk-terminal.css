@@ -1,25 +1,7 @@
-/* Cyberpunk Terminal Theme - Core Variables */
+/* Cyberpunk Terminal Theme - Component Styles */
+/* Colors are defined in theme.css for light/dark mode support */
+
 :root {
-  /* Terminal Colors */
-  --terminal-green: #00ff00;
-  --terminal-amber: #ffb000;
-  --terminal-cyan: #00ffff;
-  --terminal-magenta: #ff00ff;
-  --terminal-red: #ff0040;
-  --terminal-blue: #0080ff;
-  --terminal-purple: #9d00ff;
-  --terminal-yellow: #ffff00;
-  
-  /* Glow intensities */
-  --glow-intensity: 0 0 10px;
-  --glow-intense: 0 0 20px;
-  --glow-extreme: 0 0 30px;
-  
-  /* Terminal backgrounds */
-  --terminal-bg: #0a0a0a;
-  --terminal-bg-alt: #0f0f0f;
-  --terminal-overlay: rgba(0, 255, 0, 0.05);
-  
   /* Fonts */
   --terminal-font: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 }

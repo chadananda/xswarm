@@ -37,20 +37,19 @@ const blogPosts = (await getCollection('blog'))
 			
 			<div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
 				<div class="text-center max-w-4xl mx-auto">
-					<h1 class="text-5xl md:text-7xl font-bold mb-6 glitch-text" data-text="Transform Every Developer into an AI Team Leader">
-						Transform Every Developer into an <span class="text-gradient-cyber">AI Team Leader</span>
+					<h1 class="text-5xl md:text-7xl font-bold mb-6 glitch-text" data-text="Become the Team You Wish to Lead">
+						Become the Team You Wish to <span class="text-gradient-cyber">Lead</span>
 					</h1>
 					<p class="text-xl md:text-2xl mb-8 leading-relaxed terminal-text">
-						<span class="cli-prompt">Command your own team of AI agents that work in parallel to multiply your impact.</span>
-						<span class="block mt-2">From solo coder to team leader—orchestrate, delegate, and deliver at scale.</span>
+						<span class="cli-prompt">AI agent swarms operating in massively parallel harmony to amplify your development vision.</span>
 						<span class="cli-cursor"></span>
 					</p>
 					<div class="flex flex-col sm:flex-row gap-4 justify-center">
 						<Button href="/blog/getting-started-guide" size="lg" class="neon-border-green">
-							<span class="terminal-text">./get-started.sh</span>
+							<span class="terminal-text">npx xswarm</span>
 						</Button>
 						<Button href="https://github.com/chadananda/xswarm" variant="outline" size="lg" class="neon-border-cyan">
-							<span class="terminal-text">git clone xswarm</span>
+							<span class="terminal-text">npm i -g xswarm</span>
 						</Button>
 					</div>
 				</div>
@@ -60,49 +59,227 @@ const blogPosts = (await getCollection('blog'))
 			<div class="matrix-rain"></div>
 		</section>
 
-		<!-- Features Section -->
+		<!-- Agent Workforce Section -->
 		<section id="features" class="py-20 terminal-bg">
-			<div class="container mx-auto px-4 max-w-6xl">
+			<div class="container mx-auto px-4 max-w-7xl">
 				<div class="text-center mb-16">
-					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Your AI Development Team Awaits Your Leadership">
-						Your AI Development Team Awaits Your Leadership
+					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Command Your Agent Workforce">
+						Command Your Agent Workforce
 					</h2>
-					<p class="text-lg max-w-2xl mx-auto terminal-text">
-						<span class="cli-prompt">As team leader, you orchestrate specialized AI agents that handle implementation while you focus on strategy and vision</span>
+					<p class="text-lg max-w-3xl mx-auto terminal-text">
+						<span class="cli-prompt">Each specialized agent awaits your command. Together, they form an unstoppable development force.</span>
 					</p>
 				</div>
 				
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Planning & Design Agents -->
+				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
+					<span class="text-terminal-cyan">// Planning & Design Phase - Interactive Control</span>
+				</h3>
+				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
 					<Card 
-						icon="🏗️" 
-						title="Architect Agent" 
-						description="Designs system architecture, evaluates trade-offs, and ensures scalability for your projects"
+						icon="🎯" 
+						title="Business Analyst" 
+						description="Interviews you to extract and refine requirements"
 					/>
 					<Card 
+						icon="🎨" 
+						title="UX Designer" 
+						description="Presents multiple interface options for your selection"
+					/>
+					<Card 
+						icon="🏗️" 
+						title="Architect" 
+						description="Proposes system designs for your approval"
+					/>
+				</div>
+				
+				<!-- Development Agents -->
+				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
+					<span class="text-terminal-green">// Development Phase - Parallel Execution</span>
+				</h3>
+				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+					<Card 
 						icon="💻" 
-						title="Developer Agent" 
-						description="Writes clean, efficient code following best practices and your project's conventions"
+						title="Code Warrior" 
+						description="Elite code generation following your standards"
 					/>
 					<Card 
 						icon="🧪" 
-						title="Testing Agent" 
-						description="Creates comprehensive test suites, identifies edge cases, and ensures code reliability"
+						title="Testing Sentinel" 
+						description="Comprehensive test coverage and edge cases"
+					/>
+					<Card 
+						icon="🐛" 
+						title="Bug Hunter" 
+						description="Tracks and eliminates defects relentlessly"
 					/>
 					<Card 
 						icon="📝" 
-						title="Documentation Agent" 
-						description="Maintains clear, up-to-date documentation and generates usage examples"
+						title="Documentation Sage" 
+						description="Clear technical writing and examples"
 					/>
 					<Card 
 						icon="🔍" 
-						title="Review Agent" 
-						description="Provides instant code reviews with actionable suggestions for improvement"
+						title="Code Review Ninja" 
+						description="Instant analysis and improvements"
 					/>
 					<Card 
 						icon="🚀" 
-						title="DevOps Agent" 
-						description="Handles deployment, monitoring, and infrastructure optimization"
+						title="DevOps Commander" 
+						description="Deployment automation and monitoring"
 					/>
+					<Card 
+						icon="🛡️" 
+						title="Security Guardian" 
+						description="Vulnerability protection and hardening"
+					/>
+					<Card 
+						icon="⚡" 
+						title="Performance Optimizer" 
+						description="Speed and efficiency maximization"
+					/>
+					<Card 
+						icon="🔌" 
+						title="API Architect" 
+						description="Interface design and integration"
+					/>
+					<Card 
+						icon="🗄️" 
+						title="Database Sage" 
+						description="Data architecture and optimization"
+					/>
+				</div>
+				
+				<!-- Marketing & Growth Agents -->
+				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
+					<span class="text-terminal-magenta">// Marketing & Growth Phase - Amplification</span>
+				</h3>
+				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+					<Card 
+						icon="✍️" 
+						title="Copywriter" 
+						description="Compelling content in your voice"
+					/>
+					<Card 
+						icon="📧" 
+						title="Email Marketing" 
+						description="Campaign automation and optimization"
+					/>
+					<Card 
+						icon="📱" 
+						title="Social Media" 
+						description="Multi-platform presence management"
+					/>
+					<Card 
+						icon="🔄" 
+						title="Content Syndication" 
+						description="Distribution across networks"
+					/>
+					<Card 
+						icon="🧪" 
+						title="Integration Test" 
+						description="Marketing tech validation"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Interactive Command & Control Section -->
+		<section class="py-20 terminal-window">
+			<div class="container mx-auto px-4 max-w-6xl">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="You Lead. They Execute. Your Vision Realized.">
+						You Lead. They Execute. Your Vision Realized.
+					</h2>
+					<p class="text-lg max-w-3xl mx-auto terminal-text">
+						<span class="cli-prompt">Stay in control through interactive collaboration. No AI hallucinations—just YOUR project, amplified.</span>
+					</p>
+				</div>
+				
+				<div class="grid md:grid-cols-2 gap-12 items-center">
+					<div class="space-y-8">
+						<div class="terminal-window">
+							<div class="terminal-header">
+								<div class="terminal-buttons">
+									<span class="terminal-button terminal-button-red"></span>
+									<span class="terminal-button terminal-button-yellow"></span>
+									<span class="terminal-button terminal-button-green"></span>
+								</div>
+								<div class="terminal-title">BA Agent Interview</div>
+							</div>
+							<div class="terminal-content p-6">
+								<p class="terminal-text mb-2">
+									<span class="text-terminal-cyan">BA Agent:</span> What's the core problem you're solving?
+								</p>
+								<p class="terminal-text mb-2">
+									<span class="text-terminal-green">You:</span> I need a real-time collaboration feature
+								</p>
+								<p class="terminal-text mb-2">
+									<span class="text-terminal-cyan">BA Agent:</span> How many concurrent users? What's the primary use case?
+								</p>
+								<p class="terminal-text">
+									<span class="cli-cursor"></span>
+								</p>
+							</div>
+						</div>
+						
+						<div class="terminal-window">
+							<div class="terminal-header">
+								<div class="terminal-buttons">
+									<span class="terminal-button terminal-button-red"></span>
+									<span class="terminal-button terminal-button-yellow"></span>
+									<span class="terminal-button terminal-button-green"></span>
+								</div>
+								<div class="terminal-title">UX Agent Options</div>
+							</div>
+							<div class="terminal-content p-6">
+								<p class="terminal-text mb-4">
+									<span class="text-terminal-magenta">UX Agent:</span> Here are 3 interface approaches:
+								</p>
+								<div class="grid grid-cols-3 gap-2 text-sm">
+									<div class="border border-terminal-green p-2 text-terminal-green">Option A: Sidebar</div>
+									<div class="border border-terminal-cyan p-2 text-terminal-cyan">Option B: Modal</div>
+									<div class="border border-terminal-magenta p-2 text-terminal-magenta">Option C: Inline</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="space-y-6">
+						<h3 class="text-2xl font-bold terminal-text">
+							<span class="text-terminal-cyan">Interactive Control Points</span>
+						</h3>
+						<ul class="space-y-4">
+							<li class="flex items-start space-x-3">
+								<span class="text-terminal-green text-2xl">›</span>
+								<div>
+									<h4 class="font-semibold terminal-text mb-1">Requirements Extraction</h4>
+									<p class="text-terminal-green text-sm">Your BA agent interviews you to understand YOUR specific needs—not generic assumptions</p>
+								</div>
+							</li>
+							<li class="flex items-start space-x-3">
+								<span class="text-terminal-cyan text-2xl">›</span>
+								<div>
+									<h4 class="font-semibold terminal-text mb-1">Design Selection</h4>
+									<p class="text-terminal-green text-sm">UX agent presents multiple options. You choose what fits YOUR vision</p>
+								</div>
+							</li>
+							<li class="flex items-start space-x-3">
+								<span class="text-terminal-magenta text-2xl">›</span>
+								<div>
+									<h4 class="font-semibold terminal-text mb-1">Architecture Approval</h4>
+									<p class="text-terminal-green text-sm">Review and approve system designs before any code is written</p>
+								</div>
+							</li>
+							<li class="flex items-start space-x-3">
+								<span class="text-terminal-yellow text-2xl">›</span>
+								<div>
+									<h4 class="font-semibold terminal-text mb-1">Iterative Refinement</h4>
+									<p class="text-terminal-green text-sm">Agents adapt to your feedback, ensuring the final product matches your vision</p>
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -112,8 +289,8 @@ const blogPosts = (await getCollection('blog'))
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="grid md:grid-cols-2 gap-16 items-center">
 					<div>
-						<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Achieve More with Less Effort">
-							Achieve More with Less Effort
+						<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Multiply Your Force">
+							Multiply Your Force
 						</h2>
 						<div class="space-y-6">
 							<div class="flex items-start space-x-4">
@@ -121,8 +298,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">⚡</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold mb-2 terminal-text">10x Productivity</h3>
-									<p class="text-terminal-green">Complete complex tasks in minutes instead of hours with parallel AI assistance</p>
+									<h3 class="text-xl font-semibold mb-2 terminal-text">Break the Solo Bottleneck</h3>
+									<p class="text-terminal-green">Deploy multiple agents in parallel. Watch days of work complete in minutes.</p>
 								</div>
 							</div>
 							<div class="flex items-start space-x-4">
@@ -130,8 +307,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">🎯</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold mb-2 terminal-text">Consistent Quality</h3>
-									<p class="text-terminal-green">Maintain high standards across your codebase with AI-powered reviews and best practices</p>
+									<h3 class="text-xl font-semibold mb-2 terminal-text">Never Compromise Vision</h3>
+									<p class="text-terminal-green">Your standards enforced by tireless agents. Quality without the grind.</p>
 								</div>
 							</div>
 							<div class="flex items-start space-x-4">
@@ -139,8 +316,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">🔄</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold mb-2 terminal-text">Seamless Workflow</h3>
-									<p class="text-terminal-green">Integrate AI agents into your existing development process without disruption</p>
+									<h3 class="text-xl font-semibold mb-2 terminal-text">Command Line to Command Center</h3>
+									<p class="text-terminal-green">Transform your terminal into a strategic command center. Lead, don't labor.</p>
 								</div>
 							</div>
 						</div>
@@ -152,7 +329,7 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-gradient-cyber">75%</span>
 								</div>
 								<p class="text-lg font-semibold terminal-text">
-									Less Time on Repetitive Tasks
+									More Time for What Matters
 								</p>
 							</div>
 						</div>
@@ -165,11 +342,11 @@ const blogPosts = (await getCollection('blog'))
 		<section class="py-20 terminal-bg">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center mb-12">
-					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Latest Insights">
-						Latest Insights
+					<h2 class="text-3xl md:text-4xl font-bold mb-4 glitch-text" data-text="Field Reports from the Revolution">
+						Field Reports from the Revolution
 					</h2>
 					<p class="text-lg terminal-text">
-						Learn how to maximize your productivity with AI-powered development
+						<span class="cli-prompt">Dispatches from developers who've joined the agentic revolution</span>
 					</p>
 				</div>
 				
@@ -215,11 +392,11 @@ const blogPosts = (await getCollection('blog'))
 		<!-- CTA Section -->
 		<section class="py-20 terminal-window">
 			<div class="container mx-auto px-4 max-w-4xl text-center">
-				<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Ready to Lead Your Own AI Development Team?">
-					Ready to Lead Your Own AI Development Team?
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 glitch-text" data-text="Join the Agentic Revolution">
+					Join the Agentic Revolution
 				</h2>
 				<p class="text-xl mb-8 terminal-text">
-					<span class="cli-prompt">Join the open-source movement transforming developers into AI team leaders</span>
+					<span class="cli-prompt">Break free from solo coding. Command your agent workforce.</span>
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
 					<Button href="https://www.npmjs.com/package/xswarm" size="lg" class="neon-border-green">

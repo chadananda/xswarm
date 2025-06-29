@@ -48,6 +48,26 @@
   
   /* Overlays */
   --color-overlay: light-dark(rgba(0 0 0 / 0.5), rgba(0 0 0 / 0.7));
+  
+  /* Cyberpunk Terminal Colors - Light mode has muted versions */
+  --terminal-green: light-dark(rgb(0 180 0), rgb(0 255 0));
+  --terminal-amber: light-dark(rgb(200 140 0), rgb(255 176 0));
+  --terminal-cyan: light-dark(rgb(0 180 180), rgb(0 255 255));
+  --terminal-magenta: light-dark(rgb(200 0 200), rgb(255 0 255));
+  --terminal-red: light-dark(rgb(200 0 32), rgb(255 0 64));
+  --terminal-blue: light-dark(rgb(0 100 200), rgb(0 128 255));
+  --terminal-purple: light-dark(rgb(120 0 200), rgb(157 0 255));
+  --terminal-yellow: light-dark(rgb(200 200 0), rgb(255 255 0));
+  
+  /* Terminal backgrounds */
+  --terminal-bg: light-dark(rgb(250 250 250), rgb(10 10 10));
+  --terminal-bg-alt: light-dark(rgb(245 245 245), rgb(15 15 15));
+  --terminal-overlay: light-dark(rgba(0 180 0 / 0.02), rgba(0 255 0 / 0.05));
+  
+  /* Glow effects - reduced in light mode */
+  --glow-intensity: light-dark(0 0 2px, 0 0 10px);
+  --glow-intense: light-dark(0 0 4px, 0 0 20px);
+  --glow-extreme: light-dark(0 0 6px, 0 0 30px);
   --color-backdrop: light-dark(rgba(255 255 255 / 0.8), rgba(17 24 39 / 0.8));
 }
 

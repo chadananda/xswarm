@@ -31,7 +31,8 @@
     "check:theme": "node scripts/check-theme.js",
     "fix:theme": "node scripts/fix-theme.js",
     "test:theme": "npm run kill:dev && npm run start:website & sleep 5 && node scripts/test-theme.js",
-    "generate:images": "node scripts/generate-cyberpunk-images.js"
+    "generate:images": "node scripts/generate-cyberpunk-images.js",
+    "generate:avatars": "node scripts/generate-agent-avatars.js"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "3.2.4",
