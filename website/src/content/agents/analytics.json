@@ -5,25 +5,25 @@
   "agents": [
     {
       "icon": "📊",
-      "title": "Data Insight Oracle",
+      "title": "Analytics Sentinel",
       "role": "Marketing Analyst",
       "description": "Reads patterns in the data matrix to predict future market movements"
     },
     {
       "icon": "🚀",
-      "title": "Growth Hacking Alchemist",
+      "title": "Growth Engineer",
       "role": "Growth Hacker",
       "description": "Experiments with viral coefficients to achieve exponential expansion"
     },
     {
       "icon": "🎯",
-      "title": "Conversion Rate Optimizer",
+      "title": "Conversion Specialist",
       "role": "CRO Specialist",
       "description": "Fine-tunes user flows to maximize neural engagement triggers"
     },
     {
       "icon": "📦",
-      "title": "Product Positioning Master",
+      "title": "Product Marshal",
       "role": "Product Marketing Manager",
       "description": "Aligns product consciousness with market neural frequencies"
     }

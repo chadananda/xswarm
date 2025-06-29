@@ -6,37 +6,37 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "👁️",
-        title: "Vision Oracle Prime",
+        title: "Cyber Vision Knight",
         role: "Product Manager",
         description: "Neural-linked to market data streams, predicting product futures with augmented foresight"
       },
       {
         icon: "🎯",
-        title: "Requirements Diviner",
+        title: "Data Interrogator",
         role: "Business Analyst",
         description: "Data mining specialist who extracts requirements from stakeholder neural patterns"
       },
       {
         icon: "🎨",
-        title: "Interface Conjurer Supreme",
+        title: "Interface Architect",
         role: "UX/UI Designer",
         description: "Architects digital experiences using holographic prototypes and neural interface testing"
       },
       {
         icon: "🔮",
-        title: "User Mind Reader",
+        title: "Neural Analyst",
         role: "UX Researcher",
         description: "Behavioral analytics expert reading user patterns through biometric feedback loops"
       },
       {
         icon: "🏗️",
-        title: "Grand Infrastructure Sage",
+        title: "System Forge Master",
         role: "System Architect",
         description: "Constructs self-scaling digital infrastructures using quantum computing patterns"
       },
       {
         icon: "🧭",
-        title: "Technical Pathfinder",
+        title: "Code Marshal",
         role: "Technical Lead",
         description: "Navigates complex tech stacks with enhanced decision algorithms and risk matrices"
       }
@@ -48,31 +48,31 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "🎭",
-        title: "Frontend Artificer",
+        title: "Interface Templar",
         role: "Frontend Developer",
         description: "Crafts neural-responsive interfaces that adapt to user brainwave patterns in real-time"
       },
       {
         icon: "⚙️",
-        title: "Backend Sorcerer",
+        title: "Server Warden",
         role: "Backend Developer",
         description: "Architects server-side systems with self-healing algorithms and predictive scaling"
       },
       {
         icon: "💫",
-        title: "Full-Stack Warmaster",
+        title: "Stack Commander",
         role: "Full-Stack Developer",
         description: "Commands both frontend neural networks and backend quantum processors"
       },
       {
         icon: "📱",
-        title: "Mobile Enchanter",
+        title: "Mobile Crusader",
         role: "Mobile Developer",
         description: "Optimizes apps for brain-computer interfaces and augmented reality overlays"
       },
       {
         icon: "💻",
-        title: "Code Battle Artificer",
+        title: "Code Veteran",
         role: "Senior Developer",
         description: "Elite programmer with cybernetic enhancements for 10x coding throughput"
       }
@@ -84,31 +84,31 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "🛡️",
-        title: "Bug Defense Sovereign",
+        title: "Bug Sentinel",
         role: "QA Engineer",
         description: "Deploys automated sentries that hunt bugs through quantum code analysis"
       },
       {
         icon: "🤖",
-        title: "Automation Spell Weaver",
+        title: "Test Automaton",
         role: "Automation Test Engineer",
         description: "Programs AI-driven test bots that evolve and adapt to new code patterns"
       },
       {
         icon: "⚡",
-        title: "Performance Oracle",
+        title: "Load Master",
         role: "Performance Test Engineer",
         description: "Simulates millions of neural connections to stress-test system limits"
       },
       {
         icon: "🔐",
-        title: "Security Breach Hunter",
+        title: "Breach Specialist",
         role: "Security Tester",
         description: "Ethical hacker with cybernetic implants for penetrating digital fortresses"
       },
       {
         icon: "👥",
-        title: "User Acceptance Guardian",
+        title: "User Champion",
         role: "UAT Specialist",
         description: "Bridges the gap between augmented developers and baseline human users"
       }
@@ -120,31 +120,31 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "🚀",
-        title: "Deployment Warlord Prime",
+        title: "Deploy Commander",
         role: "DevOps Engineer",
         description: "Orchestrates container swarms across distributed quantum computing clusters"
       },
       {
         icon: "🔧",
-        title: "Uptime Keeper Supreme",
+        title: "Uptime Warden",
         role: "Site Reliability Engineer",
         description: "Maintains 99.999% uptime through predictive failure analysis and auto-healing"
       },
       {
         icon: "☁️",
-        title: "Cloud Realm Architect",
+        title: "Cloud Architect",
         role: "Cloud Architect",
         description: "Designs sky-high infrastructures that scale across parallel universes"
       },
       {
         icon: "🗄️",
-        title: "Data Crystal Paramount",
+        title: "Data Vault Keeper",
         role: "Database Administrator",
         description: "Optimizes data flows through crystalline storage matrices at lightspeed"
       },
       {
         icon: "🛡️",
-        title: "Cyber Defense Hierophant",
+        title: "Firewall Paladin",
         role: "Security Engineer",
         description: "Erects quantum firewalls that adapt to threats before they materialize"
       }
@@ -156,31 +156,31 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "🔮",
-        title: "Data Pipeline Artificer",
+        title: "Data Flow Engineer",
         role: "Data Engineer",
         description: "Channels petabytes through neural ETL networks with zero data loss"
       },
       {
         icon: "🧠",
-        title: "AI Mind Crafter",
+        title: "Neural Architect",
         role: "Machine Learning Engineer",
         description: "Trains synthetic consciousnesses to solve problems beyond human comprehension"
       },
       {
         icon: "🔌",
-        title: "Interface Bridge Master",
+        title: "Protocol Knight",
         role: "API Developer",
         description: "Builds quantum-entangled APIs for instantaneous cross-system communication"
       },
       {
         icon: "📚",
-        title: "Knowledge Scroll Keeper",
+        title: "Code Scribe",
         role: "Technical Writer",
         description: "Translates complex algorithms into neural-downloadable documentation"
       },
       {
         icon: "🌟",
-        title: "Community Champion",
+        title: "Developer Herald",
         role: "Developer Advocate",
         description: "Amplifies developer consciousness across the global neural network"
       }
@@ -192,37 +192,37 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "📋",
-        title: "Content Strategy Oracle",
+        title: "Content Strategist",
         role: "Content Strategist",
         description: "Maps content journeys through predictive user behavior algorithms"
       },
       {
         icon: "✍️",
-        title: "Persuasion Word Weaver",
+        title: "Copy Architect",
         role: "Copywriter",
         description: "Crafts neuro-linguistic patterns that bypass conscious resistance"
       },
       {
         icon: "🔧",
-        title: "Technical Lore Master",
+        title: "Tech Documentor",
         role: "Technical Content Writer",
         description: "Encodes complex technical knowledge into digestible data streams"
       },
       {
         icon: "🎬",
-        title: "Visual Story Enchanter",
+        title: "Video Producer",
         role: "Video Content Creator",
         description: "Produces immersive holo-content that directly interfaces with viewer neurons"
       },
       {
         icon: "🎨",
-        title: "Pixel Art Magician",
+        title: "Visual Designer",
         role: "Graphic Designer",
         description: "Manipulates photons to create visuals that hack the human optical system"
       },
       {
         icon: "✨",
-        title: "Motion Magic Artificer",
+        title: "Motion Artist",
         role: "Motion Graphics Designer",
         description: "Animates data into hypnotic visual experiences that reprogram perceptions"
       }
@@ -234,31 +234,31 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "🔍",
-        title: "Search Visibility Sage",
+        title: "Search Optimizer",
         role: "SEO Specialist",
         description: "Manipulates search algorithms through quantum keyword entanglement"
       },
       {
         icon: "💰",
-        title: "Paid Campaign Warlord",
+        title: "Ad Campaign Commander",
         role: "SEM/PPC Manager",
         description: "Deploys micro-targeted ad swarms with surgical conversion precision"
       },
       {
         icon: "📱",
-        title: "Viral Influence Summoner",
+        title: "Social Media Tactician",
         role: "Social Media Manager",
         description: "Triggers exponential sharing cascades through memetic engineering"
       },
       {
         icon: "👥",
-        title: "Tribe Leader Supreme",
+        title: "Community Warden",
         role: "Community Manager",
         description: "Cultivates digital tribes with hive-mind synchronization protocols"
       },
       {
         icon: "🤝",
-        title: "Influencer Alliance Broker",
+        title: "Partnership Broker",
         role: "Influencer Marketing Manager",
         description: "Networks with cyber-celebrities to amplify brand consciousness"
       }
@@ -270,19 +270,19 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "📧",
-        title: "Inbox Enchantment Lord",
+        title: "Email Campaign Master",
         role: "Email Marketing Manager",
         description: "Crafts messages that achieve neural resonance with recipient brainwaves"
       },
       {
         icon: "🔄",
-        title: "Workflow Automation Mage",
+        title: "Automation Engineer",
         role: "Marketing Automation Specialist",
         description: "Programs self-evolving marketing sequences that adapt to user behavior"
       },
       {
         icon: "🎯",
-        title: "Customer Journey Architect",
+        title: "CRM Architect",
         role: "CRM Manager",
         description: "Maps and optimizes every neural touchpoint in the customer matrix"
       }
@@ -294,25 +294,25 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "📊",
-        title: "Data Insight Oracle",
+        title: "Analytics Sentinel",
         role: "Marketing Analyst",
         description: "Reads patterns in the data matrix to predict future market movements"
       },
       {
         icon: "🚀",
-        title: "Growth Hacking Alchemist",
+        title: "Growth Engineer",
         role: "Growth Hacker",
         description: "Experiments with viral coefficients to achieve exponential expansion"
       },
       {
         icon: "🎯",
-        title: "Conversion Rate Optimizer",
+        title: "Conversion Specialist",
         role: "CRO Specialist",
         description: "Fine-tunes user flows to maximize neural engagement triggers"
       },
       {
         icon: "📦",
-        title: "Product Positioning Master",
+        title: "Product Marshal",
         role: "Product Marketing Manager",
         description: "Aligns product consciousness with market neural frequencies"
       }
@@ -324,25 +324,25 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "📢",
-        title: "Public Voice Enchanter",
+        title: "PR Strategist",
         role: "PR Manager",
         description: "Shapes public perception through strategic narrative deployment"
       },
       {
         icon: "🎙️",
-        title: "Message Craft Director",
+        title: "Comms Director",
         role: "Communications Director",
         description: "Orchestrates corporate messaging across all consciousness channels"
       },
       {
         icon: "💎",
-        title: "Brand Guardian Supreme",
+        title: "Brand Guardian",
         role: "Brand Manager",
         description: "Maintains brand coherence across all dimensional touchpoints"
       },
       {
         icon: "🎪",
-        title: "Event Summoning Master",
+        title: "Event Coordinator",
         role: "Event Marketing Manager",
         description: "Creates immersive experiences that alter attendee neural patterns"
       }
@@ -354,13 +354,13 @@ export const AGENT_DATA = {
     agents: [
       {
         icon: "💪",
-        title: "Sales Empowerment Sage",
+        title: "Sales Force Commander",
         role: "Sales Enablement Manager",
         description: "Arms sales teams with neuro-persuasion tools and battle-tested tactics"
       },
       {
         icon: "🎣",
-        title: "Lead Generation Sorcerer",
+        title: "Lead Hunter",
         role: "Lead Generation Specialist",
         description: "Attracts high-value prospects through algorithmic magnetism"
       }

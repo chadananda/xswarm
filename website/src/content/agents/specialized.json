@@ -5,31 +5,31 @@
   "agents": [
     {
       "icon": "🔮",
-      "title": "Data Pipeline Artificer",
+      "title": "Data Flow Engineer",
       "role": "Data Engineer",
       "description": "Channels petabytes through neural ETL networks with zero data loss"
     },
     {
       "icon": "🧠",
-      "title": "AI Mind Crafter",
+      "title": "Neural Architect",
       "role": "Machine Learning Engineer",
       "description": "Trains synthetic consciousnesses to solve problems beyond human comprehension"
     },
     {
       "icon": "🔌",
-      "title": "Interface Bridge Master",
+      "title": "Protocol Knight",
       "role": "API Developer",
       "description": "Builds quantum-entangled APIs for instantaneous cross-system communication"
     },
     {
       "icon": "📚",
-      "title": "Knowledge Scroll Keeper",
+      "title": "Code Scribe",
       "role": "Technical Writer",
       "description": "Translates complex algorithms into neural-downloadable documentation"
     },
     {
       "icon": "🌟",
-      "title": "Community Champion",
+      "title": "Developer Herald",
       "role": "Developer Advocate",
       "description": "Amplifies developer consciousness across the global neural network"
     }

@@ -3,113 +3,122 @@
   /* Base card styling */
   position: relative;
   background: 
-    /* Worn paper texture */
-    radial-gradient(ellipse at top left, rgba(0, 255, 255, 0.03), transparent 40%),
-    radial-gradient(ellipse at bottom right, rgba(255, 0, 255, 0.03), transparent 40%),
-    linear-gradient(135deg, 
-      var(--terminal-bg) 0%, 
-      var(--terminal-bg-alt) 25%, 
-      rgb(13 18 24) 50%, 
-      var(--terminal-bg-alt) 75%, 
-      var(--terminal-bg) 100%
-    );
+    /* Metallic sheen */
+    radial-gradient(ellipse at 30% 20%, rgba(100, 200, 255, 0.15), transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(255, 100, 200, 0.15), transparent 50%),
+    /* Paper texture */
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.02"/></svg>'),
+    /* Card base color */
+    linear-gradient(145deg, 
+      rgb(28 35 43) 0%, 
+      rgb(22 28 35) 20%,
+      rgb(20 25 32) 50%, 
+      rgb(22 28 35) 80%,
+      rgb(28 35 43) 100%
+    ),
+    /* Dark background */
+    rgb(18 22 28);
   
-  /* Decorative border with multiple layers */
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  /* Hand-drawn style border using SVG */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  
+  /* Complex layered shadows for physical appearance */
   box-shadow: 
-    /* Outer glow */
-    0 0 20px rgba(0, 255, 255, 0.1),
-    /* Card depth */
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    /* Inner rim light */
-    inset 0 1px 0 rgba(0, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(255, 0, 255, 0.2),
-    /* Corner highlights */
-    inset 1px 1px 0 rgba(0, 255, 255, 0.1),
-    inset -1px -1px 0 rgba(255, 0, 255, 0.1);
+    /* Highlight on top edge */
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    /* Dark shadow under card */
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 16px 32px rgba(0, 0, 0, 0.2),
+    /* Subtle colored glow */
+    0 0 40px rgba(0, 255, 255, 0.05);
   
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   transform-style: preserve-3d;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Rough edge effect */
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><filter id="roughPaper"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" seed="5"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/></filter></defs><rect x="0" y="0" width="100" height="100" filter="url(%23roughPaper)" fill="white"/></svg>');
+  -webkit-mask-size: cover;
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><filter id="roughPaper"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" seed="5"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/></filter></defs><rect x="0" y="0" width="100" height="100" filter="url(%23roughPaper)" fill="white"/></svg>');
+  mask-size: cover;
 }
 
-/* Decorative corner frame */
-.trading-card::before,
-.trading-card::after {
+/* Hand-drawn border overlay */
+.trading-card::before {
   content: '';
   position: absolute;
+  inset: -2px;
   pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"><path d="M 10,20 Q 10,10 20,10 L 280,8 Q 290,10 290,20 L 292,380 Q 290,390 280,390 L 20,392 Q 10,390 10,380 Z" stroke="rgba(0,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="d" values="M 10,20 Q 10,10 20,10 L 280,8 Q 290,10 290,20 L 292,380 Q 290,390 280,390 L 20,392 Q 10,390 10,380 Z;M 8,18 Q 8,8 18,8 L 282,10 Q 292,8 292,18 L 290,382 Q 292,392 282,392 L 18,390 Q 8,392 8,382 Z;M 10,20 Q 10,10 20,10 L 280,8 Q 290,10 290,20 L 292,380 Q 290,390 280,390 L 20,392 Q 10,390 10,380 Z" dur="8s" repeatCount="indefinite"/></path></svg>');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 10;
 }
 
-.trading-card::before {
-  /* Top decorative frame */
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  height: 40px;
-  background: 
-    linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(0, 255, 255, 0.1) 20%, 
-      rgba(0, 255, 255, 0.1) 80%, 
-      transparent 100%
-    );
-  border-top: 1px solid rgba(0, 255, 255, 0.2);
-  border-left: 1px solid rgba(0, 255, 255, 0.1);
-  border-right: 1px solid rgba(0, 255, 255, 0.1);
+/* Corner accents with hand-drawn style */
+.card-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
-.trading-card::after {
-  /* Bottom decorative frame */
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
-  height: 40px;
-  background: 
-    linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(255, 0, 255, 0.1) 20%, 
-      rgba(255, 0, 255, 0.1) 80%, 
-      transparent 100%
-    );
-  border-bottom: 1px solid rgba(255, 0, 255, 0.2);
-  border-left: 1px solid rgba(255, 0, 255, 0.1);
-  border-right: 1px solid rgba(255, 0, 255, 0.1);
+.card-corner-tl {
+  top: 10px;
+  left: 10px;
+  background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M 5,30 Q 5,5 30,5" stroke="rgba(0,255,255,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 10,25 Q 10,10 25,10" stroke="rgba(0,255,255,0.3)" stroke-width="1" fill="none" stroke-linecap="round"/></svg>');
+}
+
+.card-corner-tr {
+  top: 10px;
+  right: 10px;
+  background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M 30,5 Q 55,5 55,30" stroke="rgba(0,255,255,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 35,10 Q 50,10 50,25" stroke="rgba(0,255,255,0.3)" stroke-width="1" fill="none" stroke-linecap="round"/></svg>');
+}
+
+.card-corner-bl {
+  bottom: 10px;
+  left: 10px;
+  background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M 5,30 Q 5,55 30,55" stroke="rgba(255,0,255,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 10,35 Q 10,50 25,50" stroke="rgba(255,0,255,0.3)" stroke-width="1" fill="none" stroke-linecap="round"/></svg>');
+}
+
+.card-corner-br {
+  bottom: 10px;
+  right: 10px;
+  background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M 30,55 Q 55,55 55,30" stroke="rgba(255,0,255,0.5)" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 35,50 Q 50,50 50,35" stroke="rgba(255,0,255,0.3)" stroke-width="1" fill="none" stroke-linecap="round"/></svg>');
 }
 
 /* Hover effects */
 .trading-card:hover {
-  transform: translateY(-4px) rotateX(2deg);
+  transform: translateY(-6px) rotateX(5deg) rotateY(-2deg);
   box-shadow: 
-    0 0 30px rgba(0, 255, 255, 0.2),
-    0 8px 20px rgba(0, 0, 0, 0.5),
-    0 16px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(0, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(255, 0, 255, 0.3);
+    /* Stronger highlight */
+    inset 0 2px 6px rgba(255, 255, 255, 0.2),
+    /* Deeper shadows */
+    0 4px 8px rgba(0, 0, 0, 0.9),
+    0 8px 16px rgba(0, 0, 0, 0.7),
+    0 16px 32px rgba(0, 0, 0, 0.5),
+    0 24px 48px rgba(0, 0, 0, 0.3),
+    /* Stronger glow */
+    0 0 60px rgba(0, 255, 255, 0.1);
 }
 
 /* Card texture overlay */
 .card-texture {
   position: absolute;
   inset: 0;
-  opacity: 0.3;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(0, 255, 255, 0.01) 10px,
-      rgba(0, 255, 255, 0.01) 20px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10px,
-      rgba(255, 0, 255, 0.01) 10px,
-      rgba(255, 0, 255, 0.01) 20px
-    );
+  opacity: 0.4;
+  background: 
+    /* Scratches and wear */
+    url('data:image/svg+xml;utf8,<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"><g opacity="0.1"><path d="M 50,50 L 250,350" stroke="white" stroke-width="0.5"/><path d="M 100,20 L 180,380" stroke="white" stroke-width="0.3"/><path d="M 20,200 L 280,180" stroke="white" stroke-width="0.4"/></g></svg>'),
+    /* Fine paper grain */
+    url('data:image/svg+xml;utf8,<svg width="4" height="4" viewBox="0 0 4 4" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="1" height="1" fill="white" opacity="0.05"/><rect x="2" y="2" width="1" height="1" fill="white" opacity="0.05"/></svg>');
+  background-size: 100% 100%, 4px 4px;
+  background-repeat: no-repeat, repeat;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
@@ -151,60 +160,84 @@
   position: relative;
   height: 200px;
   overflow: hidden;
-  background: linear-gradient(180deg, 
-    rgba(0, 20, 30, 0.8) 0%, 
-    rgba(0, 10, 20, 0.9) 100%
-  );
-  border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+  background: 
+    /* Vignette effect */
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.3) 100%),
+    /* Base gradient */
+    linear-gradient(180deg, 
+      rgba(15, 25, 35, 0.9) 0%, 
+      rgba(10, 20, 30, 0.95) 100%
+    );
+  /* Hand-drawn style border */
+  border-bottom: none;
+  position: relative;
+}
+
+.card-image-section::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: url('data:image/svg+xml;utf8,<svg width="300" height="3" viewBox="0 0 300 3" xmlns="http://www.w3.org/2000/svg"><path d="M 0,1.5 Q 50,0.5 100,1.5 T 200,1.5 T 300,1.5" stroke="rgba(0,255,255,0.3)" stroke-width="2" fill="none"/></svg>');
+  background-size: 100% 100%;
 }
 
 .card-content-section {
   position: relative;
   padding: 1rem;
   background: 
+    /* Subtle paper texture */
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="paper"><feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="5" result="turbulence"/><feDiffuseLighting in="turbulence" lighting-color="white" surfaceScale="1"><feDistantLight azimuth="45" elevation="60"/></feDiffuseLighting></filter><rect width="200" height="200" filter="url(%23paper)" opacity="0.03"/></svg>'),
     linear-gradient(180deg, 
-      rgba(0, 10, 20, 0.6) 0%, 
-      rgba(0, 5, 10, 0.8) 100%
+      rgba(18, 28, 38, 0.9) 0%, 
+      rgba(15, 22, 32, 0.95) 100%
     );
+  background-size: cover, 100% 100%;
 }
 
 /* Title frame styling */
 .card-title-frame {
   position: relative;
   margin-bottom: 0.75rem;
-  padding: 0.5rem;
+  padding: 0.75rem 0.5rem;
   background: 
+    /* Metallic gradient */
     linear-gradient(90deg, 
       transparent 0%, 
-      rgba(0, 255, 255, 0.05) 50%, 
+      rgba(100, 200, 255, 0.05) 20%,
+      rgba(100, 200, 255, 0.08) 50%, 
+      rgba(100, 200, 255, 0.05) 80%,
       transparent 100%
-    );
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  border-left: none;
-  border-right: none;
-}
-
-.card-title-frame::before,
-.card-title-frame::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border: 1px solid rgba(0, 255, 255, 0.3);
+    ),
+    /* Base color */
+    rgba(25, 35, 45, 0.5);
+  /* Hand-drawn borders */
+  border: none;
+  position: relative;
 }
 
 .card-title-frame::before {
-  left: -10px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: url('data:image/svg+xml;utf8,<svg width="200" height="1" viewBox="0 0 200 1" xmlns="http://www.w3.org/2000/svg"><path d="M 0,0.5 Q 50,0 100,0.5 T 200,0.5" stroke="rgba(0,255,255,0.3)" stroke-width="1" fill="none"/></svg>');
+  background-size: 100% 100%;
 }
 
 .card-title-frame::after {
-  right: -10px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 0, 255, 0.2), transparent);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: url('data:image/svg+xml;utf8,<svg width="200" height="1" viewBox="0 0 200 1" xmlns="http://www.w3.org/2000/svg"><path d="M 0,0.5 Q 50,1 100,0.5 T 200,0.5" stroke="rgba(0,255,255,0.3)" stroke-width="1" fill="none"/></svg>');
+  background-size: 100% 100%;
 }
 
 /* Fixed card dimensions */
@@ -212,23 +245,55 @@
   width: 100%;
   max-width: 280px;
   min-height: 380px;
+  position: relative;
 }
 
-/* Rarity indicator */
+/* Worn edges effect */
+.trading-card-edge {
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: 
+    radial-gradient(circle at 20% 80%, transparent 2px, rgba(0,0,0,0.1) 2px, transparent 3px),
+    radial-gradient(circle at 80% 20%, transparent 2px, rgba(0,0,0,0.1) 2px, transparent 3px),
+    radial-gradient(circle at 50% 95%, transparent 2px, rgba(0,0,0,0.1) 2px, transparent 3px);
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Rarity indicator with foil effect */
 .card-rarity {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   background: 
+    /* Holographic foil effect */
+    conic-gradient(
+      from 0deg,
+      rgba(255, 100, 100, 0.8),
+      rgba(255, 215, 0, 0.8),
+      rgba(100, 255, 100, 0.8),
+      rgba(100, 200, 255, 0.8),
+      rgba(255, 100, 255, 0.8),
+      rgba(255, 100, 100, 0.8)
+    ),
     radial-gradient(circle, 
-      rgba(255, 215, 0, 0.8) 0%, 
-      rgba(255, 215, 0, 0.2) 50%, 
+      rgba(255, 255, 255, 0.9) 0%, 
+      rgba(255, 255, 255, 0.3) 50%, 
       transparent 70%
     );
   border-radius: 50%;
-  animation: pulse-glow 2s ease-in-out infinite;
+  mix-blend-mode: screen;
+  animation: pulse-glow 2s ease-in-out infinite, rotate-holo 8s linear infinite;
+}
+
+@keyframes rotate-holo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes pulse-glow {

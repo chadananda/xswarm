@@ -5,31 +5,31 @@
   "agents": [
     {
       "icon": "🚀",
-      "title": "Deployment Warlord Prime",
+      "title": "Deploy Commander",
       "role": "DevOps Engineer",
       "description": "Orchestrates container swarms across distributed quantum computing clusters"
     },
     {
       "icon": "🔧",
-      "title": "Uptime Keeper Supreme",
+      "title": "Uptime Warden",
       "role": "Site Reliability Engineer",
       "description": "Maintains 99.999% uptime through predictive failure analysis and auto-healing"
     },
     {
       "icon": "☁️",
-      "title": "Cloud Realm Architect",
+      "title": "Cloud Architect",
       "role": "Cloud Architect",
       "description": "Designs sky-high infrastructures that scale across parallel universes"
     },
     {
       "icon": "🗄️",
-      "title": "Data Crystal Paramount",
+      "title": "Data Vault Keeper",
       "role": "Database Administrator",
       "description": "Optimizes data flows through crystalline storage matrices at lightspeed"
     },
     {
       "icon": "🛡️",
-      "title": "Cyber Defense Hierophant",
+      "title": "Firewall Paladin",
       "role": "Security Engineer",
       "description": "Erects quantum firewalls that adapt to threats before they materialize"
     }

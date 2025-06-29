@@ -5,31 +5,31 @@
   "agents": [
     {
       "icon": "🛡️",
-      "title": "Bug Defense Sovereign",
+      "title": "Bug Sentinel",
       "role": "QA Engineer",
       "description": "Deploys automated sentries that hunt bugs through quantum code analysis"
     },
     {
       "icon": "🤖",
-      "title": "Automation Spell Weaver",
+      "title": "Test Automaton",
       "role": "Automation Test Engineer",
       "description": "Programs AI-driven test bots that evolve and adapt to new code patterns"
     },
     {
       "icon": "⚡",
-      "title": "Performance Oracle",
+      "title": "Load Master",
       "role": "Performance Test Engineer",
       "description": "Simulates millions of neural connections to stress-test system limits"
     },
     {
       "icon": "🔐",
-      "title": "Security Breach Hunter",
+      "title": "Breach Specialist",
       "role": "Security Tester",
       "description": "Ethical hacker with cybernetic implants for penetrating digital fortresses"
     },
     {
       "icon": "👥",
-      "title": "User Acceptance Guardian",
+      "title": "User Champion",
       "role": "UAT Specialist",
       "description": "Bridges the gap between augmented developers and baseline human users"
     }

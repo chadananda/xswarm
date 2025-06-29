@@ -17,6 +17,12 @@ const { icon, title, role, description, image, class: className = '', hover = tr
   <div class="card-texture"></div>
   <div class="card-holographic"></div>
   
+  <!-- Hand-drawn corner accents -->
+  <div class="card-corner card-corner-tl"></div>
+  <div class="card-corner card-corner-tr"></div>
+  <div class="card-corner card-corner-bl"></div>
+  <div class="card-corner card-corner-br"></div>
+  
   <!-- Character image section -->
   <div class="card-image-section">
     {image ? (
@@ -59,9 +65,11 @@ const { icon, title, role, description, image, class: className = '', hover = tr
       </div>
     )}
     
-    <!-- Card ID/Number -->
-    <div class="absolute bottom-2 right-2 text-terminal-cyan/30 text-xs font-mono">
-      #{Math.floor(Math.random() * 999) + 1}
+    <!-- Card ID/Number with foil effect -->
+    <div class="absolute bottom-2 right-2 text-xs font-mono">
+      <span class="inline-block bg-gradient-to-br from-terminal-cyan/40 via-terminal-magenta/40 to-terminal-cyan/40 bg-clip-text text-transparent">
+        #{String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}
+      </span>
     </div>
   </div>
   
