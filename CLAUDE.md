@@ -237,3 +237,44 @@ Watch for these and stop immediately:
 - GitHub Actions handle automated deployments
 - CLI publishes to npm, website deploys to GitHub Pages
 - Always use npm scripts for common tasks
+
+## CSS Theme System Best Practices
+
+### Use Centralized Color Management
+- **NEVER use dark: prefixes** - All dark/light mode switching should be handled by CSS variables
+- **Use semantic color names** - Instead of `text-gray-700 dark:text-gray-300`, use `text-secondary`
+- **Centralize theme in theme.css** - All color definitions should live in `/website/src/styles/theme.css`
+
+### CSS Variables and light-dark() Function
+The project uses the CSS `light-dark()` function for automatic color switching:
+
+```css
+/* Example from theme.css */
+--color-background: light-dark(rgb(255 255 255), rgb(3 7 18)); /* white in light, gray-950 in dark */
+--color-text-primary: light-dark(rgb(17 24 39), rgb(243 244 246)); /* gray-900 in light, gray-100 in dark */
+```
+
+### Tailwind Configuration
+Tailwind is configured to use CSS variables for all colors:
+
+```js
+// tailwind.config.mjs
+colors: {
+  background: 'var(--color-background)',
+  primary: 'var(--color-text-primary)',
+  secondary: 'var(--color-text-secondary)',
+  // etc...
+}
+```
+
+### Theme Toggle Implementation
+- Toggle between `data-theme="light"`, `data-theme="dark"`, and no attribute (system preference)
+- No classList manipulation needed - just set/remove the data-theme attribute
+- Icons visibility controlled by CSS, not JavaScript
+
+### Benefits
+- Single source of truth for colors
+- No dark mode logic in components
+- Automatic color switching based on user preference
+- Cleaner, more maintainable code
+- Better performance (no JavaScript color switching)

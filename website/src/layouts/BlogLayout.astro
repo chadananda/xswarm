@@ -32,24 +32,24 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     <article class="container mx-auto px-4 max-w-4xl">
       <!-- Article Header -->
       <header class="mb-12">
-        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+        <div class="flex items-center gap-2 text-sm text-tertiary mb-4">
           <time datetime={publishDate.toISOString()}>{formattedDate}</time>
           <span>•</span>
           <span>{stats.text}</span>
         </div>
         
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
           {title}
         </h1>
         
-        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+        <p class="text-xl text-tertiary mb-8">
           {description}
         </p>
 
         {tags.length > 0 && (
           <div class="flex flex-wrap gap-2 mb-8">
             {tags.map((tag) => (
-              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-link rounded-full text-sm">
                 {tag}
               </span>
             ))}
@@ -71,7 +71,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       </div>
 
       <!-- Author Bio -->
-      <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="mt-16 pt-8 border-t border-border">
         <div class="flex items-start space-x-4">
           <img
             src="/xswarm.png"
@@ -79,8 +79,8 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
             class="w-16 h-16 rounded-full"
           />
           <div>
-            <h3 class="font-semibold text-gray-900 dark:text-white">{author}</h3>
-            <p class="text-gray-600 dark:text-gray-400 mt-1">
+            <h3 class="font-semibold text-primary">{author}</h3>
+            <p class="text-tertiary mt-1">
               Creator of XSwarm.ai, empowering developers to transform into a Team of One with AI-powered development coordination.
             </p>
             <div class="flex space-x-4 mt-3">
@@ -88,7 +88,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
                 href="https://github.com/chadananda"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                class="text-tertiary hover:text-link transition-colors"
               >
                 GitHub
               </a>
@@ -96,7 +96,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
                 href="https://twitter.com/xswarmai"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                class="text-tertiary hover:text-link transition-colors"
               >
                 Twitter
               </a>
@@ -106,8 +106,8 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       </div>
 
       <!-- Share Section -->
-      <div class="mt-12 p-6 bg-gray-100 dark:bg-gray-800 rounded-xl">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Share this article</h3>
+      <div class="mt-12 p-6 bg-surface-hover rounded-xl">
+        <h3 class="font-semibold text-primary mb-3">Share this article</h3>
         <div class="flex space-x-4">
           <a
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}

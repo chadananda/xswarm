@@ -1,4 +1,6 @@
 ---
+import '../styles/theme.css';
+
 export interface Props {
   title: string;
   description?: string;
@@ -32,7 +34,7 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://xswarm.ai/og-image.jpg" />
   </head>
-  <body class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <body class="min-h-screen bg-background text-primary transition-colors duration-300">
     <slot />
   </body>
 </html>
@@ -126,36 +128,6 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
     color: inherit;
   }
 
-  /* Scrollbar styles */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #f1f5f9;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 5px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-  }
-
-  .dark ::-webkit-scrollbar-track {
-    background: #1e293b;
-  }
-
-  .dark ::-webkit-scrollbar-thumb {
-    background: #475569;
-  }
-
-  .dark ::-webkit-scrollbar-thumb:hover {
-    background: #64748b;
-  }
 
   /* Utility classes */
   .container {
@@ -271,14 +243,14 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
     font-style: italic;
   }
 
-  .dark .prose blockquote {
-    border-left-color: #4b5563;
+  .prose blockquote {
+    border-left-color: var(--color-border);
   }
 
   /* Loading states */
   .skeleton {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-surface-hover) 50%, var(--color-surface) 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
   }
@@ -290,10 +262,5 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
     100% {
       background-position: -200% 0;
     }
-  }
-
-  .dark .skeleton {
-    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
-    background-size: 200% 100%;
   }
 </style>

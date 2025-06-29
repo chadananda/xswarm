@@ -22,10 +22,10 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
     <div class="container mx-auto px-4 max-w-6xl">
       <!-- Header -->
       <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">
           XSwarm Blog
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+        <p class="text-xl text-tertiary max-w-3xl mx-auto">
           Insights on AI-powered development, productivity tips, and the future of software engineering with XSwarm.
         </p>
       </div>
@@ -42,7 +42,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
           {tags.map((tag) => (
             <button 
               data-tag={tag}
-              class="tag-filter px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              class="tag-filter px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-secondary hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
             >
               {tag}
             </button>
@@ -76,26 +76,26 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
               )}
               
               <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <div class="flex items-center gap-2 text-sm text-tertiary mb-3">
                   <time datetime={post.data.publishDate.toISOString()}>{formattedDate}</time>
                   <span>•</span>
                   <span>{stats.text}</span>
                 </div>
                 
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h2 class="text-2xl font-bold text-primary mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   <a href={`/blog/${post.slug}`} class="hover:underline">
                     {post.data.title}
                   </a>
                 </h2>
                 
-                <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                <p class="text-tertiary mb-4 line-clamp-3">
                   {post.data.description}
                 </p>
                 
                 {post.data.tags.length > 0 && (
                   <div class="flex flex-wrap gap-2 mb-4">
                     {post.data.tags.map((tag) => (
-                      <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-xs">
+                      <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-link rounded text-xs">
                         {tag}
                       </span>
                     ))}
@@ -113,7 +113,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
 
       {posts.length === 0 && (
         <div class="text-center py-16">
-          <p class="text-gray-600 dark:text-gray-400 text-lg">
+          <p class="text-tertiary text-lg">
             No blog posts yet. Check back soon!
           </p>
         </div>

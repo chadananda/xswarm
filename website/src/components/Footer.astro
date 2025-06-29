@@ -38,18 +38,18 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+<footer class="bg-background border-t border">
   <div class="container mx-auto px-4 py-12">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
       <!-- Brand Section -->
       <div class="md:col-span-2">
         <div class="flex items-center space-x-2 mb-4">
           <img src="/xswarm.png" alt="XSwarm" class="h-8 w-8" />
-          <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span class="text-xl font-bold bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
             XSwarm.ai
           </span>
         </div>
-        <p class="text-gray-600 dark:text-gray-400 mb-4">
+        <p class="text-secondary mb-4">
           Transform Every Developer into an AI Team Leader.
         </p>
         <div class="flex space-x-4">
@@ -58,7 +58,7 @@ const socialLinks = [
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              class="text-secondary hover:text-link transition-colors"
               aria-label={social.name}
             >
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -72,13 +72,13 @@ const socialLinks = [
       <!-- Links Sections -->
       {Object.entries(footerLinks).map(([category, links]) => (
         <div>
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-4">{category}</h3>
+          <h3 class="font-semibold text-primary mb-4">{category}</h3>
           <ul class="space-y-2">
             {links.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  class="text-secondary hover:text-link transition-colors"
                   target={link.href.startsWith('http') ? '_blank' : undefined}
                   rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
@@ -92,9 +92,9 @@ const socialLinks = [
     </div>
 
     <!-- Bottom Section -->
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="mt-12 pt-8 border-t border">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-600 dark:text-gray-400 text-sm">
+        <p class="text-secondary text-sm">
           © {currentYear} XSwarm.ai. All rights reserved.
         </p>
         <div class="mt-4 md:mt-0 flex items-center space-x-4">
@@ -102,14 +102,14 @@ const socialLinks = [
             href="https://github.com/chadananda/xswarm/blob/main/LICENSE"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            class="text-sm text-secondary hover:text-link transition-colors"
           >
             MIT License
           </a>
-          <span class="text-gray-400 dark:text-gray-600">•</span>
+          <span class="text-muted">•</span>
           <a
             href="mailto:chadananda@gmail.com"
-            class="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            class="text-sm text-secondary hover:text-link transition-colors"
           >
             Contact
           </a>

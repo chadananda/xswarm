@@ -15,52 +15,52 @@ const { Content } = await doc.render();
 ---
 
 <DocsLayout title={`${doc.data.title} - XSwarm Documentation`} description={doc.data.description}>
-	<article class="prose prose-lg dark:prose-invert max-w-none">
-		<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{doc.data.title}</h1>
-		<p class="text-xl text-gray-600 dark:text-gray-400 mb-8">{doc.data.description}</p>
+	<article class="prose prose-lg max-w-none">
+		<h1 class="text-4xl font-bold text-primary mb-4">{doc.data.title}</h1>
+		<p class="text-xl text-tertiary mb-8">{doc.data.description}</p>
 		<Content />
 	</article>
 </DocsLayout>
 
 <style>
 	article :global(h2) {
-		@apply text-2xl font-bold text-gray-900 dark:text-white mt-12 mb-4;
+		@apply text-2xl font-bold text-primary mt-12 mb-4;
 	}
 	
 	article :global(h3) {
-		@apply text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3;
+		@apply text-xl font-semibold text-primary mt-8 mb-3;
 	}
 	
 	article :global(p) {
-		@apply text-gray-700 dark:text-gray-300 mb-6 leading-relaxed;
+		@apply text-secondary mb-6 leading-relaxed;
 	}
 	
 	article :global(ul) {
-		@apply list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6;
+		@apply list-disc pl-6 space-y-2 text-secondary mb-6;
 	}
 	
 	article :global(ol) {
-		@apply list-decimal pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6;
+		@apply list-decimal pl-6 space-y-2 text-secondary mb-6;
 	}
 	
 	article :global(pre) {
-		@apply bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-x-auto mb-6;
+		@apply bg-code-bg text-code-text p-4 rounded-lg overflow-x-auto mb-6;
 	}
 	
 	article :global(code:not(pre code)) {
-		@apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm;
+		@apply bg-surface-hover text-primary px-2 py-1 rounded text-sm;
 	}
 	
 	article :global(blockquote) {
-		@apply border-l-4 border-blue-500 pl-4 italic text-gray-700 dark:text-gray-300 my-6;
+		@apply border-l-4 border-blue-500 pl-4 italic text-secondary my-6;
 	}
 	
 	article :global(a) {
-		@apply text-blue-600 dark:text-blue-400 hover:underline;
+		@apply text-link hover:underline;
 	}
 	
 	article :global(strong) {
-		@apply font-semibold text-gray-900 dark:text-white;
+		@apply font-semibold text-primary;
 	}
 	
 	article :global(table) {
@@ -68,10 +68,10 @@ const { Content } = await doc.render();
 	}
 	
 	article :global(th) {
-		@apply bg-gray-100 dark:bg-gray-800 text-left p-3 font-semibold text-gray-900 dark:text-white;
+		@apply bg-surface-hover text-left p-3 font-semibold text-primary;
 	}
 	
 	article :global(td) {
-		@apply border-b border-gray-200 dark:border-gray-700 p-3 text-gray-700 dark:text-gray-300;
+		@apply border-b border-border p-3 text-secondary;
 	}
 </style>

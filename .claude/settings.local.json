@@ -40,7 +40,10 @@
       "mcp__puppeteer__puppeteer_click",
       "mcp__puppeteer__puppeteer_evaluate",
       "Bash(npm run dev:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(for:*)",
+      "Bash(do node ../scripts/update-dark-classes.js \"$file\")",
+      "Bash(done)"
     ],
     "deny": []
   }

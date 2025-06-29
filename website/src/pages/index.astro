@@ -23,10 +23,10 @@ const blogPosts = (await getCollection('blog'))
 			<div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
 				<div class="text-center max-w-4xl mx-auto">
 					<img src="/xswarm.png" alt="XSwarm Logo" class="w-24 h-24 mx-auto mb-8 animate-float" />
-					<h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+					<h1 class="text-5xl md:text-7xl font-bold text-primary mb-6">
 						Transform Every Developer into an <span class="text-gradient">AI Team Leader</span>
 					</h1>
-					<p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+					<p class="text-xl md:text-2xl text-tertiary mb-8 leading-relaxed">
 						Command your own team of AI agents that work in parallel to multiply your impact. 
 						From solo coder to team leader—orchestrate, delegate, and deliver at scale.
 					</p>
@@ -47,13 +47,13 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- Features Section -->
-		<section id="features" class="py-20 bg-gray-50 dark:bg-gray-900/50">
+		<section id="features" class="py-20 bg-surface/50">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center mb-16">
-					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+					<h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
 						Your AI Development Team Awaits Your Leadership
 					</h2>
-					<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+					<p class="text-lg text-tertiary max-w-2xl mx-auto">
 						As team leader, you orchestrate specialized AI agents that handle implementation while you focus on strategy and vision
 					</p>
 				</div>
@@ -98,7 +98,7 @@ const blogPosts = (await getCollection('blog'))
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="grid md:grid-cols-2 gap-16 items-center">
 					<div>
-						<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+						<h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
 							Achieve More with Less Effort
 						</h2>
 						<div class="space-y-6">
@@ -107,8 +107,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">⚡</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">10x Productivity</h3>
-									<p class="text-gray-600 dark:text-gray-400">Complete complex tasks in minutes instead of hours with parallel AI assistance</p>
+									<h3 class="text-xl font-semibold text-primary mb-2">10x Productivity</h3>
+									<p class="text-tertiary">Complete complex tasks in minutes instead of hours with parallel AI assistance</p>
 								</div>
 							</div>
 							<div class="flex items-start space-x-4">
@@ -116,8 +116,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">🎯</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Consistent Quality</h3>
-									<p class="text-gray-600 dark:text-gray-400">Maintain high standards across your codebase with AI-powered reviews and best practices</p>
+									<h3 class="text-xl font-semibold text-primary mb-2">Consistent Quality</h3>
+									<p class="text-tertiary">Maintain high standards across your codebase with AI-powered reviews and best practices</p>
 								</div>
 							</div>
 							<div class="flex items-start space-x-4">
@@ -125,8 +125,8 @@ const blogPosts = (await getCollection('blog'))
 									<span class="text-2xl">🔄</span>
 								</div>
 								<div>
-									<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Seamless Workflow</h3>
-									<p class="text-gray-600 dark:text-gray-400">Integrate AI agents into your existing development process without disruption</p>
+									<h3 class="text-xl font-semibold text-primary mb-2">Seamless Workflow</h3>
+									<p class="text-tertiary">Integrate AI agents into your existing development process without disruption</p>
 								</div>
 							</div>
 						</div>
@@ -137,7 +137,7 @@ const blogPosts = (await getCollection('blog'))
 								<div class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
 									75%
 								</div>
-								<p class="text-lg text-gray-700 dark:text-gray-300 font-semibold">
+								<p class="text-lg text-secondary font-semibold">
 									Less Time on Repetitive Tasks
 								</p>
 							</div>
@@ -148,13 +148,13 @@ const blogPosts = (await getCollection('blog'))
 		</section>
 
 		<!-- Latest Blog Posts -->
-		<section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+		<section class="py-20 bg-surface/50">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center mb-12">
-					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+					<h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
 						Latest Insights
 					</h2>
-					<p class="text-lg text-gray-600 dark:text-gray-400">
+					<p class="text-lg text-tertiary">
 						Learn how to maximize your productivity with AI-powered development
 					</p>
 				</div>
@@ -163,15 +163,15 @@ const blogPosts = (await getCollection('blog'))
 					{blogPosts.map((post) => (
 						<article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
 							<div class="p-6">
-								<time class="text-sm text-gray-500 dark:text-gray-400">
+								<time class="text-sm text-muted">
 									{new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(post.data.publishDate)}
 								</time>
-								<h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-2 mb-3">
-									<a href={`/blog/${post.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+								<h3 class="text-xl font-semibold text-primary mt-2 mb-3">
+									<a href={`/blog/${post.slug}`} class="hover:text-link transition-colors">
 										{post.data.title}
 									</a>
 								</h3>
-								<p class="text-gray-600 dark:text-gray-400 line-clamp-3">
+								<p class="text-tertiary line-clamp-3">
 									{post.data.description}
 								</p>
 								<Button href={`/blog/${post.slug}`} variant="ghost" size="sm" class="mt-4">
