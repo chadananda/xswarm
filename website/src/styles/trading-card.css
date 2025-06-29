@@ -2,6 +2,20 @@
 .trading-card {
   /* Base card styling */
   position: relative;
+  /* Remove background - it will be on card-main-content */
+  border-radius: 16px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Card isolation to prevent overlap */
+  isolation: isolate;
+}
+/* Main content wrapper with background */
+.card-main-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
   background: 
     /* Metallic sheen */
     radial-gradient(ellipse at 30% 20%, rgba(100, 200, 255, 0.15), transparent 50%),
@@ -21,7 +35,7 @@
   
   /* Solid cyberpunk border */
   border: 3px solid rgba(0, 255, 255, 0.2);
-  background-clip: padding-box;
+  border-radius: 16px;
   
   /* Complex layered shadows for physical appearance */
   box-shadow: 
@@ -37,40 +51,12 @@
     /* Subtle colored glow */
     0 0 40px rgba(0, 255, 255, 0.05);
   
-  border-radius: 16px;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Card isolation to prevent overlap */
-  isolation: isolate;
-}
-
-/* Enhanced solid border effect */
-.trading-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  pointer-events: none;
-  background: linear-gradient(135deg,
-    rgba(0, 255, 255, 0.4),
-    rgba(255, 0, 255, 0.4),
-    rgba(0, 255, 255, 0.4)
-  );
-  border-radius: 16px;
-  z-index: -1;
-  opacity: 0.5;
-}
-
-.trading-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
 }
+
+/* Enhanced solid border effect - removed as it's now on card-main-content */
 
 /* Corner accents with hand-drawn style */
 .card-corner {
@@ -79,7 +65,7 @@
   height: 40px;
   pointer-events: none;
   opacity: 0.4;
-  z-index: 3;
+  z-index: 12;
 }
 /* Compact corner accents */
 .trading-card-compact .card-corner {
@@ -168,6 +154,7 @@
   background-repeat: no-repeat, repeat;
   mix-blend-mode: overlay;
   pointer-events: none;
+  z-index: 10;
 }
 
 /* Holographic effect */
@@ -186,6 +173,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  z-index: 11;
 }
 
 .trading-card:hover .card-holographic {
@@ -207,17 +195,11 @@
   position: relative;
   height: 200px;
   overflow: hidden;
-  background: 
-    /* Vignette effect */
-    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.3) 100%),
-    /* Base gradient */
-    linear-gradient(180deg, 
-      rgba(15, 25, 35, 0.9) 0%, 
-      rgba(10, 20, 30, 0.95) 100%
-    );
   /* Solid border bottom */
   border-bottom: 2px solid rgba(0, 255, 255, 0.2);
   flex-shrink: 0;
+  /* Transparent background to show image behind */
+  background: transparent;
 }
 /* Compact card image section */
 .trading-card-compact .card-image-section {
@@ -254,6 +236,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  z-index: 1;
 }
 /* Compact content section */
 .trading-card-compact .card-content-section {
@@ -279,7 +262,7 @@
     rgba(25, 35, 45, 0.5);
   /* Hand-drawn borders */
   border: none;
-  position: relative;
+  z-index: 2;
 }
 /* Compact title frame */
 .trading-card-compact .card-title-frame {
@@ -315,18 +298,15 @@
   max-width: 280px;
   min-height: 380px;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
 /* Compact card dimensions */
 .trading-card-compact {
   max-width: 200px;
   min-height: 280px;
 }
-/* Ensure proper content containment */
-.trading-card > * {
-  position: relative;
-  z-index: 2;
+/* Ensure main content fills card */
+.card-main-content {
+  min-height: inherit;
 }
 
 /* Worn edges effect */
@@ -370,6 +350,7 @@
   border-radius: 50%;
   mix-blend-mode: screen;
   animation: pulse-glow 2s ease-in-out infinite, rotate-holo 8s linear infinite;
+  z-index: 3;
 }
 /* Compact rarity indicator */
 .trading-card-compact .card-rarity {
@@ -394,14 +375,28 @@
     opacity: 1;
   }
 }
+/* Image background container */
+.card-image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; /* Match image section height */
+  z-index: 0;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+/* Compact image background */
+.trading-card-compact .card-image-background {
+  height: 120px;
+}
 /* Character image styling */
 .card-character-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  opacity: 0.85; /* Slight transparency to show texture */
-  mix-blend-mode: multiply;
+  opacity: 0.9; /* Slight transparency to show texture */
 }
 /* Image overlay for better text contrast */
 .card-image-overlay {
@@ -417,4 +412,5 @@
       transparent 60%
     );
   pointer-events: none;
+  z-index: 2;
 }

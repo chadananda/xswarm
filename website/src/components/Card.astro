@@ -14,34 +14,39 @@ const { icon, title, role, description, image, class: className = '', hover = tr
 ---
 
 <div class={`trading-card ${compact ? 'trading-card-compact' : ''} ${className}`}>
-  <!-- Texture overlays -->
-  <div class="card-texture"></div>
-  <div class="card-holographic"></div>
+  <!-- Character image section (moved to top) -->
+  {image && (
+    <div class="card-image-background">
+      <img src={image} alt={title} class="card-character-image" />
+      <div class="card-image-overlay"></div>
+    </div>
+  )}
   
-  <!-- Hand-drawn corner accents -->
-  <div class="card-corner card-corner-tl"></div>
-  <div class="card-corner card-corner-tr"></div>
-  <div class="card-corner card-corner-bl"></div>
-  <div class="card-corner card-corner-br"></div>
-  
-  <!-- Character image section -->
-  <div class="card-image-section">
-    {image ? (
-      <>
-        <img src={image} alt={title} class="card-character-image" />
-        <div class="card-image-overlay"></div>
-      </>
-    ) : (
-      <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
-        <div class={`${compact ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
-          {icon || '?'}
-        </div>
-      </div>
-    )}
+  <!-- Main card content wrapper -->
+  <div class="card-main-content">
+    <!-- Texture overlays -->
+    <div class="card-texture"></div>
+    <div class="card-holographic"></div>
     
-    <!-- Rarity indicator -->
-    <div class="card-rarity"></div>
-  </div>
+    <!-- Hand-drawn corner accents -->
+    <div class="card-corner card-corner-tl"></div>
+    <div class="card-corner card-corner-tr"></div>
+    <div class="card-corner card-corner-bl"></div>
+    <div class="card-corner card-corner-br"></div>
+    
+    <!-- Top section (image area or icon) -->
+    <div class="card-image-section">
+      {!image && (
+        <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
+          <div class={`${compact ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
+            {icon || '?'}
+          </div>
+        </div>
+      )}
+      
+      <!-- Rarity indicator -->
+      <div class="card-rarity"></div>
+    </div>
   
   <!-- Content section -->
   <div class="card-content-section">
@@ -76,9 +81,10 @@ const { icon, title, role, description, image, class: className = '', hover = tr
     )}
   </div>
   
-  <!-- Scan lines effect -->
-  <div class="absolute inset-0 pointer-events-none opacity-10">
-    <div class="h-full w-full bg-gradient-to-b from-transparent via-terminal-green/50 to-transparent animate-scan"></div>
+    <!-- Scan lines effect -->
+    <div class="absolute inset-0 pointer-events-none opacity-10">
+      <div class="h-full w-full bg-gradient-to-b from-transparent via-terminal-green/50 to-transparent animate-scan"></div>
+    </div>
   </div>
 </div>
 
