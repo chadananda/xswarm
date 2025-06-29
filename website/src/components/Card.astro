@@ -16,55 +16,69 @@ const classes = `agent-card relative bg-gradient-to-br from-terminal-bg to-termi
 ---
 
 <div class={classes}>
-  <!-- Character card design -->
-  <div class="relative p-6">
-    <!-- Top corner accent -->
-    <div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-terminal-cyan/50"></div>
-    <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-terminal-cyan/50"></div>
+  <!-- Fantasy game card design -->
+  
+  <!-- Character image section (top half) -->
+  <div class="relative h-48 overflow-hidden bg-gradient-to-b from-terminal-bg-alt to-terminal-bg">
+    {image ? (
+      <>
+        <img src={image} alt={title} class="w-full h-full object-cover object-top" />
+        <div class="absolute inset-0 bg-gradient-to-t from-terminal-bg via-terminal-bg/50 to-transparent"></div>
+      </>
+    ) : (
+      <div class="flex items-center justify-center h-full">
+        <div class="text-6xl text-terminal-cyan/30 animate-pulse">
+          {icon || '?'}
+        </div>
+      </div>
+    )}
     
-    <!-- Agent icon/avatar area -->
-    <div class="text-center mb-4">
-      {image ? (
-        <div class="inline-block p-1 bg-terminal-bg-alt rounded-full border-2 border-terminal-cyan/50 shadow-lg shadow-terminal-cyan/20">
-          <img src={image} alt={title} class="w-24 h-24 rounded-full object-cover" />
-        </div>
-      ) : icon && (
-        <div class="inline-block p-4 bg-terminal-bg-alt rounded-full border border-terminal-cyan/30 shadow-lg shadow-terminal-cyan/20">
-          <div class="text-4xl text-terminal-cyan animate-pulse">
-            {icon}
-          </div>
-        </div>
-      )}
+    <!-- Top corner accents -->
+    <div class="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-terminal-cyan/50"></div>
+    <div class="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-terminal-cyan/50"></div>
+    
+    <!-- Level/Role badge -->
+    {role && (
+      <div class="absolute top-2 right-2 bg-terminal-bg/80 backdrop-blur-sm px-2 py-1 rounded border border-terminal-green/50">
+        <p class="text-xs text-terminal-green/70 font-mono">{role}</p>
+      </div>
+    )}
+  </div>
+  
+  <!-- Content section (bottom half) -->
+  <div class="relative p-4">
+    <!-- Title with frame -->
+    <div class="relative mb-3">
+      <div class="absolute inset-0 bg-gradient-to-r from-terminal-cyan/10 via-terminal-cyan/20 to-terminal-cyan/10 rounded"></div>
+      <h3 class="relative text-center text-lg font-bold py-2 text-terminal-green">
+        <span class="relative z-10">{title}</span>
+        <span class="absolute inset-0 text-terminal-cyan/20 animate-pulse blur-sm" aria-hidden="true">{title}</span>
+      </h3>
     </div>
     
-    <!-- Agent name with glitch effect -->
-    <h3 class="text-center text-lg font-bold mb-1 text-terminal-green relative">
-      <span class="relative z-10">{title}</span>
-      <span class="absolute inset-0 text-terminal-cyan/20 animate-pulse" aria-hidden="true">{title}</span>
-    </h3>
-    
-    <!-- Corporate role subtitle -->
-    {role && (
-      <p class="text-center text-xs text-terminal-green/50 mb-3">({role})</p>
-    )}
-    
-    <!-- Divider -->
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-terminal-green/50 to-transparent mb-3"></div>
-    
-    <!-- Description -->
+    <!-- Description with scroll styling -->
     {description && (
-      <p class="text-center text-sm text-terminal-green/80 leading-relaxed">
-        {description}
-      </p>
+      <div class="relative">
+        <div class="absolute -left-2 top-0 bottom-0 w-px bg-terminal-green/30"></div>
+        <div class="absolute -right-2 top-0 bottom-0 w-px bg-terminal-green/30"></div>
+        <p class="text-center text-xs text-terminal-green/80 leading-relaxed font-mono">
+          {description}
+        </p>
+      </div>
     )}
     
-    <!-- Bottom corner accent -->
-    <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-terminal-cyan/50"></div>
-    <div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-terminal-cyan/50"></div>
+    <!-- Bottom corner accents -->
+    <div class="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-terminal-cyan/50"></div>
+    <div class="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-terminal-cyan/50"></div>
   </div>
   
   <!-- Scan lines effect -->
-  <div class="absolute inset-0 pointer-events-none opacity-10">
+  <div class="absolute inset-0 pointer-events-none opacity-5">
     <div class="h-full w-full bg-gradient-to-b from-transparent via-terminal-green to-transparent animate-scan"></div>
+  </div>
+  
+  <!-- Card glow effect on hover -->
+  <div class="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-500">
+    <div class="absolute inset-0 bg-gradient-to-t from-terminal-cyan/10 to-transparent"></div>
   </div>
 </div>

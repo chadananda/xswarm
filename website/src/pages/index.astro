@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
+import { AGENT_DATA } from '../data/agent-data.js';
 
 // Get latest blog posts
 const blogPosts = (await getCollection('blog'))
@@ -71,137 +72,30 @@ const blogPosts = (await getCollection('blog'))
 					</p>
 				</div>
 				
-				<!-- Planning & Product Phase -->
-				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
-					<span class="text-terminal-cyan">// Planning & Product Phase - Strategic Vision</span>
-				</h3>
-				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
-					<Card 
-						icon="👁️" 
-						title="Vision Oracle Prime" 
-						role="Product Manager"
-						description="Neural-linked to market data streams, predicting product futures with augmented foresight"
-					/>
-					<Card 
-						icon="🎯" 
-						title="Requirements Diviner" 
-						role="Business Analyst"
-						description="Data mining specialist who extracts requirements from stakeholder neural patterns"
-					/>
-					<Card 
-						icon="🎨" 
-						title="Interface Conjurer Supreme" 
-						role="UX/UI Designer"
-						description="Architects digital experiences using holographic prototypes and neural interface testing"
-					/>
-					<Card 
-						icon="🔮" 
-						title="User Mind Reader" 
-						role="UX Researcher"
-						description="Behavioral analytics expert reading user patterns through biometric feedback loops"
-					/>
-					<Card 
-						icon="🏗️" 
-						title="Grand Infrastructure Sage" 
-						role="System Architect"
-						description="Constructs self-scaling digital infrastructures using quantum computing patterns"
-					/>
-					<Card 
-						icon="🧭" 
-						title="Technical Pathfinder" 
-						role="Technical Lead"
-						description="Navigates complex tech stacks with enhanced decision algorithms and risk matrices"
-					/>
-				</div>
-				
-				<!-- Development Agents -->
-				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
-					<span class="text-terminal-green">// Development Phase - Parallel Execution</span>
-				</h3>
-				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
-					<Card 
-						icon="💻" 
-						title="Code Warrior" 
-						description="Battle-hardened Syntax Sorcerer - Forges reality from pure logic in the digital battlefield"
-					/>
-					<Card 
-						icon="🧪" 
-						title="Testing Sentinel" 
-						description="Guardian of Quality - Shields your realm from the chaos demons of untested code"
-					/>
-					<Card 
-						icon="🐛" 
-						title="Bug Hunter" 
-						description="Digital Demon Slayer - Stalks and vanquishes code aberrations in the shadow realm"
-					/>
-					<Card 
-						icon="📝" 
-						title="Documentation Sage" 
-						description="Clear technical writing and examples"
-					/>
-					<Card 
-						icon="🔍" 
-						title="Code Review Ninja" 
-						description="Instant analysis and improvements"
-					/>
-					<Card 
-						icon="🚀" 
-						title="DevOps Commander" 
-						description="Deployment automation and monitoring"
-					/>
-					<Card 
-						icon="🛡️" 
-						title="Security Guardian" 
-						description="Vulnerability protection and hardening"
-					/>
-					<Card 
-						icon="⚡" 
-						title="Performance Optimizer" 
-						description="Speed and efficiency maximization"
-					/>
-					<Card 
-						icon="🔌" 
-						title="API Architect" 
-						description="Interface design and integration"
-					/>
-					<Card 
-						icon="🗄️" 
-						title="Database Sage" 
-						description="Crystal Data Alchemist - Transmutes chaos into perfectly indexed realms of knowledge"
-					/>
-				</div>
-				
-				<!-- Marketing & Growth Agents -->
-				<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
-					<span class="text-terminal-magenta">// Marketing & Growth Phase - Amplification</span>
-				</h3>
-				<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
-					<Card 
-						icon="✍️" 
-						title="Copywriter" 
-						description="Word Weaver Supreme - Spins tales that enchant minds and open wallets across realms"
-					/>
-					<Card 
-						icon="📧" 
-						title="Email Marketing" 
-						description="Message Enchanter - Casts spells that make inboxes sing and conversions soar"
-					/>
-					<Card 
-						icon="📱" 
-						title="Social Media" 
-						description="Viral Summoner - Commands the digital tribes to spread your legend like wildfire"
-					/>
-					<Card 
-						icon="🔄" 
-						title="Content Syndication" 
-						description="Echo Master - Multiplies your voice across infinite channels of the digital cosmos"
-					/>
-					<Card 
-						icon="🧪" 
-						title="Integration Test" 
-						description="Connection Validator - Ensures all marketing magics flow in perfect harmony"
-					/>
-				</div>
+				{Object.entries(AGENT_DATA).map(([key, category]) => (
+					<>
+						<h3 class="text-2xl font-bold mb-6 terminal-text text-center">
+							<span class={`text-terminal-${key === 'planning' ? 'cyan' : key === 'development' || key === 'quality' ? 'green' : 'magenta'}`}>
+								// {category.title} - {category.subtitle}
+							</span>
+						</h3>
+						<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
+							{category.agents.map((agent) => {
+								const imageName = agent.title.toLowerCase().replace(/\s+/g, '-');
+								const imagePath = `/agents/${imageName}.png`;
+								return (
+									<Card 
+										icon={agent.icon}
+										title={agent.title}
+										role={agent.role}
+										description={agent.description}
+										image={imagePath}
+									/>
+								);
+							})}
+						</div>
+					</>
+				))}
 			</div>
 		</section>
 
