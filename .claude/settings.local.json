@@ -47,7 +47,8 @@
       "Bash(npm run fix:theme:*)",
       "Bash(node:*)",
       "Bash(npm run kill:dev:*)",
-      "Bash(npm run generate:images:*)"
+      "Bash(npm run generate:images:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

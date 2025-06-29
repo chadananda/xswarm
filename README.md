@@ -18,7 +18,7 @@ Claude Code is amazing for coding tasks, but it's slow and single-task oriented.
 
 The answer is XSwarm—a system that uses a mixture of specialized AI agents with Claude Code as part of a virtual team. It simulates the human development experience we know works: frontloading planning, then splitting development into highly parallel activities that can be executed extremely quickly with a high degree of quality and comprehensive testing.
 
-![xswarm logo](https://xswarm.ai/xswarm.png)
+![xswarm logo](https://xswarm.ai/teamofone.png)
 
 ## What XSwarm Really Is
 
