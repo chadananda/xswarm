@@ -37,6 +37,21 @@ const agentsCollection = defineCollection({
       role: z.string(),
       description: z.string(),
       image: z.string().optional(),
+      prompt: z.string().optional(),
+      mcpTools: z.array(z.string()).optional(),
+      activityType: z.enum([
+        'analytics',
+        'automation',
+        'content',
+        'marketing',
+        'development',
+        'testing',
+        'security',
+        'infrastructure',
+        'planning',
+        'design',
+        'support'
+      ]).optional(),
     })),
   }),
 });

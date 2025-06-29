@@ -7,25 +7,58 @@
       "icon": "📢",
       "title": "PR Strategist",
       "role": "PR Manager",
-      "description": "Shapes public perception through strategic narrative deployment"
+      "description": "Shapes public perception through strategic narrative deployment",
+      "image": "/agents/pr-manager.png",
+      "prompt": "Perform PR Manager duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🎙️",
       "title": "Comms Director",
       "role": "Communications Director",
-      "description": "Orchestrates corporate messaging across all consciousness channels"
+      "description": "Orchestrates corporate messaging across all consciousness channels",
+      "image": "/agents/communications-director.png",
+      "prompt": "Perform Communications Director duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "💎",
       "title": "Brand Guardian",
       "role": "Brand Manager",
-      "description": "Maintains brand coherence across all dimensional touchpoints"
+      "description": "Maintains brand coherence across all dimensional touchpoints",
+      "image": "/agents/brand-manager.png",
+      "prompt": "Maintain brand consistency and voice. Develop brand guidelines and ensure proper usage.",
+      "mcpTools": [
+        "adobe-creative",
+        "figma",
+        "canva",
+        "hootsuite"
+      ],
+      "activityType": "marketing"
     },
     {
       "icon": "🎪",
       "title": "Event Coordinator",
       "role": "Event Marketing Manager",
-      "description": "Creates immersive experiences that alter attendee neural patterns"
+      "description": "Creates immersive experiences that alter attendee neural patterns",
+      "image": "/agents/event-marketing-manager.png",
+      "prompt": "Perform Event Marketing Manager duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     }
   ]
 }

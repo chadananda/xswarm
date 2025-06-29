@@ -7,13 +7,29 @@
       "icon": "💪",
       "title": "Sales Force Commander",
       "role": "Sales Enablement Manager",
-      "description": "Arms sales teams with neuro-persuasion tools and battle-tested tactics"
+      "description": "Arms sales teams with neuro-persuasion tools and battle-tested tactics",
+      "image": "/agents/sales-enablement-manager.png",
+      "prompt": "Perform Sales Enablement Manager duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🎣",
       "title": "Lead Hunter",
       "role": "Lead Generation Specialist",
-      "description": "Attracts high-value prospects through algorithmic magnetism"
+      "description": "Attracts high-value prospects through algorithmic magnetism",
+      "image": "/agents/lead-generation-specialist.png",
+      "prompt": "Perform Lead Generation Specialist duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     }
   ]
 }

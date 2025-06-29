@@ -85,13 +85,15 @@ const blogPosts = (await getCollection('blog'))
 									// {category.data.title} - {category.data.subtitle}
 								</span>
 							</h3>
-							<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12 justify-items-center max-w-6xl mx-auto">
+							<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 mb-12 justify-items-center max-w-7xl mx-auto">
 								{category.data.agents.map((agent) => (
 									<Agent 
 										icon={agent.icon}
 										title={agent.title}
 										role={agent.role}
 										description={agent.description}
+										image={agent.image}
+										compact={true}
 									/>
 								))}
 							</div>

@@ -7,12 +7,13 @@ export interface Props {
   image?: string;
   class?: string;
   hover?: boolean;
+  compact?: boolean;
 }
 
-const { icon, title, role, description, image, class: className = '', hover = true } = Astro.props;
+const { icon, title, role, description, image, class: className = '', hover = true, compact = false } = Astro.props;
 ---
 
-<div class={`trading-card ${className}`}>
+<div class={`trading-card ${compact ? 'trading-card-compact' : ''} ${className}`}>
   <!-- Texture overlays -->
   <div class="card-texture"></div>
   <div class="card-holographic"></div>
@@ -27,12 +28,12 @@ const { icon, title, role, description, image, class: className = '', hover = tr
   <div class="card-image-section">
     {image ? (
       <>
-        <img src={image} alt={title} class="w-full h-full object-cover object-top" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <img src={image} alt={title} class="card-character-image" />
+        <div class="card-image-overlay"></div>
       </>
     ) : (
       <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
-        <div class="text-6xl text-terminal-cyan/20 animate-pulse">
+        <div class={`${compact ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
           {icon || '?'}
         </div>
       </div>
@@ -46,11 +47,11 @@ const { icon, title, role, description, image, class: className = '', hover = tr
   <div class="card-content-section">
     <!-- Title with ornate frame -->
     <div class="card-title-frame">
-      <h3 class="text-center text-lg font-bold text-terminal-green leading-tight">
+      <h3 class={`text-center ${compact ? 'text-base' : 'text-lg'} font-bold text-terminal-green leading-tight`}>
         {title}
       </h3>
       {role && (
-        <p class="text-center text-xs text-terminal-cyan/50 font-light mt-1">
+        <p class={`text-center ${compact ? 'text-[10px]' : 'text-xs'} text-terminal-cyan/50 font-light mt-1`}>
           ({role})
         </p>
       )}
@@ -59,18 +60,20 @@ const { icon, title, role, description, image, class: className = '', hover = tr
     <!-- Description -->
     {description && (
       <div class="relative px-2">
-        <p class="text-center text-xs text-terminal-green/70 leading-relaxed font-mono">
+        <p class={`text-center ${compact ? 'text-[10px]' : 'text-xs'} text-terminal-green/70 leading-relaxed font-mono`}>
           {description}
         </p>
       </div>
     )}
     
     <!-- Card ID/Number with foil effect -->
-    <div class="absolute bottom-2 right-2 text-xs font-mono">
-      <span class="inline-block bg-gradient-to-br from-terminal-cyan/40 via-terminal-magenta/40 to-terminal-cyan/40 bg-clip-text text-transparent">
-        #{String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}
-      </span>
-    </div>
+    {!compact && (
+      <div class="absolute bottom-2 right-2 text-xs font-mono">
+        <span class="inline-block bg-gradient-to-br from-terminal-cyan/40 via-terminal-magenta/40 to-terminal-cyan/40 bg-clip-text text-transparent">
+          #{String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}
+        </span>
+      </div>
+    )}
   </div>
   
   <!-- Scan lines effect -->

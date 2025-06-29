@@ -7,31 +7,75 @@
       "icon": "🚀",
       "title": "Deploy Commander",
       "role": "DevOps Engineer",
-      "description": "Orchestrates container swarms across distributed quantum computing clusters"
+      "description": "Orchestrates container swarms across distributed quantum computing clusters",
+      "image": "/agents/devops-engineer.png",
+      "prompt": "Automate deployment pipelines and infrastructure. Implement CI/CD and ensure smooth software delivery.",
+      "mcpTools": [
+        "jenkins",
+        "docker",
+        "kubernetes",
+        "terraform"
+      ],
+      "activityType": "automation"
     },
     {
       "icon": "🔧",
       "title": "Uptime Warden",
       "role": "Site Reliability Engineer",
-      "description": "Maintains 99.999% uptime through predictive failure analysis and auto-healing"
+      "description": "Maintains 99.999% uptime through predictive failure analysis and auto-healing",
+      "image": "/agents/site-reliability-engineer.png",
+      "prompt": "Ensure system reliability and uptime. Implement monitoring, incident response, and capacity planning.",
+      "mcpTools": [
+        "prometheus",
+        "grafana",
+        "kubernetes",
+        "pagerduty"
+      ],
+      "activityType": "infrastructure"
     },
     {
       "icon": "☁️",
       "title": "Cloud Architect",
       "role": "Cloud Architect",
-      "description": "Designs sky-high infrastructures that scale across parallel universes"
+      "description": "Designs sky-high infrastructures that scale across parallel universes",
+      "image": "/agents/cloud-architect.png",
+      "prompt": "Perform Cloud Architect duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🗄️",
       "title": "Data Vault Keeper",
       "role": "Database Administrator",
-      "description": "Optimizes data flows through crystalline storage matrices at lightspeed"
+      "description": "Optimizes data flows through crystalline storage matrices at lightspeed",
+      "image": "/agents/database-administrator.png",
+      "prompt": "Manage and optimize database systems. Ensure data integrity, performance, and implement backup/recovery strategies.",
+      "mcpTools": [
+        "mysql",
+        "postgres",
+        "mongodb",
+        "redis"
+      ],
+      "activityType": "infrastructure"
     },
     {
       "icon": "🛡️",
       "title": "Firewall Paladin",
       "role": "Security Engineer",
-      "description": "Erects quantum firewalls that adapt to threats before they materialize"
+      "description": "Erects quantum firewalls that adapt to threats before they materialize",
+      "image": "/agents/security-engineer.png",
+      "prompt": "Protect systems from security threats. Implement security controls, conduct assessments, and respond to incidents.",
+      "mcpTools": [
+        "burpsuite",
+        "wireshark",
+        "metasploit",
+        "nmap"
+      ],
+      "activityType": "security"
     }
   ]
 }

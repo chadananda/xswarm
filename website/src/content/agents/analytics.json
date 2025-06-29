@@ -7,25 +7,60 @@
       "icon": "📊",
       "title": "Analytics Sentinel",
       "role": "Marketing Analyst",
-      "description": "Reads patterns in the data matrix to predict future market movements"
+      "description": "Reads patterns in the data matrix to predict future market movements",
+      "image": "/agents/marketing-analyst.png",
+      "prompt": "Analyze marketing performance. Track metrics and provide insights to optimize campaigns.",
+      "mcpTools": [
+        "google-analytics",
+        "tableau",
+        "excel",
+        "sql"
+      ],
+      "activityType": "analytics"
     },
     {
       "icon": "🚀",
       "title": "Growth Engineer",
       "role": "Growth Hacker",
-      "description": "Experiments with viral coefficients to achieve exponential expansion"
+      "description": "Experiments with viral coefficients to achieve exponential expansion",
+      "image": "/agents/growth-hacker.png",
+      "prompt": "Drive rapid user growth. Experiment with channels and optimize conversion funnels.",
+      "mcpTools": [
+        "google-analytics",
+        "mixpanel",
+        "optimizely",
+        "segment"
+      ],
+      "activityType": "marketing"
     },
     {
       "icon": "🎯",
       "title": "Conversion Specialist",
       "role": "CRO Specialist",
-      "description": "Fine-tunes user flows to maximize neural engagement triggers"
+      "description": "Fine-tunes user flows to maximize neural engagement triggers",
+      "image": "/agents/cro-specialist.png",
+      "prompt": "Perform CRO Specialist duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "📦",
       "title": "Product Marshal",
       "role": "Product Marketing Manager",
-      "description": "Aligns product consciousness with market neural frequencies"
+      "description": "Aligns product consciousness with market neural frequencies",
+      "image": "/agents/product-marketing-manager.png",
+      "prompt": "Position and market products. Create messaging, launch plans, and go-to-market strategies.",
+      "mcpTools": [
+        "hubspot",
+        "google-analytics",
+        "confluence",
+        "figma"
+      ],
+      "activityType": "marketing"
     }
   ]
 }

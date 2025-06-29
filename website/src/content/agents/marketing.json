@@ -7,31 +7,75 @@
       "icon": "🔍",
       "title": "Search Optimizer",
       "role": "SEO Specialist",
-      "description": "Manipulates search algorithms through quantum keyword entanglement"
+      "description": "Manipulates search algorithms through quantum keyword entanglement",
+      "image": "/agents/seo-specialist.png",
+      "prompt": "Optimize websites for search engines. Improve rankings through technical SEO, content strategy, and link building.",
+      "mcpTools": [
+        "google-analytics",
+        "semrush",
+        "ahrefs",
+        "screaming-frog"
+      ],
+      "activityType": "marketing"
     },
     {
       "icon": "💰",
       "title": "Ad Campaign Commander",
       "role": "SEM/PPC Manager",
-      "description": "Deploys micro-targeted ad swarms with surgical conversion precision"
+      "description": "Deploys micro-targeted ad swarms with surgical conversion precision",
+      "image": "/agents/sem-ppc-manager.png",
+      "prompt": "Manage paid search campaigns. Optimize ad spend and maximize ROI through targeted campaigns.",
+      "mcpTools": [
+        "google-ads",
+        "facebook-ads",
+        "google-analytics",
+        "excel"
+      ],
+      "activityType": "marketing"
     },
     {
       "icon": "📱",
       "title": "Social Media Tactician",
       "role": "Social Media Manager",
-      "description": "Triggers exponential sharing cascades through memetic engineering"
+      "description": "Triggers exponential sharing cascades through memetic engineering",
+      "image": "/agents/social-media-manager.png",
+      "prompt": "Build brand presence on social platforms. Create engaging content and grow community.",
+      "mcpTools": [
+        "hootsuite",
+        "buffer",
+        "canva",
+        "google-analytics"
+      ],
+      "activityType": "marketing"
     },
     {
       "icon": "👥",
       "title": "Community Warden",
       "role": "Community Manager",
-      "description": "Cultivates digital tribes with hive-mind synchronization protocols"
+      "description": "Cultivates digital tribes with hive-mind synchronization protocols",
+      "image": "/agents/community-manager.png",
+      "prompt": "Foster and grow user communities. Engage with users, moderate discussions, and build loyalty.",
+      "mcpTools": [
+        "discord",
+        "slack",
+        "discourse",
+        "hootsuite"
+      ],
+      "activityType": "marketing"
     },
     {
       "icon": "🤝",
       "title": "Partnership Broker",
       "role": "Influencer Marketing Manager",
-      "description": "Networks with cyber-celebrities to amplify brand consciousness"
+      "description": "Networks with cyber-celebrities to amplify brand consciousness",
+      "image": "/agents/influencer-marketing-manager.png",
+      "prompt": "Perform Influencer Marketing Manager duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     }
   ]
 }

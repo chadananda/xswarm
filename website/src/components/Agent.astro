@@ -2,19 +2,21 @@
 import Card from './Card.astro';
 import type { Agent } from '../types/agent';
 
-export interface Props extends Omit<Agent, 'image'> {
+export interface Props extends Agent {
   class?: string;
+  compact?: boolean;
 }
 
-const { icon, title, role, description, class: className = '' } = Astro.props;
+const { icon, title, role, description, image, prompt, mcpTools, activityType, class: className = '', compact = false } = Astro.props;
 
-// Generate stable image path based on corporate role
-const imageName = role.toLowerCase()
-  .replace(/\//g, '-')      // Replace slashes with hyphens
-  .replace(/\s+/g, '-')     // Replace spaces with hyphens
-  .replace(/[^\w-]/g, '');  // Remove any other special characters
-
-const imagePath = `/agents/${imageName}.png`;
+// Use provided image or generate stable path based on corporate role
+const imagePath = image || (() => {
+  const imageName = role.toLowerCase()
+    .replace(/\//g, '-')      // Replace slashes with hyphens
+    .replace(/\s+/g, '-')     // Replace spaces with hyphens
+    .replace(/[^\w-]/g, '');  // Remove any other special characters
+  return `/agents/${imageName}.png`;
+})();
 ---
 
 <Card 
@@ -24,6 +26,7 @@ const imagePath = `/agents/${imageName}.png`;
   description={description}
   image={imagePath}
   class={className}
+  compact={compact}
 />
 
 <style>

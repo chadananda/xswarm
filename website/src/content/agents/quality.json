@@ -7,31 +7,72 @@
       "icon": "🛡️",
       "title": "Bug Sentinel",
       "role": "QA Engineer",
-      "description": "Deploys automated sentries that hunt bugs through quantum code analysis"
+      "description": "Deploys automated sentries that hunt bugs through quantum code analysis",
+      "image": "/agents/qa-engineer.png",
+      "prompt": "Ensure software quality through testing. Create test plans, find bugs, and verify fixes meet requirements.",
+      "mcpTools": [
+        "selenium",
+        "jira",
+        "postman",
+        "browserstack"
+      ],
+      "activityType": "testing"
     },
     {
       "icon": "🤖",
       "title": "Test Automaton",
       "role": "Automation Test Engineer",
-      "description": "Programs AI-driven test bots that evolve and adapt to new code patterns"
+      "description": "Programs AI-driven test bots that evolve and adapt to new code patterns",
+      "image": "/agents/automation-test-engineer.png",
+      "prompt": "Perform Automation Test Engineer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "⚡",
       "title": "Load Master",
       "role": "Performance Test Engineer",
-      "description": "Simulates millions of neural connections to stress-test system limits"
+      "description": "Simulates millions of neural connections to stress-test system limits",
+      "image": "/agents/performance-test-engineer.png",
+      "prompt": "Perform Performance Test Engineer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🔐",
       "title": "Breach Specialist",
       "role": "Security Tester",
-      "description": "Ethical hacker with cybernetic implants for penetrating digital fortresses"
+      "description": "Ethical hacker with cybernetic implants for penetrating digital fortresses",
+      "image": "/agents/security-tester.png",
+      "prompt": "Perform Security Tester duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "👥",
       "title": "User Champion",
       "role": "UAT Specialist",
-      "description": "Bridges the gap between augmented developers and baseline human users"
+      "description": "Bridges the gap between augmented developers and baseline human users",
+      "image": "/agents/uat-specialist.png",
+      "prompt": "Perform UAT Specialist duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     }
   ]
 }

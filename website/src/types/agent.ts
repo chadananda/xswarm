@@ -4,6 +4,9 @@ export interface Agent {
   role: string;
   description: string;
   image?: string;
+  prompt?: string;
+  mcpTools?: string[];
+  activityType?: 'analytics' | 'automation' | 'content' | 'marketing' | 'development' | 'testing' | 'security' | 'infrastructure' | 'planning' | 'design' | 'support';
 }
 
 export interface AgentCategory {

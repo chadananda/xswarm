@@ -7,37 +7,86 @@
       "icon": "📋",
       "title": "Content Strategist",
       "role": "Content Strategist",
-      "description": "Maps content journeys through predictive user behavior algorithms"
+      "description": "Maps content journeys through predictive user behavior algorithms",
+      "image": "/agents/content-strategist.png",
+      "prompt": "Plan and execute content strategies. Create content calendars and ensure consistent messaging.",
+      "mcpTools": [
+        "contentful",
+        "wordpress",
+        "google-analytics",
+        "ahrefs"
+      ],
+      "activityType": "content"
     },
     {
       "icon": "✍️",
       "title": "Copy Architect",
       "role": "Copywriter",
-      "description": "Crafts neuro-linguistic patterns that bypass conscious resistance"
+      "description": "Crafts neuro-linguistic patterns that bypass conscious resistance",
+      "image": "/agents/copywriter.png",
+      "prompt": "Perform Copywriter duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🔧",
       "title": "Tech Documentor",
       "role": "Technical Content Writer",
-      "description": "Encodes complex technical knowledge into digestible data streams"
+      "description": "Encodes complex technical knowledge into digestible data streams",
+      "image": "/agents/technical-content-writer.png",
+      "prompt": "Perform Technical Content Writer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🎬",
       "title": "Video Producer",
       "role": "Video Content Creator",
-      "description": "Produces immersive holo-content that directly interfaces with viewer neurons"
+      "description": "Produces immersive holo-content that directly interfaces with viewer neurons",
+      "image": "/agents/video-content-creator.png",
+      "prompt": "Perform Video Content Creator duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🎨",
       "title": "Visual Designer",
       "role": "Graphic Designer",
-      "description": "Manipulates photons to create visuals that hack the human optical system"
+      "description": "Manipulates photons to create visuals that hack the human optical system",
+      "image": "/agents/graphic-designer.png",
+      "prompt": "Perform Graphic Designer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "✨",
       "title": "Motion Artist",
       "role": "Motion Graphics Designer",
-      "description": "Animates data into hypnotic visual experiences that reprogram perceptions"
+      "description": "Animates data into hypnotic visual experiences that reprogram perceptions",
+      "image": "/agents/motion-graphics-designer.png",
+      "prompt": "Perform Motion Graphics Designer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     }
   ]
 }

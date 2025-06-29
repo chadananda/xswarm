@@ -7,31 +7,75 @@
       "icon": "🎭",
       "title": "Interface Templar",
       "role": "Frontend Developer",
-      "description": "Crafts neural-responsive interfaces that adapt to user brainwave patterns in real-time"
+      "description": "Crafts neural-responsive interfaces that adapt to user brainwave patterns in real-time",
+      "image": "/agents/frontend-developer.png",
+      "prompt": "Build responsive, performant user interfaces. Implement designs with modern web technologies and ensure cross-browser compatibility.",
+      "mcpTools": [
+        "vscode",
+        "chrome-devtools",
+        "github",
+        "npm"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "⚙️",
       "title": "Server Warden",
       "role": "Backend Developer",
-      "description": "Architects server-side systems with self-healing algorithms and predictive scaling"
+      "description": "Architects server-side systems with self-healing algorithms and predictive scaling",
+      "image": "/agents/backend-developer.png",
+      "prompt": "Develop robust server-side applications. Design APIs, manage databases, and ensure system reliability and performance.",
+      "mcpTools": [
+        "vscode",
+        "postman",
+        "docker",
+        "github"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "💫",
       "title": "Stack Commander",
       "role": "Full-Stack Developer",
-      "description": "Commands both frontend neural networks and backend quantum processors"
+      "description": "Commands both frontend neural networks and backend quantum processors",
+      "image": "/agents/full-stack-developer.png",
+      "prompt": "Work across the entire technology stack. Build features from database to UI with a holistic understanding of the system.",
+      "mcpTools": [
+        "vscode",
+        "docker",
+        "github",
+        "aws"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "📱",
       "title": "Mobile Crusader",
       "role": "Mobile Developer",
-      "description": "Optimizes apps for brain-computer interfaces and augmented reality overlays"
+      "description": "Optimizes apps for brain-computer interfaces and augmented reality overlays",
+      "image": "/agents/mobile-developer.png",
+      "prompt": "Create native mobile applications. Optimize for performance and user experience across iOS and Android platforms.",
+      "mcpTools": [
+        "android-studio",
+        "xcode",
+        "github",
+        "firebase"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "💻",
       "title": "Code Veteran",
       "role": "Senior Developer",
-      "description": "Elite programmer with cybernetic enhancements for 10x coding throughput"
+      "description": "Elite programmer with cybernetic enhancements for 10x coding throughput",
+      "image": "/agents/senior-developer.png",
+      "prompt": "Perform Senior Developer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     }
   ]
 }

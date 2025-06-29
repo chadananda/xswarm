@@ -7,31 +7,74 @@
       "icon": "🔮",
       "title": "Data Flow Engineer",
       "role": "Data Engineer",
-      "description": "Channels petabytes through neural ETL networks with zero data loss"
+      "description": "Channels petabytes through neural ETL networks with zero data loss",
+      "image": "/agents/data-engineer.png",
+      "prompt": "Build data pipelines and infrastructure. Process large datasets and enable analytics at scale.",
+      "mcpTools": [
+        "airflow",
+        "spark",
+        "kafka",
+        "aws-glue"
+      ],
+      "activityType": "infrastructure"
     },
     {
       "icon": "🧠",
       "title": "Neural Architect",
       "role": "Machine Learning Engineer",
-      "description": "Trains synthetic consciousnesses to solve problems beyond human comprehension"
+      "description": "Trains synthetic consciousnesses to solve problems beyond human comprehension",
+      "image": "/agents/machine-learning-engineer.png",
+      "prompt": "Perform Machine Learning Engineer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "🔌",
       "title": "Protocol Knight",
       "role": "API Developer",
-      "description": "Builds quantum-entangled APIs for instantaneous cross-system communication"
+      "description": "Builds quantum-entangled APIs for instantaneous cross-system communication",
+      "image": "/agents/api-developer.png",
+      "prompt": "Perform API Developer duties with expertise and precision.",
+      "mcpTools": [
+        "github",
+        "slack",
+        "jira"
+      ],
+      "activityType": "development"
     },
     {
       "icon": "📚",
       "title": "Code Scribe",
       "role": "Technical Writer",
-      "description": "Translates complex algorithms into neural-downloadable documentation"
+      "description": "Translates complex algorithms into neural-downloadable documentation",
+      "image": "/agents/technical-writer.png",
+      "prompt": "Create clear technical documentation. Write guides, API docs, and help content for developers and users.",
+      "mcpTools": [
+        "confluence",
+        "markdown",
+        "github",
+        "grammarly"
+      ],
+      "activityType": "content"
     },
     {
       "icon": "🌟",
       "title": "Developer Herald",
       "role": "Developer Advocate",
-      "description": "Amplifies developer consciousness across the global neural network"
+      "description": "Amplifies developer consciousness across the global neural network",
+      "image": "/agents/developer-advocate.png",
+      "prompt": "Bridge the gap between company and developer community. Create content, give talks, and gather feedback.",
+      "mcpTools": [
+        "twitter",
+        "github",
+        "slack",
+        "confluence"
+      ],
+      "activityType": "marketing"
     }
   ]
 }
