@@ -45,10 +45,10 @@ const blogPosts = (await getCollection('blog'))
 						<span class="cli-cursor"></span>
 					</p>
 					<div class="flex flex-col sm:flex-row gap-4 justify-center">
-						<Button href="/blog/getting-started-guide" size="lg" class="neon-border-green">
+						<Button href="/blog/getting-started-guide" size="lg">
 							<span class="terminal-text">npx xswarm</span>
 						</Button>
-						<Button href="https://github.com/chadananda/xswarm" variant="outline" size="lg" class="neon-border-cyan">
+						<Button href="https://github.com/chadananda/xswarm" variant="secondary" size="lg">
 							<span class="terminal-text">npm i -g xswarm</span>
 						</Button>
 					</div>
@@ -399,10 +399,10 @@ const blogPosts = (await getCollection('blog'))
 					<span class="cli-prompt">Break free from solo coding. Command your agent workforce.</span>
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<Button href="https://www.npmjs.com/package/xswarm" size="lg" class="neon-border-green">
+					<Button href="https://www.npmjs.com/package/xswarm" size="lg">
 						<span class="terminal-text">npm install -g xswarm</span>
 					</Button>
-					<Button href="/blog/getting-started-guide" variant="secondary" size="lg" class="neon-border-cyan">
+					<Button href="/blog/getting-started-guide" variant="secondary" size="lg">
 						<span class="terminal-text">./read-guide.sh</span>
 					</Button>
 				</div>
@@ -429,6 +429,11 @@ const blogPosts = (await getCollection('blog'))
 	
 	.text-terminal-magenta {
 		color: var(--terminal-magenta);
+	}
+	
+	/* Subtle hover scale */
+	.hover\:scale-102:hover {
+		transform: scale(1.02);
 	}
 	
 	.text-gradient-cyber {
