@@ -278,3 +278,7 @@ colors: {
 - Automatic color switching based on user preference
 - Cleaner, more maintainable code
 - Better performance (no JavaScript color switching)
+
+## Development Environment Reminders
+
+- When running a local dev server, make sure to shut down any that are open so we are all using the same default port

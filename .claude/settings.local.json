@@ -43,7 +43,10 @@
       "Bash(npm run build:*)",
       "Bash(for:*)",
       "Bash(do node ../scripts/update-dark-classes.js \"$file\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(npm run fix:theme:*)",
+      "Bash(node:*)",
+      "Bash(npm run kill:dev:*)"
     ],
     "deny": []
   }

@@ -35,14 +35,14 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
         <div class="mb-12 flex flex-wrap gap-2 justify-center">
           <button 
             data-tag="all"
-            class="tag-filter px-4 py-2 rounded-full bg-blue-600 text-white transition-colors"
+            class="tag-filter px-4 py-2 rounded-full bg-brand-primary text-white transition-colors"
           >
             All Posts
           </button>
           {tags.map((tag) => (
             <button 
               data-tag={tag}
-              class="tag-filter px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-secondary hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              class="tag-filter px-4 py-2 rounded-full bg-surface-hover text-secondary hover:bg-surface-active transition-colors"
             >
               {tag}
             </button>
@@ -62,7 +62,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
           
           return (
             <article 
-              class="blog-post bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              class="blog-post bg-surface rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               data-tags={JSON.stringify(post.data.tags)}
             >
               {post.data.image && (
@@ -135,11 +135,11 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
       
       // Update button states
       tagButtons.forEach(btn => {
-        btn.classList.remove('bg-blue-600', 'text-white');
-        btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+        btn.classList.remove('bg-brand-primary', 'text-white');
+        btn.classList.add('bg-surface-hover', 'text-secondary');
       });
-      button.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-      button.classList.add('bg-blue-600', 'text-white');
+      button.classList.remove('bg-surface-hover', 'text-secondary');
+      button.classList.add('bg-brand-primary', 'text-white');
       
       // Filter posts
       blogPosts.forEach(post => {

@@ -29,6 +29,8 @@
     "vitest": "3.2.4"
   },
   "devDependencies": {
-    "@types/node": "24.0.7"
+    "@types/node": "24.0.7",
+    "glob": "7.2.3",
+    "puppeteer": "24.11.1"
   }
 }

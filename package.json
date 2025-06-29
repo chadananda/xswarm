@@ -23,7 +23,14 @@
     "lint": "eslint . --ext .js",
     "format": "prettier --write .",
     "security:check": "npm audit --audit-level=moderate",
-    "security:fix": "npm audit fix"
+    "security:fix": "npm audit fix",
+    "kill:dev": "pkill -f 'astro dev' || true",
+    "kill:all": "pkill -f 'node' || true",
+    "start:website": "npm run kill:dev && cd website && npm run dev",
+    "preview:website": "npm run kill:dev && cd website && npm run preview",
+    "check:theme": "node scripts/check-theme.js",
+    "fix:theme": "node scripts/fix-theme.js",
+    "test:theme": "npm run kill:dev && npm run start:website & sleep 5 && node scripts/test-theme.js"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "3.2.4",

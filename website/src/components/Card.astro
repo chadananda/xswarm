@@ -9,8 +9,8 @@ export interface Props {
 
 const { icon, title, description, class: className = '', hover = true } = Astro.props;
 
-const hoverClasses = hover ? 'hover:shadow-xl hover:scale-105 hover:border-blue-500 dark:hover:border-blue-400' : '';
-const classes = `bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-border p-6 transition-all duration-300 ${hoverClasses} ${className}`;
+const hoverClasses = hover ? 'hover:shadow-xl hover:scale-105 hover:border-link' : '';
+const classes = `bg-surface rounded-xl shadow-lg border border-border p-6 transition-all duration-300 ${hoverClasses} ${className}`;
 ---
 
 <div class={classes}>
