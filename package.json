@@ -26,10 +26,10 @@
     "security:fix": "npm audit fix"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-v8": "3.2.4",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
-    "vitest": "^1.6.0"
+    "vitest": "3.2.4"
   },
   "repository": {
     "type": "git",

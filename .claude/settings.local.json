@@ -29,7 +29,9 @@
       "Bash(gh run view:*)",
       "Bash(git fetch:*)",
       "Bash(git worktree:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npm update:*)",
+      "Bash(npm outdated)"
     ],
     "deny": []
   }
