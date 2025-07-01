@@ -111,17 +111,17 @@ async function generatePlaceholder(article) {
       
       <!-- Grid lines -->
       ${Array.from(
-        { length: 12 },
-        (_, i) => `
+    { length: 12 },
+    (_, i) => `
         <line x1="${i * 100}" y1="0" x2="${i * 100}" y2="${height}" stroke="${article.color1}" stroke-width="0.5" opacity="0.1"/>
       `
-      ).join('')}
+  ).join('')}
       ${Array.from(
-        { length: 7 },
-        (_, i) => `
+    { length: 7 },
+    (_, i) => `
         <line x1="0" y1="${i * 100}" x2="${width}" y2="${i * 100}" stroke="${article.color2}" stroke-width="0.5" opacity="0.1"/>
       `
-      ).join('')}
+  ).join('')}
       
       <!-- Title background -->
       <rect x="50" y="${height / 2 - 120}" width="${width - 100}" height="240" fill="#0a0a0a" opacity="0.8" rx="10"/>
@@ -130,9 +130,9 @@ async function generatePlaceholder(article) {
       <!-- Title text -->
       <text x="${width / 2}" y="${height / 2 - 20}" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#ffffff">
         ${article.title
-          .split('\\n')
-          .map((line, i) => `<tspan x="${width / 2}" dy="${i === 0 ? 0 : 40}">${line}</tspan>`)
-          .join('')}
+    .split('\\n')
+    .map((line, i) => `<tspan x="${width / 2}" dy="${i === 0 ? 0 : 40}">${line}</tspan>`)
+    .join('')}
       </text>
       
       <!-- Decorative elements -->

@@ -47,7 +47,7 @@ const AGENT_AVATARS = [
     name: 'bug-hunter',
     title: 'Bug Hunter Agent',
     prompt:
-      "Fantasy cyberpunk wizard portrait: A relentless tracker mage with a cybernetic targeting eye that sees bugs as glowing red demons, wearing a hunter's cloak with digital camouflage. Magical traps and snares float around them. A bow made of pure energy with arrows of debugging light. Pet digital wolf companion with glowing eyes. Trophies of squashed bugs on their belt. Dark forest of code background. Cinematic lighting, ultra detailed face, game character portrait style",
+      'Fantasy cyberpunk wizard portrait: A relentless tracker mage with a cybernetic targeting eye that sees bugs as glowing red demons, wearing a hunter\'s cloak with digital camouflage. Magical traps and snares float around them. A bow made of pure energy with arrows of debugging light. Pet digital wolf companion with glowing eyes. Trophies of squashed bugs on their belt. Dark forest of code background. Cinematic lighting, ultra detailed face, game character portrait style',
   },
   {
     name: 'documentation-sage',

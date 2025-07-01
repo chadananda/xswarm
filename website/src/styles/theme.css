@@ -47,6 +47,19 @@
   --color-success: light-dark(rgb(16 185 129), rgb(52 211 153)); /* emerald-500 / emerald-400 */
   --color-warning: light-dark(rgb(245 158 11), rgb(251 191 36)); /* amber-500 / amber-400 */
   --color-error: light-dark(rgb(239 68 68), rgb(248 113 113)); /* red-500 / red-400 */
+  --color-danger: light-dark(rgb(239 68 68), rgb(248 113 113)); /* red-500 / red-400 */
+  --color-info: light-dark(rgb(59 130 246), rgb(96 165 250)); /* blue-500 / blue-400 */
+  
+  /* Extended Status Colors */
+  --color-success-dark: light-dark(rgb(6 95 70), rgb(34 197 94)); /* emerald-700 / emerald-500 */
+  --color-danger-dark: light-dark(rgb(185 28 28), rgb(220 38 38)); /* red-700 / red-600 */
+  --color-success-light: light-dark(rgb(167 243 208), rgb(16 185 129)); /* emerald-300 / emerald-500 */
+  --color-danger-light: light-dark(rgb(254 202 202), rgb(239 68 68)); /* red-200 / red-500 */
+  --color-primary-light: light-dark(rgb(147 197 253), rgb(59 130 246)); /* blue-300 / blue-500 */
+  
+  /* Component Colors */
+  --color-primary: rgb(var(--brand-primary));
+  --color-secondary: rgb(var(--brand-secondary));
 
   /* Overlays */
   --color-overlay: light-dark(rgba(0 0 0 / 0.5), rgba(0 0 0 / 0.7));
@@ -71,6 +84,9 @@
   --glow-intense: light-dark(0 0 4px, 0 0 20px);
   --glow-extreme: light-dark(0 0 6px, 0 0 30px);
   --color-backdrop: light-dark(rgba(255 255 255 / 0.8), rgba(17 24 39 / 0.8));
+  
+  /* Typography */
+  --font-mono: ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace;
 }
 
 /* Force light mode */

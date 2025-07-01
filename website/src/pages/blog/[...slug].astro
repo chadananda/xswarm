@@ -12,6 +12,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+// Check if this is the token economics post
+const isTokenEconomicsPost = entry.slug === '12-token-economics';
 ---
 
 <BlogLayout 
@@ -26,3 +28,9 @@ const { Content } = await entry.render();
 >
   <Content />
 </BlogLayout>
+
+{isTokenEconomicsPost && (
+  <style>
+    @import '../../styles/token-economics.css';
+  </style>
+)}

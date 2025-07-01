@@ -6,7 +6,7 @@
 export const showPlaceholder = () => {
   console.log('🚀 XSwarm.ai is coming soon!\n');
 
-  console.log("✨ What's planned:");
+  console.log('✨ What\'s planned:');
   console.log('   • AI expert teams for solo developers');
   console.log('   • Parallel development coordination');
   console.log('   • Comprehensive feature delivery');
