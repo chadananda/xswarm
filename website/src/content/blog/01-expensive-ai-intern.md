@@ -1,5 +1,5 @@
 ---
-title: 'Why Your AI Assistant Can't Remember Where Anything Goes'
+title: "Why Your AI Assistant Can't Remember Where Anything Goes"
 description: "We've all been there - Claude Code writes brilliant functions but can't figure out where they should live. What if that AI intern came with a full senior team?"
 publishDate: 2024-01-15
 author: 'XSwarm Team'
