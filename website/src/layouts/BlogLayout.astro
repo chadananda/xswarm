@@ -10,6 +10,7 @@ import '../styles/blog-manifesto.css';
 import '../styles/blog-scrollbar.css';
 import '../styles/blog-share.css';
 import '../styles/navbar-sticky.css';
+import '../styles/blog-metadata.css';
 
 export interface Props {
   title: string;
@@ -39,12 +40,6 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     <!-- Hero Section -->
     <div class="blog-hero">
       <div class="container mx-auto px-4 max-w-4xl">
-        <div class="blog-meta">
-          <time class="blog-date" datetime={publishDate.toISOString()}>{formattedDate}</time>
-          <span class="blog-author">{author}</span>
-          <span class="blog-reading-time">{stats.text}</span>
-        </div>
-        
         <h1 class="blog-title" data-text={title}>
           {title}
         </h1>
@@ -75,6 +70,12 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     </div>
     
     <article class="container mx-auto px-4 max-w-4xl py-12">
+      <!-- Blog Metadata -->
+      <div class="blog-meta-article">
+        <time class="blog-date" datetime={publishDate.toISOString()}>{formattedDate}</time>
+        <span class="blog-author">{author}</span>
+        <span class="blog-reading-time">{stats.text}</span>
+      </div>
 
       <!-- Article Content -->
       <div class="blog-article">

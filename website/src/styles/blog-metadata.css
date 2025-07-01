@@ -1,0 +1,51 @@
+/* Blog Metadata Styling for Article Position */
+.blog-meta-article {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.blog-meta-article .blog-date {
+  color: var(--blog-neon-cyan, #00d4ff);
+}
+
+.blog-meta-article .blog-author {
+  color: var(--blog-neon-pink, #ff00aa);
+}
+
+.blog-meta-article .blog-reading-time {
+  color: #fbbf24;
+  margin-left: auto;
+}
+
+/* Add separators between metadata items */
+.blog-meta-article span:not(:first-child)::before {
+  content: '•';
+  margin: 0 0.5rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.blog-meta-article .blog-reading-time::before {
+  content: '•';
+  margin: 0 0.5rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .blog-meta-article {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .blog-meta-article .blog-reading-time {
+    margin-left: 0;
+    width: 100%;
+  }
+}

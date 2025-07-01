@@ -5,18 +5,105 @@ nav.terminal-window {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  /* Full shadow border all around including top */
+  box-shadow: 
+    0 -4px 8px rgba(0, 0, 0, 0.9),    /* top shadow */
+    0 4px 8px rgba(0, 0, 0, 0.9),     /* bottom shadow */
+    -4px 0 8px rgba(0, 0, 0, 0.9),    /* left shadow */
+    4px 0 8px rgba(0, 0, 0, 0.9),     /* right shadow */
+    0 0 24px rgba(0, 0, 0, 0.8) !important; /* overall shadow */
+  /* Ensure it stays on top */
+  position: fixed !important;
+  z-index: 999999 !important;
 }
 
-/* Add subtle shadow when scrolled */
-nav.terminal-window.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Ensure navbar stays on top */
+/* Ensure navbar stays on top of ALL content */
 nav.fixed {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 9999 !important;
+}
+
+/* Force all content to have lower z-index than navbar */
+body * {
+  z-index: 1;
+}
+
+/* Special handling for glitch effects */
+[data-text]::before,
+[data-text]::after,
+.glitch-text::before,
+.glitch-text::after {
+  z-index: 0 !important;
+}
+
+/* Reset z-index for specific elements */
+main,
+article,
+.blog-hero-image-top,
+.blog-hero,
+.blog-article,
+.cyberpunk-share-section,
+.pull-quote,
+.callout,
+.code-block,
+.blog-title,
+.blog-title::before,
+.blog-title::after,
+.share-title::before,
+.share-title::after {
+  position: relative;
+  z-index: 1 !important;
+}
+
+/* Ensure navbar and its children stay on top */
+nav.terminal-window,
+nav.terminal-window * {
+  z-index: 999999 !important;
+}
+
+/* Add bottom border glow for cyberpunk effect */
+nav.terminal-window::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(0, 212, 255, 0.8),
+    transparent
+  );
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Terminal cursor animation */
+.terminal-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #00ff00;
+  font-weight: normal;
+  animation: cursor-blink 1s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Logo styling - clean without glow */
+nav .flex.items-center img {
+  transition: transform 0.3s ease;
+}
+
+nav .flex.items-center:hover img {
+  transform: scale(1.05);
 }
