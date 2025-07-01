@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xswarm/xswarm.git"
+    "url": "git+https://github.com/chadananda/xswarm.git"
   },
   "keywords": [
     "xswarm",
@@ -58,7 +58,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xswarm/xswarm/issues"
+    "url": "https://github.com/chadananda/xswarm/issues"
   },
   "homepage": "https://xswarm.ai",
   "engines": {

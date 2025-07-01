@@ -1,0 +1,22 @@
+/* Sticky Navbar Enhancements */
+nav.terminal-window {
+  /* Ensure solid background for sticky navbar */
+  background: rgba(26, 26, 46, 0.98) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow when scrolled */
+nav.terminal-window.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure navbar stays on top */
+nav.fixed {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+}

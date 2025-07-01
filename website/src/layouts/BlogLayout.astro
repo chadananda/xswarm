@@ -9,6 +9,7 @@ import '../styles/blog-visuals.css';
 import '../styles/blog-manifesto.css';
 import '../styles/blog-scrollbar.css';
 import '../styles/blog-share.css';
+import '../styles/navbar-sticky.css';
 
 export interface Props {
   title: string;
@@ -34,7 +35,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 <Layout title={`${title} - XSwarm.ai Blog`} description={description}>
   <Navbar />
   
-  <main class="pt-0">
+  <main>
     <!-- Hero Section -->
     <div class="blog-hero">
       <div class="container mx-auto px-4 max-w-4xl">

@@ -313,12 +313,12 @@ Here's the shift: Stop thinking like a developer trying to do everything. Start 
   <p>"You're not just coding anymore. You're orchestrating an entire technology organization. And every single specialist is an expert in their field, updated with the latest best practices, never taking vacation, never burning out."</p>
 </blockquote>
 
-Welcome to the future of development. Where you don't need to be an expert at everything—because you've got 40+ experts who already are.
+The real breakthrough wasn't building more AI agents. It was realizing that the roles and responsibilities we've refined in software teams over decades translate perfectly to AI specialization. When you give an AI a focused role, it stops being a generalist and becomes an expert.
 
 <div class="final-cta">
-  <h3>🎯 The Bottom Line</h3>
-  <p class="cta-text">The question isn't whether AI can help you code.<br/>
-  <strong>It's whether you're ready to command an entire AI consultancy.</strong></p>
+  <h3>🎯 What We Learned</h3>
+  <p class="cta-text">Specialized AI agents outperform generalists every time.<br/>
+  <strong>The secret? Give them the same focused roles that work in human teams.</strong></p>
   <div class="cta-stats">
     <div class="stat">
       <span class="number">40+</span>

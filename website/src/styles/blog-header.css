@@ -1,5 +1,27 @@
 /* XSwarm Blog Header - Cyberpunk Hero Design */
 
+/* Hero Image at Top */
+.blog-hero-image-top {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 600px;
+  max-height: 900px;
+  overflow: hidden;
+  margin-top: 74px; /* Account for fixed navbar height + shadow space */
+  margin-bottom: 0; /* Clean edge with hero section */
+  padding: 0 10px; /* Add horizontal padding */
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px; /* Slight rounding with padding */
+  }
+  
+  /* Remove gradient overlay - clean edge transition */
+}
 /* Blog Hero Section */
 .blog-hero {
   position: relative;
