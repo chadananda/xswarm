@@ -1,6 +1,6 @@
 {
   "name": "xswarm",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "XSwarm.ai CLI - Transform yourself into a Team of One",
   "type": "module",
   "main": "./src/index.js",
