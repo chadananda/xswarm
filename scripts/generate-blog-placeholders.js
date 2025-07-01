@@ -64,8 +64,8 @@ async function generatePlaceholder(article) {
       <!-- Title text -->
       <text x="${width/2}" y="${height/2 - 20}" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#ffffff">
         ${article.title.split('\\n').map((line, i) => 
-          `<tspan x="${width/2}" dy="${i === 0 ? 0 : 40}">${line}</tspan>`
-        ).join('')}
+    `<tspan x="${width/2}" dy="${i === 0 ? 0 : 40}">${line}</tspan>`
+  ).join('')}
       </text>
       
       <!-- Decorative elements -->

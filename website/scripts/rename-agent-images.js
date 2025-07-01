@@ -87,7 +87,7 @@ async function renameAgentImages() {
   
   try {
     // Get all files in the agents directory
-    const files = await fs.readdir(agentsDir);
+    await fs.readdir(agentsDir);
     
     let renamed = 0;
     let skipped = 0;
@@ -115,7 +115,7 @@ async function renameAgentImages() {
       }
     }
     
-    console.log(`\n=== Summary ===`);
+    console.log('\n=== Summary ===');
     console.log(`✓ Renamed: ${renamed} files`);
     console.log(`- Skipped: ${skipped} files (not found)`);
     
