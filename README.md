@@ -1,4 +1,4 @@
-# XSwarm.ai - Transform Every Developer into an AI Team Leader
+# XSwarm.ai - AI Development Epochs: Recursive Planning for Parallel Execution
 
 [![npm version](https://badge.fury.io/js/xswarm.svg)](https://www.npmjs.com/package/xswarm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,25 +8,118 @@
 📦 **NPM Package**: [npmjs.com/package/xswarm](https://www.npmjs.com/package/xswarm)
 🐙 **GitHub**: [github.com/chadananda/xswarm](https://github.com/chadananda/xswarm)
 
-## The Story Behind XSwarm
+## What Makes XSwarm Different
 
-I use Claude Code heavily in my daily development work. It's revolutionary. But I also run large human development teams, and here's what I've learned: the frustration with human teams is that you never have enough people. You're always resource-constrained, always making trade-offs between what needs to be done and who's available to do it.
+While others focus on better AI coding assistants, XSwarm revolutionizes the entire development process. We don't just use AI agents—we orchestrate complete development **epochs** with recursive planning specifically designed for AI characteristics.
 
-The frustration with Claude Code, on the other hand, is different. It's incredibly capable but lacks the planning and orchestration that makes human teams effective. In a real development team, developers are just one part of the equation. To orchestrate developers effectively, you need Business Analysts to gather requirements, UX Designers to plan interfaces, DevOps Engineers to handle deployment, Project Managers to coordinate efforts, Testers to ensure quality, and Quality Assurance to maintain standards. These supporting roles are what allow developers to be truly effective.
-
-Claude Code is amazing for coding tasks, but it's slow and single-task oriented. So I asked myself: **How do we create a real, scalable software development team with AI?**
-
-The answer is XSwarm—a system that uses a mixture of specialized AI agents with Claude Code as part of a virtual team. It simulates the human development experience we know works: frontloading planning, then splitting development into highly parallel activities that can be executed extremely quickly with a high degree of quality and comprehensive testing.
+**The Breakthrough**: AI teams don't have the same constraints as human teams. They can work in perfect parallel, they need atomic tasks, and they thrive with comprehensive planning. XSwarm is built from the ground up for these AI-specific characteristics.
 
 ![xswarm logo](https://xswarm.ai/teamofone.png)
 
-## What XSwarm Really Is
-
-XSwarm isn't just another AI coding assistant. It's a complete rethinking of how AI can work in software development. Instead of one AI doing everything sequentially, XSwarm orchestrates specialized agents that work in parallel—just like a real development team.
-
-**The Sweet Spot:** Where LLMs, Git, GitHub, SQLite, Turso, MCP servers, TailwindCSS, ShadCN components, and CSS variables converge to create a complete development support ecosystem that works within any existing repository structure.
-
 > ⚠️ **Current Status**: XSwarm.ai is in active development. The CLI placeholder and website are live. Full functionality coming Q2 2025.
+
+## The XSwarm Epoch System
+
+### What's an Epoch?
+
+An epoch is a complete development cycle that transforms ideas into production-ready features through AI-optimized planning and parallel execution. Unlike traditional sprints designed for human limitations, epochs are structured for AI capabilities.
+
+```mermaid
+graph LR
+    Idea[Product Idea] --> CI[Concept Interview<br/>BA + 40 Experts]
+    CI --> UI[Interactive UI/UX<br/>Live Prototypes]
+    UI --> EP[Epoch Planning<br/>5-Pass AI Optimization]
+    EP --> PE[Parallel Execution<br/>Sandboxed Teams]
+    PE --> ID[Integrated Delivery<br/>Code + Tests + Docs + Marketing]
+```
+
+### Phase 1: Concept Interview & Expert Consultation
+
+The AI Business Analyst doesn't just gather requirements—it orchestrates consultations with 40+ specialized expert agents:
+
+- **Product Experts**: Product Manager, Business Analyst, Growth Hacker
+- **Design Experts**: UX Designer, UX Researcher, Motion Designer
+- **Technical Experts**: Systems Architect, Security Engineer, ML Engineer
+- **Quality Experts**: QA Engineer, Performance Tester, Security Auditor
+- **Content Experts**: Technical Writer, Video Creator, Developer Advocate
+- **Marketing Experts**: SEO Specialist, Social Media Manager, Content Strategist
+
+Each expert provides domain-specific insights, ensuring nothing is missed before development begins.
+
+### Phase 2: Interactive UI/UX Prototyping
+
+Instead of static mockups, the UX Designer creates **working HTML prototypes**:
+
+- 3 interactive variations for each design challenge
+- Hosted on GitHub Pages for immediate stakeholder testing
+- Real clicking, typing, and interaction—not PDFs
+- Iteration based on actual usage, not imagination
+
+### Phase 3: Multi-Pass AI-Optimized Planning
+
+This is where XSwarm truly diverges from human-centric development:
+
+#### Pass 1: Pure Function Extraction
+- Identify ALL data transformations and calculations
+- Build dependency graphs
+- Create reusable function library (Sprint 0)
+- Target: 60%+ function reuse across tasks
+
+#### Pass 2: Sprint-Specific Functions
+- Extract functions that depend on current state
+- Plan shared utilities per sprint
+- Create comprehensive registries
+
+#### Pass 3: Task Decomposition
+- Break features into atomic, single-outcome tasks
+- Optimize for maximum parallelization
+- Define clear interfaces between all tasks
+
+#### Pass 4: Sprint Container Design
+- Isolated environments with mock data
+- Graduated complexity (simple → realistic)
+- Complete test harnesses
+
+#### Pass 5: Content Integration
+- Map features to documentation needs
+- Plan screenshot capture during testing
+- Integrate marketing asset generation
+
+### Phase 4: Parallel Sprint Execution
+
+With planning complete, XSwarm unleashes parallel execution:
+
+- **Sandboxed Task Teams**: Each task runs in an isolated container
+- **No Coordination Overhead**: Complete isolation = no conflicts
+- **Specialized Sub-Agents**: Implementation, Testing, Review, Documentation
+- **Automatic Integration**: Orchestrator handles all merging
+
+### Phase 5: Integrated Delivery
+
+Every sprint delivers:
+- **Production Code**: Tested and reviewed
+- **Comprehensive Tests**: Unit, integration, and E2E
+- **Documentation**: Generated from actual implementation
+- **Marketing Assets**: Screenshots, videos, blog posts
+- **Deployment Config**: Ready for production
+
+## Why This Changes Everything
+
+### Traditional AI Development Problems
+
+1. **Sequential Execution**: AI writes code → Human tests → AI writes docs → Repeat
+2. **Context Loss**: Every session starts fresh, recreating the same utilities
+3. **No Real Planning**: Prompt engineering isn't architecture
+4. **Integration Nightmares**: "It worked in isolation"
+5. **Token Waste**: 90% spent on context and regeneration
+
+### The XSwarm Solution
+
+1. **Parallel Execution**: Multiple isolated teams working simultaneously
+2. **Function Registries**: Reuse instead of regenerate
+3. **Comprehensive Planning**: 5-pass optimization before any code
+4. **Sandboxed Testing**: Integration happens in containers first
+5. **Token Efficiency**: 10x reduction through reuse and isolation
 
 ## Quick Start
 
@@ -38,186 +131,82 @@ npx xswarm
 npm install -g xswarm
 ```
 
-### Current Features
+## Real Impact Metrics
 
-- ✅ Professional CLI with branded header
-- ✅ Live website at [xswarm.ai](https://xswarm.ai)
-- ✅ npm package namespace secured
-- 🚧 Full AI agent coordination (coming Q2 2025)
+When fully implemented, XSwarm enables:
 
-## The Problem We're Solving
+- **10x Faster Development**: True parallel execution
+- **60%+ Code Reuse**: Function registries prevent duplication
+- **90% Token Reduction**: Efficient context and reuse
+- **Zero Integration Surprises**: Sandboxed testing catches everything
+- **Complete Deliverables**: Code + Tests + Docs + Marketing
 
-In traditional development, you face impossible choices:
-- Need a new feature? Hire a developer (expensive, slow)
-- Want better testing? Add a QA engineer (more overhead)
-- Require documentation? Bring in a technical writer (another salary)
+## The Technology Stack
 
-With AI tools like Claude Code, you get powerful assistance but:
-- Single-threaded execution (one task at a time)
-- No built-in planning or architecture phase
-- Limited coordination between different aspects of development
-- No parallel execution of independent tasks
+- **Epoch Orchestration**: Custom planning engine for AI teams
+- **Sandboxed Execution**: Podman containers with complete isolation
+- **Interactive Prototypes**: TailwindCSS + ShadCN + AlpineJS
+- **Function Registries**: Searchable, reusable component libraries
+- **Parallel Coordination**: Kaiban dashboards for real-time visibility
+- **Content Pipeline**: Automated asset generation during development
 
-XSwarm bridges this gap by providing the best of both worlds: AI's tireless execution with the proven patterns of human team organization.
+## From Solo Developer to Epoch Commander
 
-## How It Works
+Instead of crafting prompts for a single AI, you command entire development epochs:
 
-Just like I manage my human teams, XSwarm follows a proven development workflow:
+1. **Define Vision**: What needs to be built
+2. **Review Plans**: Approve epoch strategy
+3. **Monitor Execution**: Watch parallel progress
+4. **Validate Delivery**: Ensure quality standards
 
-### 1. Planning Phase
-Before any code is written, XSwarm's planning agents:
-- Gather requirements through structured interviews
-- Create technical specifications
-- Design system architecture
-- Identify potential challenges
-- Plan testing strategies
-- Estimate effort and complexity
-
-### 2. Parallel Execution
-Once planning is complete, XSwarm splits work into parallel streams:
-- Multiple developer agents work on independent components
-- Testing agents create comprehensive test suites
-- Documentation agents write guides and API docs
-- DevOps agents prepare deployment configurations
-- All working simultaneously, not sequentially
-
-### 3. Integration & Quality
-As components complete:
-- Review agents check code quality
-- Integration testing ensures components work together
-- Security agents audit for vulnerabilities
-- Performance agents optimize bottlenecks
-
-### 4. Delivery
-The result is production-ready code with:
-- Comprehensive test coverage
-- Complete documentation
-- Deployment configurations
-- Performance optimizations
-- Security best practices
-
-## From Solo Developer to AI Team Leader
-
-The shift is profound. Instead of writing every line of code yourself, you become a team leader who:
-
-- **Sets Vision**: Define what needs to be built
-- **Makes Decisions**: Choose between architectural options
-- **Reviews Output**: Ensure quality meets standards
-- **Guides Direction**: Adjust course based on results
-
-Your AI team handles the implementation details while you focus on the big picture—exactly how the best human teams operate.
-
-```mermaid
-graph TD
-    Dev[Human Developer<br/>Team Leader & Strategist] --> XS[XSwarm.ai]
-    XS --> PA[Product Strategist Agent]
-    XS --> TA[Technical Architect Agent]
-    XS --> FP[Functional Programmer Agent]
-    XS --> TE[Test Engineer Agent]
-    XS --> TW[Technical Writer Agent]
-    XS --> CS[Content Strategist Agent]
-    XS --> DO[DevOps Engineer Agent]
-    XS --> SE[Security Expert Agent]
-
-    PA --> Output[Complete Feature Delivery]
-    TA --> Output
-    FP --> Output
-    TE --> Output
-    TW --> Output
-    CS --> Output
-    DO --> Output
-    SE --> Output
-
-    Output --> Code[Working Code]
-    Output --> Tests[Comprehensive Tests]
-    Output --> Docs[Documentation]
-    Output --> Marketing[Marketing Content]
-    Output --> Deploy[CI/CD Pipeline]
-```
-
-## Why This Matters
-
-In my experience running both human teams and using AI tools, I've seen that neither approach alone is optimal. Human teams have the right structure but are expensive and slow. AI tools are fast but lack coordination.
-
-XSwarm combines the best of both:
-- **Human-like planning and coordination**
-- **AI-powered execution speed**
-- **Parallel processing for massive productivity**
-- **Quality assurance built into every step**
-- **Cost-effective and scalable**
-
-## Real-World Impact
-
-When fully implemented, XSwarm will enable:
-
-- **10x faster development** through parallel execution
-- **Higher quality** through comprehensive testing and review
-- **Better documentation** created alongside code
-- **Reduced context switching** for human developers
-- **Scalable teams** without hiring overhead
-
-## Technology Stack
-
-XSwarm is built on proven technologies:
-
-- **KaibanJS** for workflow orchestration
-- **Claude Code SDK** with software development MCP servers
-- **Git worktrees** for parallel development isolation
-- **GitHub ecosystem** for project management
-- **SQLite plus Turso** for local-first development
-- **TailwindCSS and ShadCN** for component isolation
-- **Automatic initialization** with project detection
+Your role evolves from coder to commander, from implementer to strategist.
 
 ## Development Philosophy
 
-### Parallel-First Architecture
-Unlike sequential AI coding, XSwarm identifies independent tasks and executes them simultaneously across multiple agents.
+### AI-First, Not Human-Adapted
+Every aspect of XSwarm is designed for AI characteristics:
+- Parallel execution without ego conflicts
+- Atomic tasks with clear success criteria
+- Comprehensive mocking for deterministic results
+- Function reuse as a core principle
 
-### Planning Before Coding
-Every project starts with comprehensive planning—just like successful human teams do.
+### Planning Prevents Problems
+Multi-pass planning isn't bureaucracy—it's optimization:
+- Pure functions first = maximum reuse
+- Clear interfaces = parallel execution
+- Sandboxed testing = safe integration
+- Content planning = launch-ready features
 
-### Quality Through Specialization
-Each agent specializes in one area, ensuring deep expertise rather than shallow generalization.
+### Specialization Over Generalization
+40+ expert agents because expertise matters:
+- Security experts find vulnerabilities
+- Performance experts prevent bottlenecks
+- Marketing experts create authentic content
+- Each agent masters their domain
 
-### Human Leadership
-The developer remains in control, making strategic decisions while AI handles implementation.
+## Roadmap
 
-## Getting Started
+### Phase 1: Foundation ✅
+- [x] Secure npm namespace
+- [x] Launch website
+- [x] Create CLI placeholder
+- [x] Define epoch methodology
 
-When you run XSwarm, you're not just launching a tool—you're assembling your team:
+### Phase 2: Core Systems (Q1 2025)
+- [ ] Epoch planning engine
+- [ ] Sandboxed execution environment
+- [ ] Function registry system
+- [ ] Interactive prototype generator
 
-```bash
-npx xswarm
-```
-
-The interactive CLI will:
-1. Analyze your project context
-2. Assemble appropriate AI agents
-3. Conduct a planning interview
-4. Begin orchestrated development
-
-No commands to memorize. No complex configuration. Just describe what you want to build.
-
-## Project Structure
-
-```
-xswarm/
-├── cli/                    # CLI package (published to npm)
-│   ├── src/               # CLI source code
-│   ├── bin/               # Executable scripts
-│   └── package.json       # CLI package configuration
-├── website/               # Astro static website
-│   ├── src/               # Website source
-│   └── package.json       # Website dependencies
-├── scripts/               # Development and deployment scripts
-└── package.json          # Monorepo root configuration
-```
+### Phase 3: Full Launch (Q2 2025)
+- [ ] 40+ expert agent library
+- [ ] Parallel execution orchestrator
+- [ ] Kaiban dashboard integration
+- [ ] Complete content pipeline
 
 ## Contributing
 
-We're building XSwarm in the open. Contributions are welcome!
-
-### Development Setup
+We're building XSwarm in the open. Join us in revolutionizing AI development!
 
 ```bash
 # Clone the repository
@@ -231,40 +220,11 @@ npm install
 npm run dev
 ```
 
-### Contribution Guidelines
-
-- Follow existing code patterns
-- Add tests for new features
-- Update documentation
-- Submit PRs with clear descriptions
-
-## Roadmap
-
-### Phase 1: Foundation (Current) ✅
-- [x] Secure npm namespace
-- [x] Launch website
-- [x] Create CLI placeholder
-- [x] Setup infrastructure
-
-### Phase 2: Core Implementation (Q1 2025)
-- [ ] Agent base classes
-- [ ] KaibanJS integration
-- [ ] Git worktree management
-- [ ] Basic task coordination
-
-### Phase 3: Full Launch (Q2 2025)
-- [ ] Complete expert agent library
-- [ ] Interactive chat interface
-- [ ] Project dashboard system
-- [ ] Parallel execution engine
-
 ## The Vision
 
-I believe the future of software development isn't about replacing developers—it's about amplifying them. Every developer should have access to the kind of team support that only large companies can afford today.
+The future of software development isn't better AI assistants—it's AI development teams that understand how to work together. XSwarm makes every developer a commander of specialized AI agents, orchestrating complete development epochs that deliver production-ready features with unprecedented speed and quality.
 
-With XSwarm, a solo developer can work like they have a team of specialists. A small startup can compete with enterprise development teams. And large organizations can multiply their effectiveness without multiplying their headcount.
-
-This is the future I'm building toward—where every developer is empowered to achieve their full potential.
+This isn't incremental improvement. This is a fundamental reimagining of how software gets built.
 
 ## License
 
@@ -278,4 +238,4 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-**XSwarm.ai** - Transform Every Developer into an AI Team Leader
+**XSwarm.ai** - Command AI Epochs. Ship Complete Features.
