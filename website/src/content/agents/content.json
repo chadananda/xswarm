@@ -10,12 +10,7 @@
       "description": "Maps content journeys through predictive user behavior algorithms",
       "image": "/agents/content-strategist.png",
       "prompt": "Plan and execute content strategies. Create content calendars and ensure consistent messaging.",
-      "mcpTools": [
-        "contentful",
-        "wordpress",
-        "google-analytics",
-        "ahrefs"
-      ],
+      "mcpTools": ["contentful", "wordpress", "google-analytics", "ahrefs"],
       "activityType": "content"
     },
     {
@@ -25,11 +20,7 @@
       "description": "Crafts neuro-linguistic patterns that bypass conscious resistance",
       "image": "/agents/copywriter.png",
       "prompt": "Perform Copywriter duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -39,11 +30,7 @@
       "description": "Encodes complex technical knowledge into digestible data streams",
       "image": "/agents/technical-content-writer.png",
       "prompt": "Perform Technical Content Writer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -53,11 +40,7 @@
       "description": "Produces immersive holo-content that directly interfaces with viewer neurons",
       "image": "/agents/video-content-creator.png",
       "prompt": "Perform Video Content Creator duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -67,11 +50,7 @@
       "description": "Manipulates photons to create visuals that hack the human optical system",
       "image": "/agents/graphic-designer.png",
       "prompt": "Perform Graphic Designer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -81,11 +60,7 @@
       "description": "Animates data into hypnotic visual experiences that reprogram perceptions",
       "image": "/agents/motion-graphics-designer.png",
       "prompt": "Perform Motion Graphics Designer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     }
   ]

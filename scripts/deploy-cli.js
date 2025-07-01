@@ -29,7 +29,7 @@ try {
   // Run tests first
   console.log('🧪 Running tests...');
   execSync('npm test', { cwd: cliDir, stdio: 'inherit' });
-  
+
   // Get current version safely
   let currentVersion;
   try {
@@ -39,9 +39,9 @@ try {
     console.error('❌ Failed to read package.json:', err.message);
     process.exit(1);
   }
-  
+
   console.log(`\n📌 Current version: ${currentVersion}`);
-  
+
   // Check if user is logged in to npm
   try {
     execSync('npm whoami', { stdio: 'pipe' });
@@ -49,11 +49,11 @@ try {
     console.error('❌ Not logged in to npm. Please run: npm login');
     process.exit(1);
   }
-  
+
   // Publish to npm
   console.log('\n📤 Publishing to npm...');
   execSync('npm publish', { cwd: cliDir, stdio: 'inherit' });
-  
+
   console.log('\n✅ CLI published successfully!');
   console.log('🎉 Install with: npm install -g xswarm');
 } catch (error) {

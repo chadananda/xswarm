@@ -1,7 +1,7 @@
 ---
-title: "Best Practices"
-description: "Guidelines and recommendations for getting the most out of your AI development team"
-category: "Guides"
+title: 'Best Practices'
+description: 'Guidelines and recommendations for getting the most out of your AI development team'
+category: 'Guides'
 order: 2
 ---
 
@@ -14,11 +14,13 @@ Follow these guidelines to maximize your effectiveness as an AI team leader with
 ### Be Specific and Clear
 
 ❌ **Vague Request:**
+
 ```
 > Make the code better
 ```
 
 ✅ **Specific Request:**
+
 ```
 > Refactor the user authentication module to use async/await and add proper error handling
 ```
@@ -26,11 +28,13 @@ Follow these guidelines to maximize your effectiveness as an AI team leader with
 ### Provide Context
 
 ❌ **Without Context:**
+
 ```
 > Add a cache
 ```
 
 ✅ **With Context:**
+
 ```
 > Add Redis caching to the product API endpoints to reduce database load. Cache for 5 minutes.
 ```
@@ -38,11 +42,13 @@ Follow these guidelines to maximize your effectiveness as an AI team leader with
 ### Break Down Complex Tasks
 
 ❌ **Overwhelming Request:**
+
 ```
 > Build a complete e-commerce platform
 ```
 
 ✅ **Incremental Approach:**
+
 ```
 > Design the architecture for an e-commerce platform
 > Implement user authentication and registration
@@ -69,6 +75,7 @@ Follow these guidelines to maximize your effectiveness as an AI team leader with
 ### Request Tests
 
 Always ask for tests with new features:
+
 ```
 > Implement user profile updates with validation and include comprehensive unit tests
 ```
@@ -78,6 +85,7 @@ Always ask for tests with new features:
 ### Start with Architecture
 
 Before diving into code:
+
 ```
 > Design the overall architecture for [your project]
 > What design patterns should we use?
@@ -87,6 +95,7 @@ Before diving into code:
 ### Use Incremental Development
 
 Build features incrementally:
+
 1. Core functionality first
 2. Add features one at a time
 3. Test after each addition
@@ -119,6 +128,7 @@ Build features incrementally:
 ### Security-First Mindset
 
 Always consider security:
+
 ```
 > Implement user authentication with proper password hashing and JWT tokens
 > Add rate limiting to prevent brute force attacks

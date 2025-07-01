@@ -1,11 +1,11 @@
 ---
-title: "Three Minute Standups"
+title: 'Three Minute Standups'
 description: "Remember 45-minute 'standups' that turned into architecture debates? With AI teams working in isolation, we just check the Kaiban dashboard and move on. No more meeting hell."
 publishDate: 2024-01-23
-author: "XSwarm Team"
-image: "/images/blog/three-minute-standups-hero.jpg"
-imageAlt: "Split screen showing a chaotic meeting room vs clean dashboard"
-tags: ["productivity", "meetings", "ai-teams", "developer-life"]
+author: 'XSwarm Team'
+image: '/images/blog/three-minute-standups-hero.jpg'
+imageAlt: 'Split screen showing a chaotic meeting room vs clean dashboard'
+tags: ['productivity', 'meetings', 'ai-teams', 'developer-life']
 ---
 
 It was 9:15 AM. The standup started at 9:00.
@@ -53,7 +53,7 @@ The standup timer—that optimistic little widget someone installed—showed 47 
 
 You know what's worse than long meetings? Long meetings that pretend to be short. At least when someone schedules a two-hour architecture review, you know what you're getting into. You can prepare. Maybe fake a dental emergency.
 
-But standups? They're the ambush predators of the meeting world. "It'll just be 15 minutes!" they said. "We'll just sync up quickly!" they promised. 
+But standups? They're the ambush predators of the meeting world. "It'll just be 15 minutes!" they said. "We'll just sync up quickly!" they promised.
 
 <blockquote class="pull-quote">
   <p>"Standups are the ambush predators of the meeting world. 'It'll just be 15 minutes!' they said. 'We'll just sync up quickly!' they promised."</p>
@@ -167,7 +167,7 @@ Here's what a morning looks like now:
   </div>
 </div>
 
-That's it. That's the standup. No discussion needed because there's nothing to discuss. Each team knows exactly what they're doing. The boundaries are crystal clear. The interfaces are defined. 
+That's it. That's the standup. No discussion needed because there's nothing to discuss. Each team knows exactly what they're doing. The boundaries are crystal clear. The interfaces are defined.
 
 Want more details? Click into any team's epoch report:
 
@@ -276,7 +276,7 @@ Compare that to the old way:
 
 ## Real-Time Progress Without the Theater
 
-The beautiful thing about AI teams is they don't need to perform productivity. They just... are productive. 
+The beautiful thing about AI teams is they don't need to perform productivity. They just... are productive.
 
 Watch the dashboard during an active sprint:
 
@@ -298,6 +298,7 @@ No status updates needed because the status is RIGHT THERE. No progress reports 
 You know what I did with the time I used to spend in standups? Actual work. Revolutionary concept, I know.
 
 Last week's stats:
+
 - Meeting time: 3 minutes/day (epoch reviews)
 - Coding time: 7.5 hours/day
 - Features shipped: 17

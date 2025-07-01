@@ -1,4 +1,5 @@
 # Product Requirements Document (PRD): Epoch Planning & AI-Optimized Task Decomposition
+
 ## Document: 01c-epoch-planning-prd.md
 
 ## Executive Summary
@@ -10,12 +11,14 @@ The Epoch Planning System transforms requirements and design specifications into
 ## Planning Philosophy: Human vs AI Teams
 
 ### Human Team Constraints
+
 - Limited developer resources
 - Communication overhead
 - Context switching costs
 - Resource allocation conflicts
 
 ### AI Team Optimization
+
 - Parallelization-constrained, not resource-constrained
 - Require extremely well-defined, atomic tasks
 - Excel with simple, testable units of work
@@ -24,30 +27,35 @@ The Epoch Planning System transforms requirements and design specifications into
 ## Multi-Pass Planning Process
 
 ### Pass 1: Pure Function Extraction
+
 - Identify all data transformations, calculations, validations
 - Create dependency graphs for function relationships
 - Score functions by complexity and reusability potential
 - Plan pure function library as Sprint 0 foundation
 
 ### Pass 2: Sprint-Specific Function Planning
+
 - Extract reusable functions that depend on current development state
 - Plan shared utilities for each sprint cluster
 - Create function registry and documentation system
 - Define function export and testing requirements
 
 ### Pass 3: Task Decomposition & Parallelization
+
 - Break all functionality into atomic, testable tasks
 - Map task dependencies and sprint organization
 - Optimize for maximum parallel execution
 - Define clear interfaces between all tasks
 
 ### Pass 4: Sprint Container Design
+
 - Design isolated test environments for each sprint
 - Plan mock data, services, and database states
 - Create graduated complexity from simple to realistic
 - Define integration testing and validation approaches
 
 ### Pass 5: Content & Marketing Integration
+
 - Map features to documentation and marketing requirements
 - Plan screenshot and video capture from testing
 - Create content calendar integrated with development timeline
@@ -56,6 +64,7 @@ The Epoch Planning System transforms requirements and design specifications into
 ## Core Planning Documents
 
 ### 1. Function Dependency Graph & Registry
+
 ```
 .xswarm/epochs/epoch-{N}/planning/functions/
 ├── pure-functions-library.json
@@ -66,12 +75,14 @@ The Epoch Planning System transforms requirements and design specifications into
 ```
 
 **Function Registry Schema:**
+
 - Function signature and documentation
 - Complexity score and reusability metrics
 - Dependencies and integration requirements
 - Test coverage and validation criteria
 
 ### 2. Sprint Container Specifications
+
 ```
 .xswarm/epochs/epoch-{N}/planning/containers/
 ├── sprint-01-environment.yml
@@ -82,12 +93,14 @@ The Epoch Planning System transforms requirements and design specifications into
 ```
 
 **Container Requirements:**
+
 - Database schema at sprint level
 - Mock services and API endpoints
 - Test data factories and generators
 - Integration test scenarios and validation
 
 ### 3. Task Decomposition Strategy
+
 ```
 .xswarm/epochs/epoch-{N}/planning/tasks/
 ├── atomic-task-definitions.json
@@ -98,12 +111,14 @@ The Epoch Planning System transforms requirements and design specifications into
 ```
 
 **Task Optimization Criteria:**
+
 - Single, clearly testable outcome
 - Minimal context requirements
 - Well-defined input/output interfaces
 - Maximum reuse of existing functions
 
 ### 4. Test Strategy & Automation Plan
+
 ```
 .xswarm/epochs/epoch-{N}/planning/testing/
 ├── unit-test-requirements.json
@@ -114,12 +129,14 @@ The Epoch Planning System transforms requirements and design specifications into
 ```
 
 **Testing Integration:**
+
 - Comprehensive unit tests (Vitest default)
 - Integration testing with screenshot/video capture (Puppeteer)
 - E2E testing for user journey documentation
 - Automated test artifact collection for content creation
 
 ### 5. Content & Marketing Integration Plan
+
 ```
 .xswarm/epochs/epoch-{N}/planning/content/
 ├── marketing-calendar.json
@@ -130,6 +147,7 @@ The Epoch Planning System transforms requirements and design specifications into
 ```
 
 **Content Creation Workflow:**
+
 - Screenshots from integration tests → How-to articles
 - Video from E2E tests → Feature demonstrations
 - Function documentation → Developer tutorials
@@ -138,6 +156,7 @@ The Epoch Planning System transforms requirements and design specifications into
 ## Function Reuse System
 
 ### Function Registration Process
+
 1. **Task Completion**: Task teams export all created functions
 2. **Documentation**: Automated function signature and usage documentation
 3. **Testing**: Comprehensive unit test suite for each function
@@ -145,6 +164,7 @@ The Epoch Planning System transforms requirements and design specifications into
 5. **Reuse Recommendations**: AI analysis of cross-task function opportunities
 
 ### Function Categories
+
 - **Pure Functions**: No side effects, easily testable, highest reuse priority
 - **Sprint-Specific Functions**: Depend on development state, moderate reuse
 - **Utility Functions**: Helper functions, logging, formatting, validation
@@ -153,11 +173,13 @@ The Epoch Planning System transforms requirements and design specifications into
 ## Sprint Container Architecture
 
 ### Graduated Complexity Model
+
 - **Sprint 1-2**: Simple mocks, static data, basic validation
 - **Sprint 3-4**: Realistic data, service simulation, integration testing
 - **Sprint 5+**: Full environment, live services, comprehensive E2E testing
 
 ### Container Isolation Strategy
+
 - Each sprint runs in completely isolated environment
 - Controlled dependencies and service availability
 - Realistic but reproducible test data
@@ -166,18 +188,21 @@ The Epoch Planning System transforms requirements and design specifications into
 ## Marketing & Content Integration
 
 ### Feature Documentation Planning
+
 - **User Stories**: Translated into how-to article outlines
 - **Screenshots**: Captured during integration testing
 - **Video Demos**: Recorded during E2E test execution
 - **Developer Docs**: Generated from function documentation
 
 ### Promotional Calendar Integration
+
 - **Sprint Completion**: Triggers content creation tasks
 - **Feature Releases**: Coordinated with marketing calendar
 - **Social Media**: Automated post generation from templates
 - **Email Campaigns**: Feature announcement scheduling
 
 ### Content Asset Pipeline
+
 ```
 Integration Test → Screenshots → How-to Articles → Social Posts → Email Content
 E2E Test → Videos → Feature Demos → Blog Posts → Press Materials
@@ -187,6 +212,7 @@ Function Docs → Developer Tutorials → Community Content → Technical Articl
 ## Quality Assurance Framework
 
 ### Planning Validation Gates
+
 - [ ] All functions categorized and dependency-mapped
 - [ ] Tasks are atomic with single testable outcomes
 - [ ] Sprint containers properly isolated and configured
@@ -194,6 +220,7 @@ Function Docs → Developer Tutorials → Community Content → Technical Articl
 - [ ] Maximum parallelization achieved within constraints
 
 ### Success Metrics
+
 - **Function Reuse Rate**: >60% of functions reused across tasks
 - **Task Parallelization**: >80% of tasks can execute simultaneously within sprints
 - **Test Coverage**: >95% unit test coverage, comprehensive integration testing
@@ -203,11 +230,13 @@ Function Docs → Developer Tutorials → Community Content → Technical Articl
 ## Integration Points
 
 ### Input Sources
+
 - **Concept Interview** (`01a`): Requirements and stakeholder needs
 - **UI Interview** (`01b`): Design specifications and interaction patterns
 - **Expert Consultations**: Technical architecture and implementation guidance
 
 ### Output Deliverables
+
 - **Sprint Definitions**: Ready for orchestration system (`02`)
 - **Task Specifications**: Complete packages for task teams (`03`)
 - **Function Registry**: Searchable library of reusable components
@@ -216,12 +245,14 @@ Function Docs → Developer Tutorials → Community Content → Technical Articl
 ## Automation & Tooling
 
 ### Planning Automation
+
 - Function dependency analysis and optimization recommendations
 - Task complexity scoring and sprint load balancing
 - Integration testing scenario generation
 - Content requirement extraction from user stories
 
 ### Development Integration
+
 - Automated function registration during task completion
 - Test artifact collection and content asset generation
 - Sprint container deployment and management
@@ -232,6 +263,7 @@ Function Docs → Developer Tutorials → Community Content → Technical Articl
 The Epoch Planning System represents a fundamental shift from human-team planning to AI-team optimization. By front-loading pure functions, maximizing reuse, integrating content creation, and designing for maximum parallelization, the system enables AI development teams to achieve unprecedented efficiency and quality while automatically generating comprehensive marketing and documentation assets.
 
 ## Related Documents
+
 - `01a-concept-interview-prd.md`: Provides requirements and expert recommendations
 - `01b-ui-interview-prd.md`: Provides design specifications and interaction requirements
 - `02-orchestration-prd.md`: Executes the planned sprint structure

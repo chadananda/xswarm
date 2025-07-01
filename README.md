@@ -60,30 +60,35 @@ Instead of static mockups, the UX Designer creates **working HTML prototypes**:
 This planning phase is where we set up everything for autonomous execution. The goal: minimize dependencies between tasks so multiple sprints can run with maximum parallelization:
 
 #### Pass 1: Pure Function Extraction
+
 - Identify ALL data transformations and calculations upfront
 - Build these as a shared library before any sprints begin
 - Target: 60%+ of all code as reusable functions
 - Why: AI teams never have to reinvent the wheel
 
 #### Pass 2: Sprint-Specific Functions
+
 - Map out utilities needed for each sprint
 - Plan shared components within sprint boundaries
 - Create function registries for easy discovery
 - Result: Each task knows exactly what's available
 
 #### Pass 3: Task Decomposition
+
 - Break everything into atomic, single-outcome tasks
 - Each task must be completable in total isolation
 - Define exact interfaces between tasks
 - Outcome: Maximum possible parallelization
 
 #### Pass 4: Sprint Container Design
+
 - Design isolated environments for each sprint
 - Start simple (Sprint 1) → Graduate to complex
 - Include all mock data and test harnesses
 - Purpose: Zero integration surprises
 
 #### Pass 5: Content Integration
+
 - Plan documentation capture during development
 - Schedule screenshot automation during testing
 - Map features to marketing content needs
@@ -102,6 +107,7 @@ Once planning is complete, the epoch runs autonomously through multiple sprints:
 ### Phase 5: Integrated Delivery
 
 At the end of the epoch, you receive:
+
 - **Working Software**: Fully integrated across all sprints
 - **Complete Test Suite**: Unit, integration, and E2E tests
 - **Real Documentation**: Generated from actual usage
@@ -113,6 +119,7 @@ At the end of the epoch, you receive:
 ### The Frustrations We All Share
 
 If you've used AI for development, these probably sound familiar:
+
 - **The Context Dance**: "Let me explain the entire codebase again..."
 - **Integration Surprise**: "It worked perfectly in ChatGPT!"
 - **The Waiting Game**: Ask → Wait → Test → Fix → Ask again...
@@ -122,6 +129,7 @@ If you've used AI for development, these probably sound familiar:
 ### What We're Trying Instead
 
 Through lots of trial and error, we've found approaches that actually work:
+
 - **Parallel Everything**: Why wait? Let specialized teams work simultaneously
 - **Shared Memory**: Build once, reuse everywhere (finally, DRY for AI)
 - **Test in Isolation**: Each team gets a sandbox—no more "works on my machine"
@@ -162,6 +170,7 @@ Based on our prototypes and testing, here's what we think is possible:
 Here's the shift we're going for:
 
 **Current Reality**: You're the Glue
+
 - Write detailed prompts hoping AI understands
 - Get code back, test it, find issues
 - Explain the issues, get fixes, test again
@@ -169,6 +178,7 @@ Here's the shift we're going for:
 - Write docs when you're "done" (ha!)
 
 **With XSwarm**: You're the Director
+
 - Describe what needs to be built
 - Review recommendations from specialist teams
 - Watch progress on parallel tasks
@@ -179,21 +189,27 @@ It's less about crafting perfect prompts and more about directing specialized te
 ## Development Philosophy
 
 ### AI-First, Not Human-Adapted
+
 Every aspect of XSwarm is designed for AI characteristics:
+
 - Parallel execution without ego conflicts
 - Atomic tasks with clear success criteria
 - Comprehensive mocking for deterministic results
 - Function reuse as a core principle
 
 ### Planning Prevents Problems
+
 Multi-pass planning isn't bureaucracy—it's optimization:
+
 - Pure functions first = maximum reuse
 - Clear interfaces = parallel execution
 - Sandboxed testing = safe integration
 - Content planning = launch-ready features
 
 ### Specialization Over Generalization
+
 40+ expert agents because expertise matters:
+
 - Security experts find vulnerabilities
 - Performance experts prevent bottlenecks
 - Marketing experts create authentic content
@@ -202,18 +218,21 @@ Multi-pass planning isn't bureaucracy—it's optimization:
 ## Roadmap
 
 ### Phase 1: Foundation ✅
+
 - [x] Secure npm namespace
 - [x] Launch website
 - [x] Create CLI placeholder
 - [x] Define epoch methodology
 
 ### Phase 2: Core Systems (Q1 2025)
+
 - [ ] Epoch planning engine
 - [ ] Sandboxed execution environment
 - [ ] Function registry system
 - [ ] Interactive prototype generator
 
 ### Phase 3: Full Launch (Q2 2025)
+
 - [ ] 40+ expert agent library
 - [ ] Parallel execution orchestrator
 - [ ] Kaiban dashboard integration

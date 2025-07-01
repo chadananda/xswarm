@@ -10,12 +10,7 @@
       "description": "Manipulates search algorithms through quantum keyword entanglement",
       "image": "/agents/seo-specialist.png",
       "prompt": "Optimize websites for search engines. Improve rankings through technical SEO, content strategy, and link building.",
-      "mcpTools": [
-        "google-analytics",
-        "semrush",
-        "ahrefs",
-        "screaming-frog"
-      ],
+      "mcpTools": ["google-analytics", "semrush", "ahrefs", "screaming-frog"],
       "activityType": "marketing"
     },
     {
@@ -25,12 +20,7 @@
       "description": "Deploys micro-targeted ad swarms with surgical conversion precision",
       "image": "/agents/sem-ppc-manager.png",
       "prompt": "Manage paid search campaigns. Optimize ad spend and maximize ROI through targeted campaigns.",
-      "mcpTools": [
-        "google-ads",
-        "facebook-ads",
-        "google-analytics",
-        "excel"
-      ],
+      "mcpTools": ["google-ads", "facebook-ads", "google-analytics", "excel"],
       "activityType": "marketing"
     },
     {
@@ -40,12 +30,7 @@
       "description": "Triggers exponential sharing cascades through memetic engineering",
       "image": "/agents/social-media-manager.png",
       "prompt": "Build brand presence on social platforms. Create engaging content and grow community.",
-      "mcpTools": [
-        "hootsuite",
-        "buffer",
-        "canva",
-        "google-analytics"
-      ],
+      "mcpTools": ["hootsuite", "buffer", "canva", "google-analytics"],
       "activityType": "marketing"
     },
     {
@@ -55,12 +40,7 @@
       "description": "Cultivates digital tribes with hive-mind synchronization protocols",
       "image": "/agents/community-manager.png",
       "prompt": "Foster and grow user communities. Engage with users, moderate discussions, and build loyalty.",
-      "mcpTools": [
-        "discord",
-        "slack",
-        "discourse",
-        "hootsuite"
-      ],
+      "mcpTools": ["discord", "slack", "discourse", "hootsuite"],
       "activityType": "marketing"
     },
     {
@@ -70,11 +50,7 @@
       "description": "Networks with cyber-celebrities to amplify brand consciousness",
       "image": "/agents/influencer-marketing-manager.png",
       "prompt": "Perform Influencer Marketing Manager duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     }
   ]

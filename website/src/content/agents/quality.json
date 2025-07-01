@@ -10,12 +10,7 @@
       "description": "Deploys automated sentries that hunt bugs through quantum code analysis",
       "image": "/agents/qa-engineer.png",
       "prompt": "Ensure software quality through testing. Create test plans, find bugs, and verify fixes meet requirements.",
-      "mcpTools": [
-        "selenium",
-        "jira",
-        "postman",
-        "browserstack"
-      ],
+      "mcpTools": ["selenium", "jira", "postman", "browserstack"],
       "activityType": "testing"
     },
     {
@@ -25,11 +20,7 @@
       "description": "Programs AI-driven test bots that evolve and adapt to new code patterns",
       "image": "/agents/automation-test-engineer.png",
       "prompt": "Perform Automation Test Engineer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -39,11 +30,7 @@
       "description": "Simulates millions of neural connections to stress-test system limits",
       "image": "/agents/performance-test-engineer.png",
       "prompt": "Perform Performance Test Engineer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -53,11 +40,7 @@
       "description": "Ethical hacker with cybernetic implants for penetrating digital fortresses",
       "image": "/agents/security-tester.png",
       "prompt": "Perform Security Tester duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -67,11 +50,7 @@
       "description": "Bridges the gap between augmented developers and baseline human users",
       "image": "/agents/uat-specialist.png",
       "prompt": "Perform UAT Specialist duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     }
   ]

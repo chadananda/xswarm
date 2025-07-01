@@ -36,7 +36,7 @@ XSwarm organizes development into **epochs**—complete cycles that start with i
 
 ```
 1. Expert Consultation → 40+ specialized AI agents analyze requirements
-2. Interactive Prototyping → Live HTML demos, not static mockups  
+2. Interactive Prototyping → Live HTML demos, not static mockups
 3. Intelligent Planning → 5-pass optimization to maximize parallelization
 4. Automated Sprints → Multiple sprints run with parallel task execution
 5. Complete Delivery → Code + Tests + Docs + Marketing assets
@@ -47,6 +47,7 @@ The key insight: one epoch contains many sprints, each sprint contains many para
 ## Key Innovations
 
 ### 🧠 Multi-Pass Planning
+
 - **Pass 1**: Extract pure functions (60%+ reuse target)
 - **Pass 2**: Sprint-specific utilities
 - **Pass 3**: Atomic task decomposition
@@ -54,13 +55,16 @@ The key insight: one epoch contains many sprints, each sprint contains many para
 - **Pass 5**: Content integration
 
 ### 🚀 Parallel Execution
+
 - Sandboxed task teams
 - Zero coordination overhead
 - Automatic integration
 - No merge conflicts
 
 ### 📦 Complete Delivery
+
 Every epoch ships:
+
 - Production code
 - Comprehensive tests
 - Documentation
@@ -70,12 +74,14 @@ Every epoch ships:
 ## From Solo Developer to Team Commander
 
 **Without XSwarm**: You craft prompts for a single AI assistant
+
 - Write prompt → Wait for code → Test it → Fix issues → Repeat
 - Every session starts fresh
 - Integration is your problem
 - Documentation comes later
 
 **With XSwarm**: You command specialized AI teams
+
 - Define what you need → Expert teams plan → Parallel execution → Complete delivery
 - Shared context and functions
 - Integration built-in
@@ -84,16 +90,19 @@ Every epoch ships:
 ## Installation
 
 ### Requirements
+
 - Node.js 18.0.0 or higher
 - npm or yarn
 - Git
 
 ### Global Installation
+
 ```bash
 npm install -g xswarm
 ```
 
 ### Direct Usage (Recommended)
+
 ```bash
 npx xswarm
 ```
@@ -101,12 +110,14 @@ npx xswarm
 ## Coming Soon
 
 ### Q1 2025
+
 - Epoch planning engine
 - Sandboxed execution
 - Function registries
 - Interactive prototypes
 
 ### Q2 2025
+
 - 40+ expert agents
 - Parallel orchestration
 - Kaiban dashboards

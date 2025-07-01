@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Cyberpunk terminal theme constants
@@ -31,7 +31,7 @@ const images = [
     nodes connected by glowing neon green circuit paths, holographic effect, 
     terminal-style green glow on black background, digital rain effect in background, 
     retro-futuristic computer terminal aesthetic, ASCII-inspired geometric design`,
-    style: 'logo'
+    style: 'logo',
   },
   {
     name: 'getting-started-hero',
@@ -39,7 +39,7 @@ const images = [
     showing glowing green code, matrix-style digital rain, neon-lit keyboard with mechanical keys, 
     dark room illuminated only by screen glow, terminal windows floating in 3D space, 
     command prompts visible, ASCII art decorations on screens, retro CRT effects`,
-    path: 'images/blog/'
+    path: 'images/blog/',
   },
   {
     name: 'team-of-one-hero',
@@ -47,7 +47,7 @@ const images = [
     central figure silhouetted against multiple floating terminal windows, each showing different 
     AI agent roles (ARCHITECT, TESTER, DEVELOPER) in neon text, matrix code rain connecting 
     the terminals, cyberpunk command center aesthetic, green/cyan/magenta color scheme`,
-    path: 'images/blog/'
+    path: 'images/blog/',
   },
   {
     name: 'ai-workflows-hero',
@@ -55,7 +55,7 @@ const images = [
     terminal windows showing data flow, neon green code streams between nodes, circuit board 
     patterns, holographic displays with command line interfaces, glitch effects, ASCII flowcharts, 
     matrix-style background, retro computer aesthetic with modern twist`,
-    path: 'images/blog/'
+    path: 'images/blog/',
   },
   {
     name: 'pure-functions-hero',
@@ -63,7 +63,7 @@ const images = [
     in terminal space, input/output data streams as matrix code, function signatures in green 
     monospace font, holographic code blocks, circuit pathways showing data flow, 
     no side effects visualized as isolated terminal windows, retro programming aesthetic`,
-    path: 'images/blog/'
+    path: 'images/blog/',
   },
   {
     name: 'marketing-developers-hero',
@@ -71,7 +71,7 @@ const images = [
     neon-lit billboards showing code snippets, cyberpunk cityscape with terminal windows as 
     building facades, matrix rain on digital displays, ASCII art advertisements, 
     command prompt style marketing messages, green/cyan glow aesthetic`,
-    path: 'images/blog/'
+    path: 'images/blog/',
   },
   {
     name: 'og-image',
@@ -79,53 +79,57 @@ const images = [
     background, matrix code rain effect, terminal window frame with glowing green borders, 
     scanline effects, "XSWARM.AI" in retro computer font with neon glow, circuit patterns 
     in background, holographic shimmer effect, command prompt cursor blinking`,
-    dimensions: '1200x630'
-  }
+    dimensions: '1200x630',
+  },
 ];
 
 async function generateImage(imageConfig) {
   try {
     console.log(`Generating ${imageConfig.name}...`);
-    
+
     const fullPrompt = `${imageConfig.prompt}. Style: ${CYBERPUNK_STYLE}. 
     High quality, detailed, cinematic lighting, 4K resolution.`;
-    
+
     const response = await openai.images.generate({
       model: 'dall-e-3',
       prompt: fullPrompt,
       n: 1,
       size: imageConfig.dimensions || '1024x1024',
       quality: 'hd',
-      style: 'vivid'
+      style: 'vivid',
     });
 
     const imageUrl = response.data[0].url;
     const imageResponse = await fetch(imageUrl);
     const buffer = await imageResponse.arrayBuffer();
-    
+
     // Handle different image types
     if (imageConfig.style === 'logo' && imageConfig.sizes) {
       // For logos, we'll save the original and note that resizing is needed
       const outputPath = path.join(__dirname, '../website/public', `${imageConfig.name}.png`);
       await fs.writeFile(outputPath, Buffer.from(buffer));
       console.log(`✓ Saved ${imageConfig.name}.png (resize variants needed)`);
-      
+
       // Create a note about resizing
       console.log(`  Note: Resize to ${imageConfig.sizes.join(', ')}px variants`);
     } else {
       // For regular images
       const basePath = imageConfig.path || '';
-      const outputPath = path.join(__dirname, '../website/public', basePath, `${imageConfig.name}.jpg`);
-      
+      const outputPath = path.join(
+        __dirname,
+        '../website/public',
+        basePath,
+        `${imageConfig.name}.jpg`
+      );
+
       // Ensure directory exists
       await fs.mkdir(path.dirname(outputPath), { recursive: true });
       await fs.writeFile(outputPath, Buffer.from(buffer));
       console.log(`✓ Saved ${basePath}${imageConfig.name}.jpg`);
     }
-    
+
     // Add delay to respect rate limits
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
   } catch (error) {
     console.error(`✗ Error generating ${imageConfig.name}:`, error);
   }
@@ -133,16 +137,16 @@ async function generateImage(imageConfig) {
 
 async function main() {
   console.log('🚀 Starting Cyberpunk Terminal Image Generation...\n');
-  
+
   if (!process.env.OPENAI_API_KEY) {
     console.error('❌ Error: OPENAI_API_KEY not found in environment variables');
     process.exit(1);
   }
-  
+
   for (const image of images) {
     await generateImage(image);
   }
-  
+
   console.log('\n✨ Cyberpunk image generation complete!');
   console.log('\n📝 Next steps:');
   console.log('1. Resize logo variants using an image editor');

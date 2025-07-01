@@ -10,11 +10,7 @@
       "description": "Arms sales teams with neuro-persuasion tools and battle-tested tactics",
       "image": "/agents/sales-enablement-manager.png",
       "prompt": "Perform Sales Enablement Manager duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -24,11 +20,7 @@
       "description": "Attracts high-value prospects through algorithmic magnetism",
       "image": "/agents/lead-generation-specialist.png",
       "prompt": "Perform Lead Generation Specialist duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     }
   ]

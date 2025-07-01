@@ -1,11 +1,11 @@
 ---
-title: "Interactive AI Prototypes vs. Static Mockups: The UX Revolution"
-description: "AI generates beautiful static interfaces, but stakeholders still give feedback like \"make it pop\" on PDF attachments. XSwarm creates actual working prototypes on GitHub Pages where stakeholders click through real interfaces."
+title: 'Interactive AI Prototypes vs. Static Mockups: The UX Revolution'
+description: 'AI generates beautiful static interfaces, but stakeholders still give feedback like "make it pop" on PDF attachments. XSwarm creates actual working prototypes on GitHub Pages where stakeholders click through real interfaces.'
 publishDate: 2024-01-19
-author: "XSwarm Team"
-image: "/images/blog/interactive-prototypes-hero.jpg"
-imageAlt: "Split screen showing static mockup with vague feedback vs interactive prototype with specific insights"
-tags: ["AI Development", "Cyberpunk", "UX Design", "Prototyping", "User Feedback"]
+author: 'XSwarm Team'
+image: '/images/blog/interactive-prototypes-hero.jpg'
+imageAlt: 'Split screen showing static mockup with vague feedback vs interactive prototype with specific insights'
+tags: ['AI Development', 'Cyberpunk', 'UX Design', 'Prototyping', 'User Feedback']
 ---
 
 # Interactive AI Prototypes vs. Static Mockups: The UX Revolution

@@ -1,11 +1,11 @@
 ---
-title: "Why AI Marketing Planning Should Happen During Development (Not After)"
-description: "You ship an AI-generated feature and marketing asks for screenshots, demo videos, and blog posts. You have a working API and a terminal full of green text. XSwarm generates marketing assets during development, not after."
+title: 'Why AI Marketing Planning Should Happen During Development (Not After)'
+description: 'You ship an AI-generated feature and marketing asks for screenshots, demo videos, and blog posts. You have a working API and a terminal full of green text. XSwarm generates marketing assets during development, not after.'
 publishDate: 2024-01-20
-author: "XSwarm Team"
-image: "/images/blog/marketing-during-dev-hero.jpg"
-imageAlt: "Split screen: empty marketing folder vs automated content pipeline generating assets"
-tags: ["AI Development", "Cyberpunk", "Marketing", "Content Generation", "Automation"]
+author: 'XSwarm Team'
+image: '/images/blog/marketing-during-dev-hero.jpg'
+imageAlt: 'Split screen: empty marketing folder vs automated content pipeline generating assets'
+tags: ['AI Development', 'Cyberpunk', 'Marketing', 'Content Generation', 'Automation']
 ---
 
 # Why AI Marketing Planning Should Happen During Development (Not After)
@@ -116,12 +116,12 @@ async function testUserDashboard() {
   await page.goto('/dashboard');
   await xswarm.capture.screenshot('dashboard-loaded', {
     marketing: true,
-    tags: ['onboarding', 'metrics', 'user-journey']
+    tags: ['onboarding', 'metrics', 'user-journey'],
   });
   await expect(page.locator('.metric-card')).toBeVisible();
   await xswarm.marketing.generateAsset({
     type: 'feature-highlight',
-    context: 'Real-time metrics display showing user engagement'
+    context: 'Real-time metrics display showing user engagement',
   });
 }
 ```
@@ -183,7 +183,7 @@ marketing:
   capture:
     e2e_videos: true
     auto_edit: true
-    generate_clips: 
+    generate_clips:
       - quick_demo: 30s
       - full_walkthrough: 3m
       - social_teaser: 15s

@@ -8,7 +8,7 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'json', 'html'],
       include: ['src/**/*.js'],
-      exclude: ['**/*.test.js', '**/__tests__/**']
-    }
-  }
+      exclude: ['**/*.test.js', '**/__tests__/**'],
+    },
+  },
 });

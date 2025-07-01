@@ -1,7 +1,7 @@
 ---
-title: "AI Agent Types"
-description: "Meet your AI development team - specialized agents that work under your leadership"
-category: "Core Concepts"
+title: 'AI Agent Types'
+description: 'Meet your AI development team - specialized agents that work under your leadership'
+category: 'Core Concepts'
 order: 2
 ---
 
@@ -12,7 +12,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ## Architecture & Planning Agents
 
 ### 🏗️ Architect Agent
+
 **Specializes in:**
+
 - System design and architecture
 - Technology stack selection
 - Scalability planning
@@ -20,12 +22,15 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Performance optimization strategies
 
 **Example usage:**
+
 ```
 > Design a microservices architecture for an e-commerce platform
 ```
 
 ### 📊 Project Planner
+
 **Specializes in:**
+
 - Breaking down complex projects
 - Task prioritization
 - Dependency management
@@ -35,7 +40,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ## Development Agents
 
 ### 💻 Full-Stack Developer
+
 **Specializes in:**
+
 - Frontend implementation (React, Vue, etc.)
 - Backend development (Node.js, Python, etc.)
 - API design and implementation
@@ -43,12 +50,15 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Integration work
 
 **Example usage:**
+
 ```
 > Create a REST API for user management with CRUD operations
 ```
 
 ### 🎨 Frontend Specialist
+
 **Specializes in:**
+
 - UI/UX implementation
 - Responsive design
 - Component architecture
@@ -56,7 +66,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Performance optimization
 
 ### 🔧 Backend Specialist
+
 **Specializes in:**
+
 - Server architecture
 - Database design
 - Authentication/authorization
@@ -66,7 +78,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ## Quality Assurance Agents
 
 ### 🧪 Testing Agent
+
 **Specializes in:**
+
 - Unit test creation
 - Integration testing
 - End-to-end testing
@@ -74,12 +88,15 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Edge case identification
 
 **Example usage:**
+
 ```
 > Write comprehensive tests for the authentication module
 ```
 
 ### 🔍 Code Review Agent
+
 **Specializes in:**
+
 - Code quality assessment
 - Best practice enforcement
 - Security vulnerability detection
@@ -89,7 +106,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ## Documentation & Communication Agents
 
 ### 📝 Documentation Agent
+
 **Specializes in:**
+
 - API documentation
 - Code comments
 - README files
@@ -97,12 +116,15 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Architecture documentation
 
 **Example usage:**
+
 ```
 > Document the API endpoints with examples and response schemas
 ```
 
 ### 📚 Tutorial Writer
+
 **Specializes in:**
+
 - Step-by-step guides
 - Video script creation
 - Example projects
@@ -112,7 +134,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ## Operations & Security Agents
 
 ### 🚀 DevOps Agent
+
 **Specializes in:**
+
 - CI/CD pipeline setup
 - Deployment automation
 - Infrastructure as Code
@@ -120,12 +144,15 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Performance optimization
 
 **Example usage:**
+
 ```
 > Set up GitHub Actions for automated testing and deployment
 ```
 
 ### 🔐 Security Agent
+
 **Specializes in:**
+
 - Security audit
 - Vulnerability assessment
 - Authentication implementation
@@ -135,7 +162,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ## Specialist Agents
 
 ### 🗄️ Database Expert
+
 **Specializes in:**
+
 - Schema design
 - Query optimization
 - Migration strategies
@@ -143,7 +172,9 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 - Performance tuning
 
 ### 🌐 API Integration Expert
+
 **Specializes in:**
+
 - Third-party integrations
 - Webhook implementation
 - API client creation
@@ -155,11 +186,13 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ### Delegation Strategies
 
 1. **Direct Request**: Ask a specific agent
+
    ```
    > Architect: Design a caching strategy for our API
    ```
 
 2. **General Request**: Let XSwarm assign the right agents
+
    ```
    > Implement user authentication with JWT
    ```
@@ -172,6 +205,7 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
 ### Agent Coordination
 
 Agents automatically coordinate when needed:
+
 - Architect designs, Developer implements
 - Developer codes, Tester writes tests
 - All agents follow consistent patterns

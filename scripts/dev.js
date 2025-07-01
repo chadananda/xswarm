@@ -13,13 +13,13 @@ console.log('🚀 Starting XSwarm development environment...\n');
 // Start website development server
 const websiteProcess = spawn('npm', ['run', 'dev'], {
   cwd: join(rootDir, 'website'),
-  stdio: 'inherit'
+  stdio: 'inherit',
 });
 
 // Link CLI for local testing
 const linkProcess = spawn('npm', ['link'], {
   cwd: join(rootDir, 'cli'),
-  stdio: 'inherit'
+  stdio: 'inherit',
 });
 
 linkProcess.on('close', (code) => {

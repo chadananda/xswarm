@@ -25,14 +25,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 255, 0, 0.03) 2px,
-      rgba(0, 255, 0, 0.03) 4px
-    );
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.03) 2px,
+    rgba(0, 255, 0, 0.03) 4px
+  );
   pointer-events: none;
   animation: scanlines 8s linear infinite;
 }
@@ -142,7 +141,7 @@
 }
 
 .neon-border:hover {
-  box-shadow: 
+  box-shadow:
     inset 0 0 10px rgba(0, 255, 255, 0.2),
     var(--glow-intensity) var(--terminal-cyan);
 }
@@ -153,7 +152,7 @@
 }
 
 .neon-border-green:hover {
-  box-shadow: 
+  box-shadow:
     inset 0 0 10px rgba(0, 255, 0, 0.2),
     var(--glow-intensity) var(--terminal-green);
 }
@@ -164,7 +163,7 @@
 }
 
 .neon-border-magenta:hover {
-  box-shadow: 
+  box-shadow:
     inset 0 0 10px rgba(255, 0, 255, 0.2),
     var(--glow-intensity) var(--terminal-magenta);
 }
@@ -175,7 +174,7 @@
 }
 
 .neon-border-cyan:hover {
-  box-shadow: 
+  box-shadow:
     inset 0 0 10px rgba(0, 255, 255, 0.2),
     var(--glow-intensity) var(--terminal-cyan);
 }
@@ -214,18 +213,13 @@
 /* Holographic Effect */
 .hologram {
   position: relative;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(0, 255, 255, 0.1) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 255, 0.1) 50%, transparent 70%);
   animation: hologram-sweep 3s linear infinite;
 }
 
 /* Cyber Grid Background */
 .cyber-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -234,49 +228,107 @@
 
 /* Animations */
 @keyframes cursor-blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes glitch-1 {
-  0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); transform: translate(-2px, -2px); }
-  25% { clip-path: polygon(0 0, 100% 0, 100% 65%, 0 65%); transform: translate(2px, 2px); }
-  50% { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); transform: translate(-2px, 2px); }
-  75% { clip-path: polygon(0 0, 100% 0, 100% 55%, 0 55%); transform: translate(2px, -2px); }
+  0%,
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px, -2px);
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 65%);
+    transform: translate(2px, 2px);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-2px, 2px);
+  }
+  75% {
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 55%);
+    transform: translate(2px, -2px);
+  }
 }
 
 @keyframes glitch-2 {
-  0%, 100% { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); transform: translate(2px, 2px); }
-  25% { clip-path: polygon(0 35%, 100% 35%, 100% 100%, 0 100%); transform: translate(-2px, -2px); }
-  50% { clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); transform: translate(2px, -2px); }
-  75% { clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0 100%); transform: translate(-2px, 2px); }
+  0%,
+  100% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(2px, 2px);
+  }
+  25% {
+    clip-path: polygon(0 35%, 100% 35%, 100% 100%, 0 100%);
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(2px, -2px);
+  }
+  75% {
+    clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0 100%);
+    transform: translate(-2px, 2px);
+  }
 }
 
 @keyframes neon-pulse {
-  0% { box-shadow: var(--glow-intensity) currentColor; }
-  100% { box-shadow: var(--glow-extreme) currentColor; }
+  0% {
+    box-shadow: var(--glow-intensity) currentColor;
+  }
+  100% {
+    box-shadow: var(--glow-extreme) currentColor;
+  }
 }
 
 @keyframes scanlines {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(10px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
 }
 
 @keyframes matrix-fall {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
 @keyframes hologram-sweep {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes grid-move {
-  0% { background-position: 0 0; }
-  100% { background-position: 50px 50px; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
 }
 
 /* Terminal Typing Effect */
@@ -285,12 +337,18 @@
   white-space: nowrap;
   animation: typing 3s steps(40, end);
   border-right: 3px solid var(--terminal-green);
-  animation: typing 3s steps(40, end), cursor-blink 1s infinite;
+  animation:
+    typing 3s steps(40, end),
+    cursor-blink 1s infinite;
 }
 
 @keyframes typing {
-  0% { width: 0; }
-  100% { width: 100%; }
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 /* Code Block Enhancements */
@@ -313,7 +371,9 @@
 
 /* Responsive */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }

@@ -1,11 +1,11 @@
 ---
-title: "The AI Epoch Manifesto: Recursive Planning for Recursive Intelligence"
-description: "Current AI development is chaos - constant context switching, endless prompt engineering, scope creep mid-generation. XSwarm introduces AI Epochs: complete iterative cycles optimized for artificial intelligence, not human limitations."
+title: 'The AI Epoch Manifesto: Recursive Planning for Recursive Intelligence'
+description: 'Current AI development is chaos - constant context switching, endless prompt engineering, scope creep mid-generation. XSwarm introduces AI Epochs: complete iterative cycles optimized for artificial intelligence, not human limitations.'
 publishDate: 2024-01-24
-author: "XSwarm Team"
-image: "/images/blog/ai-epoch-manifesto-hero.jpg"
-imageAlt: "Cyberpunk visualization of recursive epoch cycles with AI teams"
-tags: ["AI Development", "Cyberpunk", "Philosophy", "Epochs", "Methodology"]
+author: 'XSwarm Team'
+image: '/images/blog/ai-epoch-manifesto-hero.jpg'
+imageAlt: 'Cyberpunk visualization of recursive epoch cycles with AI teams'
+tags: ['AI Development', 'Cyberpunk', 'Philosophy', 'Epochs', 'Methodology']
 ---
 
 <style>
@@ -74,7 +74,7 @@ Let me be clear: sequential development is dead. It died the moment we started p
 </div>
 
 > **"Every change destroys context. Every pivot wastes cycles."**
-> 
+>
 > We're treating AI like a faster junior developer when we should be treating it like what it is — a massively parallel intelligence that thrives on complete, well-defined problems.
 
 ## Enter the Epoch
@@ -87,7 +87,7 @@ So why are we building workflows that fight against this fundamental characteris
 
 ## The Philosophy of Front-Loaded Planning
 
-Here's the radical idea: plan everything before you write a single line of code. I mean *everything*. UI mockups, API contracts, database schemas, test scenarios, deployment pipelines, even the damn marketing copy.
+Here's the radical idea: plan everything before you write a single line of code. I mean _everything_. UI mockups, API contracts, database schemas, test scenarios, deployment pipelines, even the damn marketing copy.
 
 > **"Plan everything before you write a single line of code. I mean everything."**
 
@@ -206,7 +206,7 @@ This isn't science fiction. This is next Tuesday.
 
 > **"Planning happens in human-time. Execution happens in AI-time. Never the twain shall meet."**
 
-In the epoch model, context switching dies. 
+In the epoch model, context switching dies.
 
 <div class="manifesto-principles">
   <div class="principle">

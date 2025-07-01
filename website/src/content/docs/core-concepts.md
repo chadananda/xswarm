@@ -1,7 +1,7 @@
 ---
-title: "Core Concepts"
+title: 'Core Concepts'
 description: "Understanding the fundamental concepts behind XSwarm's AI team leadership model"
-category: "Core Concepts"
+category: 'Core Concepts'
 order: 1
 ---
 
@@ -14,12 +14,14 @@ XSwarm transforms how developers work by providing an AI team that you lead thro
 ### From Coder to Commander
 
 Traditional development requires you to:
+
 - Write every line of code
 - Create all tests manually
 - Document everything yourself
 - Handle deployment personally
 
 With XSwarm, you become a team leader who:
+
 - Directs AI specialists
 - Reviews and approves work
 - Makes strategic decisions
@@ -30,12 +32,14 @@ With XSwarm, you become a team leader who:
 Each AI agent in your team has specific expertise:
 
 ### Technical Agents
+
 - **Architect Agent**: System design and technology decisions
 - **Developer Agents**: Code implementation and optimization
 - **Testing Agent**: Comprehensive test coverage
 - **DevOps Agent**: Deployment and infrastructure
 
 ### Support Agents
+
 - **Documentation Agent**: Technical writing and guides
 - **Review Agent**: Code quality and best practices
 - **Research Agent**: Library evaluation and solutions
@@ -54,6 +58,7 @@ This parallel execution dramatically reduces development time.
 ## Context Persistence
 
 XSwarm maintains context throughout your session:
+
 - Remembers previous requests
 - Understands your project structure
 - Maintains consistency across agents
@@ -70,6 +75,7 @@ You say: "Add user authentication with email and password"
 ## Quality Assurance
 
 Every piece of work goes through quality checks:
+
 1. Agent creates initial implementation
 2. Review agent checks for issues
 3. You approve or request changes

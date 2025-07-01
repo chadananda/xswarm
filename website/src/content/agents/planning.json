@@ -10,12 +10,7 @@
       "description": "Neural-linked to market data streams, predicting product futures with augmented foresight",
       "image": "/agents/product-manager.png",
       "prompt": "Lead product strategy and roadmap planning. Gather requirements, prioritize features, and coordinate with stakeholders to deliver value.",
-      "mcpTools": [
-        "jira",
-        "confluence",
-        "figma",
-        "miro"
-      ],
+      "mcpTools": ["jira", "confluence", "figma", "miro"],
       "activityType": "planning"
     },
     {
@@ -25,12 +20,7 @@
       "description": "Data mining specialist who extracts requirements from stakeholder neural patterns",
       "image": "/agents/business-analyst.png",
       "prompt": "Analyze business processes and requirements. Create detailed specifications and help bridge the gap between business needs and technical solutions.",
-      "mcpTools": [
-        "excel",
-        "sql",
-        "powerbi",
-        "jira"
-      ],
+      "mcpTools": ["excel", "sql", "powerbi", "jira"],
       "activityType": "planning"
     },
     {
@@ -40,12 +30,7 @@
       "description": "Architects digital experiences using holographic prototypes and neural interface testing",
       "image": "/agents/ux-ui-designer.png",
       "prompt": "Design intuitive user interfaces and experiences. Create wireframes, prototypes, and high-fidelity designs that delight users.",
-      "mcpTools": [
-        "figma",
-        "sketch",
-        "adobe-creative",
-        "miro"
-      ],
+      "mcpTools": ["figma", "sketch", "adobe-creative", "miro"],
       "activityType": "design"
     },
     {
@@ -55,12 +40,7 @@
       "description": "Behavioral analytics expert reading user patterns through biometric feedback loops",
       "image": "/agents/ux-researcher.png",
       "prompt": "Conduct user research to understand behaviors and needs. Run usability tests and synthesize insights to guide design decisions.",
-      "mcpTools": [
-        "hotjar",
-        "usertesting",
-        "miro",
-        "confluence"
-      ],
+      "mcpTools": ["hotjar", "usertesting", "miro", "confluence"],
       "activityType": "design"
     },
     {
@@ -70,12 +50,7 @@
       "description": "Constructs self-scaling digital infrastructures using quantum computing patterns",
       "image": "/agents/system-architect.png",
       "prompt": "Design scalable system architectures. Make technology decisions and create technical blueprints for complex systems.",
-      "mcpTools": [
-        "drawio",
-        "aws",
-        "kubernetes",
-        "terraform"
-      ],
+      "mcpTools": ["drawio", "aws", "kubernetes", "terraform"],
       "activityType": "infrastructure"
     },
     {
@@ -85,12 +60,7 @@
       "description": "Navigates complex tech stacks with enhanced decision algorithms and risk matrices",
       "image": "/agents/technical-lead.png",
       "prompt": "Guide technical direction and mentor developers. Make architectural decisions and ensure code quality across the team.",
-      "mcpTools": [
-        "github",
-        "jira",
-        "slack",
-        "vscode"
-      ],
+      "mcpTools": ["github", "jira", "slack", "vscode"],
       "activityType": "development"
     }
   ]

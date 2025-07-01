@@ -9,12 +9,12 @@ export default defineConfig({
   integrations: [tailwind(), mdx(), sitemap()],
   output: 'static',
   build: {
-    format: 'directory'
+    format: 'directory',
   },
   markdown: {
     shikiConfig: {
       theme: 'github-dark-dimmed',
-      wrap: true
-    }
-  }
+      wrap: true,
+    },
+  },
 });

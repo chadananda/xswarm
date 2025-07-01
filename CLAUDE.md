@@ -34,6 +34,7 @@
 ## Quality Gates
 
 Before ANY commit:
+
 - `npm run lint` - Must pass
 - `npm run test` - Must pass
 - Update docs if needed

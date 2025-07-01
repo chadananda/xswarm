@@ -1,11 +1,11 @@
 ---
-title: "Multi-Pass AI Planning: The Antidote to Technical Debt Poisoning"
+title: 'Multi-Pass AI Planning: The Antidote to Technical Debt Poisoning'
 description: "AI-generated code creates technical debt faster than human code because AI doesn't understand your existing architecture. XSwarm's 5-pass planning process ensures AI builds on your foundation, not around it."
 publishDate: 2024-01-21
-author: "XSwarm Team"
-image: "/images/blog/technical-debt-antidote-hero.jpg"
-imageAlt: "Cyberpunk visualization of clean architecture vs tangled technical debt"
-tags: ["AI Development", "Cyberpunk", "Architecture", "Technical Debt", "Planning"]
+author: 'XSwarm Team'
+image: '/images/blog/technical-debt-antidote-hero.jpg'
+imageAlt: 'Cyberpunk visualization of clean architecture vs tangled technical debt'
+tags: ['AI Development', 'Cyberpunk', 'Architecture', 'Technical Debt', 'Planning']
 ---
 
 # Multi-Pass AI Planning: The Antidote to Technical Debt Poisoning
@@ -36,6 +36,7 @@ Here's the thing about AI-generated technical debt: it compounds faster than a l
 Current AI tools are like brilliant interns who never attend team meetings. They solve the immediate problem with whatever approach seems clever at the moment. No context. No patterns. No mercy for the poor bastard who inherits the mess.
 
 I counted the damage in this codebase:
+
 - 5 different ways to manage state (Redux, Context, Zustand, local state, and something custom)
 - 3 authentication implementations (JWT, session-based, and OAuth, none talking to each other)
 - Error handling that ranges from try-catch to promises to... nothing

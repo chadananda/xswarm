@@ -1,4 +1,5 @@
 **Container Runtime**
+
 - Podman da# Product Requirements Document (PRD): Containerized Task Implementation Team
 
 ## Executive Summary
@@ -10,12 +11,14 @@ This document defines a containerized task implementation system that creates a 
 ### Core Components
 
 **Integration Computer**
+
 - Dedicated host environment running Podman containers
 - Manages resource allocation and container lifecycle
 - Provides network isolation and security boundaries
 - Monitors resource usage and enforces limits
 
 **Working Tree Isolation**
+
 - Each task gets a **simulated working tree** with only relevant files
 - Pre-populated by orchestrator from feature branch (`task/{sprint-id}/{task-id}`)
 - Contains isolated copy of files needed for this single atomic task
@@ -23,6 +26,7 @@ This document defines a containerized task implementation system that creates a 
 - Physical and network isolation prevents access to actual project repository
 
 **Container Runtime**
+
 - Podman daemonless containers for maximum security isolation
 - Claude Code running in **dangerous mode** within sandboxed environment
 - **Simulated working tree** mounted as writable volume at `/workspace`
@@ -30,6 +34,7 @@ This document defines a containerized task implementation system that creates a 
 - **No file system access** beyond the isolated workspace
 
 **Agent Orchestration Layer**
+
 - Single Lead Claude Code agent manages the atomic task
 - Sub-agents handle different aspects of the same task (code, tests, review, docs)
 - Internal subtask decomposition within the single task scope
@@ -38,6 +43,7 @@ This document defines a containerized task implementation system that creates a 
 ## Operational Workflow
 
 ### Phase 1: Task Initialization
+
 ```
 Orchestrator → Create feature branch task/{sprint-id}/{task-id}
 Orchestrator → Extract relevant files for task into simulated environment
@@ -46,6 +52,7 @@ Container → Initialize lead agent with task specification and isolated files
 ```
 
 ### Phase 2: Internal Task Decomposition and Execution
+
 ```
 Lead Agent → Analyze the single task requirements
 Lead Agent → Break task into internal development subtasks
@@ -59,6 +66,7 @@ Lead Agent → Spawn specialized sub-agents in parallel:
 ```
 
 ### Phase 3: Integration Preparation (Not Execution)
+
 ```
 Lead Agent → Collect all sub-agent outputs for the single task
 Lead Agent → Integrate implementation, tests, docs into cohesive solution
@@ -69,6 +77,7 @@ Container → Signal single task completion to orchestrator
 ```
 
 ### Phase 4: Result Processing and Integration
+
 ```
 Orchestrator → Collect RESULTS.md and task artifacts from sandbox
 Orchestrator → Validate quality gates for this task
@@ -81,19 +90,20 @@ Orchestrator → Update dependency graph and trigger dependent tasks
 
 ## Agent Roles and Responsibilities
 
-| Agent Role | Primary Functions | Deliverables |
-|------------|------------------|--------------|
-| **Lead Agent** | Single task orchestration, sub-agent coordination | Integrated task solution, RESULTS.md |
-| **Implementation Agent** | Write code to complete the assigned task | Source code implementing the task requirements |
-| **Testing Agent** | Create tests specifically for this task's functionality | Test files covering the task implementation |
-| **Review Agent** | Review the task implementation for quality/security | Review feedback for this specific task |
-| **Refactoring Agent** | Optimize and clean up the task implementation | Refactored version of task code |
-| **Documentation Agent** | Document the task's implementation and usage | Documentation for this specific feature/fix |
-| **Integration Agent** | Create integration tests, validate in sandbox environment | Integration test plans, sandbox validation results |
+| Agent Role               | Primary Functions                                         | Deliverables                                       |
+| ------------------------ | --------------------------------------------------------- | -------------------------------------------------- |
+| **Lead Agent**           | Single task orchestration, sub-agent coordination         | Integrated task solution, RESULTS.md               |
+| **Implementation Agent** | Write code to complete the assigned task                  | Source code implementing the task requirements     |
+| **Testing Agent**        | Create tests specifically for this task's functionality   | Test files covering the task implementation        |
+| **Review Agent**         | Review the task implementation for quality/security       | Review feedback for this specific task             |
+| **Refactoring Agent**    | Optimize and clean up the task implementation             | Refactored version of task code                    |
+| **Documentation Agent**  | Document the task's implementation and usage              | Documentation for this specific feature/fix        |
+| **Integration Agent**    | Create integration tests, validate in sandbox environment | Integration test plans, sandbox validation results |
 
 ## Input Specifications
 
 ### Task Definition Schema
+
 ```json
 {
   "task_id": "string",
@@ -111,6 +121,7 @@ Orchestrator → Update dependency graph and trigger dependent tasks
 ```
 
 ### Container Configuration
+
 ```yaml
 runtime: podman
 image: claude-code:dangerous-mode
@@ -125,7 +136,7 @@ resources:
   memory: 2GB
   cpu: 2.0
   disk: 10GB
-network_mode: none  # No network access for security
+network_mode: none # No network access for security
 security:
   read_only_root: true
   no_new_privileges: true
@@ -134,6 +145,7 @@ security:
 ```
 
 ### Prompt Templates
+
 - **Lead Agent Prompt**: Task orchestration and team management
 - **Implementation Prompt**: Feature development guidelines
 - **Review Prompt**: Code quality and security checklist
@@ -143,10 +155,12 @@ security:
 ## Output Specifications
 
 ### RESULTS.md Structure
+
 ```markdown
 # Single Task Implementation Results
 
 ## Summary
+
 - Task ID: {task_id}
 - Task Description: {brief_description}
 - Status: SUCCESS|FAILURE|PARTIAL
@@ -154,34 +168,40 @@ security:
 - Total Token Usage: {tokens}
 
 ## Task Implementation Details
+
 - Files Modified: {list}
 - Lines of Code Added/Removed: {stats}
 - Functionality Implemented: {description}
 
 ## Quality Metrics
+
 - Test Coverage for Task: {percentage}
 - Code Review Score: {score}
 - Security Issues: {count}
 - Performance Impact: {assessment}
 
 ## Task Validation
+
 - All Requirements Met: {yes/no}
 - Integration Tests Created: {yes/no}
 - Sandbox Validation Passed: {yes/no}
 - Ready for Orchestrator Integration: {yes/no}
 
 ## Integration Instructions for Orchestrator
+
 - Files to Merge: {list with paths}
 - Integration Test Commands: {list}
 - Dependencies to Verify: {list}
 - Post-Integration Validation Steps: {list}
 
 ## Dependencies
+
 - Blocking Tasks: {list of task IDs this task was waiting for}
 - Unblocks Tasks: {list of task IDs that can now proceed}
 ```
 
 ### Artifact Collection
+
 - Source code changes (Git diff format)
 - Test files and results
 - Documentation updates
@@ -191,6 +211,7 @@ security:
 ## Quality Gates and Success Criteria
 
 ### Mandatory Quality Gates
+
 1. **Code Compilation**: All code must compile without errors
 2. **Test Coverage**: Minimum 80% line coverage for new code
 3. **Security Scan**: No high-severity security vulnerabilities
@@ -198,6 +219,7 @@ security:
 5. **Integration Tests**: All tests pass in isolated environment
 
 ### Success Criteria
+
 - All functional requirements implemented
 - All acceptance criteria met
 - Quality gates passed
@@ -207,6 +229,7 @@ security:
 ## Resource Management
 
 ### Container Limits
+
 - **Memory**: 2GB per container (configurable)
 - **CPU**: 2 cores maximum
 - **Disk**: 10GB working space
@@ -214,11 +237,13 @@ security:
 - **Time**: 1 hour maximum execution
 
 ### Token Management
+
 - **Total Budget**: 1M tokens per task
 - **Sub-agent Allocation**: Dynamic based on complexity
 - **Reserve Pool**: 10% held for integration and error handling
 
 ### Parallel Execution Context
+
 - Each container executes exactly one atomic task
 - Multiple containers run in parallel, each handling different tasks
 - Dependency graph ensures tasks execute in correct order
@@ -228,12 +253,14 @@ security:
 ## Error Handling and Recovery
 
 ### Container Failure Scenarios
+
 - **Out of Memory**: Automatic restart with increased limits
 - **Timeout**: Partial result collection and manual review
 - **Network Issues**: Retry with exponential backoff
 - **Code Errors**: Sub-agent re-execution with modified prompts
 
 ### Quality Gate Failures
+
 - **Test Failures**: Automatic debugging and retry cycle
 - **Security Issues**: Immediate halt and manual review required
 - **Coverage Issues**: Additional test generation cycle
@@ -242,12 +269,14 @@ security:
 ## Monitoring and Observability
 
 ### Real-time Metrics
+
 - Container resource utilization
 - Token consumption rate
 - Task progress indicators
 - Quality gate status
 
 ### Logging and Audit Trail
+
 - All agent interactions logged
 - Code changes tracked with timestamps
 - Decision rationale captured
@@ -256,6 +285,7 @@ security:
 ## Security Considerations
 
 ### Container Security (Critical - Dangerous Mode Isolation)
+
 - **Complete Network Isolation**: No external network access whatsoever
 - **Simulated Environment Only**: No access to actual repository or project files
 - **Read-only Root Filesystem**: Container cannot modify system files
@@ -264,6 +294,7 @@ security:
 - **Dangerous Mode Contained**: Claude Code dangerous capabilities limited to sandbox
 
 ### Repository Security
+
 - **Zero Repository Access**: Container never sees actual repository
 - **File Copy Security**: Only specific files copied to simulated environment
 - **Integration Separation**: All actual repository operations handled by orchestrator
@@ -273,12 +304,14 @@ security:
 ## Future Enhancements
 
 ### Planned Features
+
 - **Dynamic Agent Spawning**: Create specialized agents based on task type
 - **Cross-task Learning**: Share insights between implementation teams
 - **Automated Optimization**: Self-tuning resource allocation
 - **Quality Prediction**: ML-based success probability estimation
 
 ### Integration Points
+
 - CI/CD pipeline integration
 - Issue tracking system hooks
 - Code repository webhooks
@@ -287,12 +320,14 @@ security:
 ## Success Metrics
 
 ### Quantitative KPIs
+
 - Task completion rate: >95%
 - Quality gate pass rate: >90%
 - Average implementation time: <30 minutes
 - Resource utilization efficiency: >80%
 
 ### Qualitative Goals
+
 - High code quality and maintainability
 - Comprehensive test coverage and documentation
 - Consistent architectural patterns

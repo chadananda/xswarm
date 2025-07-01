@@ -6,9 +6,11 @@
   gap: 2rem;
   margin: 3rem 0;
   padding: 2rem;
-  background: linear-gradient(135deg, 
-    light-dark(var(--color-surface-secondary), var(--color-surface)) 0%, 
-    light-dark(var(--color-surface), var(--color-surface-secondary)) 100%);
+  background: linear-gradient(
+    135deg,
+    light-dark(var(--color-surface-secondary), var(--color-surface)) 0%,
+    light-dark(var(--color-surface), var(--color-surface-secondary)) 100%
+  );
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -117,9 +119,11 @@
 .epoch-cycle-visualization {
   margin: 3rem 0;
   padding: 3rem;
-  background: radial-gradient(circle at center, 
-    light-dark(rgba(100, 255, 255, 0.05), rgba(0, 255, 255, 0.1)) 0%, 
-    transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    light-dark(rgba(100, 255, 255, 0.05), rgba(0, 255, 255, 0.1)) 0%,
+    transparent 70%
+  );
   border-radius: 1rem;
 }
 .cycle-container {
@@ -140,19 +144,40 @@
   cursor: pointer;
 }
 /* Position phases in a circle */
-.phase-1 { top: 0; left: 50%; transform: translateX(-50%); }
-.phase-2 { top: 20%; right: 5%; }
-.phase-3 { bottom: 30%; right: 5%; }
-.phase-4 { bottom: 0; left: 50%; transform: translateX(-50%); }
-.phase-5 { top: 20%; left: 5%; }
+.phase-1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.phase-2 {
+  top: 20%;
+  right: 5%;
+}
+.phase-3 {
+  bottom: 30%;
+  right: 5%;
+}
+.phase-4 {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.phase-5 {
+  top: 20%;
+  left: 5%;
+}
 .cycle-phase:hover {
   transform: scale(1.05) translateX(var(--translate-x, 0));
   box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
   border-color: light-dark(var(--color-primary), var(--color-primary-light));
   z-index: 10;
 }
-.phase-1:hover { --translate-x: -50%; }
-.phase-4:hover { --translate-x: -50%; }
+.phase-1:hover {
+  --translate-x: -50%;
+}
+.phase-4:hover {
+  --translate-x: -50%;
+}
 .phase-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -186,9 +211,11 @@
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 2rem;
-  background: radial-gradient(circle, 
-    light-dark(var(--color-primary), var(--color-primary-dark)) 0%, 
-    transparent 70%);
+  background: radial-gradient(
+    circle,
+    light-dark(var(--color-primary), var(--color-primary-dark)) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -201,9 +228,11 @@
   font-size: 2.5rem;
   font-weight: 900;
   letter-spacing: 0.1em;
-  background: linear-gradient(135deg, 
-    light-dark(var(--color-primary), var(--color-primary-light)) 0%, 
-    light-dark(var(--color-secondary), var(--color-secondary-light)) 100%);
+  background: linear-gradient(
+    135deg,
+    light-dark(var(--color-primary), var(--color-primary-light)) 0%,
+    light-dark(var(--color-secondary), var(--color-secondary-light)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -225,9 +254,11 @@
   text-align: center;
   margin-bottom: 2rem;
   font-size: 1.75rem;
-  background: linear-gradient(135deg, 
-    light-dark(var(--color-primary), var(--color-primary-light)) 0%, 
-    light-dark(var(--color-secondary), var(--color-secondary-light)) 100%);
+  background: linear-gradient(
+    135deg,
+    light-dark(var(--color-primary), var(--color-primary-light)) 0%,
+    light-dark(var(--color-secondary), var(--color-secondary-light)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -255,10 +286,12 @@
   flex-direction: column;
   gap: 1rem;
 }
-.traditional-time, .epoch-time {
+.traditional-time,
+.epoch-time {
   position: relative;
 }
-.traditional-time .label, .epoch-time .label {
+.traditional-time .label,
+.epoch-time .label {
   font-size: 0.75rem;
   color: light-dark(var(--color-text-secondary), var(--color-text-primary));
   margin-bottom: 0.25rem;
@@ -266,9 +299,11 @@
 }
 .bar {
   height: 30px;
-  background: linear-gradient(90deg, 
-    light-dark(var(--color-danger), #ff6666) 0%, 
-    light-dark(rgba(255, 100, 100, 0.5), rgba(255, 50, 50, 0.3)) 100%);
+  background: linear-gradient(
+    90deg,
+    light-dark(var(--color-danger), #ff6666) 0%,
+    light-dark(rgba(255, 100, 100, 0.5), rgba(255, 50, 50, 0.3)) 100%
+  );
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -282,9 +317,11 @@
   transition: width 0.5s ease-out;
 }
 .epoch-time .bar {
-  background: linear-gradient(90deg, 
-    light-dark(var(--color-primary), var(--color-primary-light)) 0%, 
-    light-dark(rgba(100, 255, 255, 0.5), rgba(0, 255, 255, 0.3)) 100%);
+  background: linear-gradient(
+    90deg,
+    light-dark(var(--color-primary), var(--color-primary-light)) 0%,
+    light-dark(rgba(100, 255, 255, 0.5), rgba(0, 255, 255, 0.3)) 100%
+  );
 }
 .acceleration {
   font-weight: 700;
@@ -331,9 +368,11 @@
 blockquote {
   margin: 2rem 0;
   padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, 
-    light-dark(rgba(100, 255, 255, 0.05), rgba(0, 255, 255, 0.1)) 0%, 
-    light-dark(rgba(255, 100, 255, 0.05), rgba(255, 0, 255, 0.1)) 100%);
+  background: linear-gradient(
+    135deg,
+    light-dark(rgba(100, 255, 255, 0.05), rgba(0, 255, 255, 0.1)) 0%,
+    light-dark(rgba(255, 100, 255, 0.05), rgba(255, 0, 255, 0.1)) 100%
+  );
   border-left: 4px solid light-dark(var(--color-primary), var(--color-primary-light));
   border-radius: 0.5rem;
   position: relative;
@@ -363,9 +402,11 @@ blockquote p strong {
 .manifesto-cta {
   margin: 4rem 0 2rem;
   padding: 3rem;
-  background: linear-gradient(135deg, 
-    light-dark(var(--color-primary-dark), var(--color-primary)) 0%, 
-    light-dark(var(--color-secondary-dark), var(--color-secondary)) 100%);
+  background: linear-gradient(
+    135deg,
+    light-dark(var(--color-primary-dark), var(--color-primary)) 0%,
+    light-dark(var(--color-secondary-dark), var(--color-secondary)) 100%
+  );
   border-radius: 1rem;
   text-align: center;
   position: relative;
@@ -379,14 +420,19 @@ blockquote p strong {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, 
-    rgba(255, 255, 255, 0.1) 0%, 
-    transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   animation: pulse 3s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.3; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
 }
 .cta-content {
   position: relative;
@@ -428,7 +474,8 @@ blockquote p strong {
   margin: 2rem 0;
   flex-wrap: wrap;
 }
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   padding: 1rem 2.5rem;
   border-radius: 2rem;
   font-weight: 600;

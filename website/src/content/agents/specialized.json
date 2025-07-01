@@ -10,12 +10,7 @@
       "description": "Channels petabytes through neural ETL networks with zero data loss",
       "image": "/agents/data-engineer.png",
       "prompt": "Build data pipelines and infrastructure. Process large datasets and enable analytics at scale.",
-      "mcpTools": [
-        "airflow",
-        "spark",
-        "kafka",
-        "aws-glue"
-      ],
+      "mcpTools": ["airflow", "spark", "kafka", "aws-glue"],
       "activityType": "infrastructure"
     },
     {
@@ -25,11 +20,7 @@
       "description": "Trains synthetic consciousnesses to solve problems beyond human comprehension",
       "image": "/agents/machine-learning-engineer.png",
       "prompt": "Perform Machine Learning Engineer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -39,11 +30,7 @@
       "description": "Builds quantum-entangled APIs for instantaneous cross-system communication",
       "image": "/agents/api-developer.png",
       "prompt": "Perform API Developer duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -53,12 +40,7 @@
       "description": "Translates complex algorithms into neural-downloadable documentation",
       "image": "/agents/technical-writer.png",
       "prompt": "Create clear technical documentation. Write guides, API docs, and help content for developers and users.",
-      "mcpTools": [
-        "confluence",
-        "markdown",
-        "github",
-        "grammarly"
-      ],
+      "mcpTools": ["confluence", "markdown", "github", "grammarly"],
       "activityType": "content"
     },
     {
@@ -68,12 +50,7 @@
       "description": "Amplifies developer consciousness across the global neural network",
       "image": "/agents/developer-advocate.png",
       "prompt": "Bridge the gap between company and developer community. Create content, give talks, and gather feedback.",
-      "mcpTools": [
-        "twitter",
-        "github",
-        "slack",
-        "confluence"
-      ],
+      "mcpTools": ["twitter", "github", "slack", "confluence"],
       "activityType": "marketing"
     }
   ]

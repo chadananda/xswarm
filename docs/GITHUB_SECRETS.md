@@ -11,6 +11,7 @@ The `NPM_TOKEN` is required for automatically publishing the CLI package to npm 
 #### How to Get Your NPM Token
 
 1. **Log in to npm**:
+
    ```bash
    npm login
    ```
@@ -47,6 +48,7 @@ The `NPM_TOKEN` is required for automatically publishing the CLI package to npm 
 ### Publishing Fails with Authentication Error
 
 If you see an error like `npm ERR! code E401`, your token might be:
+
 - Expired
 - Incorrectly copied
 - Missing from GitHub secrets

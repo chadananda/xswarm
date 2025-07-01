@@ -1,11 +1,11 @@
 ---
-title: "AI Function Graveyard: Why Your Multi-Pass Planning Could Save Your Codebase"
+title: 'AI Function Graveyard: Why Your Multi-Pass Planning Could Save Your Codebase'
 description: "Every AI coding session recreates the same email validation function 47 times. XSwarm's multi-pass epoch planning extracts pure functions first, building a foundation instead of starting from scratch."
 publishDate: 2024-01-17
-author: "XSwarm Team"
-image: "/images/blog/ai-function-graveyard-hero.jpg"
-imageAlt: "Cyberpunk graveyard of duplicated functions with neon tombstones"
-tags: ["AI Development", "Cyberpunk", "Code Reuse", "Pure Functions"]
+author: 'XSwarm Team'
+image: '/images/blog/ai-function-graveyard-hero.jpg'
+imageAlt: 'Cyberpunk graveyard of duplicated functions with neon tombstones'
+tags: ['AI Development', 'Cyberpunk', 'Code Reuse', 'Pure Functions']
 ---
 
 Last week, I found something that made me physically ill. Fifteen different email validation functions. In the same project. All written by AI. Each one slightly different, all essentially identical.
@@ -205,6 +205,7 @@ Before writing a single line of feature code, xSwarm scans for and extracts ever
 
 **Pass 2: Function Registry Building**
 Every extracted function gets cataloged with:
+
 - Semantic fingerprint (what it actually does)
 - Complexity score (how gnarly is this beast?)
 - Reusability index (will we need this again?)

@@ -5,7 +5,7 @@ describe('XSwarm CLI', () => {
     // This is a placeholder test to ensure the test infrastructure works
     expect(true).toBe(true);
   });
-  
+
   // Future tests will be added here as features are implemented
   // Example structure:
   // describe('header', () => {

@@ -1,7 +1,7 @@
 ---
-title: "Troubleshooting"
-description: "Common issues and solutions when using XSwarm"
-category: "Troubleshooting"
+title: 'Troubleshooting'
+description: 'Common issues and solutions when using XSwarm'
+category: 'Troubleshooting'
 order: 1
 ---
 
@@ -16,6 +16,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: Error message about Node.js version compatibility
 
 **Solution**:
+
 1. Check your Node.js version:
    ```bash
    node --version
@@ -30,6 +31,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: Permission denied when installing globally
 
 **Solution**:
+
 1. Use npx instead of global install:
    ```bash
    npx xswarm
@@ -46,6 +48,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: "xswarm: command not found"
 
 **Solution**:
+
 1. Verify installation:
    ```bash
    npm list -g xswarm
@@ -66,6 +69,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: XSwarm seems stuck or unresponsive
 
 **Solution**:
+
 1. Press `Ctrl+C` to interrupt
 2. Restart XSwarm
 3. Check your internet connection (needed for AI features)
@@ -79,6 +83,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: "Invalid API key" or authentication errors
 
 **Solution**:
+
 1. Verify your API key is correctly set
 2. Check API key permissions
 3. Ensure you're not exceeding rate limits
@@ -89,6 +94,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: "Out of memory" errors
 
 **Solution**:
+
 1. Close unnecessary applications
 2. Increase Node.js memory limit:
    ```bash
@@ -103,6 +109,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: AI agents giving inconsistent or conflicting advice
 
 **Solution**:
+
 1. Provide more specific context
 2. Reference previous decisions explicitly
 3. Use clear, unambiguous language
@@ -113,6 +120,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: Generated code has syntax errors or doesn't work
 
 **Solution**:
+
 1. Always review generated code
 2. Ask for corrections:
    ```
@@ -126,6 +134,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: XSwarm seems to forget previous conversations
 
 **Solution**:
+
 1. Reference previous work explicitly:
    ```
    > Continue from where we left off with the user authentication
@@ -143,6 +152,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: XSwarm takes too long to respond
 
 **Solution**:
+
 1. Check your internet connection speed
 2. Try simpler, more focused requests
 3. Avoid requesting too many parallel tasks
@@ -153,6 +163,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: XSwarm consuming too much CPU
 
 **Solution**:
+
 1. Limit concurrent operations
 2. Close other resource-intensive applications
 3. Monitor system resources
@@ -165,6 +176,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: Issues with Git operations
 
 **Solution**:
+
 1. Ensure Git is installed and configured
 2. Check repository permissions
 3. Verify you're in a Git repository
@@ -175,6 +187,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: Cannot read or write files
 
 **Solution**:
+
 1. Check file permissions:
    ```bash
    ls -la
@@ -191,6 +204,7 @@ This guide helps you resolve common issues when using XSwarm.
 **Problem**: Generated code doesn't work with your framework
 
 **Solution**:
+
 1. Specify your framework version:
    ```
    > I'm using React 18 with TypeScript
@@ -202,21 +216,25 @@ This guide helps you resolve common issues when using XSwarm.
 ## Best Practices for Avoiding Issues
 
 ### 1. Clear Communication
+
 - Be specific about requirements
 - Provide context and constraints
 - Mention technology versions
 
 ### 2. Incremental Development
+
 - Start with small tasks
 - Test each component
 - Build complexity gradually
 
 ### 3. Regular Saves
+
 - Save important code locally
 - Use version control
 - Document key decisions
 
 ### 4. Environment Consistency
+
 - Document your setup
 - Use consistent versions
 - Maintain clean dependencies
@@ -237,6 +255,7 @@ This guide helps you resolve common issues when using XSwarm.
 ### Debug Mode
 
 Enable debug mode for more information:
+
 ```bash
 DEBUG=xswarm* xswarm
 ```
@@ -244,6 +263,7 @@ DEBUG=xswarm* xswarm
 ### Logs
 
 Check logs for detailed error information:
+
 ```bash
 cat ~/.xswarm/logs/xswarm.log
 ```
@@ -251,15 +271,19 @@ cat ~/.xswarm/logs/xswarm.log
 ## Common Error Messages
 
 ### "Rate limit exceeded"
+
 Wait a few minutes before trying again, or upgrade your API plan.
 
 ### "Context too long"
+
 Break your request into smaller parts or start a new session.
 
 ### "Network error"
+
 Check your internet connection and firewall settings.
 
 ### "Invalid project structure"
+
 Ensure you're in a valid project directory with proper structure.
 
 ## Next Steps

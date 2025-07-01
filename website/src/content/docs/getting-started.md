@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with XSwarm"
-description: "Quick start guide to transform into an AI team leader with XSwarm"
-category: "Getting Started"
+title: 'Getting Started with XSwarm'
+description: 'Quick start guide to transform into an AI team leader with XSwarm'
+category: 'Getting Started'
 order: 1
 ---
 

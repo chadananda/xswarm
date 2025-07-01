@@ -134,7 +134,9 @@
   border-radius: 8px;
   padding: 1.25rem;
   border: 1px solid var(--border-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .agent-card:hover {
   transform: translateY(-2px);

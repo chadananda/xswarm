@@ -10,11 +10,7 @@
       "description": "Crafts messages that achieve neural resonance with recipient brainwaves",
       "image": "/agents/email-marketing-manager.png",
       "prompt": "Perform Email Marketing Manager duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -24,11 +20,7 @@
       "description": "Programs self-evolving marketing sequences that adapt to user behavior",
       "image": "/agents/marketing-automation-specialist.png",
       "prompt": "Perform Marketing Automation Specialist duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     },
     {
@@ -38,11 +30,7 @@
       "description": "Maps and optimizes every neural touchpoint in the customer matrix",
       "image": "/agents/crm-manager.png",
       "prompt": "Perform CRM Manager duties with expertise and precision.",
-      "mcpTools": [
-        "github",
-        "slack",
-        "jira"
-      ],
+      "mcpTools": ["github", "slack", "jira"],
       "activityType": "development"
     }
   ]

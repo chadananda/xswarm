@@ -1,4 +1,5 @@
 # Product Requirements Document (PRD): Sprint Orchestrator
+
 ## Document: 02-orchestration-prd.md
 
 ## Executive Summary
@@ -10,6 +11,7 @@ The Sprint Orchestrator is a coordination system that manages the execution of p
 ### Core Components
 
 **Kaiban Integration Layer**
+
 - Visual kanban dashboard for sprint and task visualization
 - Real-time status updates for tasks (pending, running, completed, failed)
 - Token usage tracking and resource monitoring per task
@@ -17,6 +19,7 @@ The Sprint Orchestrator is a coordination system that manages the execution of p
 - Shareable dashboard URLs for stakeholder visibility
 
 **Git Management System**
+
 - Sprint branch lifecycle management (`sprint/{sprint-id}`)
 - Task feature branch creation (`task/{sprint-id}/{task-id}`)
 - Working tree orchestration for parallel task execution
@@ -24,6 +27,7 @@ The Sprint Orchestrator is a coordination system that manages the execution of p
 - Main branch updates upon sprint completion
 
 **Container Orchestration**
+
 - Sprint-specific container image building and management
 - Task container lifecycle (create, execute, monitor, cleanup)
 - Resource allocation and limits enforcement
@@ -31,6 +35,7 @@ The Sprint Orchestrator is a coordination system that manages the execution of p
 - Result collection and artifact management
 
 **Coordination Engine**
+
 - Sprint execution state machine
 - Task dependency validation (pre-validated by planner)
 - Parallel task execution coordination
@@ -40,6 +45,7 @@ The Sprint Orchestrator is a coordination system that manages the execution of p
 ## Operational Workflow
 
 ### Sprint Initialization Phase
+
 ```
 Orchestrator → Receive sprint definition from planning system (see 01a/01b/01c-planning-prd.md files)
 Orchestrator → Create sprint branch (sprint/{sprint-id})
@@ -50,6 +56,7 @@ Orchestrator → Set task statuses to "Ready"
 ```
 
 ### Task Execution Phase (Parallel)
+
 ```
 For each ready task in sprint:
   Orchestrator → Create task feature branch (task/{sprint-id}/{task-id})
@@ -71,6 +78,7 @@ For each ready task in sprint:
 ```
 
 ### Sprint Completion Phase
+
 ```
 Orchestrator → Wait for all tasks in sprint to complete
 Orchestrator → Run sprint-level integration tests
@@ -85,6 +93,7 @@ Orchestrator → Trigger next sprint (if available)
 ## Input Specifications
 
 ### Sprint Definition Schema
+
 ```json
 {
   "sprint_id": "string",
@@ -117,16 +126,17 @@ Orchestrator → Trigger next sprint (if available)
 ```
 
 ### Kaiban Board Configuration
+
 ```json
 {
   "board_id": "sprint-{sprint-id}",
   "board_name": "Sprint {sprint-id}: {sprint-name}",
   "columns": [
-    {"id": "ready", "name": "Ready", "limit": null},
-    {"id": "in-progress", "name": "In Progress", "limit": 5},
-    {"id": "review", "name": "Quality Review", "limit": null},
-    {"id": "completed", "name": "Completed", "limit": null},
-    {"id": "failed", "name": "Failed", "limit": null}
+    { "id": "ready", "name": "Ready", "limit": null },
+    { "id": "in-progress", "name": "In Progress", "limit": 5 },
+    { "id": "review", "name": "Quality Review", "limit": null },
+    { "id": "completed", "name": "Completed", "limit": null },
+    { "id": "failed", "name": "Failed", "limit": null }
   ],
   "cards": [
     {
@@ -148,6 +158,7 @@ Orchestrator → Trigger next sprint (if available)
 ## Core Orchestrator Functions
 
 ### Sprint Management
+
 ```python
 class SprintOrchestrator:
     def initialize_sprint(self, sprint_definition):
@@ -170,6 +181,7 @@ class SprintOrchestrator:
 ```
 
 ### Task Coordination
+
 ```python
 def launch_task(self, task_spec):
     # Create task branch and working tree
@@ -187,6 +199,7 @@ def handle_task_completion(self, task_id, results):
 ```
 
 ### Git Operations
+
 ```python
 def create_sprint_branch(self, sprint_id):
     # git checkout -b sprint/{sprint_id}
@@ -206,6 +219,7 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 ## Kaiban Dashboard Features
 
 ### Sprint Overview
+
 - Sprint progress bar (tasks completed/total)
 - Total token usage vs budget
 - Active container count
@@ -213,6 +227,7 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 - Resource utilization metrics
 
 ### Task Cards
+
 - Task title and description
 - Current status with visual indicators
 - Token usage (actual vs estimated)
@@ -221,12 +236,14 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 - Links to task artifacts and logs
 
 ### Real-time Updates
+
 - WebSocket connections for live status updates
 - Progress animations and notifications
 - Error alerts and recovery status
 - Team collaboration comments and notes
 
 ### Reporting Dashboard
+
 - Sprint velocity metrics
 - Token usage analytics
 - Task completion trends
@@ -236,6 +253,7 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 ## Token Usage Tracking
 
 ### Per-Task Tracking
+
 ```json
 {
   "task_id": "string",
@@ -254,6 +272,7 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 ```
 
 ### Sprint-Level Aggregation
+
 - Total token budget vs actual usage
 - Token usage per task category
 - Efficiency trends and optimization opportunities
@@ -262,17 +281,20 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 ## Error Handling and Recovery
 
 ### Task Failure Scenarios
+
 - **Container Timeout**: Restart with increased limits
 - **Quality Gate Failure**: Move to review column, flag for manual intervention
 - **Resource Exhaustion**: Queue task for retry with different resource allocation
 - **Integration Conflicts**: Isolate conflicting tasks, require manual merge
 
 ### Sprint-Level Recovery
+
 - **Failed Tasks**: Mark sprint as partial, continue with completed tasks
 - **Integration Test Failures**: Rollback sprint, analyze conflicts
 - **Resource Constraints**: Reduce parallelism, extend sprint timeline
 
 ### Kaiban Error Visualization
+
 - Failed tasks highlighted in red with error details
 - Recovery actions displayed as actionable buttons
 - Error logs accessible through task card drill-down
@@ -281,6 +303,7 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 ## Integration Points
 
 ### System Dependencies
+
 - **Planning System** (`01a/01b/01c-planning-prd.md`): Receives sprint definitions with pre-decomposed parallelizable tasks
 - **Task Implementation Teams** (`03-task-team-prd.md`): Launches and monitors containerized task execution
 - **Git Repository**: Branch and merge operations
@@ -290,6 +313,7 @@ def merge_task_to_sprint(self, sprint_id, task_id):
 - **Monitoring**: Resource usage and performance metrics
 
 ### API Endpoints
+
 ```
 POST /api/sprints - Create new sprint
 GET /api/sprints/{id} - Get sprint status
@@ -302,6 +326,7 @@ GET /api/dashboard/{sprint_id} - Get Kaiban board data
 ## Configuration Management
 
 ### Environment Configuration
+
 ```yaml
 orchestrator:
   max_concurrent_sprints: 1
@@ -310,25 +335,26 @@ orchestrator:
   default_token_budget: 1000000
 
 git:
-  repository_url: "${REPO_URL}"
-  main_branch: "main"
-  working_trees_path: "/tmp/orchestrator/trees"
+  repository_url: '${REPO_URL}'
+  main_branch: 'main'
+  working_trees_path: '/tmp/orchestrator/trees'
 
 containers:
-  runtime: "podman"
-  base_image: "claude-code:dangerous-mode"
-  network_mode: "none"
+  runtime: 'podman'
+  base_image: 'claude-code:dangerous-mode'
+  network_mode: 'none'
   cleanup_on_completion: true
 
 kaiban:
-  api_url: "${KAIBAN_API_URL}"
-  board_template: "sprint-template"
-  webhook_url: "${WEBHOOK_URL}"
+  api_url: '${KAIBAN_API_URL}'
+  board_template: 'sprint-template'
+  webhook_url: '${WEBHOOK_URL}'
 ```
 
 ## Monitoring and Observability
 
 ### Key Metrics
+
 - Sprint completion rate and velocity
 - Average task execution time
 - Token usage efficiency
@@ -336,6 +362,7 @@ kaiban:
 - Quality gate pass rates
 
 ### Logging Strategy
+
 - Structured logs for all orchestrator operations
 - Task execution logs collected from containers
 - Git operation audit trail
@@ -343,6 +370,7 @@ kaiban:
 - Performance and resource usage metrics
 
 ### Health Checks
+
 - Container health monitoring
 - Git repository connectivity
 - Kaiban API availability
@@ -352,6 +380,7 @@ kaiban:
 ## Success Criteria
 
 ### Functional Requirements
+
 - Successfully execute parallel tasks within sprints
 - Maintain real-time Kaiban dashboard updates
 - Accurate token usage tracking and reporting
@@ -359,6 +388,7 @@ kaiban:
 - Robust error handling and recovery
 
 ### Performance Requirements
+
 - Support up to 5 parallel tasks per sprint
 - Task status updates within 5 seconds
 - Sprint completion within planned timeline
@@ -366,6 +396,7 @@ kaiban:
 - Efficient resource utilization (>80%)
 
 ### Quality Requirements
+
 - Zero data loss during task execution
 - Consistent Git history without conflicts
 - Accurate token usage accounting
@@ -375,6 +406,7 @@ kaiban:
 ## Future Enhancements
 
 ### Planned Features
+
 - **Multi-Sprint Pipeline**: Overlap sprint execution for continuous delivery
 - **Dynamic Resource Allocation**: Auto-scale container resources based on demand
 - **Advanced Analytics**: ML-based sprint planning and optimization
@@ -382,6 +414,7 @@ kaiban:
 - **Integration Testing**: Automated cross-sprint integration validation
 
 ### Integration Opportunities
+
 - **CI/CD Pipeline**: Trigger deployments on sprint completion
 - **Issue Tracking**: Sync with Jira/GitHub Issues
 - **Code Quality Tools**: Integrate SonarQube/CodeClimate
@@ -392,6 +425,7 @@ kaiban:
 The Sprint Orchestrator provides a clean, visual, and reliable coordination layer for managing parallel development work. By leveraging Kaiban for dashboard management and maintaining simple but robust Git and container operations, it enables efficient execution of pre-planned sprints (from `01a/01b/01c-planning-prd.md` files) while coordinating containerized task teams (from `03-task-team-prd.md`). The system provides complete visibility into progress, resource usage, and quality metrics through its dashboard interface.
 
 ## Related Documents
+
 - `01a-concept-interview-prd.md`: Defines the concept interview and requirements gathering process
 - `01b-ui-interview-prd.md`: Defines the UI/UX design and prototyping process
 - `01c-epoch-planning-prd.md`: Defines the technical planning and task decomposition process

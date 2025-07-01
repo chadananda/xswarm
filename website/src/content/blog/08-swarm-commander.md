@@ -1,11 +1,11 @@
 ---
-title: "From AI Prompt Engineer to AI Swarm Commander: The Evolution"
-description: "Stop crafting the perfect prompt for a single AI. Start commanding swarms. Think less \"please write this function\" and more \"team of 6 AI agents, take this epoch and run with it.\""
+title: 'From AI Prompt Engineer to AI Swarm Commander: The Evolution'
+description: 'Stop crafting the perfect prompt for a single AI. Start commanding swarms. Think less "please write this function" and more "team of 6 AI agents, take this epoch and run with it."'
 publishDate: 2024-01-22
-author: "XSwarm Team"
-image: "/images/blog/swarm-commander-hero.jpg"
-imageAlt: "Cyberpunk command center with developer orchestrating multiple AI teams"
-tags: ["AI Development", "Cyberpunk", "Leadership", "Orchestration", "Evolution"]
+author: 'XSwarm Team'
+image: '/images/blog/swarm-commander-hero.jpg'
+imageAlt: 'Cyberpunk command center with developer orchestrating multiple AI teams'
+tags: ['AI Development', 'Cyberpunk', 'Leadership', 'Orchestration', 'Evolution']
 ---
 
 # From AI Prompt Engineer to AI Swarm Commander: The Evolution
@@ -42,6 +42,7 @@ It's time to evolve.
 ## The Current Reality: Tactical Hell
 
 Right now, you're stuck in the prompt engineering trenches. Every feature requires you to:
+
 - Craft the perfect prompt (version 17, this time it'll work)
 - Feed context piece by piece into narrow windows
 - Debug why the AI forgot your architecture halfway through

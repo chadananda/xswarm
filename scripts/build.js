@@ -23,7 +23,7 @@ const runBuild = (name, dir) => {
     const child = spawn('npm', ['run', 'build'], {
       cwd: dir,
       stdio: 'inherit',
-      shell: true
+      shell: true,
     });
 
     child.on('close', (code) => {
@@ -40,10 +40,7 @@ const runBuild = (name, dir) => {
 };
 
 // Run builds in parallel
-Promise.all([
-  runBuild('CLI', join(rootDir, 'cli')),
-  runBuild('Website', join(rootDir, 'website'))
-])
+Promise.all([runBuild('CLI', join(rootDir, 'cli')), runBuild('Website', join(rootDir, 'website'))])
   .then(() => {
     console.log('🎉 Build complete!');
   })

@@ -8,7 +8,7 @@
   background: rgb(18, 22, 28);
   transition: transform 0.2s ease-out;
   /* Cyberpunk border glow */
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(0, 255, 255, 0.3),
     inset 0 0 20px rgba(0, 255, 255, 0.1);
 }
@@ -28,23 +28,28 @@
   border-radius: 14px; /* Slightly larger to prevent inner corner cutting */
   background: 
     /* Subtle color overlay */
-    linear-gradient(135deg, 
-      rgba(40, 50, 65, 0.95) 0%, 
+    linear-gradient(
+      135deg,
+      rgba(40, 50, 65, 0.95) 0%,
       rgba(25, 30, 40, 0.98) 40%,
       rgba(30, 25, 45, 0.95) 70%,
       rgba(35, 40, 55, 0.95) 100%
     ),
     /* Circuit board pattern */
-    url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="rgba(0,255,255,0.05)" stroke-width="0.5"><path d="M30 10 L30 50 M10 30 L50 30"/><circle cx="30" cy="30" r="3"/><circle cx="10" cy="30" r="2"/><circle cx="50" cy="30" r="2"/><circle cx="30" cy="10" r="2"/><circle cx="30" cy="50" r="2"/></g></svg>'),
+      url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="rgba(0,255,255,0.05)" stroke-width="0.5"><path d="M30 10 L30 50 M10 30 L50 30"/><circle cx="30" cy="30" r="3"/><circle cx="10" cy="30" r="2"/><circle cx="50" cy="30" r="2"/><circle cx="30" cy="10" r="2"/><circle cx="30" cy="50" r="2"/></g></svg>'),
     /* Noise texture */
-    url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.04"/></svg>'),
+      url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.04"/></svg>'),
     rgb(18, 22, 28);
-  background-size: 100%, 60px 60px, 200px 200px, 100%;
+  background-size:
+    100%,
+    60px 60px,
+    200px 200px,
+    100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   /* Inner glow effect */
-  box-shadow: 
+  box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
@@ -75,9 +80,10 @@
 .card-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, 
-    transparent 0%, 
-    transparent 60%, 
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
     rgba(18, 22, 28, 0.95) 100%
   );
   border-radius: 11px 11px 0 0; /* Match parent radius */
@@ -151,7 +157,9 @@
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.2s ease-out, max-height 0.2s ease-out;
+  transition:
+    opacity 0.2s ease-out,
+    max-height 0.2s ease-out;
   margin-top: 0.5rem;
 }
 
@@ -193,7 +201,10 @@
 /* Hover states for compact cards */
 .trading-card-compact {
   cursor: pointer;
-  transition: width 0.15s ease-out, height 0.15s ease-out, transform 0.15s ease-out;
+  transition:
+    width 0.15s ease-out,
+    height 0.15s ease-out,
+    transform 0.15s ease-out;
   position: relative;
 }
 

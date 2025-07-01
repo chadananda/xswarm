@@ -5,9 +5,11 @@
 ## Phase 1: Foundation & Namespace Security
 
 ### Overview
+
 Establish the foundational infrastructure for XSwarm.ai including npm package publication, web presence, and CLI framework. Primary goals are securing the namespace, creating professional branding, and laying groundwork for future development.
 
 ### Success Criteria
+
 - ✅ Secure `xswarm` namespace on npm
 - ✅ Live website at xswarm.ai with professional branding
 - ✅ Working CLI installable via `npx xswarm` and `npm i -g xswarm`
@@ -61,6 +63,7 @@ xswarm/
 ### Requirements
 
 **Core CLI Features:**
+
 - **Namespace Security:** Publish minimal viable CLI to secure `xswarm` on npm
 - **Professional Header:** Claude Code-style branded terminal interface
 - **Installation Options:** Support both `npx xswarm` and global installation
@@ -68,6 +71,7 @@ xswarm/
 - **Version Management:** Semantic versioning with automated publishing
 
 **Technical Specifications:**
+
 - Node.js 18+ compatibility
 - Cross-platform support (Windows, macOS, Linux)
 - Minimal dependencies for fast installation
@@ -75,11 +79,13 @@ xswarm/
 - ESM module format for modern compatibility
 
 **CLI User Experience:**
+
 ```bash
 $ npx xswarm
 ```
 
 Expected output:
+
 ```
 ╭─────────────────────────────────────────────────────────────╮
 │                                                             │
@@ -114,6 +120,7 @@ Join the waitlist at xswarm.ai for early access!
 ```
 
 **Package.json Configuration:**
+
 - `bin` field for global installation
 - `engines` specification for Node.js version
 - `keywords` for npm discoverability
@@ -125,6 +132,7 @@ Join the waitlist at xswarm.ai for early access!
 ### Requirements
 
 **Static Website Features:**
+
 - **Professional Landing Page:** Clear value proposition and branding
 - **Blog System:** Article generation from project documentation
 - **GitHub Pages Deployment:** Automated publishing to dedicated `website` branch using GitHub Pages functionality
@@ -132,11 +140,13 @@ Join the waitlist at xswarm.ai for early access!
 - **Responsive Design:** Mobile-first approach with modern styling
 
 **Content Strategy:**
+
 - **Homepage (xswarm.ai):** XSwarm.ai value proposition, demo video placeholder, waitlist signup
 - **About Page:** Team of One philosophy, technology overview, roadmap
 - **Blog Articles:** Transform README content into actionable guides
 
 **Blog Article Topics:**
+
 1. **"The Team of One Philosophy"** - Why solo developers need AI support teams
 2. **"AI Development Workflows"** - How coordinated AI agents transform productivity
 3. **"Getting Started Guide"** - Installing and using XSwarm (future functionality)
@@ -144,6 +154,7 @@ Join the waitlist at xswarm.ai for early access!
 5. **"Marketing for Developers"** - Why technical projects need content strategy
 
 **Design Requirements:**
+
 - Modern, developer-focused aesthetic
 - Dark/light mode switching using CSS variables and `light-dark()` CSS function
 - TailwindCSS utility classes with theme-aware design
@@ -153,6 +164,7 @@ Join the waitlist at xswarm.ai for early access!
 - Professional typography and spacing
 
 **Technical Specifications:**
+
 - Astro static site generator for optimal performance
 - TailwindCSS for styling with CSS variables for theme switching
 - ShadCN component library for consistent UI elements
@@ -167,12 +179,14 @@ Join the waitlist at xswarm.ai for early access!
 ### Requirements
 
 **Automated Workflows:**
+
 - **CLI Publishing:** Automatic npm publish on version tags
 - **Website Deployment:** Push to GitHub Pages website branch
 - **Version Coordination:** Synchronized versioning across CLI and website
 - **Development Scripts:** Local development environment setup
 
 **Root Package Scripts:**
+
 ```json
 {
   "scripts": {
@@ -180,7 +194,7 @@ Join the waitlist at xswarm.ai for early access!
     "build": "node scripts/build.js",
     "build:website": "cd website && npm run build",
     "build:cli": "cd cli && npm run build",
-    "test:cli": "cd cli && npm test", 
+    "test:cli": "cd cli && npm test",
     "deploy:cli": "node scripts/deploy-cli.js",
     "update:site": "node scripts/update-site.js",
     "deploy:all": "node scripts/deploy.js",
@@ -194,6 +208,7 @@ Join the waitlist at xswarm.ai for early access!
 **GitHub Actions Workflows:**
 
 **CLI Publishing Workflow:**
+
 - Trigger on pushes to main branch that modify `cli/` directory
 - Automatically increment minor version using npm version
 - Build and test CLI package
@@ -202,6 +217,7 @@ Join the waitlist at xswarm.ai for early access!
 - Tag commit with new version
 
 **GitHub Actions Implementation:**
+
 ```yaml
 # .github/workflows/publish-cli.yml
 name: Publish CLI
@@ -209,7 +225,7 @@ on:
   push:
     branches: [main]
     paths: ['cli/**']
-    
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -257,6 +273,7 @@ jobs:
 **Website Deployment Strategy:**
 
 **GitHub Actions Workflow (Preferred)**
+
 - Trigger on pushes to main branch that modify `website/` directory
 - Build Astro site in isolated environment
 - Run tests and quality checks on built site
@@ -264,10 +281,12 @@ jobs:
 - Automatic rollback if deployment fails
 
 **Manual Override Option**
+
 - `npm run update:site` for local testing and emergency updates
 - Useful for development and troubleshooting
 
 **GitHub Actions Implementation:**
+
 ```yaml
 # .github/workflows/deploy-website.yml
 name: Deploy Website
@@ -275,7 +294,7 @@ on:
   push:
     branches: [main]
     paths: ['website/**']
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -297,6 +316,7 @@ jobs:
 ```
 
 **Development Workflow:**
+
 - Concurrent development of CLI and website
 - Hot reloading for website development
 - CLI linking for local testing
@@ -305,6 +325,7 @@ jobs:
 ## Technical Implementation Details
 
 ### CLI Development Stack
+
 - **Runtime:** Node.js 18+
 - **Language:** JavaScript (avoiding TypeScript complexity)
 - **UI Framework:** Custom terminal interface with box-drawing characters
@@ -313,6 +334,7 @@ jobs:
 - **Linting:** ESLint with modern JavaScript support
 
 ### Website Development Stack
+
 - **Framework:** Astro for static site generation
 - **Styling:** TailwindCSS with CSS variables for theming
 - **Components:** ShadCN component library for consistent UI
@@ -323,6 +345,7 @@ jobs:
 - **Analytics:** Privacy-focused analytics (optional)
 
 ### Infrastructure Requirements
+
 - **Domain:** xswarm.ai (already secured)
 - **Hosting:** GitHub Pages (free tier)
 - **Registry:** npm public registry
@@ -332,6 +355,7 @@ jobs:
 ## Success Metrics
 
 ### Phase 1.1 Success Criteria
+
 - [x] CLI package published to npm with `xswarm` namespace
 - [x] Successful installation via `npx xswarm` and `npm i -g xswarm`
 - [x] Professional branded header displays correctly
@@ -340,6 +364,7 @@ jobs:
 - [ ] Automated version bumping and npm publishing functional (GitHub Actions not yet configured)
 
 ### Phase 1.2 Success Criteria
+
 - [x] Website live at xswarm.ai with professional design
 - [ ] All blog articles published and accessible (blog system not yet implemented)
 - [x] Mobile responsiveness verified across devices
@@ -347,6 +372,7 @@ jobs:
 - [x] Page load speeds under 2 seconds
 
 ### Phase 1.3 Success Criteria
+
 - [ ] Automated CLI publishing workflow functional (GitHub Actions needed)
 - [ ] Website deployment pipeline working reliably (manual script exists)
 - [x] Development environment easily reproducible
@@ -356,18 +382,21 @@ jobs:
 ## Timeline
 
 ### Week 1: CLI Foundation
+
 - Set up monorepo structure with workspaces
 - Implement CLI with branded header and placeholder
 - Configure package.json for npm publishing
 - Test installation methods and cross-platform compatibility
 
 ### Week 2: Website Development
+
 - Set up Astro project with TailwindCSS
 - Create homepage and about page
 - Transform README content into blog articles
 - Implement responsive design and dark mode
 
 ### Week 3: Deployment Pipeline
+
 - Configure GitHub Actions for CLI publishing
 - Set up GitHub Actions for website deployment with build validation
 - Implement website deployment only on successful builds
@@ -375,6 +404,7 @@ jobs:
 - Test automated deployment to `website` branch with path-based triggers
 
 ### Week 4: Polish & Launch
+
 - Final testing across all platforms and browsers
 - SEO optimization and performance tuning
 - Documentation completion
@@ -383,12 +413,14 @@ jobs:
 ## Risk Mitigation
 
 ### Technical Risks
+
 - **npm Namespace Conflict:** Immediate publication secures namespace
 - **GitHub Pages Limitations:** Astro static generation ensures compatibility
 - **Cross-Platform Issues:** Early testing on Windows, macOS, and Linux
 - **Dependency Conflicts:** Minimal dependency approach reduces risk
 
 ### Timeline Risks
+
 - **Scope Creep:** Focus on minimal viable implementation
 - **Deployment Complexity:** Use proven tools (Astro, GitHub Actions)
 - **Content Creation:** Leverage existing documentation for blog articles
@@ -397,12 +429,14 @@ jobs:
 ## Future Considerations
 
 ### Phase 2 Preparation
+
 - CLI architecture designed for future agent integration
 - Website structure ready for documentation expansion
 - Deployment pipeline scalable for increased complexity
 - Namespace and branding established for long-term growth
 
 ### Scalability Planning
+
 - Monorepo structure supports additional packages
 - Website can accommodate extensive documentation
 - CLI framework ready for complex feature addition

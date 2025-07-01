@@ -3,52 +3,54 @@
 :root {
   /* Enable automatic light/dark switching */
   color-scheme: light dark;
-  
+
   /* Brand Colors - These don't change between themes */
   --brand-primary: 59 130 246; /* Blue 500 */
   --brand-secondary: 139 92 246; /* Purple 500 */
   --brand-accent: 99 102 241; /* Indigo 500 */
-  
+
   /* Semantic Colors using light-dark() function */
   /* Backgrounds */
   --color-background: light-dark(rgb(255 255 255), rgb(3 7 18)); /* white / gray-950 */
   --color-surface: light-dark(rgb(249 250 251), rgb(17 24 39)); /* gray-50 / gray-900 */
   --color-surface-hover: light-dark(rgb(243 244 246), rgb(31 41 55)); /* gray-100 / gray-800 */
   --color-surface-active: light-dark(rgb(229 231 235), rgb(55 65 81)); /* gray-200 / gray-700 */
-  
+
   /* Borders */
   --color-border: light-dark(rgb(229 231 235), rgb(31 41 55)); /* gray-200 / gray-800 */
   --color-border-hover: light-dark(rgb(209 213 219), rgb(55 65 81)); /* gray-300 / gray-700 */
-  
+
   /* Text Colors */
   --color-text-primary: light-dark(rgb(17 24 39), rgb(243 244 246)); /* gray-900 / gray-100 */
   --color-text-secondary: light-dark(rgb(55 65 81), rgb(209 213 219)); /* gray-700 / gray-300 */
   --color-text-tertiary: light-dark(rgb(107 114 128), rgb(156 163 175)); /* gray-500 / gray-400 */
   --color-text-muted: light-dark(rgb(156 163 175), rgb(107 114 128)); /* gray-400 / gray-500 */
-  
+
   /* Interactive Colors */
   --color-link: light-dark(rgb(var(--brand-primary)), rgb(96 165 250)); /* blue-500 / blue-400 */
-  --color-link-hover: light-dark(rgb(var(--brand-accent)), rgb(129 140 248)); /* indigo-500 / indigo-400 */
-  
+  --color-link-hover: light-dark(
+    rgb(var(--brand-accent)),
+    rgb(129 140 248)
+  ); /* indigo-500 / indigo-400 */
+
   /* Code/Syntax */
   --color-code-bg: light-dark(rgb(243 244 246), rgb(31 41 55)); /* gray-100 / gray-800 */
   --color-code-text: light-dark(rgb(31 41 55), rgb(229 231 235)); /* gray-800 / gray-200 */
-  
-  
+
   /* Button Colors */
   --color-button-primary: rgb(var(--brand-primary));
   --color-button-primary-hover: rgb(var(--brand-accent));
   --color-button-secondary: var(--color-surface-hover);
   --color-button-secondary-hover: var(--color-surface-active);
-  
+
   /* Status Colors */
   --color-success: light-dark(rgb(16 185 129), rgb(52 211 153)); /* emerald-500 / emerald-400 */
   --color-warning: light-dark(rgb(245 158 11), rgb(251 191 36)); /* amber-500 / amber-400 */
   --color-error: light-dark(rgb(239 68 68), rgb(248 113 113)); /* red-500 / red-400 */
-  
+
   /* Overlays */
   --color-overlay: light-dark(rgba(0 0 0 / 0.5), rgba(0 0 0 / 0.7));
-  
+
   /* Cyberpunk Terminal Colors - Light mode has muted versions */
   --terminal-green: light-dark(rgb(0 180 0), rgb(0 255 0));
   --terminal-amber: light-dark(rgb(200 140 0), rgb(255 176 0));
@@ -58,12 +60,12 @@
   --terminal-blue: light-dark(rgb(0 100 200), rgb(0 128 255));
   --terminal-purple: light-dark(rgb(120 0 200), rgb(157 0 255));
   --terminal-yellow: light-dark(rgb(200 200 0), rgb(255 255 0));
-  
+
   /* Terminal backgrounds */
   --terminal-bg: light-dark(rgb(250 250 250), rgb(10 10 10));
   --terminal-bg-alt: light-dark(rgb(245 245 245), rgb(15 15 15));
   --terminal-overlay: light-dark(rgba(0 180 0 / 0.02), rgba(0 255 0 / 0.05));
-  
+
   /* Glow effects - reduced in light mode */
   --glow-intensity: light-dark(0 0 2px, 0 0 10px);
   --glow-intense: light-dark(0 0 4px, 0 0 20px);
@@ -72,12 +74,12 @@
 }
 
 /* Force light mode */
-[data-theme="light"] {
+[data-theme='light'] {
   color-scheme: light;
 }
 
 /* Force dark mode */
-[data-theme="dark"] {
+[data-theme='dark'] {
   color-scheme: dark;
 }
 
