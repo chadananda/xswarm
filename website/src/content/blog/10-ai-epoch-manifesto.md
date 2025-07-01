@@ -8,9 +8,6 @@ imageAlt: 'Cyberpunk visualization of recursive epoch cycles with AI teams'
 tags: ['AI Development', 'Cyberpunk', 'Philosophy', 'Epochs', 'Methodology']
 ---
 
-<style>
-  @import '/src/styles/blog-manifesto.css';
-</style>
 
 I had an epiphany last Tuesday at 3 AM, staring at my terminal while Claude rewrote the same component for the seventh time because I kept changing the requirements. We're doing this all wrong. We're forcing artificial intelligence into human workflows, like trying to run a quantum computer with punch cards.
 

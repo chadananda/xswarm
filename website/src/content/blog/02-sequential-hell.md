@@ -62,7 +62,7 @@ graph LR
 
 Here's the thing nobody wants to admit: we've taken the miraculous power of AI and shackled it to workflows designed for humans in 1995. We're moving like a snail stuck in molasses on a glacier, and we're calling it "innovation."
 
-![Sequential workflow diagram placeholder - showing the painful linear progression of tasks](/images/blog/sequential-workflow-pain.jpg)
+![Sequential workflow diagram placeholder - showing the painful linear progression of tasks](/images/blog/sequential-workflow-pain.svg)
 
 I watched a senior developer yesterday spend his entire morning like this:
 
@@ -108,7 +108,7 @@ Remember waterfall development? That methodology we all agreed was terrible? Con
 
 The real tragedy? AI agents have zero ego. They don't get territorial about code. They could be working together in perfect harmony, but instead, we've created the world's most expensive typewriter.
 
-![AI agents waiting in line illustration - showing frustrated AI agents forced to work sequentially](/images/blog/ai-agents-waiting-line.jpg)
+![AI agents waiting in line illustration - showing frustrated AI agents forced to work sequentially](/images/blog/ai-agents-waiting-line.svg)
 
 ## Horror Stories from the Trenches
 
@@ -162,7 +162,7 @@ Think about it. When you have a team of humans, do you make them sit in a circle
 
 The solution is embarrassingly obvious: let them all work at once. While one agent writes your component, another writes the tests, another handles the documentation. They're all working from the same spec, in isolated environments.
 
-![Parallel execution visualization - showing multiple AI agents working simultaneously](/images/blog/parallel-execution-flow.jpg)
+![Parallel execution visualization - showing multiple AI agents working simultaneously](/images/blog/parallel-execution-flow.svg)
 
 ## Enter xSwarm: Actually Getting Something Done Before I Die
 
@@ -236,6 +236,6 @@ Imagine actually keeping pace with your ideas. Imagine your implementation speed
 
 That's not the future. That's what we're doing right now with xSwarm. While everyone else is stuck in Sequential Hell, we're shipping at the speed of thought.
 
-![Speed comparison visualization - sequential snail vs parallel lightning](/images/blog/speed-comparison-visual.jpg)
+![Speed comparison visualization - sequential snail vs parallel lightning](/images/blog/speed-comparison-visual.svg)
 
 Welcome to parallel execution. Your sanity will thank you.

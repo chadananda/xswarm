@@ -75,7 +75,7 @@ That's the xSwarm approach—stop treating AI like a solo superhero and start tr
 
 When you give that AI intern a full team, magic happens. The BA captures requirements once—ONCE!—and shares them with everyone. The Architect makes sure code goes where it belongs. The Developer can focus on writing clean code instead of guessing at your file structure. The DevOps engineer ensures it'll actually run in production.
 
-![Token Usage Comparison](/images/blog/token-usage-comparison.png)
+![Token Usage Comparison](/images/blog/token-usage-comparison.svg)
 _Traditional AI Assistant: 50,000 tokens of confusion. XSwarm Teams: 5,000 tokens of clarity._
 
 Suddenly, that expensive intern transforms into a force multiplier. Instead of explaining your project structure fifteen times, you explain it once to the Architect. Instead of Token-bombing your way through context confusion, each specialist maintains their own focused context.
