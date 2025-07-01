@@ -3,8 +3,11 @@ import Layout from './Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import readingTime from 'reading-time';
+import '../styles/blog-typography.css';
+import '../styles/blog-header.css';
 import '../styles/blog-visuals.css';
 import '../styles/blog-manifesto.css';
+import '../styles/blog-scrollbar.css';
 
 export interface Props {
   title: string;
@@ -30,28 +33,28 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 <Layout title={`${title} - XSwarm.ai Blog`} description={description}>
   <Navbar />
   
-  <main class="pt-24 pb-16">
-    <article class="container mx-auto px-4 max-w-4xl">
-      <!-- Article Header -->
-      <header class="mb-12">
-        <div class="flex items-center gap-2 text-sm text-tertiary mb-4">
-          <time datetime={publishDate.toISOString()}>{formattedDate}</time>
-          <span>•</span>
-          <span>{stats.text}</span>
+  <main class="pt-0">
+    <!-- Hero Section -->
+    <div class="blog-hero">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="blog-meta">
+          <time class="blog-date" datetime={publishDate.toISOString()}>{formattedDate}</time>
+          <span class="blog-author">{author}</span>
+          <span class="blog-reading-time">{stats.text}</span>
         </div>
         
-        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+        <h1 class="blog-title" data-text={title}>
           {title}
         </h1>
         
-        <p class="text-xl text-tertiary mb-8">
+        <p class="blog-description">
           {description}
         </p>
 
         {tags.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-8">
+          <div class="blog-tags">
             {tags.map((tag) => (
-              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-link rounded-full text-sm">
+              <span class="blog-tag">
                 {tag}
               </span>
             ))}
@@ -59,16 +62,20 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         )}
 
         {image && (
-          <img
-            src={image}
-            alt={imageAlt || title}
-            class="w-full rounded-xl shadow-xl mb-8"
-          />
+          <div class="blog-hero-image">
+            <img
+              src={image}
+              alt={imageAlt || title}
+            />
+          </div>
         )}
-      </header>
+      </div>
+    </div>
+    
+    <article class="container mx-auto px-4 max-w-4xl py-12">
 
       <!-- Article Content -->
-      <div class="prose prose-lg dark:prose-invert max-w-none">
+      <div class="blog-article">
         <slot />
       </div>
 
