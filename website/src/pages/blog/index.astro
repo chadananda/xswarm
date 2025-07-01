@@ -2,9 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
-import Button from '../../components/Button.astro';
 import { getCollection } from 'astro:content';
 import readingTime from 'reading-time';
+import '../../styles/blog-index.css';
 
 // Get all blog posts, filter out drafts
 const posts = (await getCollection('blog'))
@@ -12,37 +12,39 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 // Group posts by tag for the filter
-const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
 ---
 
-<Layout title="Blog - XSwarm.ai" description="Insights on AI-powered development, productivity, and the future of software engineering.">
+<Layout title="Blog - XSwarm.ai" description="Brutally honest insights on AI development, token economics, and building with swarms of specialized agents.">
   <Navbar />
   
-  <main class="pt-24 pb-16">
-    <div class="container mx-auto px-4 max-w-6xl">
-      <!-- Header -->
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">
-          XSwarm Blog
+  <main>
+    <!-- Header -->
+    <div class="blog-index-header">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h1 class="blog-index-title" data-text="XSWARM BLOG">
+          XSWARM BLOG
         </h1>
-        <p class="text-xl text-tertiary max-w-3xl mx-auto">
-          Insights on AI-powered development, productivity tips, and the future of software engineering with XSwarm.
+        <p class="blog-index-subtitle">
+          Brutally honest insights on AI development, token economics, and why your AI assistant needs a team
         </p>
       </div>
+    </div>
 
+    <div class="container mx-auto px-4 max-w-6xl py-12">
       <!-- Tag Filter -->
       {tags.length > 0 && (
-        <div class="mb-12 flex flex-wrap gap-2 justify-center">
+        <div class="tag-filters">
           <button 
             data-tag="all"
-            class="tag-filter px-4 py-2 rounded-full bg-brand-primary text-white transition-colors"
+            class="tag-filter active"
           >
             All Posts
           </button>
           {tags.map((tag) => (
             <button 
               data-tag={tag}
-              class="tag-filter px-4 py-2 rounded-full bg-surface-hover text-secondary hover:bg-surface-active transition-colors"
+              class="tag-filter"
             >
               {tag}
             </button>
@@ -51,7 +53,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
       )}
 
       <!-- Blog Posts Grid -->
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="blog-posts-grid">
         {posts.map((post) => {
           const stats = readingTime(post.body);
           const formattedDate = new Intl.DateTimeFormat('en-US', {
@@ -62,49 +64,49 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
           
           return (
             <article 
-              class="blog-post bg-surface rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-              data-tags={JSON.stringify(post.data.tags)}
+              class="blog-post-card"
+              data-tags={JSON.stringify(post.data.tags || [])}
             >
               {post.data.image && (
-                <div class="aspect-video overflow-hidden">
+                <div class="blog-post-image">
                   <img
                     src={post.data.image}
                     alt={post.data.imageAlt || post.data.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                 </div>
               )}
               
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-tertiary mb-3">
+              <div class="blog-post-content">
+                <div class="blog-post-meta">
                   <time datetime={post.data.publishDate.toISOString()}>{formattedDate}</time>
                   <span>•</span>
                   <span>{stats.text}</span>
                 </div>
                 
-                <h2 class="text-2xl font-bold text-primary mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  <a href={`/blog/${post.slug}`} class="hover:underline">
+                <h2 class="blog-post-title">
+                  <a href={`/blog/${post.slug}`}>
                     {post.data.title}
                   </a>
                 </h2>
                 
-                <p class="text-tertiary mb-4 line-clamp-3">
+                <p class="blog-post-description">
                   {post.data.description}
                 </p>
                 
-                {post.data.tags.length > 0 && (
-                  <div class="flex flex-wrap gap-2 mb-4">
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="blog-post-tags">
                     {post.data.tags.map((tag) => (
-                      <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-link rounded text-xs">
+                      <span class="blog-post-tag">
                         {tag}
                       </span>
                     ))}
                   </div>
                 )}
                 
-                <Button href={`/blog/${post.slug}`} variant="ghost" size="sm" class="group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                  Read more →
-                </Button>
+                <a href={`/blog/${post.slug}`} class="blog-post-link">
+                  Read Full Article
+                </a>
               </div>
             </article>
           );
@@ -112,9 +114,9 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
       </div>
 
       {posts.length === 0 && (
-        <div class="text-center py-16">
-          <p class="text-tertiary text-lg">
-            No blog posts yet. Check back soon!
+        <div class="blog-empty-state">
+          <p>
+            No blog posts yet. Check back soon for brutally honest AI insights!
           </p>
         </div>
       )}
@@ -125,9 +127,9 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
 </Layout>
 
 <script>
-  // Tag filtering functionality
+  // Tag filtering with cyberpunk effects
   const tagButtons = document.querySelectorAll('.tag-filter');
-  const blogPosts = document.querySelectorAll('.blog-post');
+  const blogPosts = document.querySelectorAll('.blog-post-card');
 
   tagButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -135,34 +137,41 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags))];
       
       // Update button states
       tagButtons.forEach(btn => {
-        btn.classList.remove('bg-brand-primary', 'text-white');
-        btn.classList.add('bg-surface-hover', 'text-secondary');
+        btn.classList.remove('active');
       });
-      button.classList.remove('bg-surface-hover', 'text-secondary');
-      button.classList.add('bg-brand-primary', 'text-white');
+      button.classList.add('active');
       
-      // Filter posts
+      // Filter posts with fade effect
       blogPosts.forEach(post => {
+        post.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
         if (selectedTag === 'all') {
-          post.style.display = 'block';
+          post.style.opacity = '0';
+          post.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            post.style.display = 'block';
+            post.style.opacity = '1';
+            post.style.transform = 'scale(1)';
+          }, 100);
         } else {
           const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
           if (postTags.includes(selectedTag)) {
-            post.style.display = 'block';
+            post.style.opacity = '0';
+            post.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              post.style.display = 'block';
+              post.style.opacity = '1';
+              post.style.transform = 'scale(1)';
+            }, 100);
           } else {
-            post.style.display = 'none';
+            post.style.opacity = '0';
+            post.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              post.style.display = 'none';
+            }, 300);
           }
         }
       });
     });
   });
 </script>
-
-<style>
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>

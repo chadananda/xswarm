@@ -111,7 +111,7 @@ The difference is astronomical.
     <div class="cycle-phase phase-3" data-phase="3">
       <div class="phase-icon">🏗️</div>
       <h4>Technical Architecture</h4>
-      <p>Five planning passes minimum. Recursive planning for recursive intelligence.</p>
+      <p>Five planning passes. Recursive planning for AI.</p>
       <div class="phase-detail">Solution Deterministic</div>
     </div>
     <div class="cycle-phase phase-4" data-phase="4">
@@ -223,19 +223,19 @@ In the epoch model, context switching dies.
   </div>
 </div>
 
-## Join the Revolution or Get Left Behind
+## The Choice: Adapt or Stay Stuck
 
-Look, I'm not here to sell you methodology. I'm here to tell you that if you're still treating AI like a faster code monkey, you're already obsolete. The future belongs to those who understand that AI isn't human and shouldn't pretend to be.
+Look, I'm not here to sell you methodology. I'm here to share what actually works. If you're still treating AI like a faster code monkey, you're missing the point. The developers who thrive will be those who understand that AI isn't human and shouldn't pretend to be.
 
-Epochs aren't just a development methodology. They're an acknowledgment that we've entered a new era of software creation. An era where planning is everything, execution is parallel, and the only limit is your imagination.
+Epochs aren't just another development methodology. They're a recognition that we need fundamentally different workflows for AI. Planning becomes everything, execution becomes parallel, and suddenly the impossible becomes routine.
 
 Stop forcing AI into human-shaped holes. Start building AI-shaped workflows.
 
-> **"The epoch revolution starts with your next project. Will you be writing prompts, or writing the future?"**
+> **"The epoch approach starts with understanding: AI thinks differently, so our processes should too."**
 
 <div class="manifesto-cta">
   <div class="cta-content">
-    <h2>Ready to Join the Epoch Revolution?</h2>
+    <h2>Ready to Try the Epoch Approach?</h2>
     <p class="cta-subtitle">Welcome to the age of recursive planning for recursive intelligence.</p>
     <div class="cta-features">
       <div class="feature">

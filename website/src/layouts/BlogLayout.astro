@@ -37,6 +37,16 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   <Navbar />
   
   <main>
+    <!-- Hero Image First -->
+    {image && (
+      <div class="blog-hero-image-top">
+        <img
+          src={image}
+          alt={imageAlt || title}
+        />
+      </div>
+    )}
+    
     <!-- Hero Section -->
     <div class="blog-hero">
       <div class="container mx-auto px-4 max-w-4xl">
@@ -55,15 +65,6 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
                 {tag}
               </span>
             ))}
-          </div>
-        )}
-
-        {image && (
-          <div class="blog-hero-image">
-            <img
-              src={image}
-              alt={imageAlt || title}
-            />
           </div>
         )}
       </div>
