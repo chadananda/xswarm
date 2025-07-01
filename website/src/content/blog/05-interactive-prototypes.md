@@ -124,41 +124,41 @@ Here's the magic: When a stakeholder says "I want a dashboard for tracking team 
   <div class="prototype-grid">
     <div class="prototype-card">
       <div class="prototype-preview">
-        <img src="/images/blog/prototype-option-a.png" alt="Analytics dashboard with charts and graphs" />
+        <img src="/images/blog/prototype-option-a.svg" alt="Analytics dashboard with charts and graphs" />
         <div class="prototype-overlay">
           <span class="click-indicator">👆 Click to Interact</span>
         </div>
       </div>
       <h4>Option A: Analytics Dashboard</h4>
       <p>Data-heavy interface with real-time charts and graphs</p>
-      <a href="#" class="prototype-link">your-org.github.io/prototypes/productivity-dashboard/option-a</a>
+      <a href="https://xswarm.github.io/demo-prototypes/productivity-dashboard/option-a" class="prototype-link">xswarm.github.io/demo-prototypes/productivity-dashboard/option-a</a>
     </div>
     <div class="prototype-card">
       <div class="prototype-preview">
-        <img src="/images/blog/prototype-option-b.png" alt="Card-based team overview" />
+        <img src="/images/blog/prototype-option-b.svg" alt="Card-based team overview" />
         <div class="prototype-overlay">
           <span class="click-indicator">👆 Click to Interact</span>
         </div>
       </div>
       <h4>Option B: Team Cards</h4>
       <p>Card-based overview with live activity feeds</p>
-      <a href="#" class="prototype-link">your-org.github.io/prototypes/productivity-dashboard/option-b</a>
+      <a href="https://xswarm.github.io/demo-prototypes/productivity-dashboard/option-b" class="prototype-link">xswarm.github.io/demo-prototypes/productivity-dashboard/option-b</a>
     </div>
     <div class="prototype-card">
       <div class="prototype-preview">
-        <img src="/images/blog/prototype-option-c.png" alt="Timeline view with milestones" />
+        <img src="/images/blog/prototype-option-c.svg" alt="Timeline view with milestones" />
         <div class="prototype-overlay">
           <span class="click-indicator">👆 Click to Interact</span>
         </div>
       </div>
       <h4>Option C: Timeline View</h4>
       <p>Project-focused interface with milestone tracking</p>
-      <a href="#" class="prototype-link">your-org.github.io/prototypes/productivity-dashboard/option-c</a>
+      <a href="https://xswarm.github.io/demo-prototypes/productivity-dashboard/option-c" class="prototype-link">xswarm.github.io/demo-prototypes/productivity-dashboard/option-c</a>
     </div>
   </div>
 </div>
 
-All three are live at URLs like `your-org.github.io/prototypes/productivity-dashboard/option-a`. Stakeholders don't just look—they click, scroll, hover, and actually USE each option.
+All three are live at URLs like `xswarm.github.io/demo-prototypes/productivity-dashboard/option-a`. Stakeholders don't just look—they click, scroll, hover, and actually USE each option.
 
 ## The Three-Variation Revelation
 

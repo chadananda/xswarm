@@ -31,6 +31,10 @@
 5. Commit with conventional format: `feat:`, `fix:`, `docs:`
 6. Include Claude Code attribution
 
+## Team Collaboration
+
+- This may be a team project. Always pull changes before pushing to origin
+
 ## Quality Gates
 
 Before ANY commit:
