@@ -55,7 +55,8 @@
       "Bash(pkill:*)",
       "Bash(convert:*)",
       "Bash(magick:*)",
-      "mcp__puppeteer__puppeteer_hover"
+      "mcp__puppeteer__puppeteer_hover",
+      "Bash(git remote set-url:*)"
     ],
     "deny": []
   }
