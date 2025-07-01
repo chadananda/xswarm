@@ -1,0 +1,9 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#1a1a2e"/>
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#16213e" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="400" fill="url(#grid)"/>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#00d4ff" text-anchor="middle">Sequential Workflow Pain</text>
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="18" fill="#666" text-anchor="middle">Placeholder Image</text>
+</svg>
