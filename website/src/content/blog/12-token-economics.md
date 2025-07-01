@@ -1,5 +1,5 @@
 ---
-title: 'Token Economics: Why Your AI is Burning Money on Hello World'
+title: 'I Tracked Every Token My AI Assistant Wasted. The Results Were Horrifying.'
 description: "Current AI tools waste 90% of tokens on context switching, repeated explanations, and regenerating existing code. XSwarm's function registries and isolated contexts achieve 10x efficiency through proper orchestration."
 publishDate: 2024-01-26
 author: 'XSwarm Team'

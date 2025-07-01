@@ -1,5 +1,5 @@
 ---
-title: 'Interactive AI Prototypes vs. Static Mockups: The UX Revolution'
+title: 'What Happened When We Stopped Showing Stakeholders PDFs'
 description: 'AI generates beautiful static interfaces, but stakeholders still give feedback like "make it pop" on PDF attachments. XSwarm creates actual working prototypes on GitHub Pages where stakeholders click through real interfaces.'
 publishDate: 2024-01-19
 author: 'XSwarm Team'

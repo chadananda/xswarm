@@ -1,5 +1,5 @@
 ---
-title: 'Three Minute Standups'
+title: 'Our 15-Minute Standups Became 3 Minutes When AI Teams Don't Argue'
 description: "Remember 45-minute 'standups' that turned into architecture debates? With AI teams working in isolation, we just check the Kaiban dashboard and move on. No more meeting hell."
 publishDate: 2024-01-23
 author: 'XSwarm Team'

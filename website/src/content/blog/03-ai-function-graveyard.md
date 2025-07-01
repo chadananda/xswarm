@@ -1,5 +1,5 @@
 ---
-title: 'AI Function Graveyard: Why Your Multi-Pass Planning Could Save Your Codebase'
+title: 'I Found 15 Different Email Validation Functions in My AI-Generated Code'
 description: "Every AI coding session recreates the same email validation function 47 times. XSwarm's multi-pass epoch planning extracts pure functions first, building a foundation instead of starting from scratch."
 publishDate: 2024-01-17
 author: 'XSwarm Team'
