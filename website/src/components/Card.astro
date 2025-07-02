@@ -8,15 +8,12 @@ export interface Props {
   class?: string;
   hover?: boolean;
   compact?: boolean;
-  mcpTools?: string[];
-  prompt?: string;
 }
 
-const { icon, title, role, description, image, class: className = '', hover = true, compact = false, mcpTools = [], prompt } = Astro.props;
+const { icon, title, role, description, image, class: className = '', hover = true, compact = false } = Astro.props;
 ---
 
-<div class="trading-card-container">
-  <div class={`trading-card ${compact ? 'trading-card-compact' : ''} ${className}`} data-compact={compact}>
+<div class={`trading-card ${compact ? 'trading-card-compact' : ''} ${className}`}>
   <!-- Character image section (moved to top) -->
   {image && (
     <div class="card-image-background">
@@ -27,15 +24,15 @@ const { icon, title, role, description, image, class: className = '', hover = tr
   
   <!-- Main card content wrapper -->
   <div class="card-main-content">
-    <!-- Texture overlays - disabled for performance -->
-    <!-- <div class="card-texture"></div>
-    <div class="card-holographic"></div> -->
+    <!-- Texture overlays -->
+    <div class="card-texture"></div>
+    <div class="card-holographic"></div>
     
-    <!-- Hand-drawn corner accents - disabled for performance -->
-    <!-- <div class="card-corner card-corner-tl"></div>
+    <!-- Hand-drawn corner accents -->
+    <div class="card-corner card-corner-tl"></div>
     <div class="card-corner card-corner-tr"></div>
     <div class="card-corner card-corner-bl"></div>
-    <div class="card-corner card-corner-br"></div> -->
+    <div class="card-corner card-corner-br"></div>
     
     <!-- Top section (image area or icon) -->
     <div class="card-image-section">
@@ -47,19 +44,19 @@ const { icon, title, role, description, image, class: className = '', hover = tr
         </div>
       )}
       
-      <!-- Rarity indicator - disabled for performance -->
-      <!-- <div class="card-rarity"></div> -->
+      <!-- Rarity indicator -->
+      <div class="card-rarity"></div>
     </div>
   
   <!-- Content section -->
   <div class="card-content-section">
     <!-- Title with ornate frame -->
     <div class="card-title-frame">
-      <h3 class={`text-center ${compact ? 'text-base' : 'text-xl'} font-bold text-terminal-green ${compact ? 'leading-tight' : 'leading-normal'}`}>
+      <h3 class={`text-center ${compact ? 'text-base' : 'text-lg'} font-bold text-terminal-green leading-tight`}>
         {title}
       </h3>
       {role && (
-        <p class={`text-center ${compact ? 'text-[11px]' : 'text-sm'} text-terminal-cyan/60 font-light ${compact ? 'mt-0.5' : 'mt-1'} ${compact ? 'leading-tight' : 'leading-normal'}`}>
+        <p class={`text-center ${compact ? 'text-[10px]' : 'text-xs'} text-terminal-cyan/50 font-light mt-1`}>
           ({role})
         </p>
       )}
@@ -67,28 +64,10 @@ const { icon, title, role, description, image, class: className = '', hover = tr
     
     <!-- Description -->
     {description && (
-      <div class={`relative ${compact ? 'px-1' : 'px-2'}`}>
-        <p class={`text-center ${compact ? 'text-[11px]' : 'text-sm'} text-terminal-green/80 ${compact ? 'leading-snug' : 'leading-relaxed'} font-mono ${compact ? 'line-clamp-3' : ''}`}>
+      <div class="relative px-2">
+        <p class={`text-center ${compact ? 'text-[10px]' : 'text-xs'} text-terminal-green/70 leading-relaxed font-mono`}>
           {description}
         </p>
-      </div>
-    )}
-    
-    <!-- MCP Tools (shown on hover for compact cards) -->
-    {mcpTools && mcpTools.length > 0 && (
-      <div class="card-mcp-tools">
-        <div class="mcp-header">
-          <div class="mcp-icon">⚡</div>
-          <p class="text-[10px] text-terminal-cyan font-mono font-semibold tracking-wide">MCP TOOLS</p>
-          <div class="mcp-icon">⚡</div>
-        </div>
-        <div class="mcp-tools-grid">
-          {mcpTools.map((tool) => (
-            <div class="mcp-tool-item">
-              <span class="mcp-tool-text">{tool}</span>
-            </div>
-          ))}
-        </div>
       </div>
     )}
     
@@ -102,22 +81,13 @@ const { icon, title, role, description, image, class: className = '', hover = tr
     )}
   </div>
   
-    <!-- Scan lines effect - disabled for performance -->
-    <!-- <div class="absolute inset-0 pointer-events-none opacity-10">
+    <!-- Scan lines effect -->
+    <div class="absolute inset-0 pointer-events-none opacity-10">
       <div class="h-full w-full bg-gradient-to-b from-transparent via-terminal-green/50 to-transparent animate-scan"></div>
-    </div> -->
-  </div>
+    </div>
   </div>
 </div>
 
 <style>
   @import '../styles/trading-card.css';
-  
-  .trading-card-container {
-    display: inline-block;
-    width: 200px;
-    height: 260px;
-    position: relative;
-  }
 </style>
-

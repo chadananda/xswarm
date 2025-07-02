@@ -99,31 +99,31 @@ The difference is astronomical.
     <div class="cycle-phase phase-1" data-phase="1">
       <div class="phase-icon">🎯</div>
       <h4>Concept Crystallization</h4>
-      <p>Lock down what you're building. No pivots, no scope creep.</p>
+      <p>Lock down the build. No pivots allowed.</p>
       <div class="phase-detail">Human Excellence Zone</div>
     </div>
     <div class="cycle-phase phase-2" data-phase="2">
       <div class="phase-icon">🎨</div>
       <h4>UI/UX Finalization</h4>
-      <p>Interactive prototypes, not sketches. Pixel-perfect designs.</p>
+      <p>Interactive prototypes. Pixel-perfect.</p>
       <div class="phase-detail">Design Complete</div>
     </div>
     <div class="cycle-phase phase-3" data-phase="3">
       <div class="phase-icon">🏗️</div>
       <h4>Technical Architecture</h4>
-      <p>Five planning passes. Recursive planning for AI.</p>
+      <p>Recursive planning for AI execution.</p>
       <div class="phase-detail">Solution Deterministic</div>
     </div>
     <div class="cycle-phase phase-4" data-phase="4">
       <div class="phase-icon">🐝</div>
       <h4>Parallel Swarm Execution</h4>
-      <p>Specialized agents work in isolated sandboxes.</p>
+      <p>Agents work in isolated sandboxes.</p>
       <div class="phase-detail">AI Excellence Zone</div>
     </div>
     <div class="cycle-phase phase-5" data-phase="5">
       <div class="phase-icon">🚀</div>
       <h4>Integrated Delivery</h4>
-      <p>Everything merges at epoch boundaries.</p>
+      <p>Everything merges at boundaries.</p>
       <div class="phase-detail">Ship Complete</div>
     </div>
     <div class="cycle-center">
