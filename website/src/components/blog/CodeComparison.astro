@@ -1,0 +1,58 @@
+---
+export interface Props {
+  title?: string;
+  variants: Array<{
+    source: string;
+    code: string;
+    language?: string;
+    complexity?: string;
+  }>;
+}
+
+const { title = "Code Comparison", variants } = Astro.props;
+---
+
+<div class="my-12 p-8 bg-gradient-to-br from-brand-secondary/5 to-terminal-cyan/5 rounded-2xl border border-brand-secondary/20">
+  <h4 class="mb-6 text-xl text-terminal-cyan font-orbitron font-bold text-center uppercase tracking-wider">
+    {title}
+  </h4>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {variants.map((variant) => (
+      <div class="bg-terminal-bg/60 border border-terminal-cyan/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-terminal-cyan/50 hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]">
+        <span class="block px-4 py-3 bg-terminal-cyan/10 border-b border-terminal-cyan/20 font-mono text-sm font-semibold text-terminal-cyan uppercase tracking-wide">
+          {variant.source}
+        </span>
+        
+        <pre class="p-4 m-0 bg-transparent border-0 overflow-x-auto"><code class="font-mono text-sm leading-relaxed text-gray-300 whitespace-pre">{variant.code}</code></pre>
+        
+        {variant.complexity && (
+          <span class="block px-4 py-2 bg-black/30 border-t border-terminal-cyan/10 font-mono text-xs text-gray-400 text-center">
+            {variant.complexity}
+          </span>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  /* Add Orbitron font if not already available */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+  
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  /* Simple syntax highlighting */
+  code {
+    /* Keywords */
+    .keyword { color: #c678dd; }
+    /* Strings */
+    .string { color: #98c379; }
+    /* Functions */
+    .function { color: #61afef; }
+    /* Comments */
+    .comment { color: #5c6370; font-style: italic; }
+  }
+</style>

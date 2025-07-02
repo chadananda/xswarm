@@ -1,6 +1,6 @@
 ---
 title: 'Sequential Development Died When We Started Pair Programming With Entities That Never Sleep'
-description: 'Current AI development is chaos - constant context switching, endless prompt engineering, scope creep mid-generation. XSwarm introduces AI Epochs: complete iterative cycles optimized for artificial intelligence, not human limitations.'
+description: 'Current AI development is chaos - constant context switching, endless prompt engineering, scope creep mid-generation. AI Epochs represent complete iterative cycles optimized for artificial intelligence workflows rather than human limitations.'
 publishDate: 2024-01-24
 author: 'XSwarm Team'
 image: '/images/blog/ai-epoch-manifesto-hero.jpg'

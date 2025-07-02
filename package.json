@@ -63,5 +63,8 @@
   "homepage": "https://xswarm.ai",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "openai": "5.8.2"
   }
 }

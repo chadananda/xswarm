@@ -1,0 +1,113 @@
+---
+export interface Props {
+  icon?: string;
+  title: string;
+  role?: string;
+  description?: string;
+  image?: string;
+  class?: string;
+  hover?: boolean;
+  compact?: boolean;
+  mcpTools?: string[];
+  prompt?: string;
+}
+
+const { icon, title, role, description, image, class: className = '', hover = true, compact = false, mcpTools = [], prompt } = Astro.props;
+---
+
+<div class="relative inline-block w-[200px] h-[260px] group">
+  <div class={`
+    relative w-full h-full
+    bg-gradient-to-b from-gray-800/95 to-gray-900/95
+    border-2 border-terminal-cyan/30 rounded-xl
+    overflow-hidden transition-all duration-300
+    ${hover ? 'hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:z-50' : ''}
+    ${compact ? 'hover:w-[300px] hover:h-[520px] hover:-translate-x-[50px] hover:-translate-y-[130px]' : ''}
+    ${className}
+  `}>
+    <!-- Character image background -->
+    {image && (
+      <div class={`absolute inset-0 ${compact ? 'h-[100px]' : 'h-[140px]'}`}>
+        <img src={image} alt={title} class="w-full h-full object-cover object-top" />
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/95" />
+      </div>
+    )}
+    
+    <!-- Main content -->
+    <div class="relative h-full flex flex-col">
+      <!-- Image section or icon -->
+      <div class={`relative ${compact ? 'h-[100px]' : 'h-[140px]'} flex-shrink-0 border-b-2 border-terminal-cyan/30`}>
+        {!image && (
+          <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
+            <div class={`${compact ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
+              {icon || '?'}
+            </div>
+          </div>
+        )}
+      </div>
+      
+      <!-- Content section -->
+      <div class={`flex-1 ${compact ? 'p-2' : 'p-3'} flex flex-col justify-center gap-2 bg-gray-900/95`}>
+        <!-- Title -->
+        <div class="text-center mb-2">
+          <h3 class={`
+            font-['Orbitron'] font-bold uppercase tracking-wider text-terminal-green
+            ${compact ? 'text-base leading-tight' : 'text-xl leading-normal'}
+          `}>
+            {title}
+          </h3>
+          {role && (
+            <p class={`
+              text-terminal-cyan/60 font-light
+              ${compact ? 'text-[11px] mt-0.5 leading-tight' : 'text-sm mt-1 leading-normal'}
+            `}>
+              ({role})
+            </p>
+          )}
+        </div>
+        
+        <!-- Description -->
+        {description && (
+          <p class={`
+            text-center text-terminal-green/80 font-mono
+            ${compact ? 'text-[11px] leading-snug line-clamp-3 px-1' : 'text-sm leading-relaxed px-2'}
+          `}>
+            {description}
+          </p>
+        )}
+        
+        <!-- MCP Tools -->
+        {mcpTools && mcpTools.length > 0 && (
+          <div class={`mt-auto ${compact ? 'group-hover:block hidden' : 'block'}`}>
+            <div class="flex items-center justify-center gap-2 mb-1">
+              <span class="text-terminal-cyan">⚡</span>
+              <p class="text-[10px] text-terminal-cyan font-mono font-semibold tracking-wide">MCP TOOLS</p>
+              <span class="text-terminal-cyan">⚡</span>
+            </div>
+            <div class="flex flex-wrap gap-1 justify-center px-2">
+              {mcpTools.map((tool) => (
+                <div class="bg-black/80 border border-terminal-cyan/50 rounded-xl px-3 py-1 text-[9px] text-white/90 whitespace-nowrap">
+                  {tool}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <!-- Card number -->
+        {!compact && (
+          <div class="absolute bottom-2 right-2 text-xs font-mono">
+            <span class="bg-gradient-to-br from-terminal-cyan/40 via-terminal-magenta/40 to-terminal-cyan/40 bg-clip-text text-transparent">
+              #{String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Import Orbitron font */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+</style>

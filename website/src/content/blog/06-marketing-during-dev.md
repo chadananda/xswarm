@@ -1,6 +1,6 @@
 ---
 title: 'The Sprint Demo Where Marketing Asked for Screenshots We Never Took'
-description: 'You ship an AI-generated feature and marketing asks for screenshots, demo videos, and blog posts. You have a working API and a terminal full of green text. XSwarm generates marketing assets during development, not after.'
+description: 'You ship an AI-generated feature and marketing asks for screenshots, demo videos, and blog posts. You have a working API and a terminal full of green text. Parallel asset generation during development eliminates post-launch scrambles.'
 publishDate: 2024-01-20
 author: 'XSwarm Team'
 image: '/images/blog/marketing-during-dev-hero.jpg'

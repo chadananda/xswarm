@@ -1,6 +1,6 @@
 ---
 title: 'What Happened When We Stopped Showing Stakeholders PDFs'
-description: 'AI generates beautiful static interfaces, but stakeholders still give feedback like "make it pop" on PDF attachments. XSwarm creates actual working prototypes on GitHub Pages where stakeholders click through real interfaces.'
+description: 'AI generates beautiful static interfaces, but stakeholders still give feedback like "make it pop" on PDF attachments. Automated deployment of working prototypes to GitHub Pages enables stakeholders to interact with real interfaces.'
 publishDate: 2024-01-19
 author: 'XSwarm Team'
 image: '/images/blog/interactive-prototypes-hero.jpg'

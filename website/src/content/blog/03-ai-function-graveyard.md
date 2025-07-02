@@ -1,6 +1,6 @@
 ---
 title: 'I Found 15 Different Email Validation Functions in My AI-Generated Code'
-description: "Every AI coding session recreates the same email validation function 47 times. XSwarm's multi-pass epoch planning extracts pure functions first, building a foundation instead of starting from scratch."
+description: "Analysis of code duplication patterns in AI-generated codebases reveals excessive recreation of utility functions. Multi-pass planning approaches demonstrate how extracting pure functions early reduces redundancy."
 publishDate: 2024-01-17
 author: 'XSwarm Team'
 image: '/images/blog/ai-function-graveyard-hero.jpg'
@@ -8,65 +8,48 @@ imageAlt: 'Cyberpunk graveyard of duplicated functions with neon tombstones'
 tags: ['AI Development', 'Cyberpunk', 'Code Reuse', 'Pure Functions']
 ---
 
+import FunctionGraveyard from '../../components/blog/FunctionGraveyard.astro';
+import CodeComparison from '../../components/blog/CodeComparison.astro';
+
 Last week, I found something that made me physically ill. Fifteen different email validation functions. In the same project. All written by AI. Each one slightly different, all essentially identical.
 
-<div class="graveyard-visual">
-  <h3 class="graveyard-title">🪦 The Email Validation Graveyard 🪦</h3>
-  <div class="tombstones">
-    <div class="tombstone">
-      <span class="function-name">validateEmail()</span>
-      <span class="birth-death">Born: Jan 2024<br/>Died: Never used</span>
-    </div>
-    <div class="tombstone">
-      <span class="function-name">isValidEmail()</span>
-      <span class="birth-death">Born: Jan 2024<br/>Died: Duplicate #2</span>
-    </div>
-    <div class="tombstone">
-      <span class="function-name">checkEmail()</span>
-      <span class="birth-death">Born: Feb 2024<br/>Died: Forgotten</span>
-    </div>
-    <div class="tombstone">
-      <span class="function-name">emailIsValid()</span>
-      <span class="birth-death">Born: Feb 2024<br/>Died: Redundant</span>
-    </div>
-    <div class="tombstone">
-      <span class="function-name">verifyEmail()</span>
-      <span class="birth-death">Born: Mar 2024<br/>Died: Abandoned</span>
-    </div>
-    <div class="tombstone more">
-      <span class="function-name">+10 more...</span>
-      <span class="birth-death">All doing the<br/>same thing</span>
-    </div>
-  </div>
-</div>
+<FunctionGraveyard tombstones={[
+  { name: "validateEmail()", birth: "Born: Jan 2024", death: "Died: Never used" },
+  { name: "isValidEmail()", birth: "Born: Jan 2024", death: "Died: Duplicate #2" },
+  { name: "checkEmail()", birth: "Born: Feb 2024", death: "Died: Forgotten" },
+  { name: "emailIsValid()", birth: "Born: Feb 2024", death: "Died: Redundant" },
+  { name: "verifyEmail()", birth: "Born: Mar 2024", death: "Died: Abandoned" },
+  { name: "+10 more...", birth: "All doing the", death: "same thing", isMore: true }
+]} />
 
-<div class="code-comparison">
-  <h4>Same Function, Different Day</h4>
-  <div class="comparison-grid">
-    <div class="code-variant">
-      <span class="ai-source">Claude (Monday)</span>
-      <pre><code class="language-javascript">const validateEmail = (email) => {
+<CodeComparison 
+  title="Same Function, Different Day"
+  variants={[
+    {
+      source: "Claude (Monday)",
+      code: `const validateEmail = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};</code></pre>
-      <span class="complexity">Complexity: Low | Tokens: 147</span>
-    </div>
-    <div class="code-variant">
-      <span class="ai-source">GPT-4 (Tuesday)</span>
-      <pre><code class="language-javascript">function isValidEmail(emailAddress) {
+};`,
+      complexity: "Complexity: Low | Tokens: 147"
+    },
+    {
+      source: "GPT-4 (Tuesday)",
+      code: `function isValidEmail(emailAddress) {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return regex.test(emailAddress);
-}</code></pre>
-      <span class="complexity">Complexity: Medium | Tokens: 156</span>
-    </div>
-    <div class="code-variant">
-      <span class="ai-source">Copilot (Wednesday)</span>
-      <pre><code class="language-javascript">export const checkEmail = (str) => {
+}`,
+      complexity: "Complexity: Medium | Tokens: 156"
+    },
+    {
+      source: "Copilot (Wednesday)",
+      code: `export const checkEmail = (str) => {
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   return emailRegex.test(str);
-}</code></pre>
-      <span class="complexity">Complexity: Medium | Tokens: 152</span>
-    </div>
-  </div>
+}`,
+      complexity: "Complexity: Medium | Tokens: 152"
+    }
+  ]}
+/>
   <div class="waste-indicator">
     <span class="waste-label">Wasted Tokens:</span>
     <span class="waste-amount">455 tokens for the same functionality</span>

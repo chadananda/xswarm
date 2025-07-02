@@ -1,0 +1,61 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad5)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Orbitron, monospace" font-size="20" font-weight="bold" fill="#ff3b3b" text-anchor="middle">Static Mockup: Vague Feedback Hell</text>
+
+  <!-- PDF mockup -->
+  <g transform="translate(200, 80)">
+    <rect x="0" y="0" width="400" height="300" fill="rgba(26, 26, 46, 0.9)" stroke="#666" stroke-width="2"/>
+    
+    <!-- Header bar -->
+    <rect x="0" y="0" width="400" height="40" fill="rgba(255, 255, 255, 0.1)"/>
+    <circle cx="20" cy="20" r="5" fill="#ff3b3b"/>
+    <circle cx="40" cy="20" r="5" fill="#ffab00"/>
+    <circle cx="60" cy="20" r="5" fill="#00d4ff"/>
+    
+    <!-- Content placeholder -->
+    <rect x="20" y="60" width="360" height="20" fill="rgba(255, 255, 255, 0.1)" rx="3"/>
+    <rect x="20" y="90" width="280" height="20" fill="rgba(255, 255, 255, 0.1)" rx="3"/>
+    <rect x="20" y="120" width="320" height="20" fill="rgba(255, 255, 255, 0.1)" rx="3"/>
+    
+    <!-- Vague comments -->
+    <g transform="translate(410, 60)">
+      <path d="M 0 10 L -10 10 L -15 5 L -10 0 L 0 0 Z" fill="#ff3b3b"/>
+      <rect x="0" y="0" width="150" height="20" fill="#ff3b3b" rx="3"/>
+      <text x="75" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="white" text-anchor="middle">"Make it pop"</text>
+    </g>
+    
+    <g transform="translate(410, 120)">
+      <path d="M 0 10 L -10 10 L -15 5 L -10 0 L 0 0 Z" fill="#ffab00"/>
+      <rect x="0" y="0" width="180" height="20" fill="#ffab00" rx="3"/>
+      <text x="90" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="black" text-anchor="middle">"Needs more energy"</text>
+    </g>
+    
+    <g transform="translate(410, 180)">
+      <path d="M 0 10 L -10 10 L -15 5 L -10 0 L 0 0 Z" fill="#8b5cf6"/>
+      <rect x="0" y="0" width="160" height="20" fill="#8b5cf6" rx="3"/>
+      <text x="80" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="white" text-anchor="middle">"Jazz it up a bit"</text>
+    </g>
+  </g>
+
+  <!-- Confused developer -->
+  <g transform="translate(100, 200)">
+    <circle cx="0" cy="0" r="40" fill="rgba(255, 59, 59, 0.2)" stroke="#ff3b3b" stroke-width="2"/>
+    <text x="0" y="5" font-family="JetBrains Mono, monospace" font-size="24" fill="#ff3b3b" text-anchor="middle">😕</text>
+    <text x="0" y="70" font-family="JetBrains Mono, monospace" font-size="14" fill="#ff3b3b" text-anchor="middle">Developer</text>
+    <text x="0" y="90" font-family="JetBrains Mono, monospace" font-size="12" fill="#666" text-anchor="middle">"What does</text>
+    <text x="0" y="105" font-family="JetBrains Mono, monospace" font-size="12" fill="#666" text-anchor="middle">'pop' mean?"</text>
+  </g>
+
+  <!-- Bottom message -->
+  <text x="400" y="450" font-family="JetBrains Mono, monospace" font-size="16" fill="#666" text-anchor="middle">Result: 5 revision rounds, 2 weeks wasted</text>
+</svg>

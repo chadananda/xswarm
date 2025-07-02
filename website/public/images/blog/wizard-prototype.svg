@@ -1,0 +1,63 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bgGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGrad7)"/>
+  
+  <!-- Window frame -->
+  <rect x="100" y="50" width="600" height="300" fill="rgba(26, 26, 46, 0.9)" stroke="#8b5cf6" stroke-width="2" rx="10"/>
+  
+  <!-- Title bar -->
+  <rect x="100" y="50" width="600" height="40" fill="rgba(139, 92, 246, 0.2)" rx="10 10 0 0"/>
+  <text x="400" y="75" font-family="Orbitron, monospace" font-size="16" fill="#8b5cf6" text-anchor="middle">Setup Wizard</text>
+  
+  <!-- Progress bar -->
+  <g transform="translate(150, 120)">
+    <rect x="0" y="0" width="500" height="8" fill="rgba(139, 92, 246, 0.2)" rx="4"/>
+    <rect x="0" y="0" width="300" height="8" fill="#8b5cf6" rx="4">
+      <animate attributeName="width" values="100;200;300;400;500" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Steps -->
+    <circle cx="0" cy="4" r="12" fill="#8b5cf6" stroke="none"/>
+    <text x="0" y="35" font-family="JetBrains Mono, monospace" font-size="12" fill="#8b5cf6" text-anchor="middle">Basic Info</text>
+    
+    <circle cx="125" cy="4" r="12" fill="#8b5cf6" stroke="none"/>
+    <text x="125" y="35" font-family="JetBrains Mono, monospace" font-size="12" fill="#8b5cf6" text-anchor="middle">Settings</text>
+    
+    <circle cx="250" cy="4" r="12" fill="#8b5cf6" stroke="none"/>
+    <text x="250" y="35" font-family="JetBrains Mono, monospace" font-size="12" fill="#8b5cf6" text-anchor="middle">Features</text>
+    
+    <circle cx="375" cy="4" r="12" fill="rgba(139, 92, 246, 0.3)" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="375" y="35" font-family="JetBrains Mono, monospace" font-size="12" fill="#666" text-anchor="middle">Review</text>
+    
+    <circle cx="500" cy="4" r="12" fill="rgba(139, 92, 246, 0.3)" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="500" y="35" font-family="JetBrains Mono, monospace" font-size="12" fill="#666" text-anchor="middle">Complete</text>
+  </g>
+  
+  <!-- Current step content -->
+  <g transform="translate(150, 200)">
+    <rect x="0" y="0" width="200" height="30" fill="rgba(139, 92, 246, 0.2)" stroke="#8b5cf6" stroke-width="1" rx="5"/>
+    <text x="10" y="20" font-family="JetBrains Mono, monospace" font-size="12" fill="#8b5cf6">Feature Selection</text>
+    
+    <rect x="0" y="40" width="20" height="20" fill="#8b5cf6" rx="3"/>
+    <text x="30" y="55" font-family="JetBrains Mono, monospace" font-size="12" fill="#ccc">AI Assistance</text>
+    
+    <rect x="0" y="70" width="20" height="20" fill="rgba(139, 92, 246, 0.3)" stroke="#8b5cf6" stroke-width="1" rx="3"/>
+    <text x="30" y="85" font-family="JetBrains Mono, monospace" font-size="12" fill="#666">Advanced Analytics</text>
+  </g>
+  
+  <!-- Navigation buttons -->
+  <g transform="translate(500, 280)">
+    <rect x="0" y="0" width="80" height="35" fill="rgba(139, 92, 246, 0.2)" stroke="#8b5cf6" stroke-width="1" rx="5"/>
+    <text x="40" y="23" font-family="JetBrains Mono, monospace" font-size="12" fill="#8b5cf6" text-anchor="middle">Back</text>
+    
+    <rect x="100" y="0" width="80" height="35" fill="#8b5cf6" rx="5"/>
+    <text x="140" y="23" font-family="JetBrains Mono, monospace" font-size="12" fill="white" text-anchor="middle">Next</text>
+  </g>
+</svg>

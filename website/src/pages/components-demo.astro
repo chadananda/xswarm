@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FunctionGraveyard from '../components/blog/FunctionGraveyard.astro';
+import CodeComparison from '../components/blog/CodeComparison.astro';
+import TokenCostBanner from '../components/blog/TokenCostBanner.astro';
+import TokenBreakdownChart from '../components/blog/TokenBreakdownChart.astro';
+import ComparisonView from '../components/blog/ComparisonView.astro';
+import CostCalculator from '../components/blog/CostCalculator.astro';
+---
+
+<Layout title="Component Demo - XSwarm">
+  <div class="min-h-screen bg-terminal-bg p-8">
+    <h1 class="text-4xl font-bold text-terminal-cyan mb-8 text-center font-['Orbitron']">
+      Blog Components Demo
+    </h1>
+    
+    <div class="max-w-4xl mx-auto space-y-12">
+      <!-- Function Graveyard -->
+      <section>
+        <h2 class="text-2xl text-terminal-green mb-4">Function Graveyard</h2>
+        <FunctionGraveyard tombstones={[
+          { name: "validateEmail()", birth: "Born: Jan 2024", death: "Died: Never used" },
+          { name: "isValidEmail()", birth: "Born: Jan 2024", death: "Died: Duplicate #2" },
+          { name: "checkEmail()", birth: "Born: Feb 2024", death: "Died: Forgotten" },
+          { name: "+10 more...", birth: "All doing the", death: "same thing", isMore: true }
+        ]} />
+      </section>
+      
+      <!-- Code Comparison -->
+      <section>
+        <h2 class="text-2xl text-terminal-green mb-4">Code Comparison</h2>
+        <CodeComparison 
+          title="Same Function, Different Day"
+          variants={[
+            {
+              source: "Claude (Monday)",
+              code: `const validateEmail = (email) => {
+  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+};`,
+              complexity: "Complexity: Low | Tokens: 147"
+            },
+            {
+              source: "GPT-4 (Tuesday)",
+              code: `function isValidEmail(emailAddress) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+  return regex.test(emailAddress);
+}`,
+              complexity: "Complexity: Medium | Tokens: 156"
+            }
+          ]}
+        />
+      </section>
+      
+      <!-- Token Cost Banner -->
+      <section>
+        <h2 class="text-2xl text-terminal-green mb-4">Token Cost Banner</h2>
+        <TokenCostBanner 
+          amount="$892.31"
+          context="One Month. Complex Project. Single Context."
+          stats={[
+            { label: "Wasted on repetition", value: "82%" },
+            { label: "Regenerated utilities", value: "67x" },
+            { label: "Burned on context", value: "$733" }
+          ]}
+        />
+      </section>
+      
+      <!-- Token Breakdown Chart -->
+      <section>
+        <h2 class="text-2xl text-terminal-green mb-4">Token Breakdown</h2>
+        <TokenBreakdownChart 
+          title="Where Your Money Actually Goes"
+          items={[
+            {
+              category: "Context Loading",
+              amount: "1.8M tokens • $36.40",
+              percentage: 38,
+              color: "red",
+              details: [
+                "Project structure explained 847 times",
+                "Coding standards repeated 1,243 times"
+              ]
+            },
+            {
+              category: "Code Regeneration",
+              amount: "1.5M tokens • $29.40",
+              percentage: 31,
+              color: "amber",
+              details: [
+                "Authentication logic: 23 versions",
+                "Form validation: 31 versions"
+              ]
+            }
+          ]}
+        />
+      </section>
+      
+      <!-- Cost Calculator -->
+      <section>
+        <h2 class="text-2xl text-terminal-green mb-4">Cost Calculator</h2>
+        <CostCalculator 
+          inputs={[
+            { label: "Number of Features", value: "20" },
+            { label: "Average Feature Complexity", value: "Medium (50K tokens)" }
+          ]}
+          traditional={{
+            calculations: [
+              { label: "Base tokens", formula: "20 × 50K", result: "1M tokens" },
+              { label: "Context reloading", formula: "× 3.5", result: "3.5M tokens" }
+            ],
+            total: { tokens: "7.38M tokens", cost: "$147.60" }
+          }}
+          xswarm={{
+            calculations: [
+              { label: "Base tokens", formula: "20 × 50K", result: "1M tokens" },
+              { label: "Function reuse", formula: "-60%", result: "400K tokens" }
+            ],
+            total: { tokens: "1.4M tokens", cost: "$28.00" }
+          }}
+          savings={{
+            percentage: "81%",
+            subtext: "Verified across multiple production projects."
+          }}
+        />
+      </section>
+    </div>
+  </div>
+</Layout>

@@ -38,6 +38,20 @@ export default {
           accent: 'rgb(var(--brand-accent) / <alpha-value>)',
         },
 
+        // Terminal/Cyberpunk colors
+        terminal: {
+          green: 'var(--terminal-green)',
+          amber: 'var(--terminal-amber)',
+          cyan: 'var(--terminal-cyan)',
+          magenta: 'var(--terminal-magenta)',
+          red: 'var(--terminal-red)',
+          blue: 'var(--terminal-blue)',
+          purple: 'var(--terminal-purple)',
+          yellow: 'var(--terminal-yellow)',
+          bg: 'var(--terminal-bg)',
+          'bg-alt': 'var(--terminal-bg-alt)',
+        },
+
         // Overlay colors
         overlay: 'var(--color-overlay)',
         backdrop: 'var(--color-backdrop)',

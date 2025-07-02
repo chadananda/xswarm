@@ -1,6 +1,6 @@
 ---
 title: 'The Day I Realized My AI Assistant Was Working Like a 1995 Modem'
-description: "Current AI development tools work like we're still using CVS and waterfall. XSwarm breaks everything into parallel streams because AI agents don't have egos."
+description: "Current AI development tools enforce sequential workflows reminiscent of CVS and waterfall methodologies. Parallel execution streams eliminate artificial bottlenecks inherent in single-agent architectures."
 publishDate: 2024-01-16
 author: 'XSwarm Team'
 image: '/images/blog/sequential-hell-hero.jpg'

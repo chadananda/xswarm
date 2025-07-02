@@ -1,0 +1,78 @@
+---
+export interface Props {
+  title?: string;
+  items: Array<{
+    category: string;
+    amount: string;
+    percentage: number;
+    color: 'red' | 'amber' | 'purple' | 'gray';
+    details?: string[];
+  }>;
+}
+
+const { title = "Where Your Money Actually Goes", items } = Astro.props;
+
+const colorMap = {
+  red: 'bg-terminal-red',
+  amber: 'bg-terminal-amber', 
+  purple: 'bg-brand-secondary',
+  gray: 'bg-gray-600'
+};
+---
+
+<div class="my-12 p-8 bg-terminal-bg/50 rounded-2xl border border-brand-secondary/20">
+  <h3 class="mb-8 text-2xl text-terminal-cyan text-center font-orbitron font-bold">
+    {title}
+  </h3>
+  
+  <div class="space-y-6">
+    {items.map((item) => (
+      <div class="relative">
+        <!-- Progress bar background -->
+        <div class="h-16 bg-black/30 rounded-lg overflow-hidden">
+          <!-- Animated fill -->
+          <div 
+            class={`h-full ${colorMap[item.color]} opacity-80 rounded-lg transition-all duration-1000 ease-out`}
+            style={`width: ${item.percentage}%; animation: fillBar 1s ease-out`}
+          />
+          
+          <!-- Label overlay -->
+          <div class="absolute inset-0 flex items-center px-4">
+            <div>
+              <span class="block font-semibold text-white text-base">
+                {item.category}
+              </span>
+              <span class="block text-sm text-gray-200 font-mono">
+                {item.amount}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Details -->
+        {item.details && (
+          <ul class="mt-2 pl-4 space-y-1 text-sm text-gray-400">
+            {item.details.map((detail) => (
+              <li class="relative pl-4">
+                <span class="absolute left-0 text-terminal-cyan">•</span>
+                <span set:html={detail.replace(/(\d+)/, '<span class="text-terminal-magenta font-semibold">$1</span>')} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+  
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  @keyframes fillBar {
+    from { width: 0; }
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 title: "Our 15-Minute Standups Became 3 Minutes When AI Teams Don't Argue"
-description: "Remember 45-minute 'standups' that turned into architecture debates? With AI teams working in isolation, we just check the Kaiban dashboard and move on. No more meeting hell."
+description: "AI teams communicate through structured status updates in isolated workspaces, eliminating cross-talk and architectural debates. Real-time Kanban dashboards provide instant visibility into parallel agent progress."
 publishDate: 2024-01-23
 author: 'XSwarm Team'
 image: '/images/blog/three-minute-standups-hero.jpg'

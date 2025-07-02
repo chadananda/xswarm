@@ -1,6 +1,6 @@
 ---
 title: "I Inherited a Codebase Where AI Wrote Everything. Here's What I Found."
-description: "AI-generated code creates technical debt faster than human code because AI doesn't understand your existing architecture. XSwarm's 5-pass planning process ensures AI builds on your foundation, not around it."
+description: "AI-generated code creates technical debt faster than human code because AI doesn't understand your existing architecture. Multi-pass planning processes ensure AI builds on existing foundations rather than creating parallel implementations."
 publishDate: 2024-01-21
 author: 'XSwarm Team'
 image: '/images/blog/technical-debt-antidote-hero.jpg'
