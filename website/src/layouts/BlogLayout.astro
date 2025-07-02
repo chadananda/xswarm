@@ -11,6 +11,7 @@ import '../styles/blog-scrollbar.css';
 import '../styles/blog-share.css';
 import '../styles/navbar-sticky.css';
 import '../styles/blog-metadata.css';
+import '../styles/mermaid.css';
 
 export interface Props {
   title: string;
@@ -175,6 +176,59 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   
   <Footer />
 </Layout>
+
+<script>
+  import mermaid from 'mermaid';
+  
+  // Initialize mermaid with cyberpunk theme
+  mermaid.initialize({ 
+    startOnLoad: false,
+    theme: 'dark',
+    themeVariables: {
+      primaryColor: '#3B82F6',
+      primaryTextColor: '#fff',
+      primaryBorderColor: '#0ff',
+      lineColor: '#0ff',
+      secondaryColor: '#8B5CF6',
+      tertiaryColor: '#6366F1',
+      background: '#030712',
+      mainBkg: '#030712',
+      secondBkg: '#0a0a0a',
+      tertiaryBkg: '#111827',
+      primaryBorderColor: '#0ff',
+      secondaryBorderColor: '#f0f',
+      tertiaryBorderColor: '#ff0',
+      primaryTextColor: '#0ff',
+      secondaryTextColor: '#f0f',
+      tertiaryTextColor: '#ff0',
+      lineColor: '#0ff',
+      textColor: '#fff',
+      titleColor: '#0ff',
+      arrowheadColor: '#0ff',
+      edgeLabelBackground: '#030712',
+      clusterBkg: '#111827',
+      clusterBorder: '#0ff',
+      defaultLinkColor: '#0ff',
+      fontFamily: 'monospace',
+      fontSize: '14px',
+    }
+  });
+  
+  // Find all mermaid code blocks and render them
+  document.addEventListener('DOMContentLoaded', () => {
+    const codeBlocks = document.querySelectorAll('pre code.language-mermaid');
+    
+    codeBlocks.forEach((block, index) => {
+      const pre = block.parentElement;
+      const container = document.createElement('div');
+      container.className = 'mermaid-container';
+      container.innerHTML = `<div class="mermaid" id="mermaid-${index}">${block.textContent}</div>`;
+      pre.parentNode.replaceChild(container, pre);
+    });
+    
+    mermaid.run();
+  });
+</script>
 
 <style>
   @import '../styles/blog-visuals.css';

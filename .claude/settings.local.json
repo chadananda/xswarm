@@ -58,7 +58,8 @@
       "mcp__puppeteer__puppeteer_hover",
       "Bash(git remote set-url:*)",
       "Bash(npm run format:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }

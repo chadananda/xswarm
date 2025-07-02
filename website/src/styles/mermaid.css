@@ -1,0 +1,133 @@
+/* Mermaid Diagram Styles */
+.mermaid-container {
+  margin: 2rem 0;
+  background: var(--terminal-bg);
+  border: 1px solid var(--terminal-cyan);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  overflow-x: auto;
+  position: relative;
+}
+
+.mermaid-container::before {
+  content: 'DIAGRAM';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--terminal-cyan);
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+.mermaid {
+  background: transparent !important;
+  text-align: center;
+}
+
+/* Override default Mermaid styles for cyberpunk theme */
+.mermaid .node rect {
+  fill: var(--terminal-bg) !important;
+  stroke: var(--terminal-cyan) !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid .node.error rect,
+.mermaid .node .error {
+  fill: rgba(255, 0, 64, 0.1) !important;
+  stroke: var(--terminal-red) !important;
+}
+
+.mermaid .node.success rect,
+.mermaid .node .success {
+  fill: rgba(0, 255, 0, 0.1) !important;
+  stroke: var(--terminal-green) !important;
+}
+
+.mermaid text {
+  fill: var(--terminal-cyan) !important;
+  font-family: monospace !important;
+}
+
+.mermaid .edgeLabel {
+  background-color: var(--terminal-bg) !important;
+}
+
+.mermaid .edgePath .path {
+  stroke: var(--terminal-cyan) !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid .marker {
+  fill: var(--terminal-cyan) !important;
+}
+
+/* Sequence diagram */
+.mermaid .actor {
+  fill: var(--terminal-bg) !important;
+  stroke: var(--terminal-cyan) !important;
+}
+
+.mermaid .actor-line {
+  stroke: var(--terminal-cyan) !important;
+}
+
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+  stroke: var(--terminal-cyan) !important;
+}
+
+.mermaid .note {
+  fill: rgba(255, 176, 0, 0.1) !important;
+  stroke: var(--terminal-amber) !important;
+}
+
+/* Gantt chart */
+.mermaid .task {
+  fill: var(--terminal-cyan) !important;
+}
+
+.mermaid .task.done {
+  fill: var(--terminal-green) !important;
+}
+
+.mermaid .task.active {
+  fill: var(--terminal-amber) !important;
+}
+
+.mermaid .task.crit {
+  fill: var(--terminal-red) !important;
+}
+
+.mermaid .grid .tick line {
+  stroke: var(--terminal-cyan) !important;
+  opacity: 0.2 !important;
+}
+
+/* Flowchart specific */
+.mermaid .flowchart-link {
+  stroke: var(--terminal-cyan) !important;
+  fill: none !important;
+}
+
+.mermaid .nodeLabel {
+  color: var(--terminal-cyan) !important;
+}
+
+/* Error styling for nodes with specific classes */
+.mermaid g.error rect,
+.mermaid g.error polygon,
+.mermaid g.error circle,
+.mermaid g.error ellipse {
+  fill: rgba(255, 0, 64, 0.1) !important;
+  stroke: var(--terminal-red) !important;
+}
+
+.mermaid g.success rect,
+.mermaid g.success polygon,
+.mermaid g.success circle,
+.mermaid g.success ellipse {
+  fill: rgba(0, 255, 0, 0.1) !important;
+  stroke: var(--terminal-green) !important;
+}
