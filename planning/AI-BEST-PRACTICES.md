@@ -455,6 +455,120 @@ for (const user of users) {
 - Say "batch operations where possible"
 - Review for common performance issues
 
+### 16. Code Duplication Epidemic
+
+**What AI Does:**
+- Copy-pastes similar solutions without abstraction
+- Creates duplicate utility functions
+- Repeats code blocks instead of extracting methods
+- Generates 2.5x more duplicate code than humans
+
+**Research Finding:** AI models generate duplicate code at 2.5x the rate of human developers.
+
+**Example:**
+```javascript
+// AI generates in multiple files:
+const formatPrice = (price) => `$${price.toFixed(2)}`;
+const priceFormatter = (val) => `$${val.toFixed(2)}`;
+const displayPrice = (amount) => `$${amount.toFixed(2)}`;
+// All doing the same thing!
+```
+
+**Prevention:**
+- Say "DRY principle - extract common code"
+- Use "create reusable functions"
+- Specify "check for existing utilities"
+- Request "abstract common patterns"
+
+### 17. "Broken Windows" Pattern Propagation
+
+**What AI Does:**
+- Learns from bad code in the codebase
+- Perpetuates existing anti-patterns
+- Copies security vulnerabilities
+- Reinforces technical debt
+
+**Research Finding:** AI trained on flawed code reproduces those flaws, creating a cycle of bad practices.
+
+**Example:**
+```javascript
+// If codebase has this pattern:
+eval(userInput);  // Security issue
+// AI will suggest similar:
+eval(config.script);  // Propagating the vulnerability
+```
+
+**Prevention:**
+- Clean up existing code first
+- Provide good examples in prompts
+- Say "ignore existing bad patterns"
+- Reference best practices explicitly
+
+### 18. Context Blindness
+
+**What AI Does:**
+- Ignores broader system architecture
+- Misses business logic requirements
+- Creates solutions that don't fit the ecosystem
+- Makes decisions without understanding impact
+
+**Research Finding:** 45% of developers report AI tools handle complex tasks poorly due to lack of context.
+
+**Example:**
+```javascript
+// AI suggests synchronous solution for async system
+// AI uses REST when entire app uses GraphQL
+// AI creates new auth system when one exists
+```
+
+**Prevention:**
+- Provide architecture context upfront
+- Explain system constraints
+- Say "follow existing patterns"
+- Describe the bigger picture
+
+### 19. Over-Engineering Simple Tasks
+
+**What AI Does:**
+- Adds unnecessary abstractions
+- Creates complex class hierarchies
+- Implements design patterns inappropriately
+- Makes simple tasks complicated
+
+**Example:**
+```javascript
+// Task: Add two numbers
+// AI creates:
+class NumberOperationFactory {
+  static createAdditionStrategy() {
+    return new AdditionStrategy();
+  }
+}
+// Instead of: const add = (a, b) => a + b;
+```
+
+**Prevention:**
+- Emphasize "simplest solution"
+- Say "no design patterns needed"
+- Use "straightforward implementation"
+- Specify complexity level upfront
+
+### 20. Trust Without Verification
+
+**What AI Does:**
+- Generates plausible-looking but incorrect code
+- Creates subtle bugs that pass initial tests
+- Produces code that "looks right" but isn't
+- Introduces 41% more bugs than human code
+
+**Research Finding:** GitHub Copilot usage introduced 41% more bugs according to studies.
+
+**Prevention:**
+- Always test AI-generated code
+- Never trust without review
+- Use "explain your approach" prompts
+- Implement comprehensive testing
+
 ## Updated Quick Reference Card
 
 ```markdown
@@ -550,6 +664,30 @@ Add these terse commands to any CLAUDE.md file to prevent AI anti-patterns:
    - Batch API calls
    - Consider caching
    - Avoid n+1 queries
+
+9. **Code Reuse**
+   - DRY - Don't Repeat Yourself
+   - Extract common functions
+   - Check for existing utilities first
+   - Abstract repeated patterns
+
+10. **Context Awareness**
+    - Follow existing architecture
+    - Match current tech stack
+    - Respect system constraints
+    - Consider business logic
+
+11. **Simplicity**
+    - Simplest solution first
+    - No unnecessary patterns
+    - Avoid over-abstraction
+    - YAGNI - You Aren't Gonna Need It
+
+12. **Trust**
+    - Test all generated code
+    - Verify logic correctness
+    - Check for subtle bugs
+    - Never assume it's right
 ```
 
 Remember: AI is a powerful tool, but it needs clear boundaries and constant guidance to produce maintainable code. Research shows that AI-generated code frequently contains security vulnerabilities, hallucinated dependencies, and outdated patterns that require careful human review.
