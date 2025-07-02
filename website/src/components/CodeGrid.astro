@@ -1,0 +1,96 @@
+---
+export interface Props {
+  title?: string;
+  items: Array<{
+    title: string;
+    content: string;
+    language?: string;
+    footer?: string;
+  }>;
+  columns?: 1 | 2 | 3;
+  class?: string;
+}
+
+const { title, items, columns = 3, class: className = '' } = Astro.props;
+
+const columnClasses = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+};
+---
+
+<div class={`code-grid ${className}`}>
+  {title && (
+    <h4 class="grid-title">
+      {title}
+    </h4>
+  )}
+  
+  <div class={`grid ${columnClasses[columns]} gap-6`}>
+    {items.map((item) => (
+      <div class="grid-item">
+        <span class="item-title">
+          {item.title}
+        </span>
+        
+        <pre class="item-content"><code class={item.language ? `language-${item.language}` : ''}>{item.content}</code></pre>
+        
+        {item.footer && (
+          <span class="item-footer">
+            {item.footer}
+          </span>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .code-grid {
+    @apply my-12 p-8;
+    background: linear-gradient(to bottom right, 
+      rgba(var(--brand-secondary) / 0.05), 
+      rgba(var(--terminal-cyan) / 0.05)
+    );
+    @apply rounded-2xl border border-brand-secondary/20;
+  }
+  
+  .grid-title {
+    @apply mb-6 text-xl text-terminal-cyan text-center font-bold;
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .grid-item {
+    @apply bg-terminal-bg/60 border border-terminal-cyan/20 rounded-lg overflow-hidden;
+    @apply transition-all duration-300;
+    @apply hover:border-terminal-cyan/50;
+    box-shadow: 0 0 0 rgba(0, 212, 255, 0);
+  }
+  
+  .grid-item:hover {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  }
+  
+  .item-title {
+    @apply block px-4 py-3 bg-terminal-cyan/10 border-b border-terminal-cyan/20;
+    @apply font-mono text-sm font-semibold text-terminal-cyan;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .item-content {
+    @apply p-4 m-0 bg-transparent border-0 overflow-x-auto;
+  }
+  
+  .item-content code {
+    @apply font-mono text-sm leading-relaxed text-gray-300 whitespace-pre;
+  }
+  
+  .item-footer {
+    @apply block px-4 py-2 bg-black/30 border-t border-terminal-cyan/10;
+    @apply font-mono text-xs text-gray-400 text-center;
+  }
+</style>

@@ -73,3 +73,30 @@ npm run format            # Auto-format
 - **Semantic colors only** - `text-secondary` not `text-gray-700`
 - **light-dark() function** - Automatic color switching
 - **Single source** - All colors in `/website/src/styles/theme.css`
+
+## Architecture Rules
+
+### Components
+1. **Self-contained** - All styles in `<style>` block, no external CSS
+2. **Generic only** - No content-specific components (bad: TokenChart, good: Chart)
+3. **Single file** - Use variant props, not multiple files (Card variant="tiny")
+4. **Flat structure** - No subfolders in /components
+
+### CSS Organization
+- `/styles/theme.css` - Variables only
+- `/styles/global.css` - Resets, base typography
+- Everything else - Inside components
+
+### Content
+- Must work without custom code
+- Use MDX for enhancements
+- Import generic components only
+
+### Imports
+- ✅ Theme variables, components, utilities
+- ❌ Component CSS files, content helpers
+
+### Red Flags
+- `ComponentV2.astro` → Add variant to original
+- `component.css` → Move styles inside component
+- `/components/blog/` → Make generic or move to content

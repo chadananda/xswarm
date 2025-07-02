@@ -7,117 +7,222 @@ export interface Props {
   image?: string;
   class?: string;
   hover?: boolean;
-  compact?: boolean;
+  variant?: 'default' | 'compact' | 'tiny';
   mcpTools?: string[];
   prompt?: string;
 }
 
-const { icon, title, role, description, image, class: className = '', hover = true, compact = false, mcpTools = [], prompt } = Astro.props;
+const { 
+  icon, 
+  title, 
+  role, 
+  description, 
+  image, 
+  class: className = '', 
+  hover = true, 
+  variant = 'default',
+  mcpTools = [], 
+  prompt 
+} = Astro.props;
+
+// Size configurations based on variant
+const sizes = {
+  default: { width: 'w-[200px]', height: 'h-[260px]', imageHeight: 'h-[140px]' },
+  compact: { width: 'w-[200px]', height: 'h-[260px]', imageHeight: 'h-[100px]' },
+  tiny: { width: 'w-auto', height: 'h-auto', imageHeight: '' }
+};
+
+const currentSize = sizes[variant];
 ---
 
-<div class="trading-card-container">
-  <div class={`trading-card ${compact ? 'trading-card-compact' : ''} ${className}`} data-compact={compact}>
-  <!-- Character image section (moved to top) -->
-  {image && (
-    <div class="card-image-background">
-      <img src={image} alt={title} class="card-character-image" />
-      <div class="card-image-overlay"></div>
+{variant === 'tiny' ? (
+  <!-- Tiny variant - simple inline card -->
+  <div class={`tiny-card ${className}`}>
+    <div class="tiny-card-content">
+      {icon && (
+        <span class="tiny-card-icon">{icon}</span>
+      )}
+      <div class="tiny-card-text">
+        <h4 class="tiny-card-title">{title}</h4>
+        {role && (
+          <p class="tiny-card-role">({role})</p>
+        )}
+      </div>
     </div>
-  )}
-  
-  <!-- Main card content wrapper -->
-  <div class="card-main-content">
-    <!-- Texture overlays - disabled for performance -->
-    <!-- <div class="card-texture"></div>
-    <div class="card-holographic"></div> -->
-    
-    <!-- Hand-drawn corner accents - disabled for performance -->
-    <!-- <div class="card-corner card-corner-tl"></div>
-    <div class="card-corner card-corner-tr"></div>
-    <div class="card-corner card-corner-bl"></div>
-    <div class="card-corner card-corner-br"></div> -->
-    
-    <!-- Top section (image area or icon) -->
-    <div class="card-image-section">
-      {!image && (
-        <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
-          <div class={`${compact ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
-            {icon || '?'}
-          </div>
+  </div>
+) : (
+  <!-- Default and compact variants -->
+  <div class={`relative inline-block ${currentSize.width} ${currentSize.height} group`}>
+    <div class={`
+      card-container
+      ${hover ? 'card-hover' : ''}
+      ${variant === 'compact' ? 'card-compact' : ''}
+      ${className}
+    `}>
+      <!-- Character image background -->
+      {image && (
+        <div class={`absolute inset-0 ${currentSize.imageHeight}`}>
+          <img src={image} alt={title} class="w-full h-full object-cover object-top" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/95" />
         </div>
       )}
       
-      <!-- Rarity indicator - disabled for performance -->
-      <!-- <div class="card-rarity"></div> -->
-    </div>
-  
-  <!-- Content section -->
-  <div class="card-content-section">
-    <!-- Title with ornate frame -->
-    <div class="card-title-frame">
-      <h3 class={`text-center ${compact ? 'text-base' : 'text-xl'} font-bold text-terminal-green ${compact ? 'leading-tight' : 'leading-normal'}`} style="font-family: 'Orbitron', monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
-        {title}
-      </h3>
-      {role && (
-        <p class={`text-center ${compact ? 'text-[11px]' : 'text-sm'} text-terminal-cyan/60 font-light ${compact ? 'mt-0.5' : 'mt-1'} ${compact ? 'leading-tight' : 'leading-normal'}`}>
-          ({role})
-        </p>
-      )}
-    </div>
-    
-    <!-- Description -->
-    {description && (
-      <div class={`relative ${compact ? 'px-1' : 'px-2'}`}>
-        <p class={`text-center ${compact ? 'text-[11px]' : 'text-sm'} text-terminal-green/80 ${compact ? 'leading-snug' : 'leading-relaxed'} font-mono ${compact ? 'line-clamp-3' : ''}`}>
-          {description}
-        </p>
-      </div>
-    )}
-    
-    <!-- MCP Tools (shown on hover for compact cards) -->
-    {mcpTools && mcpTools.length > 0 && (
-      <div class="card-mcp-tools">
-        <div class="mcp-header">
-          <div class="mcp-icon">⚡</div>
-          <p class="text-[10px] text-terminal-cyan font-mono font-semibold tracking-wide">MCP TOOLS</p>
-          <div class="mcp-icon">⚡</div>
-        </div>
-        <div class="mcp-tools-grid">
-          {mcpTools.map((tool) => (
-            <div class="mcp-tool-item">
-              <span class="mcp-tool-text">{tool}</span>
+      <!-- Main content -->
+      <div class="relative h-full flex flex-col">
+        <!-- Image section or icon -->
+        <div class={`relative ${currentSize.imageHeight} flex-shrink-0 border-b-2 border-terminal-cyan/30`}>
+          {!image && (
+            <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
+              <div class={`${variant === 'compact' ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
+                {icon || '?'}
+              </div>
             </div>
-          ))}
+          )}
+        </div>
+        
+        <!-- Content section -->
+        <div class={`flex-1 ${variant === 'compact' ? 'p-2' : 'p-3'} flex flex-col justify-center gap-2 bg-gray-900/95`}>
+          <!-- Title -->
+          <div class="text-center mb-2">
+            <h3 class={`
+              font-['Orbitron'] font-bold uppercase tracking-wider text-terminal-green
+              ${variant === 'compact' ? 'text-base leading-tight' : 'text-xl leading-normal'}
+            `}>
+              {title}
+            </h3>
+            {role && (
+              <p class={`
+                text-terminal-cyan/60 font-light
+                ${variant === 'compact' ? 'text-[11px] mt-0.5 leading-tight' : 'text-sm mt-1 leading-normal'}
+              `}>
+                ({role})
+              </p>
+            )}
+          </div>
+          
+          <!-- Description -->
+          {description && (
+            <p class={`
+              text-center text-terminal-green/80 font-mono
+              ${variant === 'compact' ? 'text-[11px] leading-snug line-clamp-3 px-1' : 'text-sm leading-relaxed px-2'}
+            `}>
+              {description}
+            </p>
+          )}
+          
+          <!-- MCP Tools -->
+          {mcpTools && mcpTools.length > 0 && (
+            <div class={`mt-auto ${variant === 'compact' ? 'mcp-tools-compact' : 'block'}`}>
+              <div class="flex items-center justify-center gap-2 mb-1">
+                <span class="text-terminal-cyan">⚡</span>
+                <p class="text-[10px] text-terminal-cyan font-mono font-semibold tracking-wide">MCP TOOLS</p>
+                <span class="text-terminal-cyan">⚡</span>
+              </div>
+              <div class="flex flex-wrap gap-1 justify-center px-2">
+                {mcpTools.map((tool) => (
+                  <div class="mcp-tool-badge">
+                    {tool}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          <!-- Card number -->
+          {variant !== 'compact' && (
+            <div class="absolute bottom-2 right-2 text-xs font-mono">
+              <span class="card-number">
+                #{String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}
+              </span>
+            </div>
+          )}
         </div>
       </div>
-    )}
-    
-    <!-- Card ID/Number with foil effect -->
-    {!compact && (
-      <div class="absolute bottom-2 right-2 text-xs font-mono">
-        <span class="inline-block bg-gradient-to-br from-terminal-cyan/40 via-terminal-magenta/40 to-terminal-cyan/40 bg-clip-text text-transparent">
-          #{String(Math.floor(Math.random() * 999) + 1).padStart(3, '0')}
-        </span>
-      </div>
-    )}
+    </div>
   </div>
-  
-    <!-- Scan lines effect - disabled for performance -->
-    <!-- <div class="absolute inset-0 pointer-events-none opacity-10">
-      <div class="h-full w-full bg-gradient-to-b from-transparent via-terminal-green/50 to-transparent animate-scan"></div>
-    </div> -->
-  </div>
-  </div>
-</div>
+)}
 
 <style>
-  @import '../styles/trading-card.css';
+  /* Import font */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
   
-  .trading-card-container {
-    display: inline-block;
-    width: 200px;
-    height: 260px;
-    position: relative;
+  /* Default and compact card styles */
+  .card-container {
+    @apply relative w-full h-full;
+    @apply bg-gradient-to-b from-gray-800/95 to-gray-900/95;
+    @apply border-2 border-terminal-cyan/30 rounded-xl;
+    @apply overflow-hidden transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:z-50;
+  }
+  
+  .card-compact {
+    @apply hover:w-[300px] hover:h-[520px];
+    @apply hover:-translate-x-[50px] hover:-translate-y-[130px];
+  }
+  
+  /* MCP Tools */
+  .mcp-tools-compact {
+    @apply hidden;
+  }
+  
+  .group:hover .mcp-tools-compact {
+    @apply block;
+  }
+  
+  .mcp-tool-badge {
+    @apply bg-black/80 border border-terminal-cyan/50 rounded-xl;
+    @apply px-3 py-1 text-[9px] text-white/90 whitespace-nowrap;
+  }
+  
+  .card-number {
+    @apply bg-gradient-to-br from-terminal-cyan/40 via-terminal-magenta/40 to-terminal-cyan/40;
+    @apply bg-clip-text text-transparent;
+  }
+  
+  /* Tiny card styles */
+  .tiny-card {
+    @apply inline-flex;
+    background: linear-gradient(145deg, 
+      rgba(28, 35, 43, 0.9) 0%, 
+      rgba(20, 25, 32, 0.9) 100%
+    );
+    @apply border border-terminal-cyan/30 rounded-lg;
+    @apply px-3 py-2;
+    box-shadow: 
+      inset 0 1px 2px rgba(255, 255, 255, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.4);
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .tiny-card:hover {
+    @apply -translate-y-0.5;
+    box-shadow: 
+      inset 0 1px 2px rgba(255, 255, 255, 0.1),
+      0 4px 8px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(0, 255, 255, 0.1);
+    @apply border-terminal-cyan/50;
+  }
+  
+  .tiny-card-content {
+    @apply flex items-center gap-2;
+  }
+  
+  .tiny-card-icon {
+    @apply text-xl opacity-80;
+  }
+  
+  .tiny-card-text {
+    @apply flex flex-col;
+  }
+  
+  .tiny-card-title {
+    @apply text-sm font-semibold text-terminal-green leading-tight;
+  }
+  
+  .tiny-card-role {
+    @apply text-[10px] text-terminal-cyan/60 leading-tight mt-0.5;
   }
 </style>
-

@@ -9,7 +9,7 @@ tags: ['AI Development', 'Cyberpunk', 'Economics', 'Efficiency', 'Cost Optimizat
 ---
 
 import TokenCostBanner from '../../components/blog/TokenCostBanner.astro';
-import TokenBreakdownChart from '../../components/blog/TokenBreakdownChart.astro';
+import BarChart from '../../components/BarChart.astro';
 import ComparisonView from '../../components/blog/ComparisonView.astro';
 import CostCalculator from '../../components/blog/CostCalculator.astro';
 
@@ -31,14 +31,14 @@ Want to know the kicker? The AI spent 82% of those tokens re-explaining the proj
 
 Let me break down exactly how we burned through nearly a thousand dollars worth of tokens on what should have been manageable:
 
-<TokenBreakdownChart 
+<BarChart 
   title="Where Your Money Actually Goes"
   items={[
     {
-      category: "Context Loading",
-      amount: "1.8M tokens • $36.40",
+      label: "Context Loading",
+      value: "1.8M tokens • $36.40",
       percentage: 38,
-      color: "red",
+      color: "error",
       details: [
         "Project structure explained 847 times",
         "Coding standards repeated 1,243 times",
@@ -46,10 +46,10 @@ Let me break down exactly how we burned through nearly a thousand dollars worth 
       ]
     },
     {
-      category: "Code Regeneration",
-      amount: "1.5M tokens • $29.40",
+      label: "Code Regeneration",
+      value: "1.5M tokens • $29.40",
       percentage: 31,
-      color: "amber",
+      color: "warning",
       details: [
         "Authentication logic: 23 versions",
         "Form validation: 31 versions",
@@ -58,10 +58,10 @@ Let me break down exactly how we burned through nearly a thousand dollars worth 
       ]
     },
     {
-      category: "Coordination Overhead",
-      amount: "980K tokens • $19.60",
+      label: "Coordination Overhead",
+      value: "980K tokens • $19.60",
       percentage: 21,
-      color: "purple",
+      color: "secondary",
       details: [
         "\"Let me check what the other agent did\"",
         "\"I'll need to understand the existing code\"",
@@ -69,10 +69,10 @@ Let me break down exactly how we burned through nearly a thousand dollars worth 
       ]
     },
     {
-      category: "Failed Attempts",
-      amount: "490K tokens • $9.80",
+      label: "Failed Attempts",
+      value: "490K tokens • $9.80",
       percentage: 10,
-      color: "gray",
+      color: "info",
       details: [
         "Hallucinated imports",
         "Conflicting implementations",

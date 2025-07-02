@@ -1,0 +1,132 @@
+---
+export interface Props {
+  title?: string;
+  items: Array<{
+    label: string;
+    value: string;
+    percentage: number;
+    color?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+    details?: string[];
+  }>;
+  class?: string;
+}
+
+const { title, items, class: className = '' } = Astro.props;
+
+const colorMap = {
+  primary: 'bg-brand-primary',
+  secondary: 'bg-brand-secondary',
+  success: 'bg-terminal-green',
+  warning: 'bg-terminal-amber',
+  error: 'bg-terminal-red',
+  info: 'bg-terminal-cyan'
+};
+---
+
+<div class={`bar-chart ${className}`}>
+  {title && (
+    <h3 class="chart-title">
+      {title}
+    </h3>
+  )}
+  
+  <div class="chart-items">
+    {items.map((item) => (
+      <div class="chart-item">
+        <!-- Progress bar -->
+        <div class="bar-container">
+          <div 
+            class={`bar-fill ${colorMap[item.color || 'primary']}`}
+            style={`width: ${item.percentage}%`}
+          />
+          
+          <!-- Label overlay -->
+          <div class="bar-label">
+            <div>
+              <span class="label-primary">
+                {item.label}
+              </span>
+              <span class="label-value">
+                {item.value}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Optional details -->
+        {item.details && (
+          <ul class="item-details">
+            {item.details.map((detail) => (
+              <li>
+                <span class="detail-bullet">•</span>
+                <span set:html={detail.replace(/(\d+)/, '<span class="detail-highlight">$1</span>')} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .bar-chart {
+    @apply my-12 p-8 bg-surface/50 rounded-2xl border border-border;
+  }
+  
+  .chart-title {
+    @apply mb-8 text-2xl text-primary text-center font-bold;
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .chart-items {
+    @apply space-y-6;
+  }
+  
+  .chart-item {
+    @apply relative;
+  }
+  
+  .bar-container {
+    @apply h-16 bg-black/30 rounded-lg overflow-hidden relative;
+  }
+  
+  .bar-fill {
+    @apply h-full opacity-80 rounded-lg transition-all duration-1000 ease-out;
+    animation: fillBar 1s ease-out;
+  }
+  
+  .bar-label {
+    @apply absolute inset-0 flex items-center px-4;
+  }
+  
+  .label-primary {
+    @apply block font-semibold text-white text-base;
+  }
+  
+  .label-value {
+    @apply block text-sm text-gray-200 font-mono;
+  }
+  
+  .item-details {
+    @apply mt-2 pl-4 space-y-1 text-sm text-secondary;
+  }
+  
+  .item-details li {
+    @apply relative pl-4;
+  }
+  
+  .detail-bullet {
+    @apply absolute left-0 text-terminal-cyan;
+  }
+  
+  .detail-highlight {
+    @apply text-terminal-magenta font-semibold;
+  }
+  
+  @keyframes fillBar {
+    from { width: 0; }
+  }
+</style>

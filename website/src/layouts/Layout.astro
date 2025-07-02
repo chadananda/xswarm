@@ -1,8 +1,7 @@
 ---
 import '../styles/theme.css';
+import '../styles/global.css';
 import '../styles/cyberpunk-terminal.css';
-import '../styles/blog-visuals.css';
-import '../styles/navbar-sticky.css';
 
 export interface Props {
   title: string;
@@ -53,23 +52,11 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
 </html>
 
 <style is:global>
-  :root {
-    --color-primary: 59, 130, 246;
-    --color-secondary: 139, 92, 246;
-    --color-accent: 99, 102, 241;
-    --color-success: 16, 185, 129;
-    --color-warning: 245, 158, 11;
-    --color-error: 239, 68, 68;
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-mono: 'Menlo', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
-  }
-
   * {
     box-sizing: border-box;
   }
 
   html {
-    font-family: var(--font-sans);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -78,107 +65,6 @@ const { title, description = 'XSwarm.ai - Transform Every Developer into an AI T
   body {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.2;
-    margin-top: 0;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    font-size: 0.875em;
-    background-color: rgba(var(--color-primary), 0.1);
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
-  }
-
-  pre {
-    font-family: var(--font-mono);
-    overflow-x: auto;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #1e293b;
-    color: #e2e8f0;
-  }
-
-  pre code {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  a {
-    color: rgb(var(--color-primary));
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  a:hover {
-    color: rgb(var(--color-accent));
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Focus styles */
-  *:focus {
-    outline: none;
-  }
-
-  *:focus-visible {
-    outline: 2px solid rgb(var(--color-primary));
-    outline-offset: 2px;
-  }
-
-  /* Selection */
-  ::selection {
-    background-color: rgba(var(--color-primary), 0.3);
-    color: inherit;
-  }
-
-
-  /* Utility classes */
-  .container {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      max-width: 640px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      max-width: 768px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      max-width: 1024px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .container {
-      max-width: 1280px;
-    }
-  }
-
-  @media (min-width: 1536px) {
-    .container {
-      max-width: 1536px;
-    }
   }
 
   /* Animations */

@@ -9,7 +9,7 @@ tags: ['AI Development', 'Cyberpunk', 'Code Reuse', 'Pure Functions']
 ---
 
 import FunctionGraveyard from '../../components/blog/FunctionGraveyard.astro';
-import CodeComparison from '../../components/blog/CodeComparison.astro';
+import CodeGrid from '../../components/CodeGrid.astro';
 
 Last week, I found something that made me physically ill. Fifteen different email validation functions. In the same project. All written by AI. Each one slightly different, all essentially identical.
 
@@ -22,31 +22,34 @@ Last week, I found something that made me physically ill. Fifteen different emai
   { name: "+10 more...", birth: "All doing the", death: "same thing", isMore: true }
 ]} />
 
-<CodeComparison 
+<CodeGrid 
   title="Same Function, Different Day"
-  variants={[
+  items={[
     {
-      source: "Claude (Monday)",
-      code: `const validateEmail = (email) => {
+      title: "Claude (Monday)",
+      content: `const validateEmail = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };`,
-      complexity: "Complexity: Low | Tokens: 147"
+      language: "javascript",
+      footer: "Complexity: Low | Tokens: 147"
     },
     {
-      source: "GPT-4 (Tuesday)",
-      code: `function isValidEmail(emailAddress) {
+      title: "GPT-4 (Tuesday)",
+      content: `function isValidEmail(emailAddress) {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return regex.test(emailAddress);
 }`,
-      complexity: "Complexity: Medium | Tokens: 156"
+      language: "javascript",
+      footer: "Complexity: Medium | Tokens: 156"
     },
     {
-      source: "Copilot (Wednesday)",
-      code: `export const checkEmail = (str) => {
+      title: "Copilot (Wednesday)",
+      content: `export const checkEmail = (str) => {
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   return emailRegex.test(str);
 }`,
-      complexity: "Complexity: Medium | Tokens: 152"
+      language: "javascript",
+      footer: "Complexity: Medium | Tokens: 152"
     }
   ]}
 />
