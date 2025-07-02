@@ -125,6 +125,7 @@ const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 - Imports libraries already available
 - Uses different import styles
 - Creates circular dependencies
+- **Installs outdated versions by default**
 
 **Example:**
 ```javascript
@@ -132,12 +133,22 @@ const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 import _ from 'lodash';  // For one function
 import moment from 'moment';  // When Date works fine
 import axios from 'axios';  // When fetch exists
+
+// AI installs:
+"dependencies": {
+  "react": "^16.13.1",     // 2+ years old
+  "vue": "^2.6.11",        // Vue 3 exists
+  "angular": "^1.7.9",     // AngularJS?!
+  "express": "^4.17.1"     // Old but common
+}
 ```
 
 **Prevention:**
 - Specify "use only existing dependencies"
 - Say "no new npm packages without permission"
 - List approved libraries upfront
+- Always specify "latest stable version"
+- Use "npm install package@latest"
 
 ### 7. Style Inconsistency
 
@@ -221,6 +232,9 @@ After AI completes task:
 - "Put temporary files in /scripts"
 - "Search before implementing"
 - "Keep changes focused"
+- **"Install latest stable versions"**
+- **"Use package@latest syntax"**
+- **"No outdated packages"**
 
 ### 5. Project Structure Rules
 
@@ -330,6 +344,7 @@ const query = `SELECT * FROM users WHERE id = ${userId}`;
 - Implements outdated patterns
 - Ignores modern best practices
 - References old library versions
+- **Always suggests outdated package versions**
 
 **Example:**
 ```javascript
@@ -337,13 +352,22 @@ const query = `SELECT * FROM users WHERE id = ${userId}`;
 componentWillMount() { }  // Deprecated lifecycle
 // Uses var instead of const/let
 var data = [];  // Old JavaScript
+
+// AI suggests old package versions:
+npm install react@16.8.0  // Current is 18.x
+npm install webpack@4.0.0  // Current is 5.x
+npm install node-sass     // Deprecated, use sass
 ```
+
+**Result:** Forces unnecessary refactoring when you update to current versions later.
 
 **Prevention:**
 - Specify framework versions
 - Say "use latest syntax"
 - Provide modern code examples
 - Check documentation dates
+- Always say "install latest versions"
+- Specify "use current stable version"
 
 ### 12. License and IP Contamination
 
