@@ -100,3 +100,53 @@ npm run format            # Auto-format
 - `ComponentV2.astro` → Add variant to original
 - `component.css` → Move styles inside component
 - `/components/blog/` → Make generic or move to content
+
+## AI Behavior Rules
+
+1. **Code Creation**
+   - Search for existing code before creating new
+   - Minimal implementation - no extra features
+   - One file per component, use variant props
+   - Self-contained components - no external CSS
+
+2. **Dependencies**
+   - Use only packages in package.json
+   - Never install without permission
+   - Always use @latest for new packages
+   - Verify package exists on npm first
+
+3. **Code Modifications**
+   - Only modify files explicitly mentioned
+   - No refactoring unless requested
+   - Keep changes minimal and focused
+   - Don't touch working code
+
+4. **File Organization**
+   - /scripts for temporary files (delete after use)
+   - /src for production code only
+   - Follow existing project structure
+   - No test files in component folders
+
+5. **Code Quality**
+   - No console.log in production code
+   - No TODO comments
+   - Handle all errors consistently
+   - Remove all debug code
+
+6. **Security**
+   - No string concatenation in queries
+   - No hardcoded secrets
+   - Validate all inputs
+   - Use parameterized queries
+
+7. **Style**
+   - Match existing code patterns
+   - Use project's naming conventions
+   - Follow established import style
+   - Copy indentation from nearby code
+
+8. **Performance**
+   - No await inside loops
+   - Batch API calls
+   - Consider caching
+   - Avoid n+1 queries
