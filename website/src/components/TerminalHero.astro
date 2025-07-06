@@ -1,0 +1,314 @@
+---
+export interface Props {
+  projectName?: string;
+}
+
+const { projectName = 'my-awesome-project' } = Astro.props;
+---
+
+<div class="terminal-hero-container">
+  <div class="terminal-window">
+    <!-- Terminal header -->
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="terminal-button terminal-button-red"></span>
+        <span class="terminal-button terminal-button-yellow"></span>
+        <span class="terminal-button terminal-button-green"></span>
+      </div>
+      <div class="terminal-title">xswarm@hero:~$</div>
+    </div>
+    
+    <!-- Terminal content -->
+    <div class="terminal-content">
+      <div class="terminal-lines">
+        <!-- Initial prompt -->
+        <div class="terminal-line" data-delay="0">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-command typing-animation" data-text={`cd ${projectName}`}></span>
+        </div>
+        
+        <!-- Second command -->
+        <div class="terminal-line" data-delay="2000">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-command typing-animation" data-text="npx xswarm"></span>
+        </div>
+        
+        <!-- Loading animation -->
+        <div class="terminal-line loading-line" data-delay="3500">
+          <span class="terminal-loading">Initializing AI swarm...</span>
+        </div>
+        
+        <!-- ASCII explosion -->
+        <div class="ascii-explosion" data-delay="4500">
+          <pre class="explosion-frame frame-1">
+     .  *  .   . *       *   .        .        .   *    .
+  *  _\|/_   .    * .     .      *   .   *    .        *
+    (/o\\)     .        .   *         _\|/_  .    .  *   .
+  *   |        *    .        .       (/o\\)    *        .
+   . -+- xSwarm    .    *  .    .      |   .      *    .
+      |       .        _\|/_     *   -+-        .        *
+  .      *  .    *    (/o\\)  .       |    *         .
+    *           .   .   |        . *     .     *    .   .
+</pre>
+          <pre class="explosion-frame frame-2">
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║
+║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║
+║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║
+║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║
+║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║
+║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+</pre>
+        </div>
+        
+        <!-- Success messages -->
+        <div class="terminal-line success-line" data-delay="5500">
+          <span class="terminal-success">✓ 40+ AI agents initialized</span>
+        </div>
+        <div class="terminal-line success-line" data-delay="5700">
+          <span class="terminal-success">✓ Multi-pass planning engine ready</span>
+        </div>
+        <div class="terminal-line success-line" data-delay="5900">
+          <span class="terminal-success">✓ Parallel execution framework loaded</span>
+        </div>
+        
+        <!-- Main tagline -->
+        <div class="hero-tagline" data-delay="6500">
+          <h1 class="hero-title">Be the Team You Wish to <span class="text-gradient-cyber">Lead</span></h1>
+          <p class="hero-subtitle">
+            Orchestrate development cycles with expert agents, multi-pass AI planning, and parallel execution.
+            <br />Code + Tests + Docs + Marketing in every epoch.
+          </p>
+        </div>
+        
+        <!-- Final cursor -->
+        <div class="terminal-line" data-delay="7000">
+          <span class="terminal-prompt">$</span>
+          <span class="cli-cursor"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .terminal-hero-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: var(--terminal-bg);
+  }
+  
+  .terminal-hero-container .terminal-window {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .terminal-hero-container .terminal-content {
+    padding: 2rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .terminal-lines {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .terminal-line {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+    margin-bottom: 0.5rem;
+  }
+  
+  .terminal-prompt {
+    color: var(--terminal-cyan);
+    margin-right: 0.5rem;
+  }
+  
+  .terminal-command {
+    color: var(--terminal-green);
+  }
+  
+  .typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--terminal-green);
+    animation: typing 1.5s steps(40, end) forwards,
+               blink-caret 0.75s step-end infinite;
+  }
+  
+  .typing-animation::after {
+    content: attr(data-text);
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--terminal-green); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .terminal-loading {
+    color: var(--terminal-yellow);
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  
+  .terminal-success {
+    color: var(--terminal-green);
+  }
+  
+  /* ASCII Explosion */
+  .ascii-explosion {
+    opacity: 0;
+    margin: 2rem 0;
+    text-align: center;
+    animation: explode 1s ease-out forwards;
+  }
+  
+  .explosion-frame {
+    color: var(--terminal-cyan);
+    font-size: 0.875rem;
+    line-height: 1.2;
+    text-shadow: 0 0 20px currentColor;
+    animation: glow 0.5s ease-in-out infinite alternate;
+  }
+  
+  .explosion-frame.frame-1 {
+    display: block;
+    animation-duration: 0.3s;
+  }
+  
+  .explosion-frame.frame-2 {
+    display: none;
+  }
+  
+  @keyframes explode {
+    0% { 
+      opacity: 0; 
+      transform: scale(0.5); 
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.2); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+  
+  @keyframes glow {
+    from { text-shadow: 0 0 10px currentColor; }
+    to { text-shadow: 0 0 30px currentColor, 0 0 50px currentColor; }
+  }
+  
+  /* Hero Tagline */
+  .hero-tagline {
+    opacity: 0;
+    margin: 3rem 0;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .text-gradient-cyber {
+    background: linear-gradient(135deg, var(--terminal-cyan) 0%, var(--terminal-magenta) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .terminal-lines {
+      font-size: 0.875rem;
+    }
+    
+    .explosion-frame {
+      font-size: 0.6rem;
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Animate elements based on delay
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('[data-delay]');
+    
+    elements.forEach((element) => {
+      const delay = parseInt(element.getAttribute('data-delay') || '0');
+      
+      setTimeout(() => {
+        element.style.animationDelay = '0s';
+        element.classList.add('animate');
+        
+        // Handle typing animation
+        const typingElement = element.querySelector('.typing-animation');
+        if (typingElement) {
+          typingElement.style.animationDelay = '0s';
+        }
+        
+        // Show explosion frame 2 after frame 1
+        if (element.classList.contains('ascii-explosion')) {
+          setTimeout(() => {
+            const frame1 = element.querySelector('.frame-1');
+            const frame2 = element.querySelector('.frame-2');
+            if (frame1) frame1.style.display = 'none';
+            if (frame2) frame2.style.display = 'block';
+          }, 300);
+        }
+      }, delay);
+    });
+  });
+</script>

@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Agent from '../components/Agent.astro';
 import Card from '../components/Card.astro';
+import TerminalHero from '../components/TerminalHero.astro';
 import { getCollection } from 'astro:content';
 
 // Get agent categories
@@ -23,45 +24,20 @@ const blogPosts = (await getCollection('blog'))
 	
 	<main>
 		<!-- Hero Section -->
-		<section class="hero relative overflow-hidden terminal-window">
-			<!-- Wide Hero Image Background -->
-			<div class="absolute inset-0 z-0">
-				<img src="/teamofone.png" alt="Cyberpunk developer controlling AI swarm" class="w-full h-full object-cover opacity-30" />
-				<div class="absolute inset-0 bg-gradient-to-t from-terminal-bg via-terminal-bg/50 to-transparent"></div>
-			</div>
+		<section class="hero">
+			<TerminalHero projectName="my-awesome-app" />
 			
-			<!-- Terminal Window Effect -->
-			<div class="terminal-header">
-				<div class="terminal-buttons">
-					<span class="terminal-button terminal-button-red"></span>
-					<span class="terminal-button terminal-button-yellow"></span>
-					<span class="terminal-button terminal-button-green"></span>
-				</div>
-				<div class="terminal-title">xswarm.ai</div>
-			</div>
-			
-			<div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
-				<div class="text-center max-w-4xl mx-auto">
-					<h1 class="text-5xl md:text-7xl font-bold mb-6 glitch-text font-['Orbitron'] uppercase tracking-wider" data-text="Be the Team You Wish to Lead">
-						Be the Team You Wish to <span class="text-gradient-cyber">Lead</span>
-					</h1>
-					<p class="text-xl md:text-2xl mb-8 leading-relaxed terminal-text">
-						<span class="cli-prompt">Orchestrate development cycles with 40+ expert agents, multi-pass AI planning, and parallel execution. Code + Tests + Docs + Marketing in every epoch.</span>
-						<span class="cli-cursor"></span>
-					</p>
-					<div class="flex flex-col sm:flex-row gap-4 justify-center">
-						<Button href="/blog/getting-started-guide" size="lg">
-							<span class="terminal-text">npx xswarm</span>
-						</Button>
-						<Button href="https://github.com/chadananda/xswarm" variant="secondary" size="lg">
-							<span class="terminal-text">View on GitHub</span>
-						</Button>
-					</div>
+			<!-- CTA Buttons -->
+			<div class="hero-cta">
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<Button href="/blog/getting-started-guide" size="lg">
+						<span class="terminal-text">Get Started</span>
+					</Button>
+					<Button href="https://github.com/chadananda/xswarm" variant="secondary" size="lg">
+						<span class="terminal-text">View on GitHub</span>
+					</Button>
 				</div>
 			</div>
-			
-			<!-- Matrix Rain Effect -->
-			<div class="matrix-rain"></div>
 		</section>
 
 		<!-- Agent Workforce Section -->
@@ -406,6 +382,13 @@ const blogPosts = (await getCollection('blog'))
 </Layout>
 
 <style>
+	/* Hero CTA styling */
+	.hero-cta {
+		background: var(--terminal-bg);
+		padding: 2rem 1rem;
+		border-top: 1px solid rgba(0, 255, 255, 0.2);
+	}
+	
 	/* Import terminal colors */
 	.terminal-bg {
 		background: var(--terminal-bg);
