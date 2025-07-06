@@ -1,0 +1,263 @@
+{
+  "scenarios": {
+    "nextjs-to-svelte": {
+      "title": "NextJS to Svelte Migration",
+      "projectName": "my-sass",
+      "terminalTitle": "xSwarm@hero:~$",
+      "agents": {
+        "BA": { "name": "Business Analyst", "class": "agent-ba" },
+        "SA": { "name": "System Architect", "class": "agent-sa" },
+        "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
+        "DO": { "name": "DevOps Engineer", "class": "agent-do" }
+      },
+      "phases": [
+        {
+          "type": "terminal",
+          "items": [
+            {
+              "delay": 2000,
+              "type": "command",
+              "prompt": "$",
+              "text": "cd {projectName}",
+              "duration": 1.8
+            },
+            {
+              "delay": 5000,
+              "type": "command",
+              "prompt": "$",
+              "text": "npx xswarm",
+              "duration": 1.2
+            },
+            {
+              "delay": 8000,
+              "type": "loading",
+              "text": "Initializing AI swarm..."
+            },
+            {
+              "delay": 9000,
+              "type": "ascii",
+              "frames": [
+                "     .  *  .   . *       *   .        .        .   *    .\n  *  _\\|/_   .    * .     .      *   .   *    .        *\n    (/o\\\\)     .        .   *         _\\|/_  .    .  *   .\n  *   |        *    .        .       (/o\\\\)    *        .\n   . -+- xSwarm    .    *  .    .      |   .      *    .\n      |       .        _\\|/_     *   -+-        .        *\n  .      *  .    *    (/o\\\\)  .       |    *         .\n    *           .   .   |        . *     .     *    .   .",
+                "╔═══════════════════════════════════════════════════════════════╗\n║                                                               ║\n║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║\n║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║\n║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║\n║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║\n║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║\n║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║\n║                                                               ║\n╚═══════════════════════════════════════════════════════════════╝"
+              ]
+            },
+            {
+              "delay": 10000,
+              "type": "success",
+              "text": "✓ 40+ AI agents initialized"
+            },
+            {
+              "delay": 10200,
+              "type": "success",
+              "text": "✓ Multi-pass planning engine ready"
+            },
+            {
+              "delay": 10400,
+              "type": "success",
+              "text": "✓ Parallel execution framework loaded"
+            },
+            {
+              "delay": 10700,
+              "type": "finalPrompt"
+            },
+            {
+              "delay": 11500,
+              "type": "command",
+              "prompt": "$",
+              "text": "xswarm chat --agent business-analyst",
+              "noType": true
+            }
+          ]
+        },
+        {
+          "type": "chat",
+          "delay": 12000,
+          "stats": {
+            "project": "{projectName}",
+            "files": "89 components",
+            "functions": "382 mapped",
+            "agents": "40 available",
+            "context": "8.2k tokens",
+            "mode": "Interactive"
+          },
+          "chatTitle": "Business Analyst Agent",
+          "messages": [
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Hey there! Welcome to xSwarm. What are we building today?",
+              "duration": 2.0
+            },
+            {
+              "type": "user",
+              "text": "I need to upgrade this NextJs project to Svelte and host it on Vercel, moving the image assets to S3 caching with Imgix",
+              "duration": 5
+            },
+            {
+              "type": "thinking",
+              "agent": "BA",
+              "text": "Analyzing project requirements..."
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Ooh, big migration! Let me bring in some folks... We'll need the full squad for this one.",
+              "duration": 2.5
+            },
+            {
+              "type": "agentsJoining",
+              "agents": [
+                "Fullstack Developer",
+                "System Architect",
+                "DevOps Engineer"
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "NextJS to Svelte, nice. Let me check... how many components we talking?",
+              "duration": 1.8
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Hmm... scanning... okay, 89 React components, 34 pages. Pretty heavy on client-side routing too.",
+              "duration": 1.8
+            },
+            {
+              "type": "multipart",
+              "agent": "DO",
+              "parts": [
+                { "text": "Quick question -", "duration": 0.4 },
+                { "text": " where are the images hosted now?", "duration": 0.6 }
+              ]
+            },
+            {
+              "type": "multipart",
+              "agent": "FS",
+              "parts": [
+                { "text": "Let's see...", "duration": 0.4 },
+                { "text": " public folder.", "duration": 0.4 },
+                { "text": " Whoa, 4.7GB unoptimized!", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "multipart",
+              "agent": "DO",
+              "parts": [
+                { "text": "Yikes!", "duration": 0.3 },
+                { "text": " But wait...", "duration": 0.4 },
+                { "text": " they mentioned Imgix.", "duration": 0.5 },
+                { "text": " Perfect, that'll handle the CDN and optimization for us.", "duration": 0.8 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Oh right, so Imgix pulls from S3 and does all the magic? Auto-format, resize, compress?",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Exactly! S3 as origin, Imgix as CDN. Just tweak URL params for any transforms. Super clean.",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Hmm... we'll need some API keys. You got AWS creds for S3, Imgix account, and Vercel token?",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "Alright, thinking SvelteKit for SSR with the Vercel adapter. Any API routes to migrate?",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Found 23 API routes. Should be easy to port to the +server.js pattern.",
+              "duration": 0.9
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Cool, let's talk sprints. How should we break this down?",
+              "duration": 0.9
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "I'm thinking 3 sprints. Sprint 1: Components and S3 setup in parallel. Sprint 2: Routes plus Imgix config.",
+              "duration": 1.8
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "And Sprint 3: Vercel deployment and migrate all those image URLs. Everything runs in parallel!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Oh, don't forget to set up those env vars: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and IMGIX_DOMAIN.",
+              "duration": 1.6
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Alright team, let's collaborate on the Epoch plan. Initiating multi-pass planning engine...",
+              "duration": 1.8
+            },
+            {
+              "type": "planningAnnouncement",
+              "agent": "BA",
+              "text": "⚡ Multi-Pass Planning Engine Active",
+              "duration": 0.8
+            },
+            {
+              "type": "planningStages",
+              "stages": [
+                { "text": "Planning core functionality...", "delay": 2500 },
+                { "text": "Extracting shared functions plan...", "delay": 2500 },
+                { "text": "Mapping to existing functions...", "delay": 2500 },
+                { "text": "Considering possible simplifications...", "delay": 2500 },
+                { "text": "Improving architecture...", "delay": 2500 },
+                { "text": "Extracting pure functions...", "delay": 2500 },
+                { "text": "Organizing 382 tasks into parallel sprints...", "delay": 2500 },
+                { "text": "Setting up task assignments...", "delay": 2500 },
+                { "text": "Setting up project dashboard...", "delay": 2500 },
+                { "text": "Initiating project epoch...", "delay": 2500 }
+              ]
+            },
+            {
+              "type": "branchCreation",
+              "agent": "BA",
+              "branchName": "svelte-conversion",
+              "duration": 1.0
+            },
+            {
+              "type": "agent",
+              "agent": "BA", 
+              "text": "✓ Epoch Plan Ready! View your project dashboard:",
+              "duration": 1
+            },
+            {
+              "type": "dashboardLink",
+              "agent": "BA",
+              "url": "https://xswarm.ai/XDCFGS/svelte-conversion",
+              "duration": 1
+            },
+            {
+              "type": "progressIndicator",
+              "agent": "BA",
+              "text": "🔄 Epoch execution in progress"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
