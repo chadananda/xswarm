@@ -1,10 +1,10 @@
-# XSwarm CLI - Command Parallel AI Development Teams
+# xSwarm CLI - Command Parallel AI Development Teams
 
 [![npm version](https://badge.fury.io/js/xswarm.svg)](https://www.npmjs.com/package/xswarm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
-🚀 **Website**: [xswarm.ai](https://xswarm.ai)
+🚀 **Website**: [xSwarm.ai](https://xSwarm.ai)
 📦 **NPM Package**: [npmjs.com/package/xswarm](https://www.npmjs.com/package/xswarm)
 🐙 **GitHub**: [github.com/chadananda/xswarm](https://github.com/chadananda/xswarm)
 
@@ -18,11 +18,11 @@ npx xswarm
 npm install -g xswarm
 ```
 
-> ⚠️ **Current Status**: XSwarm CLI is in active development. Currently shows a placeholder while we build the full orchestration system. Full functionality coming Q2 2025.
+> ⚠️ **Current Status**: xSwarm CLI is in active development. Currently shows a placeholder while we build the full orchestration system. Full functionality coming Q2 2025.
 
-## What is XSwarm?
+## What is xSwarm?
 
-XSwarm is an experiment in fixing the frustrations we all face with AI development. You know the drill: explain your codebase again, wait for sequential responses, deal with integration surprises, and somehow you're still the one doing all the glue work.
+xSwarm is an experiment in fixing the frustrations we all face with AI development. You know the drill: explain your codebase again, wait for sequential responses, deal with integration surprises, and somehow you're still the one doing all the glue work.
 
 We wondered: what if we stop treating AI like a junior developer and instead design workflows around what AI is actually good at? Things like parallel execution, never forgetting context, and following precise specifications.
 
@@ -32,7 +32,7 @@ We wondered: what if we stop treating AI like a junior developer and instead des
 
 ## How It Works: The Development Epoch
 
-XSwarm organizes development into **epochs**—complete cycles that start with intensive planning and then run autonomously through multiple sprints. Think of it as front-loading all the thinking so AI teams can execute without constant hand-holding:
+xSwarm organizes development into **epochs**—complete cycles that start with intensive planning and then run autonomously through multiple sprints. Think of it as front-loading all the thinking so AI teams can execute without constant hand-holding:
 
 ```
 1. Expert Consultation → 40+ specialized AI agents analyze requirements
@@ -73,14 +73,14 @@ Every epoch ships:
 
 ## From Solo Developer to Team Commander
 
-**Without XSwarm**: You craft prompts for a single AI assistant
+**Without xSwarm**: You craft prompts for a single AI assistant
 
 - Write prompt → Wait for code → Test it → Fix issues → Repeat
 - Every session starts fresh
 - Integration is your problem
 - Documentation comes later
 
-**With XSwarm**: You command specialized AI teams
+**With xSwarm**: You command specialized AI teams
 
 - Define what you need → Expert teams plan → Parallel execution → Complete delivery
 - Shared context and functions
@@ -126,19 +126,19 @@ npx xswarm
 ## Learn More
 
 For the full story of epochs, multi-pass planning, and AI-specific optimization:
-👉 [github.com/chadananda/xswarm](https://github.com/chadananda/xswarm)
+👉 [github.com/chadananda/xSwarm](https://github.com/chadananda/xSwarm)
 
 ## Support
 
 - 📧 Email: chadananda@gmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/chadananda/xswarm/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/chadananda/xswarm/discussions)
-- 📚 Documentation: [xswarm.ai/docs](https://xswarm.ai/docs)
+- 🐛 Issues: [GitHub Issues](https://github.com/chadananda/xSwarm/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/chadananda/xSwarm/discussions)
+- 📚 Documentation: [xSwarm.ai/docs](https://xSwarm.ai/docs)
 
 ## License
 
-MIT License - see [LICENSE](https://github.com/chadananda/xswarm/blob/main/LICENSE) file for details.
+MIT License - see [LICENSE](https://github.com/chadananda/xSwarm/blob/main/LICENSE) file for details.
 
 ---
 
-**XSwarm.ai** - Command AI Teams. Ship Complete Features.
+**xSwarm.ai** - Command AI Teams. Ship Complete Features.

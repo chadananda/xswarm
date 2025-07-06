@@ -1,4 +1,4 @@
-# XSwarm.ai - Product Requirements Document
+# xSwarm.ai - Product Requirements Document
 
 > **Implementation Status**: Phase 1 is partially complete. The CLI placeholder and website are live. Key remaining items include GitHub Actions workflows for automated deployment and the blog system implementation.
 
@@ -6,7 +6,7 @@
 
 ### Overview
 
-Establish the foundational infrastructure for XSwarm.ai including npm package publication, web presence, and CLI framework. Primary goals are securing the namespace, creating professional branding, and laying groundwork for future development.
+Establish the foundational infrastructure for xSwarm.ai including npm package publication, web presence, and CLI framework. Primary goals are securing the namespace, creating professional branding, and laying groundwork for future development.
 
 ### Success Criteria
 

@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://xswarm.ai',
+  site: 'https://xSwarm.ai',
   integrations: [tailwind(), mdx(), sitemap()],
   output: 'static',
   build: {

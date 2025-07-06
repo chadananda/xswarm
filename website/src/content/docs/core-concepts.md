@@ -1,13 +1,13 @@
 ---
 title: 'Core Concepts'
-description: "Understanding the fundamental concepts behind XSwarm's AI team leadership model"
+description: "Understanding the fundamental concepts behind xSwarm's AI team leadership model"
 category: 'Core Concepts'
 order: 1
 ---
 
 # Core Concepts
 
-XSwarm transforms how developers work by providing an AI team that you lead through natural conversation. Here are the key concepts to understand.
+xSwarm transforms how developers work by providing an AI team that you lead through natural conversation. Here are the key concepts to understand.
 
 ## The Leadership Model
 
@@ -20,7 +20,7 @@ Traditional development requires you to:
 - Document everything yourself
 - Handle deployment personally
 
-With XSwarm, you become a team leader who:
+With xSwarm, you become a team leader who:
 
 - Directs AI specialists
 - Reviews and approves work
@@ -50,14 +50,14 @@ Unlike human teams that work sequentially, your AI team works in parallel:
 
 ```
 Traditional: Design → Code → Test → Document (Sequential)
-XSwarm:      Design + Code + Test + Document (Parallel)
+xSwarm:      Design + Code + Test + Document (Parallel)
 ```
 
 This parallel execution dramatically reduces development time.
 
 ## Context Persistence
 
-XSwarm maintains context throughout your session:
+xSwarm maintains context throughout your session:
 
 - Remembers previous requests
 - Understands your project structure

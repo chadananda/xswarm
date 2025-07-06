@@ -2,7 +2,7 @@
 title: "Our 15-Minute Standups Became 3 Minutes When AI Teams Don't Argue"
 description: "AI teams communicate through structured status updates in isolated workspaces, eliminating cross-talk and architectural debates. Real-time Kanban dashboards provide instant visibility into parallel agent progress."
 publishDate: 2024-01-23
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/three-minute-standups-hero.jpg'
 imageAlt: 'Split screen showing a chaotic meeting room vs clean dashboard'
 tags: ['productivity', 'meetings', 'ai-teams', 'developer-life']
@@ -67,7 +67,7 @@ And don't get me started on the "parking lot." You know, that mythical place whe
 
 Here's the thing about AI teams: they don't do small talk. They don't have opinions about the latest JavaScript framework. They don't need to "sync up" or "align on strategy" or any of that corporate poetry.
 
-When I first saw how XSwarm handles team coordination, I nearly cried. Actual tears of joy.
+When I first saw how xSwarm handles team coordination, I nearly cried. Actual tears of joy.
 
 Picture this: Five AI teams working in parallel. Each in their own sandbox. Each with their own tasks. Each completely isolated from the others. No stepping on toes. No merge conflicts. No "quick questions" that derail everything.
 

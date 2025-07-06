@@ -2,7 +2,7 @@
 title: 'The Day I Realized My AI Assistant Was Working Like a 1995 Modem'
 description: "Current AI development tools enforce sequential workflows reminiscent of CVS and waterfall methodologies. Parallel execution streams eliminate artificial bottlenecks inherent in single-agent architectures."
 publishDate: 2024-01-16
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/sequential-hell-hero.jpg'
 imageAlt: 'Cyberpunk visualization of parallel AI streams vs sequential bottlenecks'
 tags: ['AI Development', 'Cyberpunk', 'Parallel Processing', 'Development Philosophy']

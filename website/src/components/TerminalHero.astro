@@ -3,10 +3,20 @@ export interface Props {
   projectName?: string;
 }
 
-const { projectName = 'my-awesome-project' } = Astro.props;
+const { projectName = 'my-sass' } = Astro.props;
 ---
 
 <div class="terminal-hero-container">
+  <!-- Main tagline above terminal -->
+  <div class="hero-tagline-top">
+    <h1 class="hero-title glitch-text" data-text="Be the Team You Wish to Lead">
+      Be the Team You Wish to <span class="text-gradient-cyber">Lead</span>
+    </h1>
+    <p class="hero-subtitle">
+      Someday, smart agents will collaborate automatically on software development. But until then, we can still get the quality we're after by heavily front-loading planning to ensure implementation can be correct, high-quality, efficient and massively parallel.
+    </p>
+  </div>
+
   <div class="terminal-window">
     <!-- Terminal header -->
     <div class="terminal-header">
@@ -15,31 +25,41 @@ const { projectName = 'my-awesome-project' } = Astro.props;
         <span class="terminal-button terminal-button-yellow"></span>
         <span class="terminal-button terminal-button-green"></span>
       </div>
-      <div class="terminal-title">xswarm@hero:~$</div>
+      <div class="terminal-title">xSwarm@hero:~$</div>
     </div>
     
     <!-- Terminal content -->
     <div class="terminal-content">
       <div class="terminal-lines">
-        <!-- Initial prompt -->
-        <div class="terminal-line" data-delay="0">
+        <!-- Initial prompt with blinking cursor -->
+        <div class="terminal-line initial-prompt">
           <span class="terminal-prompt">$</span>
-          <span class="terminal-command typing-animation" data-text={`cd ${projectName}`}></span>
+          <span class="initial-cursor"></span>
+        </div>
+        
+        <!-- First prompt and command appears after delay -->
+        <div class="terminal-line" data-delay="2000" style="display: none;">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-command">
+            <span class="typing-animation" data-text={`cd ${projectName}`} data-duration="1.8" style="opacity: 0;"></span>
+          </span>
         </div>
         
         <!-- Second command -->
-        <div class="terminal-line" data-delay="2000">
+        <div class="terminal-line" data-delay="5000" style="display: none;">
           <span class="terminal-prompt">$</span>
-          <span class="terminal-command typing-animation" data-text="npx xswarm"></span>
+          <span class="terminal-command">
+            <span class="typing-animation" data-text="npx xswarm" data-duration="1.2" style="opacity: 0;"></span>
+          </span>
         </div>
         
         <!-- Loading animation -->
-        <div class="terminal-line loading-line" data-delay="3500">
+        <div class="terminal-line loading-line" data-delay="8000">
           <span class="terminal-loading">Initializing AI swarm...</span>
         </div>
         
         <!-- ASCII explosion -->
-        <div class="ascii-explosion" data-delay="4500">
+        <div class="ascii-explosion" data-delay="9000">
           <pre class="explosion-frame frame-1">
      .  *  .   . *       *   .        .        .   *    .
   *  _\|/_   .    * .     .      *   .   *    .        *
@@ -65,29 +85,292 @@ const { projectName = 'my-awesome-project' } = Astro.props;
         </div>
         
         <!-- Success messages -->
-        <div class="terminal-line success-line" data-delay="5500">
+        <div class="terminal-line success-line" data-delay="10000">
           <span class="terminal-success">✓ 40+ AI agents initialized</span>
         </div>
-        <div class="terminal-line success-line" data-delay="5700">
+        <div class="terminal-line success-line" data-delay="10200">
           <span class="terminal-success">✓ Multi-pass planning engine ready</span>
         </div>
-        <div class="terminal-line success-line" data-delay="5900">
+        <div class="terminal-line success-line" data-delay="10400">
           <span class="terminal-success">✓ Parallel execution framework loaded</span>
         </div>
         
-        <!-- Main tagline -->
-        <div class="hero-tagline" data-delay="6500">
-          <h1 class="hero-title">Be the Team You Wish to <span class="text-gradient-cyber">Lead</span></h1>
-          <p class="hero-subtitle">
-            Orchestrate development cycles with expert agents, multi-pass AI planning, and parallel execution.
-            <br />Code + Tests + Docs + Marketing in every epoch.
-          </p>
-        </div>
-        
         <!-- Final cursor -->
-        <div class="terminal-line" data-delay="7000">
+        <div class="terminal-line" data-delay="10700">
           <span class="terminal-prompt">$</span>
           <span class="cli-cursor"></span>
+        </div>
+        
+        <!-- Business Analyst Chat Section -->
+        <div class="terminal-chat-section" data-delay="11500" style="display: none;">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-command">xswarm chat --agent business-analyst</span>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Full screen chat interface -->
+      <div class="chat-interface" data-delay="12000" style="display: none;">
+        <!-- Stats Header -->
+        <div class="chat-stats-header">
+          <div class="stats-row">
+            <span class="stat-label">PROJECT:</span> <span class="stat-value">{projectName}</span>
+            <span class="stat-separator">|</span>
+            <span class="stat-label">FILES:</span> <span class="stat-value">89 components</span>
+            <span class="stat-separator">|</span>
+            <span class="stat-label">FUNCTIONS:</span> <span class="stat-value">382 mapped</span>
+          </div>
+          <div class="stats-row">
+            <span class="stat-label">AGENTS:</span> <span class="stat-value">40 available</span>
+            <span class="stat-separator">|</span>
+            <span class="stat-label">CONTEXT:</span> <span class="stat-value">8.2k tokens</span>
+            <span class="stat-separator">|</span>
+            <span class="stat-label">MODE:</span> <span class="stat-value">Interactive</span>
+          </div>
+        </div>
+        
+        <!-- Scrollable Chat Area -->
+        <div class="chat-scroll-container">
+          <!-- Chat Area -->
+          <div class="chat-container">
+            <div class="chat-header">
+              <span class="chat-title">Business Analyst Agent</span>
+              <span class="chat-status">● Connected</span>
+            </div>
+            <div class="chat-content-area">
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat" data-text="Hey there! Welcome to xSwarm. What are we building today?" data-duration="2.0"></span>
+              <span class="chat-cursor" style="display: none;"></span>
+            </div>
+            
+            <!-- User response -->
+            <div class="chat-message-line user-message" style="display: none;">
+              <span class="chat-user-indicator">[You]</span>
+              <span class="chat-text typing-animation-chat user-typing" data-text="I need to upgrade this NextJs project to Svelte and host it on Vercel, moving the image assets to S3 caching with Imgix" data-duration="5"></span>
+              <span class="chat-cursor user-cursor"></span>
+            </div>
+            
+            <!-- BA thinking -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="thinking-indicator">Analyzing project requirements...</span>
+            </div>
+            
+            <!-- BA response about team -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat ba-response" data-text="Ooh, big migration! Let me bring in some folks... We'll need the full squad for this one." data-duration="2.5"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Agents joining -->
+            <div class="agents-joining" style="display: none;">
+              <div class="agent-join-notification" style="display: none;">
+                <span class="join-indicator">→</span> Fullstack Developer has joined the conversation
+              </div>
+              <div class="agent-join-notification" style="display: none;">
+                <span class="join-indicator">→</span> System Architect has joined the conversation
+              </div>
+              <div class="agent-join-notification" style="display: none;">
+                <span class="join-indicator">→</span> DevOps Engineer has joined the conversation
+              </div>
+            </div>
+            
+            <!-- Architect speaks first -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-sa">[SA]</span>
+              <span class="chat-text typing-animation-chat" data-text="NextJS to Svelte, nice. Let me check... how many components we talking?" data-duration="1.8"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Fullstack responds -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-fs">[FS]</span>
+              <span class="chat-text typing-animation-chat" data-text="Hmm... scanning... okay, 89 React components, 34 pages. Pretty heavy on client-side routing too." data-duration="1.8"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- DevOps jumps in -->
+            <div class="chat-message-line do-response-parts" style="display: none;">
+              <span class="chat-agent-indicator agent-do">[DO]</span>
+              <span class="chat-text">
+                <span class="typing-animation-chat" data-text="Quick question -" data-duration="0.4"></span>
+                <span class="typing-animation-chat" data-text=" where are the images hosted now?" data-duration="0.6" style="display: none;"></span>
+              </span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Fullstack responds -->
+            <div class="chat-message-line fs-response-parts" style="display: none;">
+              <span class="chat-agent-indicator agent-fs">[FS]</span>
+              <span class="chat-text">
+                <span class="typing-animation-chat" data-text="Let's see..." data-duration="0.4"></span>
+                <span class="typing-animation-chat" data-text=" public folder." data-duration="0.4" style="display: none;"></span>
+                <span class="typing-animation-chat" data-text=" Whoa, 4.7GB unoptimized!" data-duration="0.5" style="display: none;"></span>
+              </span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- DevOps reacts -->
+            <div class="chat-message-line do-response-parts" style="display: none;">
+              <span class="chat-agent-indicator agent-do">[DO]</span>
+              <span class="chat-text">
+                <span class="typing-animation-chat" data-text="Yikes!" data-duration="0.3"></span>
+                <span class="typing-animation-chat" data-text=" But wait..." data-duration="0.4" style="display: none;"></span>
+                <span class="typing-animation-chat" data-text=" they mentioned Imgix." data-duration="0.5" style="display: none;"></span>
+                <span class="typing-animation-chat" data-text=" Perfect, that'll handle the CDN and optimization for us." data-duration="0.8" style="display: none;"></span>
+              </span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Fullstack discovers Imgix -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-fs">[FS]</span>
+              <span class="chat-text typing-animation-chat" data-text="Oh right, so Imgix pulls from S3 and does all the magic? Auto-format, resize, compress?" data-duration="1.4"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- DevOps confirms -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-do">[DO]</span>
+              <span class="chat-text typing-animation-chat" data-text="Exactly! S3 as origin, Imgix as CDN. Just tweak URL params for any transforms. Super clean." data-duration="1.3"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- BA asks about credentials -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat" data-text="Hmm... we'll need some API keys. You got AWS creds for S3, Imgix account, and Vercel token?" data-duration="1.5"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Architect plans -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-sa">[SA]</span>
+              <span class="chat-text typing-animation-chat" data-text="Alright, thinking SvelteKit for SSR with the Vercel adapter. Any API routes to migrate?" data-duration="1.2"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Fullstack confirms -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-fs">[FS]</span>
+              <span class="chat-text typing-animation-chat" data-text="Found 23 API routes. Should be easy to port to the +server.js pattern." data-duration="0.9"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- BA summarizes -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat" data-text="Cool, let's talk sprints. How should we break this down?" data-duration="0.9"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Architect estimates -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-sa">[SA]</span>
+              <span class="chat-text typing-animation-chat" data-text="I'm thinking 3 sprints. Sprint 1: Components and S3 setup in parallel. Sprint 2: Routes plus Imgix config." data-duration="1.8"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Fullstack adds -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-fs">[FS]</span>
+              <span class="chat-text typing-animation-chat" data-text="And Sprint 3: Vercel deployment and migrate all those image URLs. Everything runs in parallel!" data-duration="1.5"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- DevOps reminds about env vars -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-do">[DO]</span>
+              <span class="chat-text typing-animation-chat" data-text="Oh, don't forget to set up those env vars: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and IMGIX_DOMAIN." data-duration="1.6"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Final message -->
+            <div class="chat-message-line" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat" data-text="Alright team, let's collaborate on the Epoch plan. Initiating multi-pass planning engine..." data-duration="1.8"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            
+            <!-- BA announcement for planning -->
+            <div class="chat-message-line planning-announcement" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat" data-text="⚡ Multi-Pass Planning Engine Active" data-duration="0.8"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Planning stages in indented style -->
+            <div class="planning-stages" style="display: none;">
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Planning core functionality...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Extracting shared functions plan...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Mapping to existing functions...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Considering possible simplifications...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Improving architecture...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Extracting pure functions...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Organizing 382 tasks into parallel sprints...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Setting up task assignments...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Setting up project dashboard...</span>
+              </div>
+              <div class="planning-stage-notification" style="display: none;">
+                <span class="stage-indicator">☐</span> <span class="stage-text">Initiating project epoch...</span>
+              </div>
+            </div>
+            
+            <!-- Creating branch -->
+            <div class="chat-message-line branch-creation" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text">
+                <span class="typing-animation-chat" data-text="Creating branch: " data-duration="0.5"></span>
+                <span class="typing-animation-chat branch-name" data-text="svelte-conversion" data-duration="0.5"></span>
+                <span class="typing-animation-chat" data-text="..." data-duration="0.3"></span>
+              </span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Success message -->
+            <div class="chat-message-line epoch-ready" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat" data-text="✓ Epoch Plan Ready! View your project dashboard:" data-duration="1"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Dashboard link -->
+            <div class="chat-message-line dashboard-link" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text typing-animation-chat dashboard-url" data-text="https://xswarm.ai/XDCFGS/svelte-conversion" data-duration="1"></span>
+              <span class="chat-cursor"></span>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="chat-message-line progress-indicator" style="display: none;">
+              <span class="chat-agent-indicator agent-ba">[BA]</span>
+              <span class="chat-text">🔄 Epoch execution in progress<span class="progress-dots"></span></span>
+            </div>
+            
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -98,10 +381,21 @@ const { projectName = 'my-awesome-project' } = Astro.props;
   .terminal-hero-container {
     min-height: 80vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
     background: var(--terminal-bg);
+    gap: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Hero tagline outside terminal */
+  .hero-tagline-top {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
   }
   
   .terminal-hero-container .terminal-window {
@@ -114,17 +408,22 @@ const { projectName = 'my-awesome-project' } = Astro.props;
   }
   
   .terminal-hero-container .terminal-content {
-    padding: 2rem;
-    min-height: 60vh;
+    padding: 0;
+    height: 50vh;
+    max-height: 600px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    position: relative;
   }
   
   .terminal-lines {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
     line-height: 1.8;
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
   }
   
   .terminal-line {
@@ -138,20 +437,364 @@ const { projectName = 'my-awesome-project' } = Astro.props;
     margin-right: 0.5rem;
   }
   
+  .terminal-prompt::after {
+    content: ' ';
+  }
+  
+  /* Initial cursor styling */
+  .initial-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: var(--terminal-green);
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 0.5rem;
+    box-shadow: 0 0 5px var(--terminal-green);
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
   .terminal-command {
     color: var(--terminal-green);
   }
   
-  .typing-animation {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid var(--terminal-green);
-    animation: typing 1.5s steps(40, end) forwards,
-               blink-caret 0.75s step-end infinite;
+  /* Branch creation styles */
+  .branch-creation-section {
+    margin-top: 2rem;
+    padding: 0 1rem;
   }
   
-  .typing-animation::after {
-    content: attr(data-text);
+  .terminal-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--terminal-cyan), transparent);
+    margin: 1.5rem 0;
+    opacity: 0.5;
+  }
+  
+  .branch-status {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  .creating-branch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--terminal-cyan);
+    border-radius: 4px;
+    color: var(--terminal-cyan);
+    font-size: 1rem;
+  }
+  
+  .branch-icon {
+    font-size: 1.3rem;
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  .branch-text {
+    color: var(--terminal-cyan);
+  }
+  
+  .building-animation {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .building-text {
+    color: var(--terminal-cyan);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .planning-stages {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .planning-stage {
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInStage 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideInStage {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .stage-icon {
+    color: var(--terminal-green);
+    margin-right: 0.5rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  /* System indicator for planning messages */
+  .system-indicator {
+    color: var(--terminal-magenta);
+    font-weight: 600;
+    margin-right: 0.75rem;
+  }
+  
+  .stage-indicator {
+    color: var(--terminal-cyan);
+    margin-right: 0.5rem;
+    display: inline-block;
+    width: 1rem;
+  }
+  
+  .planning-stage.complete .stage-icon {
+    content: '✓';
+    color: var(--terminal-green);
+    transform: rotate(90deg);
+  }
+  
+  .stage-text {
+    color: var(--terminal-yellow);
+    font-size: 0.9rem;
+  }
+  
+  .planning-stage.complete .stage-text {
+    color: var(--terminal-green);
+    opacity: 0.8;
+  }
+  
+  .building-icon {
+    animation: spin 2s linear infinite;
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .progress-dots::after {
+    content: '';
+    animation: dots 1.5s steps(4, end) infinite;
+  }
+  
+  @keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+  }
+  
+  .progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: var(--terminal-cyan);
+    box-shadow: 0 0 10px var(--terminal-cyan);
+    width: 0;
+    animation: fillProgress 10s ease-out forwards;
+  }
+  
+  @keyframes fillProgress {
+    to { width: 100%; }
+  }
+  
+  /* Continuous progress indicator */
+  .continuous-progress {
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .progress-status {
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .progress-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-top-color: var(--terminal-cyan);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .progress-bar-continuous {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-wave {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      var(--terminal-cyan) 20%, 
+      var(--terminal-cyan) 80%, 
+      transparent);
+    animation: wave 2s linear infinite;
+  }
+  
+  @keyframes wave {
+    to { left: 100%; }
+  }
+  
+  .dashboard-link {
+    text-align: center;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .link-text {
+    color: var(--terminal-green);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .success-icon {
+    color: var(--terminal-green);
+    font-size: 1.2rem;
+  }
+  
+  .dashboard-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid var(--terminal-cyan);
+    border-radius: 4px;
+    color: var(--terminal-cyan);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .dashboard-button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .button-icon {
+    font-size: 1.3rem;
+  }
+  
+  .button-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .dashboard-button:hover .button-arrow {
+    transform: translateX(4px);
+  }
+  
+  /* Chat dashboard link */
+  .chat-dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--terminal-cyan);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--terminal-cyan);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    margin-left: 2rem;
+  }
+  
+  .chat-dashboard-link:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transform: translateY(-1px);
+  }
+  
+  .link-icon {
+    font-size: 1rem;
+  }
+  
+  .share-link {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  
+  .share-text {
+    display: block;
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .share-url {
+    display: block;
+    padding: 0.5rem 1rem;
+    background: var(--terminal-bg);
+    border: 1px solid var(--terminal-green);
+    border-radius: 4px;
+    color: var(--terminal-yellow);
+    font-family: var(--terminal-font);
+    font-size: 0.85rem;
+    user-select: all;
+    cursor: pointer;
+  }
+  
+  .share-url:hover {
+    background: rgba(0, 255, 255, 0.1);
+  }
+  
+  .typing-animation {
+    display: inline-block;
+    border-right: 2px solid var(--terminal-green);
+    vertical-align: baseline;
+    min-width: 1px;
+  }
+  
+  .typing-animation.active {
+    animation: blink-caret 0.75s step-end infinite;
   }
   
   @keyframes typing {
@@ -261,6 +904,403 @@ const { projectName = 'my-awesome-project' } = Astro.props;
     filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
   }
   
+  /* Terminal Chat Styles */
+  .terminal-chat-section {
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+  
+  /* Chat Interface - Full Screen Style */
+  .chat-interface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--terminal-bg);
+    padding: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    opacity: 0;
+  }
+  
+  .chat-interface.active {
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 1;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Stats Header */
+  .chat-stats-header {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .stats-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stats-row:last-child {
+    margin-bottom: 0;
+  }
+  
+  .stat-label {
+    color: var(--terminal-cyan);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+  
+  .stat-value {
+    color: var(--terminal-green);
+    font-weight: 400;
+  }
+  
+  .stat-separator {
+    color: rgba(0, 255, 255, 0.3);
+  }
+  
+  /* Scrollable Chat Container */
+  .chat-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 1rem;
+    max-height: calc(100% - 120px); /* Account for stats header */
+  }
+  
+  .chat-scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .chat-scroll-container::-webkit-scrollbar-track {
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  .chat-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+  
+  .chat-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.5);
+  }
+  
+  /* Chat Container */
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    margin-bottom: 1rem;
+  }
+  
+  .chat-title {
+    color: var(--terminal-cyan);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .chat-status {
+    color: var(--terminal-green);
+    font-size: 0.875rem;
+  }
+  
+  .chat-content-area {
+    padding: 0 1rem;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .chat-message-line {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  .chat-agent-indicator {
+    color: var(--terminal-cyan);
+    font-weight: 600;
+    margin-right: 0.75rem;
+  }
+  
+  /* Different colors for each agent */
+  .agent-ba {
+    color: var(--terminal-cyan);
+  }
+  
+  .agent-sa {
+    color: var(--terminal-yellow);
+  }
+  
+  .agent-fs {
+    color: var(--terminal-green);
+  }
+  
+  .agent-do {
+    color: var(--terminal-red);
+  }
+  
+  .chat-user-indicator {
+    color: var(--terminal-magenta);
+    font-weight: 600;
+    margin-right: 0.75rem;
+  }
+  
+  .chat-text {
+    color: var(--terminal-green);
+    display: inline;
+  }
+  
+  .user-message .chat-text {
+    color: var(--terminal-magenta);
+    opacity: 0.9;
+  }
+  
+  /* Match text color to agent color */
+  .agent-ba ~ .chat-text {
+    color: var(--terminal-cyan);
+    opacity: 0.9;
+  }
+  
+  .agent-sa ~ .chat-text {
+    color: var(--terminal-yellow);
+    opacity: 0.9;
+  }
+  
+  .agent-fs ~ .chat-text {
+    color: var(--terminal-green);
+    opacity: 0.9;
+  }
+  
+  .agent-do ~ .chat-text {
+    color: var(--terminal-red);
+    opacity: 0.9;
+  }
+  
+  .agent-ba ~ .thinking-indicator {
+    color: var(--terminal-cyan);
+    opacity: 0.7;
+  }
+  
+  .thinking-indicator {
+    color: var(--terminal-yellow);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  
+  /* Agent join notifications */
+  .agents-joining {
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+  
+  .agent-join-notification {
+    color: var(--terminal-yellow);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+  
+  .join-indicator {
+    color: var(--terminal-cyan);
+    margin-right: 0.5rem;
+  }
+  
+  /* Planning stages - similar style to agent joins */
+  .planning-stages {
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+  
+  .planning-stage-notification {
+    color: var(--terminal-yellow);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+  
+  .stage-indicator {
+    color: var(--terminal-green);
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .planning-stage-notification.completed .stage-text {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+  
+  .planning-stage-notification.completed .stage-indicator {
+    color: var(--terminal-green);
+    text-shadow: 0 0 10px var(--terminal-green);
+  }
+  
+  /* Branch name styling */
+  .branch-name {
+    color: var(--terminal-magenta) !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px var(--terminal-magenta);
+    background: rgba(255, 0, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+  }
+  
+  /* Dashboard URL styling */
+  .dashboard-url {
+    color: var(--terminal-cyan) !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-shadow: 0 0 10px var(--terminal-cyan);
+    background: rgba(0, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    display: inline;
+  }
+  
+  .dashboard-url:hover {
+    color: var(--terminal-yellow) !important;
+    cursor: pointer;
+    background: rgba(255, 255, 0, 0.1);
+    border-color: rgba(255, 255, 0, 0.3);
+  }
+  
+  /* Progress dots animation */
+  .progress-dots {
+    display: inline-block;
+    min-width: 1.5rem;
+    text-align: left;
+  }
+  
+  /* Planning stages - similar to agent join notifications */
+  .planning-stages {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .planning-stage {
+    color: var(--terminal-yellow);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in forwards;
+  }
+  
+  .planning-stage.complete .stage-text {
+    color: var(--terminal-green);
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+  
+  .stage-icon {
+    color: var(--terminal-cyan);
+    margin-right: 0.5rem;
+    display: inline-block;
+    width: 1rem;
+  }
+  
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  /* Custom Scrollbar */
+  .terminal-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .terminal-content::-webkit-scrollbar-track {
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  .terminal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+  
+  .terminal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.5);
+  }
+  
+  .typing-animation-chat {
+    overflow: visible;
+    white-space: normal;
+    display: inline;
+  }
+  
+  .typing-animation-chat.active {
+    /* Character by character animation handled in JS */
+  }
+  
+  .typing-animation-input {
+    display: inline;
+    overflow: visible;
+    white-space: normal;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .typing-animation-input.active {
+    /* Character by character animation handled in JS */
+  }
+  
+  @keyframes typing-chat {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  .chat-cursor {
+    display: none; /* Hidden by default, shown only during typing */
+    width: 2px;
+    height: 1em;
+    background: var(--terminal-green);
+    animation: blink-caret 0.75s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+  
+  .user-cursor {
+    background: var(--terminal-magenta);
+  }
+  
+  
   /* Mobile responsive */
   @media (max-width: 768px) {
     .terminal-lines {
@@ -278,37 +1318,473 @@ const { projectName = 'my-awesome-project' } = Astro.props;
     .hero-subtitle {
       font-size: 1rem;
     }
+    
   }
 </style>
 
 <script>
-  // Animate elements based on delay
   document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('[data-delay]');
+    const terminalLines = document.querySelector('.terminal-lines');
+    const initialPrompt = document.querySelector('.initial-prompt');
     
-    elements.forEach((element) => {
-      const delay = parseInt(element.getAttribute('data-delay') || '0');
-      
-      setTimeout(() => {
-        element.style.animationDelay = '0s';
-        element.classList.add('animate');
-        
-        // Handle typing animation
-        const typingElement = element.querySelector('.typing-animation');
-        if (typingElement) {
-          typingElement.style.animationDelay = '0s';
-        }
-        
-        // Show explosion frame 2 after frame 1
-        if (element.classList.contains('ascii-explosion')) {
-          setTimeout(() => {
-            const frame1 = element.querySelector('.frame-1');
-            const frame2 = element.querySelector('.frame-2');
-            if (frame1) frame1.style.display = 'none';
-            if (frame2) frame2.style.display = 'block';
-          }, 300);
-        }
-      }, delay);
+    // Clear all typing animations on load
+    document.querySelectorAll('.typing-animation, .typing-animation-chat').forEach(el => {
+      el.textContent = '';
     });
+    
+    // Initialize audio context on first user interaction
+    let audioContext = null;
+    const initAudio = () => {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        window.audioContext = audioContext;
+      }
+    };
+    
+    // Create typing sound
+    function playTypingSound() {
+      if (!audioContext) return;
+      
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.value = 800 + Math.random() * 400; // Random frequency between 800-1200 Hz
+      gainNode.gain.value = 0.02; // Very quiet
+      
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.01); // Very short beep
+    }
+    
+    // Initialize audio on any click
+    document.addEventListener('click', initAudio, { once: true });
+    
+    function resetAnimation() {
+      // Hide all animated elements
+      elements.forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('animate');
+        el.style.opacity = '0';
+        
+        // Reset typing animations
+        const typing = el.querySelector('.typing-animation');
+        if (typing) {
+          typing.classList.remove('active');
+          typing.style.borderRight = '2px solid var(--terminal-green)';
+          typing.textContent = '';
+        }
+        
+        const typingChat = el.querySelector('.typing-animation-chat');
+        if (typingChat) {
+          typingChat.classList.remove('active');
+          typingChat.classList.remove('typed');
+          typingChat.textContent = '';
+        }
+      });
+      
+      // Reset explosion frames
+      const frame1 = document.querySelector('.explosion-frame.frame-1');
+      const frame2 = document.querySelector('.explosion-frame.frame-2');
+      if (frame1) frame1.style.display = 'block';
+      if (frame2) frame2.style.display = 'none';
+      
+      // Show initial prompt with cursor
+      if (initialPrompt) {
+        initialPrompt.style.display = 'block';
+        initialPrompt.style.opacity = '1';
+      }
+      
+      // Reset terminal lines visibility
+      const terminalLines = document.querySelector('.terminal-lines');
+      if (terminalLines) {
+        terminalLines.style.display = 'block';
+        terminalLines.style.opacity = '1';
+      }
+      
+      // Reset chat interface
+      const chatInterface = document.querySelector('.chat-interface');
+      if (chatInterface) {
+        chatInterface.classList.remove('active');
+        // Clear all typing animations in chat
+        chatInterface.querySelectorAll('.typing-animation-chat').forEach(el => {
+          el.textContent = '';
+          el.classList.remove('typed');
+        });
+      }
+      
+      // Reset branch creation section
+      const branchSection = document.querySelector('.branch-creation-section');
+      if (branchSection) {
+        branchSection.style.display = 'none';
+        branchSection.style.opacity = '0';
+        const branchStatus = branchSection.querySelector('.branch-status');
+        const buildingAnim = branchSection.querySelector('.building-animation');
+        const dashboardLink = branchSection.querySelector('.dashboard-link');
+        if (branchStatus) branchStatus.style.display = 'none';
+        if (buildingAnim) buildingAnim.style.display = 'none';
+        if (dashboardLink) dashboardLink.style.display = 'none';
+      }
+    }
+    
+    function runAnimation() {
+      resetAnimation();
+      
+      elements.forEach((element) => {
+        const delay = parseInt(element.getAttribute('data-delay') || '0');
+        
+        setTimeout(() => {
+          // Hide initial prompt when first command starts typing
+          if (delay === 2000 && initialPrompt) {
+            initialPrompt.style.display = 'none';
+          }
+          
+          element.style.display = 'block';
+          element.style.opacity = '1';
+          element.classList.add('animate');
+          
+          // Handle typing animation character by character
+          const typingElement = element.querySelector('.typing-animation');
+          if (typingElement) {
+            const text = typingElement.getAttribute('data-text') || '';
+            const duration = typingElement.getAttribute('data-duration') || '2.5';
+            const msPerChar = (parseFloat(duration) * 1000) / text.length;
+            
+            typingElement.style.opacity = '1';
+            typingElement.classList.add('active');
+            typingElement.textContent = '';
+            
+            // Type each character with punctuation pauses
+            let charIndex = 0;
+            function typeCommand() {
+              if (charIndex < text.length) {
+                typingElement.textContent += text[charIndex];
+                
+                // Play typing sound
+                if (window.audioContext) {
+                  playTypingSound();
+                }
+                
+                // Check for punctuation
+                const char = text[charIndex];
+                const isPunctuation = ['.', ',', ':', ';', '!', '?'].includes(char);
+                charIndex++;
+                
+                if (isPunctuation && charIndex < text.length) {
+                  setTimeout(typeCommand, msPerChar + 300 + Math.random() * 200);
+                } else if (charIndex < text.length) {
+                  setTimeout(typeCommand, msPerChar);
+                } else {
+                  // Remove cursor after typing completes
+                  setTimeout(() => {
+                    typingElement.style.borderRight = 'none';
+                  }, 200);
+                }
+              }
+            }
+            typeCommand();
+          }
+          
+          // Show explosion frame 2 after frame 1
+          if (element.classList.contains('ascii-explosion')) {
+            setTimeout(() => {
+              const frame1 = element.querySelector('.frame-1');
+              const frame2 = element.querySelector('.frame-2');
+              if (frame1) frame1.style.display = 'none';
+              if (frame2) frame2.style.display = 'block';
+            }, 300);
+          }
+          
+          // Handle terminal chat section typing animation
+          if (element.classList.contains('terminal-chat-section')) {
+            setTimeout(() => {
+              const chatText = element.querySelector('.typing-animation-chat');
+              if (chatText) {
+                chatText.classList.add('active');
+              }
+            }, 500);
+          }
+          
+          // Handle chat interface - hide terminal lines when chat appears
+          if (element.classList.contains('chat-interface')) {
+            element.classList.add('active');
+            const terminalLines = document.querySelector('.terminal-lines');
+            if (terminalLines) {
+              // Fade out terminal lines
+              terminalLines.style.transition = 'opacity 0.3s ease-out';
+              terminalLines.style.opacity = '0';
+              setTimeout(() => {
+                terminalLines.style.display = 'none';
+              }, 300);
+            }
+            
+            // Sequential chat message system
+            const chatMessages = element.querySelectorAll('.chat-message-line, .agents-joining, .planning-stages');
+            let messageIndex = 0;
+            
+            // Hide all messages initially (except the first one which is already visible)
+            chatMessages.forEach((msg, index) => {
+              if (index > 0) {
+                msg.style.display = 'none';
+                msg.style.opacity = '0';
+              }
+            });
+            
+            function showNextMessage() {
+              if (messageIndex >= chatMessages.length) {
+                // All messages shown, wait then restart animation
+                setTimeout(() => {
+                  runAnimation();
+                }, 30000);
+                return;
+              }
+              
+              // Rest of the message handling...
+              const currentMessage = chatMessages[messageIndex];
+              
+              // Show the message
+              currentMessage.style.display = 'block';
+              currentMessage.style.opacity = '1';
+              
+              // Scroll to show new message
+              const scrollContainer = element.querySelector('.chat-scroll-container');
+              if (scrollContainer) {
+                setTimeout(() => {
+                  scrollContainer.scrollTo({
+                    top: scrollContainer.scrollHeight,
+                    behavior: 'smooth'
+                  });
+                }, 100);
+              }
+              
+              // Check if this message has typing animation(s)
+              const typingEls = currentMessage.querySelectorAll('.typing-animation-chat:not(.typed)');
+              if (typingEls.length > 0) {
+                // Handle multi-part messages
+                if (typingEls.length > 1) {
+                  let partIndex = 0;
+                  const cursor = currentMessage.querySelector('.chat-cursor');
+                  if (cursor) cursor.style.display = 'inline-block';
+                  
+                  // Ensure scrolling during multi-part typing
+                  let scrollInterval = setInterval(() => {
+                    if (scrollContainer) {
+                      scrollContainer.scrollTo({
+                        top: scrollContainer.scrollHeight,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }, 500);
+                  
+                  function typeNextPart() {
+                    if (partIndex < typingEls.length) {
+                      const typingEl = typingEls[partIndex];
+                      const text = typingEl.getAttribute('data-text') || '';
+                      const duration = typingEl.getAttribute('data-duration') || '0.4';
+                      const msPerChar = (parseFloat(duration) * 1000) / text.length;
+                      
+                      // Show this part if it's hidden
+                      if (typingEl.style.display === 'none') {
+                        typingEl.style.display = 'inline';
+                      }
+                      
+                      typingEl.classList.add('active');
+                      typingEl.classList.add('typed');
+                      typingEl.textContent = '';
+                      
+                      let charIndex = 0;
+                      function typePartChar() {
+                        if (charIndex < text.length) {
+                          typingEl.textContent += text[charIndex];
+                          if (window.audioContext) playTypingSound();
+                          
+                          const char = text[charIndex];
+                          const isPunctuation = ['.', ',', ':', ';', '!', '?'].includes(char);
+                          charIndex++;
+                          
+                          if (isPunctuation && charIndex < text.length) {
+                            setTimeout(typePartChar, msPerChar + 300 + Math.random() * 200);
+                          } else if (charIndex < text.length) {
+                            setTimeout(typePartChar, msPerChar);
+                          } else {
+                            // Part done, move to next
+                            partIndex++;
+                            setTimeout(typeNextPart, 300); // Small pause between parts
+                          }
+                        }
+                      }
+                      typePartChar();
+                    } else {
+                      // All parts done
+                      if (scrollInterval) clearInterval(scrollInterval);
+                      if (cursor) cursor.style.display = 'none';
+                      messageIndex++;
+                      setTimeout(showNextMessage, 1500);
+                    }
+                  }
+                  typeNextPart();
+                } else {
+                  // Single typing animation
+                  const typingEl = typingEls[0];
+                  const text = typingEl.getAttribute('data-text') || '';
+                  const duration = typingEl.getAttribute('data-duration') || '2';
+                  const msPerChar = (parseFloat(duration) * 1000) / text.length;
+                  
+                  typingEl.classList.add('active');
+                  typingEl.classList.add('typed');
+                  typingEl.textContent = '';
+                  
+                  // Show cursor for this message
+                  const cursor = currentMessage.querySelector('.chat-cursor');
+                  if (cursor) {
+                    cursor.style.display = 'inline-block';
+                  }
+                  
+                  let charIndex = 0;
+                  let scrollInterval = null;
+                  
+                  // Start continuous scrolling during typing
+                  if (scrollContainer) {
+                    scrollInterval = setInterval(() => {
+                      scrollContainer.scrollTo({
+                        top: scrollContainer.scrollHeight,
+                        behavior: 'smooth'
+                      });
+                    }, 500);
+                  }
+                  
+                  function typeWithPunctuation() {
+                    if (charIndex < text.length) {
+                      typingEl.textContent += text[charIndex];
+                      if (window.audioContext) {
+                        playTypingSound();
+                      }
+                      
+                      // Check if we just typed punctuation
+                      const char = text[charIndex];
+                      const isPunctuation = ['.', ',', ':', ';', '!', '?'].includes(char);
+                      charIndex++;
+                      
+                      if (isPunctuation && charIndex < text.length) {
+                        // Pause after punctuation
+                        setTimeout(typeWithPunctuation, msPerChar + 300 + Math.random() * 200);
+                      } else if (charIndex < text.length) {
+                        // Continue normally
+                        setTimeout(typeWithPunctuation, msPerChar);
+                      } else {
+                        // Done typing
+                        if (scrollInterval) clearInterval(scrollInterval);
+                        if (cursor) cursor.style.display = 'none';
+                        messageIndex++;
+                        const pauseDuration = currentMessage.classList.contains('user-message') ? 2000 : 1500;
+                        setTimeout(showNextMessage, pauseDuration);
+                      }
+                    }
+                  }
+                  
+                  // Start typing
+                  typeWithPunctuation();
+                }
+              } 
+              // Handle thinking indicator (no typing)
+              else if (currentMessage.querySelector('.thinking-indicator')) {
+                // Show thinking for 2.5 seconds
+                messageIndex++;
+                setTimeout(showNextMessage, 2500);
+              }
+              // Handle agent joining section
+              else if (currentMessage.classList.contains('agents-joining')) {
+                // Show all join notifications with small delays
+                const joinNotifications = currentMessage.querySelectorAll('.agent-join-notification');
+                let joinIndex = 0;
+                
+                function showNextJoin() {
+                  if (joinIndex < joinNotifications.length) {
+                    joinNotifications[joinIndex].style.display = 'block';
+                    joinNotifications[joinIndex].style.opacity = '1';
+                    joinIndex++;
+                    setTimeout(showNextJoin, 200);
+                  } else {
+                    // All agents joined, continue to next message
+                    messageIndex++;
+                    setTimeout(showNextMessage, 1500);
+                  }
+                }
+                showNextJoin();
+              }
+              // Handle planning stages section
+              else if (currentMessage.classList.contains('planning-stages')) {
+                // Show all planning stages with small delays
+                const stages = currentMessage.querySelectorAll('.planning-stage-notification');
+                let stageIndex = 0;
+                
+                function showNextStage() {
+                  if (stageIndex < stages.length) {
+                    const stage = stages[stageIndex];
+                    stage.style.display = 'block';
+                    stage.style.opacity = '1';
+                    
+                    // Scroll to show new stage
+                    if (scrollContainer) {
+                      scrollContainer.scrollTo({
+                        top: scrollContainer.scrollHeight,
+                        behavior: 'smooth'
+                      });
+                    }
+                    
+                    // After a pause, check it off
+                    setTimeout(() => {
+                      const indicator = stage.querySelector('.stage-indicator');
+                      if (indicator) {
+                        indicator.textContent = '☑';
+                        stage.classList.add('completed');
+                      }
+                      stageIndex++;
+                      setTimeout(showNextStage, 300);
+                    }, 2500 + Math.random() * 1000); // 2.5-3.5 seconds delay
+                  } else {
+                    // All stages shown, continue to next message
+                    messageIndex++;
+                    setTimeout(showNextMessage, 1000);
+                  }
+                }
+                showNextStage();
+              }
+              else {
+                // Check if this is the progress indicator (last message)
+                if (currentMessage.classList.contains('progress-indicator')) {
+                  // Show progress dots animation
+                  const progressDots = currentMessage.querySelector('.progress-dots');
+                  if (progressDots) {
+                    let dotCount = 0;
+                    setInterval(() => {
+                      dotCount = (dotCount + 1) % 4;
+                      progressDots.textContent = '.'.repeat(dotCount);
+                    }, 500);
+                  }
+                  
+                  // Wait longer before restarting
+                  messageIndex++;
+                  setTimeout(showNextMessage, 5000);
+                } else {
+                  // No animation, just continue
+                  messageIndex++;
+                  setTimeout(showNextMessage, 1000);
+                }
+              }
+            }
+            
+            
+            // Start the conversation after 1.5 seconds
+            setTimeout(showNextMessage, 1500);
+          }
+        }, delay);
+      });
+    }
+    
+    // Start the animation
+    runAnimation();
   });
 </script>

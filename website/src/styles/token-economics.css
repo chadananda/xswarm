@@ -175,7 +175,7 @@
 .approach.traditional {
   border-color: var(--color-danger);
 }
-.approach.xswarm {
+.approach.xSwarm {
   border-color: var(--color-success);
 }
 .approach h4 {
@@ -307,7 +307,7 @@
 .calc-column.traditional {
   border: 2px solid var(--color-danger);
 }
-.calc-column.xswarm {
+.calc-column.xSwarm {
   border: 2px solid var(--color-success);
 }
 .calc-column h4 {
@@ -493,7 +493,7 @@
 .cost-box.traditional {
   border-color: var(--color-danger);
 }
-.cost-box.xswarm {
+.cost-box.xSwarm {
   border-color: var(--color-success);
 }
 .cost-box .label {
@@ -514,7 +514,7 @@
 .cost-box.traditional .amount {
   color: var(--color-danger);
 }
-.cost-box.xswarm .amount {
+.cost-box.xSwarm .amount {
   color: var(--color-success);
 }
 .savings-arrow {
@@ -745,7 +745,7 @@
 .final-comparison .option.traditional {
   border-color: var(--color-danger);
 }
-.final-comparison .option.xswarm {
+.final-comparison .option.xSwarm {
   border-color: var(--color-success);
 }
 .final-comparison .option h4 {

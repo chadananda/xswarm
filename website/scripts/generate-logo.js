@@ -14,7 +14,7 @@ const openai = new OpenAI({
 });
 
 // Logo configurations
-const logoPrompt = `A modern, minimalist logo for XSwarm - an AI development platform. The logo should feature:
+const logoPrompt = `A modern, minimalist logo for xSwarm - an AI development platform. The logo should feature:
 - Abstract geometric representation of a swarm pattern (interconnected nodes or hexagonal cells)
 - Clean, tech-forward design suitable for a developer tool
 - Primary colors: vibrant blue (#3B82F6) and purple (#8B5CF6) gradient
@@ -27,7 +27,7 @@ const logoPrompt = `A modern, minimalist logo for XSwarm - an AI development pla
 Style: Modern tech logo, minimalist, geometric, professional`;
 
 async function generateLogo() {
-  console.log('🎨 Generating XSwarm logo...');
+  console.log('🎨 Generating xSwarm logo...');
 
   try {
     // Generate logo with DALL-E 3

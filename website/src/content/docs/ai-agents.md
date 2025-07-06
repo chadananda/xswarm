@@ -7,7 +7,7 @@ order: 2
 
 # AI Agent Types
 
-Your XSwarm team consists of specialized AI agents, each expert in their domain. Here's your complete roster:
+Your xSwarm team consists of specialized AI agents, each expert in their domain. Here's your complete roster:
 
 ## Architecture & Planning Agents
 
@@ -191,7 +191,7 @@ Your XSwarm team consists of specialized AI agents, each expert in their domain.
    > Architect: Design a caching strategy for our API
    ```
 
-2. **General Request**: Let XSwarm assign the right agents
+2. **General Request**: Let xSwarm assign the right agents
 
    ```
    > Implement user authentication with JWT

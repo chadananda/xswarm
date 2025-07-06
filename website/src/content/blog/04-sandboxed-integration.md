@@ -2,7 +2,7 @@
 title: "How My AI 'Optimized' Auth Middleware to Give Everyone Admin Access"
 description: '"It works in my AI sandbox" is the new "it works on my machine." Isolated containers with complete mock environments enable comprehensive integration testing before code deployment.'
 publishDate: 2024-01-18
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/sandboxed-integration-hero.jpg'
 imageAlt: 'Cyberpunk containment chamber with AI code being tested in isolation'
 tags: ['AI Development', 'Cyberpunk', 'Testing', 'Integration', 'Security']
@@ -52,7 +52,7 @@ Here's the thing about AI-generated code: it's like that brilliant intern who re
 This is where xSwarm's containerized task teams become your salvation. Think of it as putting each AI agent in its own padded cell — they can be as creative as they want, but they can't hurt anyone.
 
 <div class="architecture-diagram">
-  <h3>🏗️ XSwarm Sandbox Architecture</h3>
+  <h3>🏗️ xSwarm Sandbox Architecture</h3>
   <pre class="diagram">
 ┌─────────────────────────────────────────────────────────────┐
 │                     Production Environment                   │
@@ -64,7 +64,7 @@ This is where xSwarm's containerized task teams become your salvation. Think of 
                               │ Graduated Access
                               │
 ┌─────────────────────────────────────────────────────────────┐
-│                    XSwarm Orchestrator                       │
+│                    xSwarm Orchestrator                       │
 │  ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
 │  │ Integration │  │   Security   │  │   Performance   │   │
 │  │   Tests     │  │   Scanner    │  │    Profiler     │   │
@@ -225,7 +225,7 @@ mock_auth_service.assert_rate_limits_respected()</code></pre>
 Here's what I love about this approach: it doesn't constrain AI creativity, it channels it. The AI can still propose wild optimizations and clever refactors. It just has to prove they work in increasingly realistic environments first.
 
 <div class="before-after-comparison">
-  <h3>🔄 Before vs After XSwarm Sandboxing</h3>
+  <h3>🔄 Before vs After xSwarm Sandboxing</h3>
   <div class="comparison-table">
     <div class="before-column">
       <h4>😱 Before: Integration Russian Roulette</h4>

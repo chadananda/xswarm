@@ -2,7 +2,7 @@
 title: 'Tracking Token Usage in AI Development: Lessons from Real Projects'
 description: "A detailed analysis of token consumption patterns in AI-assisted development, exploring practical approaches to reduce waste through better context management and code reuse strategies."
 publishDate: 2024-01-26
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/token-economics-hero.jpg'
 imageAlt: 'Visualization of token usage patterns in AI development'
 tags: ['AI Development', 'Token Optimization', 'Best Practices', 'Cost Analysis']

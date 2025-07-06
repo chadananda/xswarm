@@ -1,4 +1,4 @@
-# Claude Development Instructions for XSwarm.ai
+# Claude Development Instructions for xSwarm.ai
 
 ## Core Principles
 

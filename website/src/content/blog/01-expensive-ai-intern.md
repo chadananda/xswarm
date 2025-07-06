@@ -2,7 +2,7 @@
 title: "Why Your AI Assistant Can't Remember Where Anything Goes"
 description: "We've all been there - Claude Code writes brilliant functions but can't figure out where they should live. What if that AI intern came with a full senior team?"
 publishDate: 2024-01-15
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/expensive-ai-intern-hero.jpg'
 imageAlt: 'Cyberpunk visualization of an AI intern surrounded by senior team members'
 tags: ['AI Development', 'Cyberpunk', 'Team Orchestration', 'Reality Check']
@@ -76,7 +76,7 @@ That's the xSwarm approach—stop treating AI like a solo superhero and start tr
 When you give that AI intern a full team, magic happens. The BA captures requirements once—ONCE!—and shares them with everyone. The Architect makes sure code goes where it belongs. The Developer can focus on writing clean code instead of guessing at your file structure. The DevOps engineer ensures it'll actually run in production.
 
 ![Token Usage Comparison](/images/blog/token-usage-comparison.svg)
-_Traditional AI Assistant: 50,000 tokens of confusion. XSwarm Teams: 5,000 tokens of clarity._
+_Traditional AI Assistant: 50,000 tokens of confusion. xSwarm Teams: 5,000 tokens of clarity._
 
 Suddenly, that expensive intern transforms into a force multiplier. Instead of explaining your project structure fifteen times, you explain it once to the Architect. Instead of Token-bombing your way through context confusion, each specialist maintains their own focused context.
 

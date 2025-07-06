@@ -2,7 +2,7 @@
 title: 'Sequential Development Died When We Started Pair Programming With Entities That Never Sleep'
 description: 'Current AI development is chaos - constant context switching, endless prompt engineering, scope creep mid-generation. AI Epochs represent complete iterative cycles optimized for artificial intelligence workflows rather than human limitations.'
 publishDate: 2024-01-24
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/ai-epoch-manifesto-hero.jpg'
 imageAlt: 'Cyberpunk visualization of recursive epoch cycles with AI teams'
 tags: ['AI Development', 'Cyberpunk', 'Philosophy', 'Epochs', 'Methodology']

@@ -2,7 +2,7 @@
 title: 'Why I Stopped Writing Perfect Prompts and Started Deploying AI Teams'
 description: 'Multi-agent orchestration eliminates repetitive prompt engineering through task distribution across specialized AI teams. Epoch-based development cycles enable parallel execution of complex software engineering tasks.'
 publishDate: 2024-01-22
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/swarm-commander-hero.jpg'
 imageAlt: 'Cyberpunk command center with developer orchestrating multiple AI teams'
 tags: ['AI Development', 'Cyberpunk', 'Leadership', 'Orchestration', 'Evolution']
@@ -346,7 +346,7 @@ As a swarm commander, your day looks different:
 
 This isn't the end state. It's the next step. From code monkey to prompt engineer to swarm commander. Each evolution multiplies your leverage.
 
-And the tools are evolving with you. XSwarm isn't just another AI assistant. It's your command center. Your strategic interface to armies of specialized intelligence.
+And the tools are evolving with you. xSwarm isn't just another AI assistant. It's your command center. Your strategic interface to armies of specialized intelligence.
 
 Stop exhausting yourself as human middleware. Stop crafting perfect prompts for imperfect results. Stop thinking tactically when you could be commanding strategically.
 
