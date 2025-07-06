@@ -8,7 +8,7 @@
   min-height: 600px;
   max-height: 900px;
   overflow: hidden;
-  margin-top: 74px; /* Account for fixed navbar height + shadow space */
+  margin-top: 0; /* No extra space above hero image */
   margin-bottom: 0; /* Clean edge with hero section */
   padding: 0 10px; /* Add horizontal padding */
   
