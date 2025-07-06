@@ -1,0 +1,64 @@
+---
+export interface Props {
+  tombstones: Array<{
+    name: string;
+    birth: string;
+    death: string;
+    isMore?: boolean;
+  }>;
+}
+
+const { tombstones } = Astro.props;
+---
+
+<div class="function-graveyard my-8 p-6 bg-gray-900 rounded-lg border border-gray-700">
+  <h3 class="text-2xl font-bold text-red-400 mb-6 text-center">🪦 Function Graveyard 🪦</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {tombstones.map((tombstone) => (
+      <div class={`tombstone p-4 rounded-lg border ${tombstone.isMore ? 'border-gray-600 bg-gray-800' : 'border-red-900 bg-gray-950'} hover:border-red-500 transition-colors`}>
+        <div class={`font-mono text-lg ${tombstone.isMore ? 'text-gray-400' : 'text-red-300'}`}>
+          {tombstone.name}
+        </div>
+        <div class="text-sm text-gray-500 mt-1">{tombstone.birth}</div>
+        <div class="text-sm text-gray-600">{tombstone.death}</div>
+      </div>
+    ))}
+  </div>
+  <p class="text-center text-gray-500 mt-6 text-sm italic">
+    "Here lie the functions that AI created but never needed. May they rest in peace."
+  </p>
+</div>
+
+<style>
+  .function-graveyard {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 0, 0, 0.03) 10px,
+        rgba(255, 0, 0, 0.03) 20px
+      );
+  }
+  
+  .tombstone {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tombstone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.5), transparent);
+    animation: scan 3s linear infinite;
+  }
+  
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200px); }
+  }
+</style>

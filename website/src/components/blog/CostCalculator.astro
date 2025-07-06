@@ -1,0 +1,94 @@
+---
+export interface Props {
+  title: string;
+  models: Array<{
+    name: string;
+    inputCost: number;
+    outputCost: number;
+    color: string;
+  }>;
+  scenarios: Array<{
+    name: string;
+    inputTokens: number;
+    outputTokens: number;
+  }>;
+}
+
+const { title, models, scenarios } = Astro.props;
+---
+
+<div class="cost-calculator my-8 p-6 bg-gray-900 rounded-lg border border-gray-700">
+  <h3 class="text-2xl font-bold text-cyan-400 mb-6">{title}</h3>
+  
+  <div class="overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr class="border-b border-gray-700">
+          <th class="text-left py-3 px-4 text-gray-400">Scenario</th>
+          {models.map((model) => (
+            <th class="text-right py-3 px-4" style={`color: ${model.color}`}>
+              {model.name}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {scenarios.map((scenario) => (
+          <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+            <td class="py-3 px-4">
+              <div class="font-medium text-gray-300">{scenario.name}</div>
+              <div class="text-sm text-gray-500">
+                {(scenario.inputTokens / 1000).toFixed(0)}k in / {(scenario.outputTokens / 1000).toFixed(0)}k out
+              </div>
+            </td>
+            {models.map((model) => {
+              const cost = (scenario.inputTokens / 1000000 * model.inputCost) + 
+                          (scenario.outputTokens / 1000000 * model.outputCost);
+              return (
+                <td class="text-right py-3 px-4">
+                  <div class="font-mono font-bold" style={`color: ${model.color}`}>
+                    ${cost.toFixed(2)}
+                  </div>
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+      <tfoot>
+        <tr class="border-t-2 border-gray-600">
+          <td class="py-3 px-4 font-bold text-gray-300">Monthly Total</td>
+          {models.map((model) => {
+            const totalCost = scenarios.reduce((sum, scenario) => {
+              return sum + (scenario.inputTokens / 1000000 * model.inputCost) + 
+                          (scenario.outputTokens / 1000000 * model.outputCost);
+            }, 0) * 30; // Assuming daily scenarios
+            return (
+              <td class="text-right py-3 px-4">
+                <div class="font-mono font-bold text-xl" style={`color: ${model.color}`}>
+                  ${totalCost.toFixed(0)}
+                </div>
+              </td>
+            );
+          })}
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  
+  <div class="mt-6 p-4 bg-yellow-900/20 border border-yellow-800 rounded">
+    <p class="text-sm text-yellow-300">
+      💡 <strong>Pro Tip:</strong> These costs assume average usage. Complex debugging sessions or large context windows can 10x these numbers.
+    </p>
+  </div>
+</div>
+
+<style>
+  .cost-calculator table {
+    min-width: 600px;
+  }
+  
+  .cost-calculator tbody tr:hover {
+    box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.1);
+  }
+</style>
