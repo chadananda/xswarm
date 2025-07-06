@@ -4,16 +4,20 @@
 
 1. **Always use npm scripts** - Never use direct commands. No permission needed for npm scripts.
 2. **Minimal implementation** - No extra features, only what's specified
-3. **Small commits** - Test, lint, commit frequently
-4. **No blank lines** - Use comments to separate code sections
-5. **Export inline** - `export const name = () => {}`
-6. **Test everything** - Create tests before committing
+3. **Write less code** - Every line must earn its place. If you can delete it, delete it.
+4. **Start simple** - Functions over classes, direct over abstract, clear over clever
+5. **Small commits** - Test, lint, commit frequently
+6. **No blank lines** - Use comments to separate code sections
+7. **Export inline** - `export const name = () => {}`
+8. **Test everything** - Create tests before committing
 
 ## Required Reading
 
 1. `prd.md` - Product requirements
 2. `README.md` - Project overview
 3. Current git status - Check work in progress
+4. **Project Discovery** - 
+   - Look for a prd.md and for planning files (usually in /planning/) to get up to speed on the project.
 
 ## Project Structure
 
@@ -25,7 +29,7 @@
 ## Development Workflow
 
 1. Check PRD requirements
-2. Search for existing code
+2. Search the codebase for existing solutions (grep, not npm)
 3. Make minimal changes
 4. `npm run lint && npm test`
 5. Commit with conventional format: `feat:`, `fix:`, `docs:`
@@ -104,7 +108,8 @@ npm run format            # Auto-format
 ## AI Behavior Rules
 
 1. **Code Creation**
-   - Search for existing code before creating new
+   - Search the codebase for similar patterns before creating new
+   - Look for existing utilities, helpers, or components to extend
    - Minimal implementation - no extra features
    - One file per component, use variant props
    - Self-contained components - no external CSS
@@ -150,3 +155,58 @@ npm run format            # Auto-format
    - Batch API calls
    - Consider caching
    - Avoid n+1 queries
+
+## Code Simplicity Rules
+
+### Write Less Code
+- Prefer 5 lines that are obvious over 20 that are "clever"
+- No intermediate variables used only once
+- Direct returns over storing in variables
+- One-line functions when appropriate
+
+### Examples
+```javascript
+// ❌ VERBOSE
+const processUser = (user) => {
+  const result = {};
+  result.name = user.name;
+  result.email = user.email;
+  return result;
+};
+
+// ✅ SIMPLE
+const processUser = ({ name, email }) => ({ name, email });
+
+// ❌ OVER-ENGINEERED
+const items = [];
+for (let i = 0; i < data.length; i++) {
+  if (data[i].active === true) {
+    items.push(data[i]);
+  }
+}
+
+// ✅ CLEAR
+const items = data.filter(item => item.active);
+```
+
+### Always Avoid
+- Factory patterns for single implementations
+- Classes with only constructor and one method
+- Configuration objects for 2-3 options
+- Getter/setter methods that do nothing special
+- Try/catch blocks that just re-throw
+- Promises wrapping synchronous operations
+
+### Always Prefer
+- Array methods (map, filter, reduce) over loops
+- Destructuring over repeated property access
+- Optional chaining over verbose null checks
+- Template literals over string concatenation
+- Early returns over nested conditions
+- Pure functions over stateful ones
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.

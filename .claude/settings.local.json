@@ -59,7 +59,10 @@
       "Bash(git remote set-url:*)",
       "Bash(npm run format:*)",
       "Bash(git rebase:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(sed:*)",
+      "WebFetch(domain:xswarm.ai)",
+      "Bash(true)"
     ],
     "deny": []
   }

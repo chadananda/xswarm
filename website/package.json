@@ -13,7 +13,8 @@
     "lint": "echo \"No lint for Astro files\"",
     "generate-images": "node scripts/generate-blog-images.js",
     "generate-logo": "node scripts/generate-logo.js",
-    "generate:avatars": "node scripts/generate-agent-avatars.js"
+    "generate:avatars": "node scripts/generate-agent-avatars.js",
+    "generate:hero": "node scripts/generate-blog-hero.js"
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.0",
