@@ -24,6 +24,27 @@
 .mermaid {
   background: transparent !important;
   text-align: center;
+  display: block;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Increase text size in diagrams */
+.mermaid .nodeLabel {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+.mermaid .edgeLabel {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+}
+
+.mermaid text {
+  font-size: 20px !important;
 }
 
 /* Override default Mermaid styles for cyberpunk theme */

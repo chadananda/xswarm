@@ -61,16 +61,22 @@ const currentSize = sizes[variant];
     `}>
       <!-- Character image background -->
       {image && (
-        <div class={`absolute inset-0 ${currentSize.imageHeight}`}>
+        <div class={`character-image absolute inset-0 ${currentSize.imageHeight}`}>
           <img src={image} alt={title} class="w-full h-full object-cover object-top" />
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/95" />
         </div>
       )}
       
+      <!-- Decorative corners -->
+      <div class="card-corners">
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+      </div>
+      
       <!-- Main content -->
       <div class="relative h-full flex flex-col">
         <!-- Image section or icon -->
-        <div class={`relative ${currentSize.imageHeight} flex-shrink-0 border-b-2 border-terminal-cyan/30`}>
+        <div class={`image-section relative ${currentSize.imageHeight} flex-shrink-0 border-b-2 border-terminal-cyan/30`}>
           {!image && (
             <div class="flex items-center justify-center h-full bg-gradient-to-b from-terminal-bg/50 to-terminal-bg">
               <div class={`${variant === 'compact' ? 'text-4xl' : 'text-6xl'} text-terminal-cyan/20 animate-pulse`}>
@@ -81,9 +87,9 @@ const currentSize = sizes[variant];
         </div>
         
         <!-- Content section -->
-        <div class={`flex-1 ${variant === 'compact' ? 'p-2' : 'p-3'} flex flex-col justify-center gap-2 bg-gray-900/95`}>
+        <div class={`flex-1 ${variant === 'compact' ? 'p-2' : 'p-3'} flex flex-col justify-center ${variant === 'compact' ? 'gap-1' : 'gap-2'}`} style="background: rgba(10, 15, 25, 0.95)">
           <!-- Title -->
-          <div class="text-center mb-2">
+          <div class="text-center mb-1">
             <h3 class={`
               font-['Orbitron'] font-bold uppercase tracking-wider text-terminal-green
               ${variant === 'compact' ? 'text-base leading-tight' : 'text-xl leading-normal'}
@@ -99,6 +105,11 @@ const currentSize = sizes[variant];
               </p>
             )}
           </div>
+          
+          <!-- Decorative divider -->
+          {variant === 'compact' && (
+            <div class="card-divider"></div>
+          )}
           
           <!-- Description -->
           {description && (
@@ -149,9 +160,17 @@ const currentSize = sizes[variant];
   /* Default and compact card styles */
   .card-container {
     @apply relative w-full h-full;
-    @apply bg-gradient-to-b from-gray-800/95 to-gray-900/95;
-    @apply border-2 border-terminal-cyan/30 rounded-xl;
+    @apply border-2 border-terminal-cyan/50 rounded-xl;
     @apply overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, 
+      rgba(20, 30, 40, 0.98),
+      rgba(15, 20, 30, 0.99) 40%,
+      rgba(20, 15, 35, 0.98),
+      rgba(25, 30, 45, 0.98)
+    );
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.4),
+      inset 0 0 20px rgba(0, 255, 255, 0.1);
   }
   
   .card-hover {
@@ -159,8 +178,14 @@ const currentSize = sizes[variant];
   }
   
   .card-compact {
-    @apply hover:w-[300px] hover:h-[520px];
-    @apply hover:-translate-x-[50px] hover:-translate-y-[130px];
+    @apply transition-all duration-300;
+  }
+  
+  .group:hover .card-compact {
+    width: 280px !important;
+    height: 360px !important;
+    transform: translateX(-40px) translateY(-50px);
+    z-index: 1000;
   }
   
   /* MCP Tools */
@@ -224,5 +249,67 @@ const currentSize = sizes[variant];
   
   .tiny-card-role {
     @apply text-[10px] text-terminal-cyan/60 leading-tight mt-0.5;
+  }
+  
+  /* Expand image sections on hover for compact cards */
+  .group:hover .card-compact .character-image {
+    height: 160px !important;
+  }
+  
+  .group:hover .card-compact .image-section {
+    height: 160px !important;
+  }
+  
+  /* Decorative corners */
+  .card-corners {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .corner-tl,
+  .corner-tr {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+  }
+  
+  .corner-tl {
+    top: 8px;
+    left: 8px;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  .corner-tr {
+    top: 8px;
+    right: 8px;
+    border-left: none;
+    border-bottom: none;
+  }
+  
+  /* Decorative divider */
+  .card-divider {
+    width: 80%;
+    height: 1px;
+    margin: 1px auto 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(0, 255, 255, 0.4) 10%,
+      rgba(0, 255, 255, 0.4) 90%,
+      transparent
+    );
+  }
+  
+  /* Enhanced hover effect for compact cards */
+  .card-compact:hover {
+    @apply border-terminal-cyan/80;
+    box-shadow: 
+      0 0 40px rgba(0, 255, 255, 0.6),
+      0 0 80px rgba(0, 255, 255, 0.3),
+      inset 0 0 30px rgba(0, 255, 255, 0.2);
   }
 </style>

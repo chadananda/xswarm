@@ -52,16 +52,19 @@
   display: inline-block;
 }
 
+.terminal-button-red,
 .terminal-button.close {
   background: var(--terminal-red);
   box-shadow: var(--glow-intensity) var(--terminal-red);
 }
 
+.terminal-button-yellow,
 .terminal-button.minimize {
   background: var(--terminal-yellow);
   box-shadow: var(--glow-intensity) var(--terminal-yellow);
 }
 
+.terminal-button-green,
 .terminal-button.maximize {
   background: var(--terminal-green);
   box-shadow: var(--glow-intensity) var(--terminal-green);
@@ -103,6 +106,30 @@
   color: var(--terminal-green);
   text-shadow: var(--glow-intensity) var(--terminal-green);
   font-family: var(--terminal-font);
+}
+
+/* Gradient Text */
+.text-gradient-cyber {
+  background: linear-gradient(
+    135deg,
+    var(--terminal-cyan) 0%,
+    var(--terminal-magenta) 50%,
+    var(--terminal-cyan) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none; /* Remove text shadow for gradient text */
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .glitch-text {

@@ -104,10 +104,10 @@
   font-weight: 700;
   line-height: var(--blog-line-height-snug);
   letter-spacing: var(--blog-letter-spacing-tight);
-  margin: 2.5rem 0 1.5rem;
+  margin: 4rem 0 1.5rem;
   color: var(--color-text-primary);
   position: relative;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   
   /* Cyberpunk top accent */
   &::before {
@@ -311,6 +311,21 @@
     padding: 0;
     border: none;
   }
+}
+
+/* Override Shiki's inline styles for code blocks */
+.blog-article pre.astro-code {
+  white-space: pre !important;
+  word-wrap: normal !important;
+  overflow-x: auto !important;
+}
+
+.blog-article pre.astro-code code {
+  white-space: pre !important;
+  word-wrap: normal !important;
+  display: block;
+  width: max-content;
+  min-width: 100%;
 }
 
 /* Inline Code */

@@ -31,23 +31,21 @@ import CostCalculator from '../components/blog/CostCalculator.astro';
         <h2 class="text-2xl text-terminal-green mb-4">Code Comparison</h2>
         <CodeComparison 
           title="Same Function, Different Day"
-          variants={[
-            {
-              source: "Claude (Monday)",
-              code: `const validateEmail = (email) => {
+          before={{
+            title: "Claude (Monday)",
+            code: `const validateEmail = (email) => {
   return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
 };`,
-              complexity: "Complexity: Low | Tokens: 147"
-            },
-            {
-              source: "GPT-4 (Tuesday)",
-              code: `function isValidEmail(emailAddress) {
+            language: "javascript"
+          }}
+          after={{
+            title: "GPT-4 (Tuesday)",
+            code: `function isValidEmail(emailAddress) {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
   return regex.test(emailAddress);
 }`,
-              complexity: "Complexity: Medium | Tokens: 156"
-            }
-          ]}
+            language: "javascript"
+          }}
         />
       </section>
       
@@ -70,28 +68,24 @@ import CostCalculator from '../components/blog/CostCalculator.astro';
         <h2 class="text-2xl text-terminal-green mb-4">Token Breakdown</h2>
         <TokenBreakdownChart 
           title="Where Your Money Actually Goes"
-          items={[
+          segments={[
             {
-              category: "Context Loading",
-              amount: "1.8M tokens • $36.40",
-              percentage: 38,
-              color: "red",
-              details: [
-                "Project structure explained 847 times",
-                "Coding standards repeated 1,243 times"
-              ]
+              label: "Context Loading",
+              value: 1800000,
+              color: "#ef4444",
+              cost: "$36.40"
             },
             {
-              category: "Code Regeneration",
-              amount: "1.5M tokens • $29.40",
-              percentage: 31,
-              color: "amber",
-              details: [
-                "Authentication logic: 23 versions",
-                "Form validation: 31 versions"
-              ]
+              label: "Code Regeneration",
+              value: 1500000,
+              color: "#f59e0b",
+              cost: "$29.40"
             }
           ]}
+          total={{
+            tokens: 3300000,
+            cost: "$65.80"
+          }}
         />
       </section>
       
@@ -99,28 +93,33 @@ import CostCalculator from '../components/blog/CostCalculator.astro';
       <section>
         <h2 class="text-2xl text-terminal-green mb-4">Cost Calculator</h2>
         <CostCalculator 
-          inputs={[
-            { label: "Number of Features", value: "20" },
-            { label: "Average Feature Complexity", value: "Medium (50K tokens)" }
+          title="Monthly AI Development Costs"
+          models={[
+            {
+              name: "Claude 3.5",
+              inputCost: 3,
+              outputCost: 15,
+              color: "#3b82f6"
+            },
+            {
+              name: "GPT-4",
+              inputCost: 10,
+              outputCost: 30,
+              color: "#10b981"
+            }
           ]}
-          traditional={{
-            calculations: [
-              { label: "Base tokens", formula: "20 × 50K", result: "1M tokens" },
-              { label: "Context reloading", formula: "× 3.5", result: "3.5M tokens" }
-            ],
-            total: { tokens: "7.38M tokens", cost: "$147.60" }
-          }}
-          xswarm={{
-            calculations: [
-              { label: "Base tokens", formula: "20 × 50K", result: "1M tokens" },
-              { label: "Function reuse", formula: "-60%", result: "400K tokens" }
-            ],
-            total: { tokens: "1.4M tokens", cost: "$28.00" }
-          }}
-          savings={{
-            percentage: "81%",
-            subtext: "Verified across multiple production projects."
-          }}
+          scenarios={[
+            {
+              name: "Feature Development",
+              inputTokens: 500000,
+              outputTokens: 100000
+            },
+            {
+              name: "Code Refactoring",
+              inputTokens: 300000,
+              outputTokens: 50000
+            }
+          ]}
         />
       </section>
     </div>

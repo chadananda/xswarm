@@ -40,14 +40,14 @@ export default {
 
         // Terminal/Cyberpunk colors
         terminal: {
-          green: 'var(--terminal-green)',
-          amber: 'var(--terminal-amber)',
-          cyan: 'var(--terminal-cyan)',
-          magenta: 'var(--terminal-magenta)',
-          red: 'var(--terminal-red)',
-          blue: 'var(--terminal-blue)',
-          purple: 'var(--terminal-purple)',
-          yellow: 'var(--terminal-yellow)',
+          green: 'rgb(var(--terminal-green-rgb) / <alpha-value>)',
+          amber: 'rgb(var(--terminal-amber-rgb) / <alpha-value>)',
+          cyan: 'rgb(var(--terminal-cyan-rgb) / <alpha-value>)',
+          magenta: 'rgb(var(--terminal-magenta-rgb) / <alpha-value>)',
+          red: 'rgb(var(--terminal-red-rgb) / <alpha-value>)',
+          blue: 'rgb(var(--terminal-blue-rgb) / <alpha-value>)',
+          purple: 'rgb(var(--terminal-purple-rgb) / <alpha-value>)',
+          yellow: 'rgb(var(--terminal-yellow-rgb) / <alpha-value>)',
           bg: 'var(--terminal-bg)',
           'bg-alt': 'var(--terminal-bg-alt)',
         },
