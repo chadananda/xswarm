@@ -1,4 +1,5 @@
 name: Publish CLI
+# Note: Version bumping is now manual. Update cli/package.json version before pushing to main.
 on:
   push:
     branches: [main]
@@ -42,30 +43,11 @@ jobs:
           cd cli
           CURRENT_VERSION=$(node -p "require('./package.json').version")
           echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
-
-      - name: Increment version
-        id: new_version
+          
+      - name: Create tag for current version
         run: |
-          cd cli
-          npm version minor --no-git-tag-version
-          NEW_VERSION=$(node -p "require('./package.json').version")
-          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
-
-      - name: Configure Git
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-      - name: Commit version bump
-        run: |
-          git add cli/package.json
-          git commit -m "chore: bump CLI version to ${{ steps.new_version.outputs.version }} [skip ci]"
-          git tag "v${{ steps.new_version.outputs.version }}"
-
-      - name: Push changes
-        run: |
-          git push origin main
-          git push origin "v${{ steps.new_version.outputs.version }}"
+          git tag "v${{ steps.current_version.outputs.version }}" || true
+          git push origin "v${{ steps.current_version.outputs.version }}" || true
 
       - name: Publish to npm
         run: |
@@ -79,19 +61,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.new_version.outputs.version }}
-          release_name: CLI v${{ steps.new_version.outputs.version }}
+          tag_name: v${{ steps.current_version.outputs.version }}
+          release_name: CLI v${{ steps.current_version.outputs.version }}
           body: |
-            ## XSwarm CLI v${{ steps.new_version.outputs.version }}
+            ## XSwarm CLI v${{ steps.current_version.outputs.version }}
 
             ### Installation
             ```bash
-            npm install -g xswarm@${{ steps.new_version.outputs.version }}
+            npm install -g xswarm@${{ steps.current_version.outputs.version }}
             # or
-            npx xswarm@${{ steps.new_version.outputs.version }}
+            npx xswarm@${{ steps.current_version.outputs.version }}
             ```
 
             ### Changes
-            See [commit history](https://github.com/${{ github.repository }}/compare/v${{ steps.current_version.outputs.version }}...v${{ steps.new_version.outputs.version }}) for details.
+            See [commit history](https://github.com/${{ github.repository }}/commits/v${{ steps.current_version.outputs.version }}) for details.
           draft: false
           prerelease: false
