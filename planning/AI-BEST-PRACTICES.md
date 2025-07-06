@@ -690,4 +690,121 @@ Add these terse commands to any CLAUDE.md file to prevent AI anti-patterns:
     - Never assume it's right
 ```
 
-Remember: AI is a powerful tool, but it needs clear boundaries and constant guidance to produce maintainable code. Research shows that AI-generated code frequently contains security vulnerabilities, hallucinated dependencies, and outdated patterns that require careful human review.
+## Problem-Specific Policies
+
+### Policy 1: Function Organization & Code Reuse
+**Problem:** AI generates 2.5x more duplicate code than humans
+
+**Solution:** Implement function mapping system
+```markdown
+BEFORE ANY FUNCTION:
+1. Search: grep -r "function.*{name}" ./src
+2. Check: /utils folder for existing implementations  
+3. Extend: Enhance existing rather than duplicate
+4. Organize: Place in correct utils category
+5. Index: Export from central utils/index.js
+```
+
+**Reference:** See `/planning/FUNCTION-MAP.md` for complete utility organization guide
+
+### Policy 2: Security & Latest Versions
+**Problem:** 40% of AI code has vulnerabilities, always suggests old versions
+
+**Solution:** Integrated security review during development
+```markdown
+PACKAGE VERIFICATION:
+1. Verify: npm view [package] (before ANY install)
+2. Latest: Always use @latest tag
+3. Scan: npm audit after each install
+4. Review: Check for SQL injection, XSS, command injection
+5. Test: Security-focused unit tests
+```
+
+**Reference:** See `/planning/AI-CODE-REVIEW.md` for security checklist
+
+### Policy 3: Integrated Code Review
+**Problem:** 45% of developers report AI handles complex tasks poorly
+
+**Solution:** Real-time review process, not post-development
+```markdown
+WHILE CODING:
+1. Package Check: Verify existence before import
+2. Pattern Scan: Stop on eval(), innerHTML, exec()
+3. Performance: Catch N+1, memory leaks immediately  
+4. Architecture: Match existing patterns
+5. Automate: Pre-commit hooks catch issues
+```
+
+**Reference:** See `/planning/AI-CODE-REVIEW.md` for review workflow
+
+### Policy 4: Broad Unit Testing
+**Problem:** AI code has 41% more bugs than human code
+
+**Solution:** Comprehensive testing after generation (not TDD)
+```markdown
+TEST IMMEDIATELY:
+1. Smoke Tests: Does it even work?
+2. Edge Cases: Null, undefined, empty, max values
+3. Error Tests: Proper error messages and handling
+4. Performance: Completes in reasonable time
+5. Coverage: 90% minimum for AI-generated code
+```
+
+**Reference:** See `/planning/UNIT-TESTING-STRATEGY.md` for test patterns
+
+## Integrated Workflow
+
+```mermaid
+graph TD
+    A[AI Generates Code] --> B[Search Existing Functions]
+    B --> C{Found Similar?}
+    C -->|Yes| D[Extend/Reuse]
+    C -->|No| E[Create New Function]
+    D --> F[Security Review]
+    E --> F
+    F --> G{Security OK?}
+    G -->|No| H[Fix Issues]
+    G -->|Yes| I[Write Tests]
+    H --> F
+    I --> J[90% Coverage?]
+    J -->|No| K[Add Tests]
+    J -->|Yes| L[Code Review]
+    K --> I
+    L --> M[Ready to Commit]
+```
+
+## Quick Reference Implementation
+
+Add these to your project:
+
+### 1. Pre-commit Hook (.git/hooks/pre-commit)
+```bash
+#!/bin/bash
+npm run lint:security
+npm test -- --coverage --threshold=90
+npm audit --audit-level=moderate
+```
+
+### 2. AI Instructions File (.ai-rules)
+```markdown
+1. Search before creating: grep -r "function.*{name}" ./src
+2. Verify packages exist: npm view [package]
+3. Always use @latest versions
+4. No eval(), innerHTML, exec() with variables
+5. Test coverage must exceed 90%
+```
+
+### 3. VSCode Settings (.vscode/settings.json)
+```json
+{
+  "eslint.enable": true,
+  "eslint.options": {
+    "plugins": ["security"],
+    "rules": {
+      "security/detect-object-injection": "error"
+    }
+  }
+}
+```
+
+Remember: AI is a powerful tool, but it needs clear boundaries and constant guidance to produce maintainable code. Research shows that AI-generated code frequently contains security vulnerabilities, hallucinated dependencies, and outdated patterns that require careful human review. These policies address each major issue with actionable solutions.
