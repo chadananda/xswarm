@@ -14,7 +14,7 @@ const { doc } = Astro.props;
 const { Content } = await doc.render();
 ---
 
-<DocsLayout title={`${doc.data.title} - XSwarm Documentation`} description={doc.data.description}>
+<DocsLayout title={`${doc.data.title} - xSwarm Documentation`} description={doc.data.description}>
 	<article class="prose prose-lg max-w-none">
 		<h1 class="text-4xl font-bold text-primary mb-4">{doc.data.title}</h1>
 		<p class="text-xl text-tertiary mb-8">{doc.data.description}</p>

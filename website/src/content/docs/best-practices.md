@@ -7,7 +7,7 @@ order: 2
 
 # Best Practices
 
-Follow these guidelines to maximize your effectiveness as an AI team leader with XSwarm.
+Follow these guidelines to maximize your effectiveness as an AI team leader with xSwarm.
 
 ## Communication Best Practices
 

@@ -181,7 +181,7 @@ Creating comprehensive documentation:
 
 ## Learning Pattern
 
-Using XSwarm to learn new technologies:
+Using xSwarm to learn new technologies:
 
 ### 1. Exploration
 

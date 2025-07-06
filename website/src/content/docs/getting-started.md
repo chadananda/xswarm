@@ -1,17 +1,17 @@
 ---
-title: 'Getting Started with XSwarm'
-description: 'Quick start guide to transform into an AI team leader with XSwarm'
+title: 'Getting Started with xSwarm'
+description: 'Quick start guide to transform into an AI team leader with xSwarm'
 category: 'Getting Started'
 order: 1
 ---
 
-# Getting Started with XSwarm
+# Getting Started with xSwarm
 
-Welcome to XSwarm! This guide will help you get up and running in minutes.
+Welcome to xSwarm! This guide will help you get up and running in minutes.
 
 ## Prerequisites
 
-Before installing XSwarm, ensure you have:
+Before installing xSwarm, ensure you have:
 
 - **Node.js 18+** installed on your system
 - A **terminal** or command prompt
@@ -19,11 +19,11 @@ Before installing XSwarm, ensure you have:
 
 ## Installation
 
-You can use XSwarm in two ways:
+You can use xSwarm in two ways:
 
 ### Option 1: Direct Usage (Recommended)
 
-Run XSwarm directly without installation:
+Run xSwarm directly without installation:
 
 ```bash
 npx xswarm
@@ -31,7 +31,7 @@ npx xswarm
 
 ### Option 2: Global Installation
 
-Install XSwarm globally for repeated use:
+Install xSwarm globally for repeated use:
 
 ```bash
 npm install -g xswarm
@@ -47,7 +47,7 @@ Open your terminal and navigate to any project directory:
 cd my-project
 ```
 
-### 2. Launch XSwarm
+### 2. Launch xSwarm
 
 Simply run:
 
@@ -57,11 +57,11 @@ xswarm
 
 ### 3. Start Building
 
-You'll see the XSwarm welcome screen with your AI team ready. Just type what you want to build!
+You'll see the xSwarm welcome screen with your AI team ready. Just type what you want to build!
 
 ## What's Next?
 
-- Read about [Core Concepts](/docs/core-concepts) to understand how XSwarm works
+- Read about [Core Concepts](/docs/core-concepts) to understand how xSwarm works
 - Explore [AI Agent Types](/docs/ai-agents) to learn about your team members
 - Check out [Best Practices](/docs/best-practices) for optimal usage
 

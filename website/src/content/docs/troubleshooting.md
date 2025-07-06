@@ -1,13 +1,13 @@
 ---
 title: 'Troubleshooting'
-description: 'Common issues and solutions when using XSwarm'
+description: 'Common issues and solutions when using xSwarm'
 category: 'Troubleshooting'
 order: 1
 ---
 
 # Troubleshooting
 
-This guide helps you resolve common issues when using XSwarm.
+This guide helps you resolve common issues when using xSwarm.
 
 ## Installation Issues
 
@@ -64,14 +64,14 @@ This guide helps you resolve common issues when using XSwarm.
 
 ## Runtime Issues
 
-### XSwarm Not Responding
+### xSwarm Not Responding
 
-**Problem**: XSwarm seems stuck or unresponsive
+**Problem**: xSwarm seems stuck or unresponsive
 
 **Solution**:
 
 1. Press `Ctrl+C` to interrupt
-2. Restart XSwarm
+2. Restart xSwarm
 3. Check your internet connection (needed for AI features)
 4. Clear any corrupted cache:
    ```bash
@@ -131,7 +131,7 @@ This guide helps you resolve common issues when using XSwarm.
 
 ### Context Loss
 
-**Problem**: XSwarm seems to forget previous conversations
+**Problem**: xSwarm seems to forget previous conversations
 
 **Solution**:
 
@@ -149,7 +149,7 @@ This guide helps you resolve common issues when using XSwarm.
 
 ### Slow Response Times
 
-**Problem**: XSwarm takes too long to respond
+**Problem**: xSwarm takes too long to respond
 
 **Solution**:
 
@@ -160,7 +160,7 @@ This guide helps you resolve common issues when using XSwarm.
 
 ### High CPU Usage
 
-**Problem**: XSwarm consuming too much CPU
+**Problem**: xSwarm consuming too much CPU
 
 **Solution**:
 
@@ -197,7 +197,7 @@ This guide helps you resolve common issues when using XSwarm.
    chmod 644 filename
    ```
 3. Ensure you're in the correct directory
-4. Run XSwarm with appropriate permissions
+4. Run xSwarm with appropriate permissions
 
 ### Framework Compatibility
 

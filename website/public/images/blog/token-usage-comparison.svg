@@ -59,15 +59,15 @@
     </circle>
   </g>
 
-  <!-- XSwarm Teams Section -->
+  <!-- xSwarm Teams Section -->
   <g transform="translate(450, 80)">
     <!-- Bar background -->
     <rect x="0" y="20" width="200" height="250" fill="rgba(0, 212, 255, 0.1)" stroke="rgba(0, 212, 255, 0.3)" stroke-width="2"/>
     
     <!-- Bar (much shorter) -->
-    <rect x="20" y="232" width="160" height="18" fill="url(#xswarmGradient)" filter="url(#glow)"/>
+    <rect x="20" y="232" width="160" height="18" fill="url(#xSwarmGradient)" filter="url(#glow)"/>
     <defs>
-      <linearGradient id="xswarmGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <linearGradient id="xSwarmGradient" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
         <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
       </linearGradient>
@@ -75,7 +75,7 @@
     
     <!-- Token count -->
     <text x="100" y="50" font-family="JetBrains Mono, monospace" font-size="32" font-weight="bold" fill="#00d4ff" text-anchor="middle">5,000</text>
-    <text x="100" y="295" font-family="Orbitron, monospace" font-size="16" fill="#00d4ff" text-anchor="middle">XSwarm Teams</text>
+    <text x="100" y="295" font-family="Orbitron, monospace" font-size="16" fill="#00d4ff" text-anchor="middle">xSwarm Teams</text>
     <text x="100" y="315" font-family="JetBrains Mono, monospace" font-size="14" fill="#666" text-anchor="middle">Tokens of Clarity</text>
     
     <!-- Decorative elements -->

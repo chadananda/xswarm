@@ -15,7 +15,7 @@ const posts = (await getCollection('blog'))
 const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
 ---
 
-<Layout title="Blog - XSwarm.ai" description="Brutally honest insights on AI development, token economics, and building with swarms of specialized agents.">
+<Layout title="Blog - xSwarm.ai" description="Brutally honest insights on AI development, token economics, and building with swarms of specialized agents.">
   <Navbar />
   
   <main>

@@ -2,7 +2,7 @@
 title: 'I Found 15 Different Email Validation Functions in My AI-Generated Code'
 description: "Analysis of code duplication patterns in AI-generated codebases reveals excessive recreation of utility functions. Multi-pass planning approaches demonstrate how extracting pure functions early reduces redundancy."
 publishDate: 2024-01-17
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/ai-function-graveyard-hero.jpg'
 imageAlt: 'Cyberpunk graveyard of duplicated functions with neon tombstones'
 tags: ['AI Development', 'Cyberpunk', 'Code Reuse', 'Pure Functions']

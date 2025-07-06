@@ -2,7 +2,7 @@
 title: 'I Discovered My AI Assistant Was Actually 40 Specialists Pretending to Be One'
 description: "Beyond basic coding assistants exist specialized AI agents for QA engineering, security testing, PR management, and content creation. A comprehensive analysis of 40+ distinct agent roles and their technical implementations."
 publishDate: 2024-01-25
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/forty-hidden-agents-hero.jpg'
 imageAlt: 'Cyberpunk roster of 40+ specialized AI agents in formation'
 tags: ['AI Development', 'Cyberpunk', 'Team Building', 'Specialization', 'Agent Roster']

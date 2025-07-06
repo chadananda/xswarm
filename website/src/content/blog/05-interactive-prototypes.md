@@ -2,7 +2,7 @@
 title: 'What Happened When We Stopped Showing Stakeholders PDFs'
 description: 'AI generates beautiful static interfaces, but stakeholders still give feedback like "make it pop" on PDF attachments. Automated deployment of working prototypes to GitHub Pages enables stakeholders to interact with real interfaces.'
 publishDate: 2024-01-19
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/interactive-prototypes-hero.jpg'
 imageAlt: 'Split screen showing static mockup with vague feedback vs interactive prototype with specific insights'
 tags: ['AI Development', 'Cyberpunk', 'UX Design', 'Prototyping', 'User Feedback']

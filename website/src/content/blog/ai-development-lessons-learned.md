@@ -1020,5 +1020,5 @@ Your command files are that containment. Use them wisely, update them regularly,
 <div class="bg-gray-800 border border-gray-600 rounded-lg p-6 my-8 space-y-4">
   <p class="text-gray-300"><strong class="text-white">Found this helpful?</strong> Share it with another developer who's drowning in duplicate functions. Together, we can make AI coding assistants work for us, not against us.</p>
   
-  <p class="text-gray-300"><strong class="text-white">Have your own AI horror stories?</strong> I'd love to hear them. Find me on Twitter/X at @xswarmai or drop by the <a href="https://github.com/chadananda/xswarm" class="text-cyan-400 hover:text-cyan-300 underline">XSwarm GitHub repo</a>.</p>
+  <p class="text-gray-300"><strong class="text-white">Have your own AI horror stories?</strong> I'd love to hear them. Find me on Twitter/X at @xswarmai or drop by the <a href="https://github.com/chadananda/xswarm" class="text-cyan-400 hover:text-cyan-300 underline">xSwarm GitHub repo</a>.</p>
 </div>

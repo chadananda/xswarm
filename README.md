@@ -1,28 +1,28 @@
-# XSwarm.ai - Reimagining Software Development for Parallel AI Teams
+# xSwarm.ai - Reimagining Software Development for Parallel AI Teams
 
 [![npm version](https://badge.fury.io/js/xswarm.svg)](https://www.npmjs.com/package/xswarm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
-🚀 **Website**: [xswarm.ai](https://xswarm.ai)
+🚀 **Website**: [xSwarm.ai](https://xSwarm.ai)
 📦 **NPM Package**: [npmjs.com/package/xswarm](https://www.npmjs.com/package/xswarm)
 🐙 **GitHub**: [github.com/chadananda/xswarm](https://github.com/chadananda/xswarm)
 
-## What XSwarm Is About
+## What xSwarm Is About
 
 If you've been developing software for a while, you know the pain: coordinating teams, managing handoffs, dealing with integration issues, and watching simple features take weeks because of all the overhead. You've probably also tried using AI assistants and hit familiar walls—they write code that doesn't integrate, forget context between sessions, and somehow you're still doing all the glue work.
 
-**XSwarm is an experiment in fixing these frustrations.** We asked ourselves: what if we stop forcing AI to work like junior developers in our existing processes? What if we design a development workflow that actually plays to AI's strengths—like perfect parallel execution and never forgetting context—while avoiding its weaknesses?
+**xSwarm is an experiment in fixing these frustrations.** We asked ourselves: what if we stop forcing AI to work like junior developers in our existing processes? What if we design a development workflow that actually plays to AI's strengths—like perfect parallel execution and never forgetting context—while avoiding its weaknesses?
 
-![xswarm logo](https://xswarm.ai/teamofone.png)
+![xSwarm logo](https://xSwarm.ai/teamofone.png)
 
-> ⚠️ **Current Status**: XSwarm.ai is in active development. The CLI placeholder and website are live. Full functionality coming Q2 2025.
+> ⚠️ **Current Status**: xSwarm.ai is in active development. The CLI placeholder and website are live. Full functionality coming Q2 2025.
 
-## How XSwarm Works
+## How xSwarm Works
 
 ### The Development Epoch
 
-XSwarm organizes work into **epochs**—complete development cycles that start with intensive human-guided planning and then run autonomously through multiple sprints. Each epoch can be as large as building an entire application or as focused as adding a single feature. The key is front-loading all the thinking and planning, then letting AI teams execute without interruption.
+xSwarm organizes work into **epochs**—complete development cycles that start with intensive human-guided planning and then run autonomously through multiple sprints. Each epoch can be as large as building an entire application or as focused as adding a single feature. The key is front-loading all the thinking and planning, then letting AI teams execute without interruption.
 
 ```mermaid
 graph LR
@@ -177,7 +177,7 @@ Here's the shift we're going for:
 - Do all the integration work yourself
 - Write docs when you're "done" (ha!)
 
-**With XSwarm**: You're the Director
+**With xSwarm**: You're the Director
 
 - Describe what needs to be built
 - Review recommendations from specialist teams
@@ -190,7 +190,7 @@ It's less about crafting perfect prompts and more about directing specialized te
 
 ### AI-First, Not Human-Adapted
 
-Every aspect of XSwarm is designed for AI characteristics:
+Every aspect of xSwarm is designed for AI characteristics:
 
 - Parallel execution without ego conflicts
 - Atomic tasks with clear success criteria
@@ -240,7 +240,7 @@ Multi-pass planning isn't bureaucracy—it's optimization:
 
 ## Contributing
 
-We're building XSwarm in the open. Join us in revolutionizing AI development!
+We're building xSwarm in the open. Join us in revolutionizing AI development!
 
 ```bash
 # Clone the repository
@@ -272,4 +272,4 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-**XSwarm.ai** - Command AI Teams. Ship Complete Features.
+**xSwarm.ai** - Command AI Teams. Ship Complete Features.

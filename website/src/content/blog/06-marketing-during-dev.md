@@ -2,7 +2,7 @@
 title: 'The Sprint Demo Where Marketing Asked for Screenshots We Never Took'
 description: 'You ship an AI-generated feature and marketing asks for screenshots, demo videos, and blog posts. You have a working API and a terminal full of green text. Parallel asset generation during development eliminates post-launch scrambles.'
 publishDate: 2024-01-20
-author: 'XSwarm Team'
+author: 'xSwarm Team'
 image: '/images/blog/marketing-during-dev-hero.jpg'
 imageAlt: 'Split screen: empty marketing folder vs automated content pipeline generating assets'
 tags: ['AI Development', 'Cyberpunk', 'Marketing', 'Content Generation', 'Automation']
@@ -99,7 +99,7 @@ Every developer knows this pain. You implement a clever solution to a complex pr
 
 Marketing materials created after the fact always feel disconnected because they are. The person writing the blog post wasn't there during the architecture discussions. The designer creating the feature graphic doesn't understand why certain technical constraints shaped the UX. The demo video shows what the feature does, not why it matters.
 
-## The XSwarm Approach: Generate While You Build
+## The xSwarm Approach: Generate While You Build
 
 What if your integration tests didn't just verify functionality - they also captured perfect screenshots at every state? What if your E2E test runs automatically generated demo videos with real data flows? What if your AI agents could write authentic blog posts while the implementation details were still fresh?
 
@@ -111,7 +111,7 @@ async function testUserDashboard() {
   // Test passes, knowledge disappears
 }
 
-// XSwarm approach
+// xSwarm approach
 async function testUserDashboard() {
   await page.goto('/dashboard');
   await xswarm.capture.screenshot('dashboard-loaded', {
@@ -167,7 +167,7 @@ Remember that clever algorithm you implemented? The one that reduced processing 
   </div>
 </div>
 
-XSwarm agents attend your development process. They see the before/after metrics. They understand the technical challenges you overcame. They can write blog posts that actually explain why this matters to users - because they watched it happen.
+xSwarm agents attend your development process. They see the before/after metrics. They understand the technical challenges you overcame. They can write blog posts that actually explain why this matters to users - because they watched it happen.
 
 > "The blog post about your new caching strategy includes real performance graphs from your benchmarks."
 
@@ -231,6 +231,6 @@ The cyberpunk future isn't about replacing human creativity. It's about capturin
   </div>
 </div>
 
-Marketing during development isn't about adding another task to your sprint. It's about recognizing that every test run, every debugging session, every "it finally works!" moment is potential content. XSwarm just helps you capture it before the context disappears into the git history.
+Marketing during development isn't about adding another task to your sprint. It's about recognizing that every test run, every debugging session, every "it finally works!" moment is potential content. xSwarm just helps you capture it before the context disappears into the git history.
 
 > "Because the best time to create authentic marketing materials isn't two weeks after launch. It's right now, while you still remember why you built it that way."
