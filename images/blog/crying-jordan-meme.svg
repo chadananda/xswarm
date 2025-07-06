@@ -1,0 +1,80 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#030712;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient2)"/>
+  
+  <!-- AI character (crying robot) -->
+  <circle cx="400" cy="200" r="80" fill="#00d4ff" filter="url(#glow2)"/>
+  
+  <!-- Eyes -->
+  <circle cx="370" cy="180" r="15" fill="#030712"/>
+  <circle cx="430" cy="180" r="15" fill="#030712"/>
+  
+  <!-- Tears -->
+  <path d="M 360 210 Q 350 240 355 250" stroke="#00d4ff" stroke-width="3" fill="none"/>
+  <path d="M 440 210 Q 450 240 445 250" stroke="#00d4ff" stroke-width="3" fill="none"/>
+  
+  <!-- Sad mouth -->
+  <path d="M 370 220 Q 400 210 430 220" stroke="#030712" stroke-width="5" fill="none"/>
+  
+  <!-- Duplicate code blocks -->
+  
+    <g>
+      <rect x="100" y="350" width="100" height="150" fill="#1a1a2e" stroke="#00ff88" stroke-width="1"/>
+      <text x="110" y="380" font-family="monospace" font-size="12" fill="#00ff88">formatDate()</text>
+      <text x="110" y="400" font-family="monospace" font-size="12" fill="#00ff88">{</text>
+      <text x="110" y="420" font-family="monospace" font-size="12" fill="#00ff88">  // same</text>
+      <text x="110" y="440" font-family="monospace" font-size="12" fill="#00ff88">  // code</text>
+      <text x="110" y="460" font-family="monospace" font-size="12" fill="#00ff88">}</text>
+    </g>
+    <g>
+      <rect x="230" y="350" width="100" height="150" fill="#1a1a2e" stroke="#00ff88" stroke-width="1"/>
+      <text x="240" y="380" font-family="monospace" font-size="12" fill="#00ff88">formatDate()</text>
+      <text x="240" y="400" font-family="monospace" font-size="12" fill="#00ff88">{</text>
+      <text x="240" y="420" font-family="monospace" font-size="12" fill="#00ff88">  // same</text>
+      <text x="240" y="440" font-family="monospace" font-size="12" fill="#00ff88">  // code</text>
+      <text x="240" y="460" font-family="monospace" font-size="12" fill="#00ff88">}</text>
+    </g>
+    <g>
+      <rect x="360" y="350" width="100" height="150" fill="#1a1a2e" stroke="#00ff88" stroke-width="1"/>
+      <text x="370" y="380" font-family="monospace" font-size="12" fill="#00ff88">formatDate()</text>
+      <text x="370" y="400" font-family="monospace" font-size="12" fill="#00ff88">{</text>
+      <text x="370" y="420" font-family="monospace" font-size="12" fill="#00ff88">  // same</text>
+      <text x="370" y="440" font-family="monospace" font-size="12" fill="#00ff88">  // code</text>
+      <text x="370" y="460" font-family="monospace" font-size="12" fill="#00ff88">}</text>
+    </g>
+    <g>
+      <rect x="490" y="350" width="100" height="150" fill="#1a1a2e" stroke="#00ff88" stroke-width="1"/>
+      <text x="500" y="380" font-family="monospace" font-size="12" fill="#00ff88">formatDate()</text>
+      <text x="500" y="400" font-family="monospace" font-size="12" fill="#00ff88">{</text>
+      <text x="500" y="420" font-family="monospace" font-size="12" fill="#00ff88">  // same</text>
+      <text x="500" y="440" font-family="monospace" font-size="12" fill="#00ff88">  // code</text>
+      <text x="500" y="460" font-family="monospace" font-size="12" fill="#00ff88">}</text>
+    </g>
+    <g>
+      <rect x="620" y="350" width="100" height="150" fill="#1a1a2e" stroke="#00ff88" stroke-width="1"/>
+      <text x="630" y="380" font-family="monospace" font-size="12" fill="#00ff88">formatDate()</text>
+      <text x="630" y="400" font-family="monospace" font-size="12" fill="#00ff88">{</text>
+      <text x="630" y="420" font-family="monospace" font-size="12" fill="#00ff88">  // same</text>
+      <text x="630" y="440" font-family="monospace" font-size="12" fill="#00ff88">  // code</text>
+      <text x="630" y="460" font-family="monospace" font-size="12" fill="#00ff88">}</text>
+    </g>
+  
+  <!-- Caption -->
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ff00aa" filter="url(#glow2)">
+    47 IDENTICAL FUNCTIONS
+  </text>
+</svg>
