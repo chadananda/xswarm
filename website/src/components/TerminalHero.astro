@@ -2067,7 +2067,8 @@ scenarioIds.forEach(id => {
             }
             
             // Sequential chat message system
-            const chatMessages = element.querySelectorAll('.chat-message-line, .agents-joining, .planning-stages');
+            const chatContentArea = element.querySelector('.chat-content-area');
+            const chatMessages = chatContentArea ? chatContentArea.querySelectorAll('.chat-message-line, .agents-joining, .planning-stages') : [];
             let messageIndex = 0;
             
             // Hide all messages initially (except the first one which is already visible)
@@ -2099,7 +2100,7 @@ scenarioIds.forEach(id => {
               currentMessage.style.opacity = '1';
               
               // Scroll to show new message
-              const scrollContainer = element.querySelector('.chat-scroll-container');
+              const scrollContainer = element.querySelector('.chat-scroll-container') || chatContentArea;
               if (scrollContainer) {
                 setTimeout(() => {
                   scrollContainer.scrollTo({
