@@ -12,6 +12,7 @@ import '../styles/blog-scrollbar.css';
 import '../styles/blog-share.css';
 import '../styles/blog-metadata.css';
 import '../styles/mermaid.css';
+import '../styles/blog-sandboxed-integration.css';
 
 export interface Props {
   title: string;
@@ -350,5 +351,29 @@ const relatedPosts = allPosts
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  
+  /* Fix for code blocks in terminal windows */
+  .code-example pre,
+  .prose pre[class*="astro-code"] {
+    max-height: none !important;
+    overflow: auto !important;
+  }
+  
+  /* Ensure code content is visible */
+  .code-example pre code,
+  .prose pre[class*="astro-code"] code {
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+  
+  /* Terminal window code block fix */
+  pre.astro-code {
+    min-height: auto !important;
+    max-height: 600px !important;
+    overflow-y: auto !important;
+    overflow-x: auto !important;
   }
 </style>
