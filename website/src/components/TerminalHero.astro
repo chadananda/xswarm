@@ -881,6 +881,8 @@ scenarioIds.forEach(id => {
     color: var(--terminal-cyan);
     font-weight: 600;
     margin-right: 0.75rem;
+    display: inline-block;
+    vertical-align: top;
   }
   
   /* Different colors for each agent */
@@ -916,13 +918,16 @@ scenarioIds.forEach(id => {
     color: rgb(255, 255, 255); /* White for user */
     font-weight: 600;
     margin-right: 0.75rem;
+    display: inline-block;
+    vertical-align: top;
   }
   
   .chat-text {
     color: var(--terminal-green);
-    display: inline;
-    line-height: 1.05;
+    display: inline-block;
+    line-height: 1.0;
     word-wrap: break-word;
+    vertical-align: top;
   }
   
   .user-message .chat-text {
@@ -1314,8 +1319,9 @@ scenarioIds.forEach(id => {
   
   .terminal-content .chat-text {
     color: var(--terminal-green);
-    display: inline;
-    line-height: 1.05;
+    display: inline-block;
+    line-height: 1.0;
+    vertical-align: top;
   }
   
   .terminal-content .user-message .chat-text {
