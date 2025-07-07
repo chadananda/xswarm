@@ -47,25 +47,10 @@
             },
             {
               "delay": 10000,
-              "type": "success",
-              "text": "✓ 40+ AI agents initialized"
-            },
-            {
-              "delay": 10200,
-              "type": "success",
-              "text": "✓ Multi-pass planning engine ready"
-            },
-            {
-              "delay": 10400,
-              "type": "success",
-              "text": "✓ Parallel execution framework loaded"
-            },
-            {
-              "delay": 10700,
               "type": "finalPrompt"
             },
             {
-              "delay": 11500,
+              "delay": 11000,
               "type": "command",
               "prompt": "$",
               "text": "xswarm chat --agent business-analyst",
@@ -605,25 +590,10 @@
             },
             {
               "delay": 10000,
-              "type": "success",
-              "text": "✓ 40+ AI agents initialized"
-            },
-            {
-              "delay": 10200,
-              "type": "success",
-              "text": "✓ Multi-pass planning engine ready"
-            },
-            {
-              "delay": 10400,
-              "type": "success",
-              "text": "✓ Parallel execution framework loaded"
-            },
-            {
-              "delay": 10700,
               "type": "finalPrompt"
             },
             {
-              "delay": 11500,
+              "delay": 11000,
               "type": "command",
               "prompt": "$",
               "text": "xswarm chat --agent business-analyst",
@@ -992,25 +962,10 @@
             },
             {
               "delay": 10000,
-              "type": "success",
-              "text": "✓ 40+ AI agents initialized"
-            },
-            {
-              "delay": 10200,
-              "type": "success",
-              "text": "✓ Multi-pass planning engine ready"
-            },
-            {
-              "delay": 10400,
-              "type": "success",
-              "text": "✓ Parallel execution framework loaded"
-            },
-            {
-              "delay": 10700,
               "type": "finalPrompt"
             },
             {
-              "delay": 11500,
+              "delay": 11000,
               "type": "command",
               "prompt": "$",
               "text": "xswarm chat --agent business-analyst",
