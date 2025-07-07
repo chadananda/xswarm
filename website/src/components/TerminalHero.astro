@@ -857,19 +857,15 @@ scenarioIds.forEach(id => {
   .chat-message-line {
     margin-top: 1rem;
     margin-bottom: 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
     line-height: 1.1 !important;
+    display: block;
   }
   
   /* Force tight line spacing within messages */
   .chat-interface .chat-message-line,
   .terminal-content .chat-message-line {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
     line-height: 1.1 !important;
+    display: block;
   }
   
   /* First message doesn't need top margin */
@@ -885,8 +881,10 @@ scenarioIds.forEach(id => {
   .chat-agent-indicator {
     color: var(--terminal-cyan);
     font-weight: 600;
-    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 0.75rem;
     white-space: nowrap;
+    min-width: 3.5rem;
   }
   
   /* Different colors for each agent */
@@ -921,13 +919,15 @@ scenarioIds.forEach(id => {
   .chat-user-indicator {
     color: rgb(255, 255, 255); /* White for user */
     font-weight: 600;
-    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 0.75rem;
     white-space: nowrap;
+    min-width: 3.5rem;
   }
   
   .chat-text {
     color: var(--terminal-green);
-    flex: 1;
+    display: inline;
     line-height: 1.1;
     word-wrap: break-word;
     word-break: break-word;
@@ -1282,8 +1282,10 @@ scenarioIds.forEach(id => {
   .terminal-content .chat-agent-indicator {
     color: var(--terminal-cyan);
     font-weight: 600;
-    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 0.75rem;
     white-space: nowrap;
+    min-width: 3.5rem;
   }
   
   /* Different colors for each agent */
@@ -1318,13 +1320,15 @@ scenarioIds.forEach(id => {
   .terminal-content .chat-user-indicator {
     color: var(--terminal-magenta);
     font-weight: 600;
-    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 0.75rem;
     white-space: nowrap;
+    min-width: 3.5rem;
   }
   
   .terminal-content .chat-text {
     color: var(--terminal-green);
-    flex: 1;
+    display: inline;
     line-height: 1.1;
     word-wrap: break-word;
     word-break: break-word;
@@ -1556,13 +1560,6 @@ scenarioIds.forEach(id => {
     display: flex;
     flex-direction: column;
     height: 100%;
-  }
-  
-  /* Ensure chat message lines use flexbox */
-  .terminal-content .chat-message-line {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 0.75rem !important;
   }
 </style>
 
