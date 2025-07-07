@@ -68,6 +68,8 @@ scenarioIds.forEach(id => {
   </div>
 </div>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+  
   /* Terminal color definitions - keep these in the component */
   :root {
     --terminal-green: rgb(0, 255, 0);
@@ -103,18 +105,12 @@ scenarioIds.forEach(id => {
   }
   
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 900;
-    line-height: 1.1;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--terminal-cyan);
-    text-shadow: 
-      0 0 20px rgba(0, 255, 255, 0.8),
-      0 0 40px rgba(0, 255, 255, 0.6),
-      0 0 60px rgba(0, 255, 255, 0.4);
-    font-family: var(--terminal-font-family);
   }
   
   .text-gradient-cyber {
@@ -127,12 +123,11 @@ scenarioIds.forEach(id => {
   }
   
   .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: rgba(255, 255, 255, 0.8);
-    max-width: 900px;
-    margin: 0 auto;
     line-height: 1.6;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
   }
   
   /* Glitch effect for hero title */
