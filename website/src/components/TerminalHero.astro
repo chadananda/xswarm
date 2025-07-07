@@ -2423,34 +2423,38 @@ scenarioIds.forEach(id => {
                 const joinNotifications = currentMessage.querySelectorAll('.agent-join-notification');
                 let joinIndex = 0;
                 
-                // Show agents one by one with delays
-                function showAgentsSequentially() {
-                  let currentIndex = 0;
-                  
-                  function showNextAgent() {
-                    if (currentIndex < joinNotifications.length) {
-                      joinNotifications[currentIndex].style.display = 'block';
-                      joinNotifications[currentIndex].style.opacity = '1';
-                      currentIndex++;
-                      
-                      if (currentIndex < joinNotifications.length) {
-                        // Wait before showing next agent
-                        setTimeout(showNextAgent, 600);
-                      } else {
-                        // All agents shown, wait a bit then continue
-                        setTimeout(() => {
-                          messageIndex++;
-                          showNextMessage();
-                        }, 1500);
-                      }
+                function showNextJoin() {
+                  if (joinIndex < joinNotifications.length) {
+                    const notification = joinNotifications[joinIndex];
+                    notification.style.display = 'block';
+                    notification.style.opacity = '1';
+                    
+                    // Scroll to show new notification
+                    if (scrollContainer) {
+                      scrollContainer.scrollTo({
+                        top: scrollContainer.scrollHeight,
+                        behavior: 'smooth'
+                      });
+                    }
+                    
+                    joinIndex++;
+                    
+                    // After showing, wait then show next or continue
+                    if (joinIndex < joinNotifications.length) {
+                      // More agents to show
+                      setTimeout(showNextJoin, 800); // Wait 800ms before next agent
+                    } else {
+                      // All agents joined, continue to next message
+                      setTimeout(() => {
+                        messageIndex++;
+                        showNextMessage();
+                      }, 1500);
                     }
                   }
-                  
-                  // Start showing agents after initial delay
-                  setTimeout(showNextAgent, 600);
                 }
                 
-                showAgentsSequentially();
+                // Start showing first agent immediately
+                showNextJoin();
               }
               // Handle planning stages section
               else if (currentMessage.classList.contains('planning-stages')) {
