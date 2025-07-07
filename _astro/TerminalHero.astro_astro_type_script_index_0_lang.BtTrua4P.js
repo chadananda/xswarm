@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",()=>{const $=document.querySelector
             `:e.innerHTML=`
               <span class="terminal-prompt">${s.prompt}</span>
               <span class="terminal-command">
-                <span class="typing-animation" data-text="${s.text}" data-duration="${s.duration}" style="opacity: 0;"></span>
+                <span class="typing-animation" data-text='${s.text}' data-duration='${s.duration}' style="opacity: 0;"></span>
               </span>
             `,c.appendChild(e)}else if(s.type==="loading"){const e=document.createElement("div");e.className="terminal-line loading-line",e.setAttribute("data-delay",s.delay),e.innerHTML=`<span class="terminal-loading">${s.text}</span>`,c.appendChild(e)}else if(s.type==="ascii"){const e=document.createElement("div");e.className="ascii-explosion",e.setAttribute("data-delay",s.delay),s.frames.forEach((o,a)=>{const l=document.createElement("pre");l.className=`explosion-frame frame-${a+1}`,a>0&&(l.style.display="none"),l.textContent=o,e.appendChild(l)}),c.appendChild(e)}else if(s.type==="success"){const e=document.createElement("div");e.className="terminal-line success-line",e.setAttribute("data-delay",s.delay),e.innerHTML=`<span class="terminal-success">${s.text}</span>`,c.appendChild(e)}else if(s.type==="finalPrompt"){const e=document.createElement("div");e.className="terminal-line",e.setAttribute("data-delay",s.delay),e.innerHTML=`
             <span class="terminal-prompt">$</span>
@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded",()=>{const $=document.querySelector
         </div>
       `;c.innerHTML=s;const e=c.querySelector(".chat-content-area");let o=null;n.messages.forEach((a,l)=>{if(a.type==="agent"){const i=w(a,t.agents[a.agent]);i.style.display="none",o===a.agent&&i.classList.add("same-agent"),o=a.agent,e.appendChild(i)}else if(a.type==="user"){const i=P(a);i.style.display="none",o="user",e.appendChild(i)}else if(a.type==="thinking"){const i=j(a,t.agents[a.agent]);i.style.display="none",e.appendChild(i)}else if(a.type==="agentsJoining"){const i=O(a.agents);i.style.display="none",o=null,e.appendChild(i)}else if(a.type==="multipart"){const i=J(a,t.agents[a.agent]);i.style.display="none",o===a.agent&&i.classList.add("same-agent"),o=a.agent,e.appendChild(i)}else if(a.type==="planningAnnouncement"){const i=F(a,t.agents[a.agent]);i.style.display="none",o=null,e.appendChild(i)}else if(a.type==="planningStages"){const i=R(a.stages);i.style.display="none",o=null,e.appendChild(i)}else if(a.type==="branchCreation"){const i=G(a,t.agents[a.agent]);i.style.display="none",o=null,e.appendChild(i)}else if(a.type==="dashboardLink"){const i=U(a,t.agents[a.agent]);i.style.display="none",o=null,e.appendChild(i)}else if(a.type==="progressIndicator"){const i=B(a,t.agents[a.agent]);i.style.display="none",o=null,e.appendChild(i)}})}function w(t,c){const n=document.createElement("div");return n.className="chat-message-line",n.innerHTML=`
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
-        <span class="chat-text typing-animation-chat" data-text="${t.text}" data-duration="${t.duration}"></span>
+        <span class="chat-text typing-animation-chat" data-text='${t.text}' data-duration='${t.duration}'></span>
         <span class="chat-cursor" style="display: none;"></span>
       `,n}function P(t){const c=document.createElement("div");return c.className="chat-message-line user-message",c.innerHTML=`
         <span class="chat-user-indicator">[You]</span>
-        <span class="chat-text typing-animation-chat user-typing" data-text="${t.text}" data-duration="${t.duration}"></span>
+        <span class="chat-text typing-animation-chat user-typing" data-text='${t.text}' data-duration='${t.duration}'></span>
         <span class="chat-cursor user-cursor"></span>
       `,c}function j(t,c){const n=document.createElement("div");return n.className="chat-message-line",n.innerHTML=`
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
@@ -50,12 +50,12 @@ document.addEventListener("DOMContentLoaded",()=>{const $=document.querySelector
       `,n}function O(t){const c=document.createElement("div");return c.className="agents-joining",t.forEach(n=>{const s=document.createElement("div");s.className="agent-join-notification",s.style.display="none",s.innerHTML=`<span class="join-indicator">→</span> ${n} has joined the conversation`,c.appendChild(s)}),c}function J(t,c){const n=document.createElement("div");return n.className="chat-message-line",n.innerHTML=`
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
         <span class="chat-text">
-          ${t.parts.map((s,e)=>`<span class="typing-animation-chat" data-text="${s.text}" data-duration="${s.duration}"${e>0?' style="display: none;"':""}></span>`).join("")}
+          ${t.parts.map((s,e)=>`<span class="typing-animation-chat" data-text='${s.text}' data-duration='${s.duration}'${e>0?' style="display: none;"':""}></span>`).join("")}
         </span>
         <span class="chat-cursor"></span>
       `,n}function F(t,c){const n=document.createElement("div");return n.className="chat-message-line planning-announcement",n.innerHTML=`
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
-        <span class="chat-text typing-animation-chat" data-text="${t.text}" data-duration="${t.duration}"></span>
+        <span class="chat-text typing-animation-chat" data-text='${t.text}' data-duration='${t.duration}'></span>
         <span class="chat-cursor"></span>
       `,n}function R(t){const c=document.createElement("div");return c.className="planning-stages",t.forEach(n=>{const s=document.createElement("div");s.className="planning-stage-notification",s.style.display="none",s.setAttribute("data-stage-delay",n.delay),s.innerHTML=`
           <span class="stage-indicator">☐</span> 
@@ -64,13 +64,13 @@ document.addEventListener("DOMContentLoaded",()=>{const $=document.querySelector
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
         <span class="chat-text">
           <span class="typing-animation-chat" data-text="Creating branch: " data-duration="0.5"></span>
-          <span class="typing-animation-chat branch-name" data-text="${t.branchName}" data-duration="0.5"></span>
+          <span class="typing-animation-chat branch-name" data-text='${t.branchName}' data-duration='0.5'></span>
           <span class="typing-animation-chat" data-text="..." data-duration="0.3"></span>
         </span>
         <span class="chat-cursor"></span>
       `,n}function U(t,c){const n=document.createElement("div");return n.className="chat-message-line dashboard-link",n.innerHTML=`
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
-        <span class="chat-text typing-animation-chat dashboard-url" data-text="${t.url}" data-duration="${t.duration}"></span>
+        <span class="chat-text typing-animation-chat dashboard-url" data-text='${t.url}' data-duration='${t.duration}'></span>
         <span class="chat-cursor"></span>
       `,n}function B(t,c){const n=document.createElement("div");return n.className="chat-message-line progress-indicator",n.innerHTML=`
         <span class="chat-agent-indicator ${c.class}">[${t.agent}]</span>
