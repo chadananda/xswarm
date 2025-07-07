@@ -295,7 +295,7 @@ const navItems = [
   }
 </style>
 
-<script>
+<script is:inline>
   // Mobile menu toggle
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -313,7 +313,6 @@ const navItems = [
     const logoText = document.getElementById('logo-text');
     const glitchText = document.querySelector('.glitch-text');
     
-    console.log('Typewriter init - logoText found:', !!logoText);
     if (!logoText) return;
     
     const texts = ['xSwarm.ai', 'npx xswarm'];
@@ -356,7 +355,7 @@ const navItems = [
       }
     }
     
-    // Wait 2 seconds before starting animation (reduced from 3)
+    // Wait 2 seconds before starting animation
     setTimeout(() => {
       isDeleting = true;
       typeWriter();
