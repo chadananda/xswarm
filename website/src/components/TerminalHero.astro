@@ -6,11 +6,22 @@ export interface Props {
   scenarioId?: string;
 }
 
-const { projectName = 'my-sass', scenarioId = 'nextjs-to-svelte' } = Astro.props;
-const scenario = terminalScenarios.scenarios[scenarioId];
+const { projectName = 'my-sass' } = Astro.props;
 
-// Replace projectName placeholders in scenario
-const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/g, projectName));
+// Get all scenario IDs
+const scenarioIds = Object.keys(terminalScenarios.scenarios);
+// Start with the Spanish learning scenario
+const defaultScenarioId = 'cognate-spanish-learning';
+const currentScenarioId = scenarioIds.includes(defaultScenarioId) ? defaultScenarioId : scenarioIds[0];
+
+// Prepare all scenarios for rotation
+const allScenarios = {};
+scenarioIds.forEach(id => {
+  const scenario = terminalScenarios.scenarios[id];
+  // Use the scenario's own projectName if available, otherwise use the prop
+  const scenarioProjectName = scenario.projectName || projectName;
+  allScenarios[id] = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/g, scenarioProjectName));
+});
 ---
 
 <div class="terminal-hero-container">
@@ -32,11 +43,14 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
         <span class="terminal-button terminal-button-yellow"></span>
         <span class="terminal-button terminal-button-green"></span>
       </div>
-      <div class="terminal-title">{scenarioData.terminalTitle}</div>
+      <div class="terminal-title">{allScenarios[currentScenarioId].terminalTitle}</div>
     </div>
     
     <!-- Terminal content -->
-    <div class="terminal-content" data-scenario={JSON.stringify(scenarioData)}>
+    <div class="terminal-content" 
+         data-scenarios={JSON.stringify(allScenarios)}
+         data-scenario-ids={JSON.stringify(scenarioIds)}
+         data-current-scenario={currentScenarioId}>
       <div class="terminal-lines">
         <!-- Initial prompt with blinking cursor -->
         <div class="terminal-line initial-prompt">
@@ -62,6 +76,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     --terminal-red: rgb(255, 0, 64);
     --terminal-magenta: rgb(255, 0, 255);
     --terminal-bg: rgb(10, 10, 10);
+    --terminal-font-family: 'VT323', 'Courier New', 'Courier', monospace;
   }
   
   .terminal-hero-container {
@@ -91,17 +106,27 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    font-family: var(--terminal-font-family);
   }
   
   .terminal-hero-container .terminal-content {
     padding: 0;
-    height: 50vh;
-    max-height: 600px;
+    height: 42vh;
+    max-height: 450px;
+    min-height: 350px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
     background: var(--terminal-bg);
+    /* Hide scrollbar but keep scroll functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .terminal-hero-container .terminal-content::-webkit-scrollbar {
+    display: none;
   }
   
   /* Add scanline effect to entire terminal content */
@@ -125,24 +150,34 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   }
   
   .terminal-lines {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    line-height: 1.8;
-    padding: 2rem;
+    font-family: var(--terminal-font-family);
+    font-size: 24px;
+    line-height: 1.4;
+    padding: 1.5rem 2rem 0.5rem 2rem;
     overflow-y: auto;
     flex: 1;
+    /* Hide scrollbar but keep scroll functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .terminal-lines::-webkit-scrollbar {
+    display: none;
   }
   
   .terminal-line {
     opacity: 0;
     animation: fadeIn 0.3s ease-in forwards;
     margin-bottom: 0.5rem;
+    min-height: 1.3em;
   }
   
   .terminal-prompt {
     color: var(--terminal-cyan);
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
     text-shadow: 0 0 3px var(--terminal-cyan), 0 0 8px rgba(0, 255, 255, 0.5);
+    font-weight: 600;
   }
   
   .terminal-prompt::after {
@@ -169,6 +204,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   .terminal-command {
     color: var(--terminal-green);
     text-shadow: 0 0 3px var(--terminal-green), 0 0 8px rgba(0, 255, 0, 0.5);
+    font-family: inherit;
   }
   
   /* Branch creation styles */
@@ -525,6 +561,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   .terminal-loading {
     color: var(--terminal-yellow);
     animation: pulse 1s ease-in-out infinite;
+    font-family: inherit;
   }
   
   @keyframes pulse {
@@ -534,6 +571,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   
   .terminal-success {
     color: var(--terminal-green);
+    font-family: inherit;
   }
   
   /* ASCII Explosion */
@@ -546,10 +584,11 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   
   .explosion-frame {
     color: var(--terminal-cyan);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.2;
     text-shadow: 0 0 20px currentColor;
     animation: glow 0.5s ease-in-out infinite alternate;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
   }
   
   .explosion-frame.frame-1 {
@@ -605,6 +644,62 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     max-width: 800px;
     margin: 0 auto;
   }
+  /* Terminal header styles */
+  .terminal-header {
+    background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--terminal-font-family);
+  }
+  /* Terminal buttons container */
+  .terminal-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  /* Terminal button styles */
+  .terminal-button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  /* Individual button colors */
+  .terminal-button-red {
+    background: #ff5f56;
+    box-shadow: 0 0 6px rgba(255, 95, 86, 0.5);
+  }
+  .terminal-button-yellow {
+    background: #ffbd2e;
+    box-shadow: 0 0 6px rgba(255, 189, 46, 0.5);
+  }
+  .terminal-button-green {
+    background: #27c93f;
+    box-shadow: 0 0 6px rgba(39, 201, 63, 0.5);
+  }
+  /* Button hover effects */
+  .terminal-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  /* Terminal title bar */
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    color: var(--terminal-green);
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 3px var(--terminal-green);
+    font-family: var(--terminal-font-family);
+    opacity: 1;
+  }
   
   .text-gradient-cyber {
     background: linear-gradient(135deg, var(--terminal-cyan) 0%, var(--terminal-magenta) 100%);
@@ -629,8 +724,9 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     right: 0;
     bottom: 0;
     background: transparent;
-    padding: 1rem;
-    font-family: 'JetBrains Mono', monospace;
+    padding: 1rem 1.5rem 0 1.5rem;
+    font-family: var(--terminal-font-family);
+    font-size: 24px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -685,6 +781,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.25rem;
+    font-size: 12px;
   }
   
   .stats-row:last-child {
@@ -695,7 +792,8 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     color: var(--terminal-cyan);
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.7rem;
+    font-size: 11px;
+    letter-spacing: 0.5px;
   }
   
   .stat-value {
@@ -712,26 +810,16 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: 1rem;
-    max-height: calc(100% - 120px); /* Account for stats header */
+    padding-bottom: 0;
+    max-height: calc(100% - 100px); /* Account for stats header */
+    /* Hide scrollbar but keep scroll functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
   
+  /* Hide scrollbar for Chrome, Safari and Opera */
   .chat-scroll-container::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .chat-scroll-container::-webkit-scrollbar-track {
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  
-  .chat-scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(0, 255, 255, 0.3);
-    border-radius: 4px;
-  }
-  
-  .chat-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 255, 255, 0.5);
+    display: none;
   }
   
   /* Chat Container */
@@ -761,14 +849,26 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   }
   
   .chat-content-area {
-    padding: 0 1rem;
+    padding: 0 1rem 0.5rem 1rem;
     flex: 1;
     overflow-y: auto;
   }
   
   .chat-message-line {
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
     text-align: left;
+    line-height: 1.2;
+  }
+  
+  /* First message doesn't need top margin */
+  .chat-message-line:first-child {
+    margin-top: 0;
+  }
+  
+  /* Reduce spacing for continued messages from same agent */
+  .chat-message-line.same-agent {
+    margin-top: 0.5rem;
   }
   
   .chat-agent-indicator {
@@ -794,8 +894,20 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     color: var(--terminal-red);
   }
   
+  .agent-ai {
+    color: rgb(255, 0, 255); /* Bright magenta */
+  }
+  
+  .agent-ux {
+    color: rgb(255, 165, 0); /* Orange */
+  }
+  
+  .agent-mk {
+    color: rgb(150, 150, 255); /* Light purple/blue */
+  }
+  
   .chat-user-indicator {
-    color: var(--terminal-magenta);
+    color: rgb(255, 255, 255); /* White for user */
     font-weight: 600;
     margin-right: 0.75rem;
   }
@@ -806,7 +918,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   }
   
   .user-message .chat-text {
-    color: var(--terminal-magenta);
+    color: rgb(255, 255, 255); /* White for user */
     opacity: 0.9;
   }
   
@@ -831,6 +943,21 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     opacity: 0.9;
   }
   
+  .agent-ai ~ .chat-text {
+    color: rgb(255, 0, 255) !important; /* Bright magenta */
+    opacity: 0.9;
+  }
+  
+  .agent-ux ~ .chat-text {
+    color: rgb(255, 165, 0) !important; /* Orange */
+    opacity: 0.9;
+  }
+  
+  .agent-mk ~ .chat-text {
+    color: rgb(150, 150, 255) !important; /* Light purple/blue */
+    opacity: 0.9;
+  }
+  
   .agent-ba ~ .thinking-indicator {
     color: var(--terminal-cyan);
     opacity: 0.7;
@@ -848,14 +975,15 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   
   /* Agent join notifications */
   .agents-joining {
-    margin: 1rem 0;
+    margin: 0.75rem 0 0.5rem 0;
     padding: 0 1rem;
   }
   
   .agent-join-notification {
     color: var(--terminal-yellow);
-    font-size: 0.875rem;
+    font-size: 20px;
     margin-bottom: 0.25rem;
+    margin-left: 3rem;
     opacity: 0;
     animation: fadeIn 0.3s ease-in forwards;
   }
@@ -867,14 +995,15 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   
   /* Planning stages - similar style to agent joins */
   .planning-stages {
-    margin: 1rem 0;
+    margin: 0.75rem 0 0.5rem 0;
     padding: 0 1rem;
   }
   
   .planning-stage-notification {
     color: var(--terminal-yellow);
-    font-size: 0.875rem;
-    margin-bottom: 0.25rem;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
     opacity: 0;
     animation: fadeIn 0.3s ease-in forwards;
   }
@@ -943,8 +1072,8 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   
   .planning-stage {
     color: var(--terminal-yellow);
-    font-size: 0.875rem;
-    margin-bottom: 0.25rem;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
     opacity: 0;
     animation: fadeIn 0.3s ease-in forwards;
   }
@@ -1029,11 +1158,12 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   /* Mobile responsive */
   @media (max-width: 768px) {
     .terminal-lines {
-      font-size: 0.875rem;
+      font-size: 12px;
+      padding: 1rem;
     }
     
     .explosion-frame {
-      font-size: 0.6rem;
+      font-size: 0.5rem;
     }
     
     .hero-title {
@@ -1051,7 +1181,7 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
 <style is:global>
   /* Ensure all dynamic content uses terminal font */
   .terminal-content {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-family: var(--terminal-font-family);
   }
   
   /* Add subtle glow to all terminal text */
@@ -1156,6 +1286,18 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     color: var(--terminal-red);
   }
   
+  .terminal-content .agent-ai {
+    color: var(--terminal-magenta);
+  }
+  
+  .terminal-content .agent-ux {
+    color: rgb(255, 165, 0); /* Orange */
+  }
+  
+  .terminal-content .agent-mk {
+    color: rgb(100, 255, 255); /* Bright cyan */
+  }
+  
   .terminal-content .chat-user-indicator {
     color: var(--terminal-magenta);
     font-weight: 600;
@@ -1193,6 +1335,21 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     opacity: 0.9;
   }
   
+  .terminal-content .agent-ai ~ .chat-text {
+    color: var(--terminal-magenta) !important;
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-ux ~ .chat-text {
+    color: rgb(255, 165, 0) !important;
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-mk ~ .chat-text {
+    color: rgb(100, 255, 255) !important;
+    opacity: 0.9;
+  }
+  
   .terminal-content .agent-ba ~ .thinking-indicator {
     color: var(--terminal-cyan);
     opacity: 0.7;
@@ -1206,11 +1363,11 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   /* Agent join notifications */
   .terminal-content .agent-join-notification {
     color: var(--terminal-yellow);
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+    font-size: 20px;
+    margin-bottom: 0.75rem;
     font-style: italic;
     opacity: 0.9;
-    padding-left: 2rem;
+    padding-left: 3rem;
   }
   
   .terminal-content .join-indicator {
@@ -1257,13 +1414,14 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     line-height: 1.2;
     white-space: pre;
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    text-shadow: 0 0 10px var(--terminal-green);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+    font-weight: 400;
   }
   
   .terminal-content .explosion-frame.frame-2 {
     font-size: 0.7rem;
     color: var(--terminal-cyan);
-    text-shadow: 0 0 20px var(--terminal-cyan), 0 0 40px var(--terminal-cyan);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
   }
   
   /* Planning stages with proper indentation */
@@ -1274,9 +1432,9 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   
   .terminal-content .planning-stage-notification {
     color: var(--terminal-yellow);
-    font-size: 0.875rem;
-    margin-bottom: 0.25rem;
-    padding-left: 2rem;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+    padding-left: 3rem;
     opacity: 0;
     animation: fadeIn 0.3s ease-in forwards;
   }
@@ -1328,26 +1486,16 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: 1rem;
-    max-height: calc(100% - 120px);
+    padding-bottom: 0;
+    max-height: calc(100% - 100px);
+    /* Hide scrollbar but keep scroll functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
   
+  /* Hide scrollbar for Chrome, Safari and Opera */
   .terminal-content .chat-scroll-container::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .terminal-content .chat-scroll-container::-webkit-scrollbar-track {
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  
-  .terminal-content .chat-scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(0, 255, 255, 0.3);
-    border-radius: 4px;
-  }
-  
-  .terminal-content .chat-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 255, 255, 0.5);
+    display: none;
   }
   
   /* Chat container */
@@ -1394,7 +1542,12 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
   document.addEventListener('DOMContentLoaded', () => {
     // Get scenario data from the terminal content element
     const terminalContent = document.querySelector('.terminal-content');
-    const scenarioData = JSON.parse(terminalContent.getAttribute('data-scenario'));
+    const allScenarios = JSON.parse(terminalContent.getAttribute('data-scenarios'));
+    const scenarioIds = JSON.parse(terminalContent.getAttribute('data-scenario-ids'));
+    const initialScenarioId = terminalContent.getAttribute('data-current-scenario');
+    
+    let currentScenarioIndex = scenarioIds.indexOf(initialScenarioId);
+    if (currentScenarioIndex === -1) currentScenarioIndex = 0;
     
     // Function to generate terminal content from scenario data
     function generateTerminalContent(scenario) {
@@ -1503,46 +1656,65 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
       const chatContentArea = chatInterface.querySelector('.chat-content-area');
       
       // Process messages
+      let previousAgent = null;
       chatPhase.messages.forEach((message, index) => {
         if (message.type === 'agent') {
           const messageDiv = createAgentMessage(message, scenario.agents[message.agent]);
           if (index > 0) messageDiv.style.display = 'none';
+          // Add same-agent class if this is from the same agent as previous
+          if (previousAgent === message.agent) {
+            messageDiv.classList.add('same-agent');
+          }
+          previousAgent = message.agent;
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'user') {
           const messageDiv = createUserMessage(message);
           messageDiv.style.display = 'none';
+          previousAgent = 'user';
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'thinking') {
           const messageDiv = createThinkingMessage(message, scenario.agents[message.agent]);
           messageDiv.style.display = 'none';
+          // Don't change previousAgent for thinking messages
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'agentsJoining') {
           const joinDiv = createAgentsJoining(message.agents);
           joinDiv.style.display = 'none';
+          previousAgent = null; // Reset after system messages
           chatContentArea.appendChild(joinDiv);
         } else if (message.type === 'multipart') {
           const messageDiv = createMultipartMessage(message, scenario.agents[message.agent]);
           messageDiv.style.display = 'none';
+          // Add same-agent class if this is from the same agent as previous
+          if (previousAgent === message.agent) {
+            messageDiv.classList.add('same-agent');
+          }
+          previousAgent = message.agent;
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'planningAnnouncement') {
           const messageDiv = createPlanningAnnouncement(message, scenario.agents[message.agent]);
           messageDiv.style.display = 'none';
+          previousAgent = null; // Reset after system messages
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'planningStages') {
           const stagesDiv = createPlanningStages(message.stages);
           stagesDiv.style.display = 'none';
+          previousAgent = null; // Reset after system messages
           chatContentArea.appendChild(stagesDiv);
         } else if (message.type === 'branchCreation') {
           const messageDiv = createBranchCreation(message, scenario.agents[message.agent]);
           messageDiv.style.display = 'none';
+          previousAgent = null; // Reset after system messages
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'dashboardLink') {
           const messageDiv = createDashboardLink(message, scenario.agents[message.agent]);
           messageDiv.style.display = 'none';
+          previousAgent = null; // Reset after system messages
           chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'progressIndicator') {
           const messageDiv = createProgressIndicator(message, scenario.agents[message.agent]);
           messageDiv.style.display = 'none';
+          previousAgent = null; // Reset after system messages
           chatContentArea.appendChild(messageDiv);
         }
       });
@@ -1673,9 +1845,30 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
       return div;
     }
     
-    // Generate content from scenario data
-    generateTerminalContent(scenarioData);
-    generateChatContent(scenarioData);
+    // Function to clear and regenerate content for a new scenario
+    function loadScenario(scenarioId) {
+      // Clear existing content
+      document.querySelector('.terminal-lines').innerHTML = `
+        <div class="terminal-line initial-prompt">
+          <span class="terminal-prompt">$</span>
+          <span class="initial-cursor"></span>
+        </div>
+      `;
+      document.querySelector('.chat-interface').innerHTML = '';
+      
+      // Update terminal title
+      const titleElement = document.querySelector('.terminal-title');
+      if (titleElement) {
+        titleElement.textContent = allScenarios[scenarioId].terminalTitle;
+      }
+      
+      // Generate new content
+      generateTerminalContent(allScenarios[scenarioId]);
+      generateChatContent(allScenarios[scenarioId]);
+    }
+    
+    // Load initial scenario
+    loadScenario(scenarioIds[currentScenarioIndex]);
     
     const elements = document.querySelectorAll('[data-delay]');
     const terminalLines = document.querySelector('.terminal-lines');
@@ -1887,8 +2080,12 @@ const scenarioData = JSON.parse(JSON.stringify(scenario).replace(/{projectName}/
             
             function showNextMessage() {
               if (messageIndex >= chatMessages.length) {
-                // All messages shown, wait then restart animation
+                // All messages shown, wait then move to next scenario
                 setTimeout(() => {
+                  // Move to next scenario
+                  currentScenarioIndex = (currentScenarioIndex + 1) % scenarioIds.length;
+                  loadScenario(scenarioIds[currentScenarioIndex]);
+                  // Restart animation with new scenario
                   runAnimation();
                 }, 30000);
                 return;

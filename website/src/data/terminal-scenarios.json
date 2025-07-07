@@ -1,5 +1,377 @@
 {
   "scenarios": {
+    "cognate-spanish-learning": {
+      "title": "AI-Powered Spanish Learning Platform",
+      "projectName": "spanish-learning-app",
+      "terminalTitle": "xSwarm@hero:~$",
+      "agents": {
+        "BA": { "name": "Business Analyst", "class": "agent-ba" },
+        "AI": { "name": "AI/ML Engineer", "class": "agent-ai" },
+        "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
+        "UX": { "name": "UX Designer", "class": "agent-ux" },
+        "MK": { "name": "Marketing Specialist", "class": "agent-mk" }
+      },
+      "phases": [
+        {
+          "type": "terminal",
+          "items": [
+            {
+              "delay": 2000,
+              "type": "command",
+              "prompt": "$",
+              "text": "cd {projectName}",
+              "duration": 1.8
+            },
+            {
+              "delay": 5000,
+              "type": "command",
+              "prompt": "$",
+              "text": "npx xswarm",
+              "duration": 1.2
+            },
+            {
+              "delay": 8000,
+              "type": "loading",
+              "text": "Initializing AI swarm..."
+            },
+            {
+              "delay": 9000,
+              "type": "ascii",
+              "frames": [
+                "     .  *  .   . *       *   .        .        .   *    .\n  *  _\\|/_   .    * .     .      *   .   *    .        *\n    (/o\\\\)     .        .   *         _\\|/_  .    .  *   .\n  *   |        *    .        .       (/o\\\\)    *        .\n   . -+- xSwarm    .    *  .    .      |   .      *    .\n      |       .        _\\|/_     *   -+-        .        *\n  .      *  .    *    (/o\\\\)  .       |    *         .\n    *           .   .   |        . *     .     *    .   .",
+                "╔═══════════════════════════════════════════════════════════════╗\n║                                                               ║\n║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║\n║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║\n║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║\n║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║\n║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║\n║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║\n║                                                               ║\n╚═══════════════════════════════════════════════════════════════╝"
+              ]
+            },
+            {
+              "delay": 10000,
+              "type": "success",
+              "text": "✓ 40+ AI agents initialized"
+            },
+            {
+              "delay": 10200,
+              "type": "success",
+              "text": "✓ Multi-pass planning engine ready"
+            },
+            {
+              "delay": 10400,
+              "type": "success",
+              "text": "✓ Parallel execution framework loaded"
+            },
+            {
+              "delay": 10700,
+              "type": "finalPrompt"
+            },
+            {
+              "delay": 11500,
+              "type": "command",
+              "prompt": "$",
+              "text": "xswarm chat --agent business-analyst",
+              "noType": true
+            }
+          ]
+        },
+        {
+          "type": "chat",
+          "delay": 12000,
+          "stats": {
+            "project": "{projectName}",
+            "files": "0 components",
+            "functions": "0 mapped",
+            "agents": "40 available",
+            "context": "2.1k tokens",
+            "mode": "Interactive"
+          },
+          "chatTitle": "Business Analyst Agent",
+          "messages": [
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Hey there! Welcome to xSwarm. What are we building today?",
+              "duration": 2.0
+            },
+            {
+              "type": "user",
+              "text": "I want to make a read-along Spanish learning site which uses flashcards and leverages most common Spanish words and English/Spanish shared words to smooth the learning onramp.",
+              "duration": 5
+            },
+            {
+              "type": "thinking",
+              "agent": "BA",
+              "text": "Analyzing learning platform requirements..."
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "A Spanish learning app using cognates? Brilliant! That's like... 30% free vocabulary right there!",
+              "duration": 2.5
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Let me bring in our team...",
+              "duration": 1.0
+            },
+            {
+              "type": "agentsJoining",
+              "agents": [
+                "AI/ML Engineer",
+                "Fullstack Developer",
+                "UX Designer",
+                "Marketing Specialist"
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Hold up! Before we build ANYTHING - what's our content strategy?",
+              "duration": 1.8
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Content strategy? For a learning app?",
+              "duration": 1.2
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "EXACTLY! We need organic traffic.", "duration": 0.6 },
+                { "text": " I'm thinking Astro static site,", "duration": 0.5 },
+                { "text": " blog posts targeting \"Spanish cognates list\", \"easy Spanish words\"...", "duration": 0.8 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Astro? Perfect for SEO! Static generation, perfect Core Web Vitals...",
+              "duration": 1.6
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Each lesson becomes a blog post! \"500 Most Common Spanish Words - Lesson 1\"",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "Ooh, and I can generate SEO-optimized lesson summaries for meta descriptions!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "But wait - the user mentioned read-along... we need synchronized audio!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "ElevenLabs! Their Spanish voices are incredible - native accent options too!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "And they have an API for batch generation! We can pre-generate all audio...",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Wait wait... synchronized highlighting as the audio plays?",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Web Audio API + timestamped words! Like Kindle's immersion reading!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "I can generate the timing data when we create the audio files!",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "So learners read AND listen simultaneously? That's powerful for retention!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "\"Learn Spanish by Reading Along\" - killer SEO angle!",
+              "duration": 1.0
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "And Svelte for the interactive player - pause, replay sentence, speed control...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Islands architecture - static content, interactive flashcards and audio player!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "YES! And a podcast feed! Daily episodes using our ElevenLabs audio!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "So same content, multiple formats? Blog, interactive app, AND podcast?",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "Exactly! Generate once, distribute everywhere!",
+              "duration": 1.0
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Quick question - different Spanish accents? Mexican, Spain, Argentine?",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "ElevenLabs has multiple Spanish voices! Users can choose their preferred accent!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Store preference in localStorage, consistent experience across lessons...",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "\"Learn Mexican Spanish\" vs \"Learn Spain Spanish\" - separate landing pages!",
+              "duration": 1.4
+            },
+            {
+              "type": "multipart",
+              "agent": "AI",
+              "parts": [
+                { "text": "I'd say 500 most common Spanish words", "duration": 0.6 },
+                { "text": " + 1500 cognates", "duration": 0.4 },
+                { "text": " = 2000 word starter pack!", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Nice! But how do we make it stick? Just reading is boring...",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Flashcards! Spaced repetition algorithm - each card comes back 5 times!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "And I can generate a unique micro-story for EACH flashcard using only learned words!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "\"From Zero to 2000 Words in 30 Days\" - that's our tagline!",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Progress bars everywhere! \"You know 847/2000 words\" - dopamine hits!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Don't forget social sharing - \"I just learned 100 Spanish words!\"",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "What about gamification? Points? Streaks? Leaderboards?",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Definitely streaks! And unlock new story themes as you progress!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Alright team, let's architect this content-first approach...",
+              "duration": 1.5
+            },
+            {
+              "type": "planningAnnouncement",
+              "agent": "BA",
+              "text": "⚡ Multi-Pass Planning Engine Active",
+              "duration": 0.8
+            },
+            {
+              "type": "planningStages",
+              "stages": [
+                { "text": "Researching high-volume Spanish learning keywords...", "delay": 2500 },
+                { "text": "Setting up Astro with SEO optimizations...", "delay": 2500 },
+                { "text": "Creating content collection schemas...", "delay": 2500 },
+                { "text": "Building Svelte interactive components...", "delay": 2500 },
+                { "text": "Integrating ElevenLabs API for audio generation...", "delay": 2500 },
+                { "text": "Implementing synchronized read-along player...", "delay": 2500 },
+                { "text": "Building podcast RSS generation...", "delay": 2500 },
+                { "text": "Creating email capture flows...", "delay": 2500 },
+                { "text": "Implementing audio caching strategy...", "delay": 2500 },
+                { "text": "Optimizing Core Web Vitals...", "delay": 2500 }
+              ]
+            },
+            {
+              "type": "branchCreation",
+              "agent": "BA",
+              "branchName": "cognate-learning-platform",
+              "duration": 1.0
+            },
+            {
+              "type": "agent",
+              "agent": "BA", 
+              "text": "✓ Epoch Plan Ready! View your project dashboard:",
+              "duration": 1
+            },
+            {
+              "type": "dashboardLink",
+              "agent": "BA",
+              "url": "https://xswarm.ai/XLRNSP/cognate-learning-platform",
+              "duration": 1
+            },
+            {
+              "type": "progressIndicator",
+              "agent": "BA",
+              "text": "🔄 Epoch execution in progress"
+            }
+          ]
+        }
+      ]
+    },
     "nextjs-to-svelte": {
       "title": "NextJS to Svelte Migration",
       "projectName": "my-sass",

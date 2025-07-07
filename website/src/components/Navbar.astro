@@ -13,7 +13,7 @@ const navItems = [
       <a href="/" class="flex items-center space-x-3">
         <img src="/xswarm.svg" alt="xSwarm" class="h-12 w-12" />
         <span class="text-3xl font-bold terminal-text glitch-text flex items-center logo-terminal-font" data-text="xSwarm.ai">
-          <span class="logo-prompt">$ </span>
+          <span class="logo-prompt">&gt; </span>
           <span class="logo-text">xSwarm.ai</span>
           <span class="terminal-cursor">_</span>
         </span>
@@ -87,11 +87,11 @@ const navItems = [
 
 <style>
   /* Import fonts directly in component to ensure availability */
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
   
   /* Define component-scoped font variables */
   :root {
-    --navbar-font: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    --navbar-font: 'VT323', 'Courier New', 'Courier', monospace;
   }
   
   /* CRITICAL: Override any and all font settings with maximum specificity */
@@ -156,9 +156,9 @@ const navItems = [
   .terminal-cursor {
     display: inline-block;
     margin-left: 2px;
-    font-weight: normal;
+    font-weight: 400;
     animation: cursor-blink 1s ease-in-out infinite;
-    filter: drop-shadow(0 0 3px #00ff00);
+    filter: drop-shadow(0 0 2px rgba(0, 255, 0, 0.3));
   }
   
   @keyframes cursor-blink {
@@ -195,9 +195,15 @@ const navItems = [
   /* Logo prompt styling */
   .logo-prompt {
     margin-right: 0.5rem;
-    font-weight: bold;
+    font-weight: 600;
     font-family: var(--navbar-font) !important;
-    filter: drop-shadow(0 0 3px #00ff00) drop-shadow(0 0 6px #00ff00);
+    filter: drop-shadow(0 0 3px #00ff00);
+    animation: prompt-flash 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes prompt-flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
   
   /* Terminal font for logo - IMPORTANT: Force this everywhere */
@@ -210,9 +216,14 @@ const navItems = [
   nav.terminal-window .logo-terminal-font,
   nav.terminal-window .logo-prompt,
   nav.terminal-window .logo-text,
-  nav.terminal-window .terminal-cursor,
+  nav.terminal-window .terminal-cursor {
+    font-family: var(--navbar-font) !important;
+    font-size: 32px;
+  }
+  
   nav.terminal-window .terminal-text {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+    font-family: var(--navbar-font) !important;
+    font-size: 22px;
   }
   
   /* Apple II style scanline text effect */
@@ -236,7 +247,8 @@ const navItems = [
   .logo-text {
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 3px #00ff00) drop-shadow(0 0 6px #00ff00);
+    filter: drop-shadow(0 0 2px rgba(0, 255, 0, 0.5));
+    font-weight: 400;
   }
   
   .logo-prompt,
@@ -252,7 +264,7 @@ const navItems = [
   
   nav .glitch-text::before,
   nav .glitch-text::after {
-    content: "$ xSwarm.ai"; /* Include the full text with prompt */
+    content: "> xSwarm.ai"; /* Include the full text with prompt */
     left: 0; /* No offset - directly behind */
     font-family: var(--navbar-font) !important;
   }
@@ -264,13 +276,21 @@ const navItems = [
   nav.terminal-window a,
   nav.terminal-window span,
   nav.terminal-window div,
-  nav.terminal-window button,
+  nav.terminal-window button {
+    font-family: var(--navbar-font) !important;
+  }
+  
   nav.terminal-window .logo-terminal-font,
   nav.terminal-window .logo-prompt,
   nav.terminal-window .logo-text,
-  nav.terminal-window .terminal-cursor,
+  nav.terminal-window .terminal-cursor {
+    font-family: var(--navbar-font) !important;
+    font-size: 32px !important;
+  }
+  
   nav.terminal-window .terminal-text {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+    font-family: var(--navbar-font) !important;
+    font-size: 22px !important;
   }
 </style>
 

@@ -3,7 +3,7 @@
 
 :root {
   /* Fonts */
-  --terminal-font: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --terminal-font: 'VT323', 'Courier New', 'Courier', monospace;
 }
 
 /* Terminal Window Component Styles */
