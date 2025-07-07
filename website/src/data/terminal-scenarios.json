@@ -411,6 +411,77 @@
               "duration": 1.3
             },
             {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "Wait - here's the genius play!", "duration": 0.5 },
+                { "text": " We scrape EVERY quote collection online...", "duration": 0.8 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Go on...",
+              "duration": 0.4
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "Auto-generate collections from blog posts,", "duration": 0.7 },
+                { "text": " then email the bloggers:", "duration": 0.5 },
+                { "text": " 'We made your quotes into a practice app!'", "duration": 0.8 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "With a custom QR code and embed widget for their site!",
+              "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "Every philosophy prof gets Plato collections,", "duration": 0.8 },
+                { "text": " every Bible study gets verse sets,", "duration": 0.7 },
+                { "text": " every motivation blog gets their quotes!", "duration": 0.8 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Each quote becomes its own SEO-optimized page?",
+              "duration": 1.2
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "Exactly! Astro static pages,", "duration": 0.6 },
+                { "text": " Svelte islands for interactivity,", "duration": 0.6 },
+                { "text": " tabs hide details on mobile but Google sees all!", "duration": 0.9 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "Auto-generate context and analysis for each quote...",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Collection pages with beautiful card layouts, instant PWA install prompts!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Static generation means near-zero hosting costs too!",
+              "duration": 1.3
+            },
+            {
               "type": "agent",
               "agent": "BA",
               "text": "So we're bridging physical and digital?",
@@ -421,6 +492,14 @@
               "agent": "PM",
               "text": "Every surface becomes an acquisition channel!",
               "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "And automated outreach means", "duration": 0.6 },
+                { "text": " we're promoting while we sleep!", "duration": 0.7 }
+              ]
             },
             {
               "type": "agent",
@@ -441,10 +520,12 @@
                 { "text": "Designing offline-first architecture...", "delay": 2500 },
                 { "text": "Researching memorization science and spaced repetition...", "delay": 2500 },
                 { "text": "Analyzing competitor landscape (Anki, Quizlet, Bible Memory App)...", "delay": 2500 },
-                { "text": "Extracting shared functions plan...", "delay": 2500 },
-                { "text": "Mapping to existing functions...", "delay": 2500 },
+                { "text": "Designing SEO-optimized Astro/Svelte architecture...", "delay": 2500 },
+                { "text": "Building automated content scraping pipeline...", "delay": 2500 },
+                { "text": "Creating outreach automation framework...", "delay": 2500 },
                 { "text": "Designing viral physical-digital loops...", "delay": 2500 },
-                { "text": "Building content acquisition strategy...", "delay": 2500 },
+                { "text": "Mapping collection generation to target audiences...", "delay": 2500 },
+                { "text": "Building widget embed system for bloggers...", "delay": 2500 },
                 { "text": "Creating monetization framework...", "delay": 2500 },
                 { "text": "Organizing 512 tasks into parallel sprints...", "delay": 2500 },
                 { "text": "Setting up task assignments...", "delay": 2500 },
