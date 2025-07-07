@@ -1,0 +1,255 @@
+/* Blog Visual Elements - AI Function Graveyard */
+/* Function Graveyard Grid */
+.grid {
+  display: grid;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.gap-4 {
+  gap: 1rem;
+}
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.bg-gray-900 {
+  background-color: rgba(17, 24, 39, 0.9);
+}
+.bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.bg-gray-800\/50 {
+  background-color: rgba(31, 41, 55, 0.5);
+}
+.bg-cyan-900\/30 {
+  background-color: rgba(22, 78, 99, 0.3);
+}
+.bg-red-900\/20 {
+  background-color: rgba(127, 29, 29, 0.2);
+}
+.bg-red-900\/10 {
+  background-color: rgba(127, 29, 29, 0.1);
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+.border-purple-500\/30 {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+.border-red-500\/50 {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+.border-purple-500\/50 {
+  border-color: rgba(139, 92, 246, 0.5);
+}
+.border-cyan-500\/30 {
+  border-color: rgba(14, 165, 233, 0.3);
+}
+.border-red-500 {
+  border-color: rgba(239, 68, 68, 1);
+}
+.border-l-4 {
+  border-left-width: 4px;
+}
+.border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+.border-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+.text-center {
+  text-align: center;
+}
+.transform {
+  transform: translateZ(0);
+}
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.text-red-400 {
+  color: rgba(248, 113, 113, 1);
+}
+.text-red-300 {
+  color: rgba(252, 165, 165, 1);
+}
+.text-gray-500 {
+  color: rgba(107, 114, 128, 1);
+}
+.text-gray-400 {
+  color: rgba(156, 163, 175, 1);
+}
+.text-purple-400 {
+  color: rgba(196, 181, 253, 1);
+}
+.text-purple-300 {
+  color: rgba(221, 214, 254, 1);
+}
+.text-cyan-400 {
+  color: rgba(34, 211, 238, 1);
+}
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-normal {
+  font-weight: 400;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.items-center {
+  align-items: center;
+}
+.block {
+  display: block;
+}
+.italic {
+  font-style: italic;
+}
+.relative {
+  position: relative;
+}
+/* Function comparison grid */
+.md\:grid-cols-3 {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Code blocks inside grid items */
+.grid pre {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.grid pre code {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+/* Blockquote styling for this page */
+blockquote {
+  position: relative;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+blockquote p {
+  margin-bottom: 0.5rem;
+}
+blockquote cite {
+  display: block;
+}
+blockquote strong {
+  font-weight: 700;
+}
+/* Remove default quote marks */
+blockquote::before,
+blockquote::after {
+  content: none;
+}
+/* Custom quote decoration */
+blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 3rem;
+  color: rgba(239, 68, 68, 0.3);
+  font-family: Georgia, serif;
+}
+/* Metric displays */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.metric-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(139, 92, 246, 0.9);
+  margin-bottom: 0.5rem;
+}
+.metric-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

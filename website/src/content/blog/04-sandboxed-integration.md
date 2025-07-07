@@ -53,37 +53,49 @@ This is where xSwarm's containerized task teams become your salvation. Think of 
 
 <div class="architecture-diagram">
   <h3>🏗️ xSwarm Sandbox Architecture</h3>
-  <pre class="diagram">
-┌─────────────────────────────────────────────────────────────┐
-│                     Production Environment                   │
-│  ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│  │   Real DB   │  │ Real Services │  │ Real File System│   │
-│  └─────────────┘  └──────────────┘  └─────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-                              ▲
-                              │ Graduated Access
-                              │
-┌─────────────────────────────────────────────────────────────┐
-│                    xSwarm Orchestrator                       │
-│  ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│  │ Integration │  │   Security   │  │   Performance   │   │
-│  │   Tests     │  │   Scanner    │  │    Profiler     │   │
-│  └─────────────┘  └──────────────┘  └─────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-                              ▲
-                              │ Validated Code Only
-                              │
-┌─────────────────────────────────────────────────────────────┐
-│                  AI Agent Sandbox (Podman)                   │
-│  ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│  │  Mock DB    │  │Mock Services │  │ Simulated FS    │   │
-│  │ (Isolated)  │  │ (Controlled) │  │ (Read-Only)     │   │
-│  └─────────────┘  └──────────────┘  └─────────────────┘   │
-│                                                             │
-│                    🤖 AI Agent Lives Here                   │
-└─────────────────────────────────────────────────────────────┘
-  </pre>
 </div>
+
+```mermaid
+graph TB
+    subgraph "Production Environment"
+        DB[Real DB]
+        Services[Real Services]
+        FS[Real File System]
+    end
+    
+    subgraph "xSwarm Orchestrator"
+        IntTests[Integration Tests]
+        Security[Security Scanner]
+        Perf[Performance Profiler]
+    end
+    
+    subgraph "AI Agent Sandbox (Podman)"
+        MockDB[Mock DB<br/>Isolated]
+        MockServices[Mock Services<br/>Controlled]
+        SimFS[Simulated FS<br/>Read-Only]
+        Agent[🤖 AI Agent Lives Here]
+    end
+    
+    Agent --> MockDB
+    Agent --> MockServices
+    Agent --> SimFS
+    
+    MockDB -.->|Validated Code Only| IntTests
+    MockServices -.->|Validated Code Only| Security
+    SimFS -.->|Validated Code Only| Perf
+    
+    IntTests -.->|Graduated Access| DB
+    Security -.->|Graduated Access| Services
+    Perf -.->|Graduated Access| FS
+    
+    style Agent fill:#ff6b6b,stroke:#fff,stroke-width:2px,color:#fff
+    style MockDB fill:#4ecdc4,stroke:#fff,stroke-width:2px,color:#fff
+    style MockServices fill:#4ecdc4,stroke:#fff,stroke-width:2px,color:#fff
+    style SimFS fill:#4ecdc4,stroke:#fff,stroke-width:2px,color:#fff
+    style DB fill:#95e1d3,stroke:#fff,stroke-width:2px
+    style Services fill:#95e1d3,stroke:#fff,stroke-width:2px
+    style FS fill:#95e1d3,stroke:#fff,stroke-width:2px
+```
 
 <div class="code-example">
   <h4>Configuration Example</h4>
