@@ -10,9 +10,9 @@ const { projectName = 'my-sass' } = Astro.props;
 
 // Get all scenario IDs
 const scenarioIds = Object.keys(terminalScenarios.scenarios);
-// Start with the banking coffeescript chaos scenario for testing
-const defaultScenarioId = 'banking-coffeescript-chaos';
-const currentScenarioId = scenarioIds.includes(defaultScenarioId) ? defaultScenarioId : scenarioIds[0];
+// Randomly select a scenario to start with
+const randomIndex = Math.floor(Math.random() * scenarioIds.length);
+const currentScenarioId = scenarioIds[randomIndex];
 
 // Prepare all scenarios for rotation
 const allScenarios = {};
