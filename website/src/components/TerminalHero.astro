@@ -1438,6 +1438,12 @@ scenarioIds.forEach(id => {
     margin-right: 0.5rem;
   }
   
+  .terminal-content .agent-role {
+    color: var(--terminal-cyan);
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  
   /* Terminal prompt styling for dynamic content */
   .terminal-content .terminal-prompt {
     color: var(--terminal-cyan);
@@ -1852,7 +1858,7 @@ scenarioIds.forEach(id => {
         const notification = document.createElement('div');
         notification.className = 'agent-join-notification';
         notification.style.display = 'none';
-        notification.innerHTML = `<span class="join-indicator">→</span> ${agentName} has joined the conversation`;
+        notification.innerHTML = `<span class="join-indicator">→</span> <span class="agent-role">${agentName}</span> has joined the conversation`;
         div.appendChild(notification);
       });
       return div;
@@ -2422,7 +2428,7 @@ scenarioIds.forEach(id => {
                     joinNotifications[joinIndex].style.display = 'block';
                     joinNotifications[joinIndex].style.opacity = '1';
                     joinIndex++;
-                    setTimeout(showNextJoin, 200);
+                    setTimeout(showNextJoin, 600); // Increased delay for readability
                   } else {
                     // All agents joined, continue to next message
                     messageIndex++;
