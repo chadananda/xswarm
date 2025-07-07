@@ -1,0 +1,61 @@
+---
+// This component handles the animated logo typewriter effect
+---
+
+<span class="logo-prompt">&gt; </span>
+<span class="logo-text" id="logo-text">xSwarm.ai</span>
+<span class="terminal-cursor" id="logo-cursor">_</span>
+
+<script>
+  // Logo typewriter animation
+  const logoText = document.getElementById('logo-text');
+  const glitchText = document.querySelector('.glitch-text');
+  
+  if (logoText) {
+    const texts = ['xSwarm.ai', 'npx xswarm'];
+    let currentTextIndex = 0;
+    let currentText = texts[currentTextIndex];
+    let isDeleting = false;
+    let charIndex = currentText.length;
+    
+    function typeWriter() {
+      if (isDeleting) {
+        // Delete character
+        charIndex--;
+        logoText.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === 0) {
+          // Switch to next text
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+          currentText = texts[currentTextIndex];
+          // Update the glitch effect data attribute
+          if (glitchText) {
+            glitchText.setAttribute('data-text', currentText);
+          }
+          setTimeout(typeWriter, 500); // Pause before typing
+        } else {
+          setTimeout(typeWriter, 50); // Delete speed
+        }
+      } else {
+        // Type character
+        charIndex++;
+        logoText.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === currentText.length) {
+          // Finished typing, wait then start deleting
+          isDeleting = true;
+          setTimeout(typeWriter, 3000); // Wait 3 seconds before deleting
+        } else {
+          setTimeout(typeWriter, 100); // Type speed
+        }
+      }
+    }
+    
+    // Wait 2 seconds before starting animation
+    setTimeout(() => {
+      isDeleting = true;
+      typeWriter();
+    }, 2000);
+  }
+</script>

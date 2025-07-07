@@ -1,4 +1,6 @@
 ---
+import LogoTypewriter from './LogoTypewriter.astro';
+
 const navItems = [
   { name: 'AI Musings', href: '/blog' },
   { name: 'xSwarm Plans', href: '/roadmap' },
@@ -13,9 +15,7 @@ const navItems = [
       <a href="/" class="flex items-center space-x-3">
         <img src="/xswarm.svg" alt="xSwarm" class="h-12 w-12" />
         <span class="text-3xl font-bold terminal-text glitch-text flex items-center logo-terminal-font" data-text="xSwarm.ai">
-          <span class="logo-prompt">&gt; </span>
-          <span class="logo-text" id="logo-text">xSwarm.ai</span>
-          <span class="terminal-cursor" id="logo-cursor">_</span>
+          <LogoTypewriter />
         </span>
       </a>
 
@@ -295,79 +295,14 @@ const navItems = [
   }
 </style>
 
-<script is:inline>
-  (function() {
-    // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
+<script>
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-      if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-
-    // Logo typewriter animation
-    function startTypewriter() {
-      const logoText = document.getElementById('logo-text');
-      const glitchText = document.querySelector('.glitch-text');
-      
-      if (!logoText) return;
-      
-      const texts = ['xSwarm.ai', 'npx xswarm'];
-      let currentTextIndex = 0;
-      let currentText = texts[currentTextIndex];
-      let isDeleting = false;
-      let charIndex = currentText.length;
-      
-      function typeWriter() {
-        if (isDeleting) {
-          // Delete character
-          charIndex--;
-          logoText.textContent = currentText.substring(0, charIndex);
-          
-          if (charIndex === 0) {
-            // Switch to next text
-            isDeleting = false;
-            currentTextIndex = (currentTextIndex + 1) % texts.length;
-            currentText = texts[currentTextIndex];
-            // Update the glitch effect data attribute
-            if (glitchText) {
-              glitchText.setAttribute('data-text', currentText);
-            }
-            setTimeout(typeWriter, 500); // Pause before typing
-          } else {
-            setTimeout(typeWriter, 50); // Delete speed
-          }
-        } else {
-          // Type character
-          charIndex++;
-          logoText.textContent = currentText.substring(0, charIndex);
-          
-          if (charIndex === currentText.length) {
-            // Finished typing, wait then start deleting
-            isDeleting = true;
-            setTimeout(typeWriter, 3000); // Wait 3 seconds before deleting
-          } else {
-            setTimeout(typeWriter, 100); // Type speed
-          }
-        }
-      }
-      
-      // Wait 2 seconds before starting animation
-      setTimeout(() => {
-        isDeleting = true;
-        typeWriter();
-      }, 2000);
-    }
-    
-    // Start typewriter when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startTypewriter);
-    } else {
-      startTypewriter();
-    }
-  })();
+  }
 </script>
