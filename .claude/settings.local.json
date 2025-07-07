@@ -62,7 +62,8 @@
       "Bash(npm uninstall:*)",
       "Bash(sed:*)",
       "WebFetch(domain:xswarm.ai)",
-      "Bash(true)"
+      "Bash(true)",
+      "Bash(git merge:*)"
     ],
     "deny": []
   }
