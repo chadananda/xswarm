@@ -64,7 +64,8 @@
       "WebFetch(domain:xswarm.ai)",
       "Bash(true)",
       "Bash(git merge:*)",
-      "Bash(npm run deploy:*)"
+      "Bash(npm run deploy:*)",
+      "Bash(diff:*)"
     ],
     "deny": []
   }
