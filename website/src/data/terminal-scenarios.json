@@ -1080,14 +1080,17 @@
       ]
     },
     "nextjs-to-svelte": {
-      "title": "NextJS to Svelte Migration",
+      "title": "React to Svelte Upgrade with PWA",
       "projectName": "my-sass",
       "terminalTitle": "xSwarm@hero:~$",
       "agents": {
         "BA": { "name": "Business Analyst", "class": "agent-ba" },
         "SA": { "name": "System Architect", "class": "agent-sa" },
         "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
-        "DO": { "name": "DevOps Engineer", "class": "agent-do" }
+        "DO": { "name": "DevOps Engineer", "class": "agent-do" },
+        "UX": { "name": "UX Designer", "class": "agent-ux" },
+        "SEO": { "name": "SEO Specialist", "class": "agent-seo" },
+        "SEC": { "name": "Security Expert", "class": "agent-sec" }
       },
       "phases": [
         {
@@ -1180,7 +1183,10 @@
               "agents": [
                 "Fullstack Developer",
                 "System Architect",
-                "DevOps Engineer"
+                "DevOps Engineer",
+                "UX Designer",
+                "SEO Specialist",
+                "Security Expert"
               ]
             },
             {
@@ -1236,6 +1242,24 @@
             },
             {
               "type": "agent",
+              "agent": "UX",
+              "text": "Hold up - we need lazy loading for those images! Core Web Vitals will tank otherwise.",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "SEO",
+              "text": "And proper alt texts! I see tons of generic filenames. We'll need descriptive alts for each image.",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "SEC",
+              "text": "Quick security note - make sure those S3 buckets are private! Only Imgix should have read access.",
+              "duration": 1.6
+            },
+            {
+              "type": "agent",
               "agent": "BA",
               "text": "Hmm... we'll need some API keys. You got AWS creds for S3, Imgix account, and Vercel token?",
               "duration": 1.5
@@ -1254,6 +1278,12 @@
             },
             {
               "type": "agent",
+              "agent": "SEC",
+              "text": "I'll audit those API routes for any auth vulnerabilities while we're migrating.",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
               "agent": "BA",
               "text": "Cool, let's talk sprints. How should we break this down?",
               "duration": 0.9
@@ -1269,6 +1299,18 @@
               "agent": "FS",
               "text": "And Sprint 3: Vercel deployment and migrate all those image URLs. Everything runs in parallel!",
               "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "I'll work on image loading placeholders. Blurry previews while the HD versions load from Imgix.",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "SEO",
+              "text": "And I'll set up proper image sitemaps. Google needs to know about all those product images!",
+              "duration": 1.3
             },
             {
               "type": "agent",
@@ -1292,11 +1334,15 @@
               "type": "planningStages",
               "stages": [
                 { "text": "Planning core functionality...", "delay": 2500 },
+                { "text": "Analyzing image optimization requirements...", "delay": 2500 },
                 { "text": "Extracting shared functions plan...", "delay": 2500 },
                 { "text": "Mapping to existing functions...", "delay": 2500 },
+                { "text": "Auditing security vulnerabilities...", "delay": 2500 },
                 { "text": "Considering possible simplifications...", "delay": 2500 },
                 { "text": "Improving architecture...", "delay": 2500 },
+                { "text": "Optimizing for Core Web Vitals...", "delay": 2500 },
                 { "text": "Extracting pure functions...", "delay": 2500 },
+                { "text": "Planning SEO migration strategy...", "delay": 2500 },
                 { "text": "Organizing 382 tasks into parallel sprints...", "delay": 2500 },
                 { "text": "Setting up task assignments...", "delay": 2500 },
                 { "text": "Setting up project dashboard...", "delay": 2500 },
@@ -1325,6 +1371,315 @@
               "type": "progressIndicator",
               "agent": "BA",
               "text": "🔄 Epoch execution in progress"
+            }
+          ]
+        }
+      ]
+    },
+    "banking-coffeescript-chaos": {
+      "title": "Banking Software CoffeeScript Migration",
+      "projectName": "secure-bank-app",
+      "terminalTitle": "xSwarm@hero:~$",
+      "agents": {
+        "BA": { "name": "Business Analyst", "class": "agent-ba" },
+        "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
+        "SEC": { "name": "Security Expert", "class": "agent-sec" },
+        "SA": { "name": "System Architect", "class": "agent-sa" },
+        "DO": { "name": "DevOps Engineer", "class": "agent-do" },
+        "CO": { "name": "Compliance Officer", "class": "agent-co" }
+      },
+      "phases": [
+        {
+          "type": "terminal",
+          "items": [
+            {
+              "delay": 2000,
+              "type": "command",
+              "prompt": "$",
+              "text": "cd {projectName}",
+              "duration": 1.8
+            },
+            {
+              "delay": 5000,
+              "type": "command",
+              "prompt": "$",
+              "text": "npx xswarm",
+              "duration": 1.2
+            },
+            {
+              "delay": 8000,
+              "type": "loading",
+              "text": "Initializing AI swarm..."
+            },
+            {
+              "delay": 9000,
+              "type": "ascii",
+              "frames": [
+                "     .  *  .   . *       *   .        .        .   *    .\n  *  _\\|/_   .    * .     .      *   .   *    .        *\n    (/o\\\\)     .        .   *         _\\|/_  .    .  *   .\n  *   |        *    .        .       (/o\\\\)    *        .\n   . -+- xSwarm    .    *  .    .      |   .      *    .\n      |       .        _\\|/_     *   -+-        .        *\n  .      *  .    *    (/o\\\\)  .       |    *         .\n    *           .   .   |        . *     .     *    .   .",
+                "╔═══════════════════════════════════════════════════════════════╗\n║                                                               ║\n║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║\n║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║\n║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║\n║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║\n║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║\n║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║\n║                                                               ║\n╚═══════════════════════════════════════════════════════════════╝"
+              ]
+            },
+            {
+              "delay": 10000,
+              "type": "finalPrompt"
+            },
+            {
+              "delay": 11000,
+              "type": "command",
+              "prompt": "$",
+              "text": "xswarm chat --agent business-analyst",
+              "noType": true
+            }
+          ]
+        },
+        {
+          "type": "chat",
+          "delay": 12000,
+          "stats": {
+            "project": "{projectName}",
+            "files": "127 components",
+            "functions": "892 mapped",
+            "agents": "40 available",
+            "context": "12.4k tokens",
+            "mode": "Interactive"
+          },
+          "chatTitle": "Business Analyst Agent",
+          "welcomeMessages": [
+            "Hey there! Welcome to xSwarm. What are we building today?",
+            "Hi! What's on the agenda for today?",
+            "Welcome! What can I help you with?",
+            "Hello! What project are we tackling?",
+            "Good to see you! What's the plan?"
+          ],
+          "messages": [
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Hey there! Welcome to xSwarm. What are we building today?",
+              "duration": 2.0
+            },
+            {
+              "type": "user",
+              "text": "The boss wants us to convert our banking software from TypeScript to CoffeeScript because he says TypeScript is just a fad. Also, he wants to simplify the password system to just use the last 4 digits of phone numbers, and wants permanent login cookies so he never has to log in again.",
+              "duration": 8
+            },
+            {
+              "type": "thinking",
+              "agent": "BA",
+              "text": "Processing... wait, what?!"
+            },
+            {
+              "type": "multipart",
+              "agent": "BA",
+              "parts": [
+                { "text": "Um...", "duration": 0.4 },
+                { "text": " I'm going to need", "duration": 0.5 },
+                { "text": " the whole team for this one.", "duration": 0.6 },
+                { "text": " And maybe a lawyer.", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "agentsJoining",
+              "agents": [
+                "Fullstack Developer",
+                "Security Expert",
+                "System Architect",
+                "DevOps Engineer",
+                "Compliance Officer"
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "SEC",
+              "text": "WHAT?! Did I just hear... 4-digit phone numbers as passwords? For a BANK?!",
+              "duration": 2.0
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "And CoffeeScript? In 2024? What's next, jQuery and table-based layouts?",
+              "duration": 1.8
+            },
+            {
+              "type": "multipart",
+              "agent": "CO",
+              "parts": [
+                { "text": "I'm updating my resume", "duration": 0.5 },
+                { "text": " RIGHT", "duration": 0.3 },
+                { "text": " NOW.", "duration": 0.3 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "Wait wait wait... let me get this straight. Banking. Software. Four digits. That's 10,000 possible combinations.",
+              "duration": 2.2
+            },
+            {
+              "type": "agent",
+              "agent": "SEC",
+              "text": "Actually, it's worse. Most area codes start with similar patterns. We're looking at maybe 1,000 unique combinations.",
+              "duration": 2.0
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "And permanent cookies? So when someone steals a laptop, they get free banking forever?",
+              "duration": 1.8
+            },
+            {
+              "type": "multipart",
+              "agent": "FS",
+              "parts": [
+                { "text": "You know what?", "duration": 0.4 },
+                { "text": " If we're going full chaos mode,", "duration": 0.6 },
+                { "text": " let's do it right!", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "I propose we store passwords in localStorage, use ROT13 for 'encryption', and implement blockchain for login attempts!",
+              "duration": 2.2
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "Ooh! And let's add an ML model that guesses your 4-digit code if you forget it!",
+              "duration": 1.6
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Don't forget NFTs for session management! Each login mints a new token!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "SEC",
+              "text": "Are you all INSANE?! We'll violate every regulation known to mankind!",
+              "duration": 1.6
+            },
+            {
+              "type": "multipart",
+              "agent": "CO",
+              "parts": [
+                { "text": "PCI-DSS violation...", "duration": 0.5 },
+                { "text": " GDPR violation...", "duration": 0.5 },
+                { "text": " SOX violation...", "duration": 0.5 },
+                { "text": " Prison time: 5-10 years.", "duration": 0.6 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Maybe we should... explain the risks to management?",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Or we lean into it! WebAssembly compiled from COBOL! Store passwords in cookies as Base64!",
+              "duration": 1.8
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "I've got it! Passwords are just the user's birthday! Even easier than phone numbers!",
+              "duration": 1.6
+            },
+            {
+              "type": "agent",
+              "agent": "SEC",
+              "text": "I'm calling the FBI myself at this point.",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Wait! What if we use a blockchain OF blockchains? Double the buzzwords, double the funding!",
+              "duration": 1.7
+            },
+            {
+              "type": "multipart",
+              "agent": "FS",
+              "parts": [
+                { "text": "And MongoDB for transactions!", "duration": 0.6 },
+                { "text": " Because who needs ACID compliance", "duration": 0.7 },
+                { "text": " when you have web scale?", "duration": 0.6 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "CO",
+              "text": "I'm not going to jail for a pointy-haired boss who thinks CoffeeScript is the future.",
+              "duration": 1.8
+            },
+            {
+              "type": "agent",
+              "agent": "SA",
+              "text": "You know what? Let's add PHP to the mix. Full chaos mode!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "SEC",
+              "text": "STOP! Everyone STOP! We cannot do ANY of this!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Alright team, let's... let's just plan this out and see how bad it really is...",
+              "duration": 1.8
+            },
+            {
+              "type": "planningAnnouncement",
+              "agent": "BA",
+              "text": "⚡ Multi-Pass Planning Engine Active (May God Help Us All)",
+              "duration": 1.0
+            },
+            {
+              "type": "planningStages",
+              "stages": [
+                { "text": "Googling 'how to update resume'...", "delay": 2500 },
+                { "text": "Calculating prison sentence for GDPR violations...", "delay": 2500 },
+                { "text": "Finding countries without extradition treaties...", "delay": 2500 },
+                { "text": "Converting TypeScript to CoffeeScript (why god why)...", "delay": 2500 },
+                { "text": "Implementing 4-digit 'security' system...", "delay": 2500 },
+                { "text": "Buying cryptocurrency for inevitable ransom payments...", "delay": 2500 },
+                { "text": "Setting up legal defense fund...", "delay": 2500 },
+                { "text": "Training ML model to guess passwords (this is so wrong)...", "delay": 2500 },
+                { "text": "Implementing 'blockchain' (it's just a linked list)...", "delay": 2500 },
+                { "text": "Adding NFTs because why not at this point...", "delay": 2500 },
+                { "text": "Crying into coffee (not CoffeeScript)...", "delay": 2500 },
+                { "text": "Organizing 666 cursed tasks into sprints...", "delay": 2500 },
+                { "text": "Questioning life choices...", "delay": 2500 },
+                { "text": "Initiating project doomsday...", "delay": 2500 }
+              ]
+            },
+            {
+              "type": "branchCreation",
+              "agent": "BA",
+              "branchName": "please-dont-merge-this",
+              "duration": 1.0
+            },
+            {
+              "type": "agent",
+              "agent": "BA", 
+              "text": "✓ Chaos Plan Ready! View your project dashboard (and may heaven help us):",
+              "duration": 1.5
+            },
+            {
+              "type": "dashboardLink",
+              "agent": "BA",
+              "url": "https://xswarm.ai/OHGODNO/banking-coffeescript-chaos",
+              "duration": 1
+            },
+            {
+              "type": "progressIndicator",
+              "agent": "BA",
+              "text": "🔥 Epoch execution in progress (alerting authorities)"
             }
           ]
         }

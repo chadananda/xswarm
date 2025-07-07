@@ -10,8 +10,8 @@ const { projectName = 'my-sass' } = Astro.props;
 
 // Get all scenario IDs
 const scenarioIds = Object.keys(terminalScenarios.scenarios);
-// Start with the quote memorization scenario
-const defaultScenarioId = 'quote-memorization-pwa';
+// Start with the banking coffeescript chaos scenario for testing
+const defaultScenarioId = 'banking-coffeescript-chaos';
 const currentScenarioId = scenarioIds.includes(defaultScenarioId) ? defaultScenarioId : scenarioIds[0];
 
 // Prepare all scenarios for rotation
@@ -927,6 +927,14 @@ scenarioIds.forEach(id => {
     color: rgb(150, 150, 255); /* Light purple/blue */
   }
   
+  .agent-sec {
+    color: rgb(255, 64, 64); /* Bright red - for security */
+  }
+  
+  .agent-co {
+    color: rgb(192, 192, 255); /* Light lavender - for compliance */
+  }
+  
   .chat-user-indicator {
     color: rgb(255, 255, 255); /* White for user */
     font-weight: 600;
@@ -982,6 +990,16 @@ scenarioIds.forEach(id => {
   
   .agent-mk ~ .chat-text {
     color: rgb(150, 150, 255) !important; /* Light purple/blue */
+    opacity: 0.9;
+  }
+  
+  .agent-sec ~ .chat-text {
+    color: rgb(255, 64, 64) !important; /* Bright red */
+    opacity: 0.9;
+  }
+  
+  .agent-co ~ .chat-text {
+    color: rgb(192, 192, 255) !important; /* Light lavender */
     opacity: 0.9;
   }
   
@@ -1340,6 +1358,14 @@ scenarioIds.forEach(id => {
     color: rgb(255, 128, 0); /* Bright orange - for SEO */
   }
   
+  .terminal-content .agent-sec {
+    color: rgb(255, 64, 64); /* Bright red - for security */
+  }
+  
+  .terminal-content .agent-co {
+    color: rgb(192, 192, 255); /* Light lavender - for compliance */
+  }
+  
   .terminal-content .chat-user-indicator {
     color: var(--terminal-magenta);
     font-weight: 600;
@@ -1410,6 +1436,16 @@ scenarioIds.forEach(id => {
   
   .terminal-content .agent-seo ~ .chat-text {
     color: rgb(255, 128, 0) !important; /* Bright orange */
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-sec ~ .chat-text {
+    color: rgb(255, 64, 64) !important; /* Bright red */
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-co ~ .chat-text {
+    color: rgb(192, 192, 255) !important; /* Light lavender */
     opacity: 0.9;
   }
   
