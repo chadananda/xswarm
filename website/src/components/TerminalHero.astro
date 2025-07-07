@@ -857,22 +857,19 @@ scenarioIds.forEach(id => {
   .chat-message-line {
     margin-top: 1rem;
     margin-bottom: 0;
-    text-align: left;
-    line-height: 1.2 !important;
-    padding-left: 4rem;
-    text-indent: -4rem;
-    word-wrap: break-word;
-    word-break: break-word;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.1 !important;
   }
   
   /* Force tight line spacing within messages */
   .chat-interface .chat-message-line,
   .terminal-content .chat-message-line {
-    line-height: 1.2 !important;
-    padding-left: 4rem;
-    text-indent: -4rem;
-    word-wrap: break-word;
-    word-break: break-word;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.1 !important;
   }
   
   /* First message doesn't need top margin */
@@ -888,9 +885,7 @@ scenarioIds.forEach(id => {
   .chat-agent-indicator {
     color: var(--terminal-cyan);
     font-weight: 600;
-    margin-right: 0.75rem;
-    display: inline;
-    vertical-align: baseline;
+    flex-shrink: 0;
     white-space: nowrap;
   }
   
@@ -926,17 +921,16 @@ scenarioIds.forEach(id => {
   .chat-user-indicator {
     color: rgb(255, 255, 255); /* White for user */
     font-weight: 600;
-    margin-right: 0.75rem;
-    display: inline;
-    vertical-align: baseline;
+    flex-shrink: 0;
     white-space: nowrap;
   }
   
   .chat-text {
     color: var(--terminal-green);
-    display: inline;
+    flex: 1;
     line-height: 1.1;
     word-wrap: break-word;
+    word-break: break-word;
   }
   
   .user-message .chat-text {
