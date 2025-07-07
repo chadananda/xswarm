@@ -86,6 +86,35 @@ const navItems = [
 </nav>
 
 <style>
+  /* Import fonts directly in component to ensure availability */
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+  
+  /* Define component-scoped font variables */
+  :root {
+    --navbar-font: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  }
+  
+  /* CRITICAL: Override any and all font settings with maximum specificity */
+  nav.terminal-window,
+  nav.terminal-window *,
+  nav.terminal-window a,
+  nav.terminal-window span,
+  nav.terminal-window div,
+  nav.terminal-window button,
+  body nav.terminal-window,
+  body nav.terminal-window *,
+  html body nav.terminal-window,
+  html body nav.terminal-window * {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+    font-style: normal !important;
+  }
+  
+  /* Specific overrides for known problem areas */
+  .blog-article nav.terminal-window,
+  .blog-article nav.terminal-window * {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+  }
+  
   /* Sticky Navbar Enhancements */
   nav.terminal-window {
     /* Ensure solid background for sticky navbar */
@@ -167,23 +196,23 @@ const navItems = [
   .logo-prompt {
     margin-right: 0.5rem;
     font-weight: bold;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    font-family: var(--navbar-font) !important;
     filter: drop-shadow(0 0 3px #00ff00) drop-shadow(0 0 6px #00ff00);
   }
   
   /* Terminal font for logo - IMPORTANT: Force this everywhere */
   .logo-terminal-font {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+    font-family: var(--navbar-font) !important;
     position: relative;
   }
   
-  /* Force navbar to always use consistent fonts */
-  nav {
+  /* Additional specificity for logo and navigation text */
+  nav.terminal-window .logo-terminal-font,
+  nav.terminal-window .logo-prompt,
+  nav.terminal-window .logo-text,
+  nav.terminal-window .terminal-cursor,
+  nav.terminal-window .terminal-text {
     font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
-  }
-  
-  nav * {
-    font-family: inherit !important;
   }
   
   /* Apple II style scanline text effect */
@@ -225,7 +254,25 @@ const navItems = [
   nav .glitch-text::after {
     content: "$ xSwarm.ai"; /* Include the full text with prompt */
     left: 0; /* No offset - directly behind */
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    font-family: var(--navbar-font) !important;
+  }
+</style>
+
+<style is:global>
+  /* Global override to ensure navbar fonts are never changed by other styles */
+  nav.terminal-window,
+  nav.terminal-window * {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+  }
+  
+  /* Override blog-specific font changes */
+  .blog-article nav.terminal-window,
+  .blog-article nav.terminal-window *,
+  article nav.terminal-window,
+  article nav.terminal-window *,
+  main nav.terminal-window,
+  main nav.terminal-window * {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
   }
 </style>
 
