@@ -1,7 +1,7 @@
 ---
 const navItems = [
-  { name: 'AI Musings', href: '/blog' },
-  { name: 'xSwarm Plans', href: '/roadmap' },
+  { name: 'AI&nbsp;Musings', href: '/blog' },
+  { name: 'xSwarm&nbsp;Plans', href: '/roadmap' },
   { name: 'Docs', href: '/docs' },
 ];
 ---
@@ -13,7 +13,7 @@ const navItems = [
       <a href="/" class="flex items-center space-x-3">
         <img src="/xswarm.svg" alt="xSwarm" class="h-12 w-12" />
         <span class="text-3xl font-bold terminal-text glitch-text flex items-center logo-terminal-font" data-text="xSwarm.ai">
-          <span class="logo-prompt">&gt; </span>
+          <span class="logo-prompt">&gt;&nbsp;</span>
           <span class="logo-text" id="logo-text">xSwarm.ai</span>
           <span class="terminal-cursor" id="logo-cursor">_</span>
         </span>
@@ -28,7 +28,7 @@ const navItems = [
             target={item.href.startsWith('http') ? '_blank' : undefined}
             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           >
-            {item.name}
+            <span set:html={item.name} />
           </a>
         ))}
         
@@ -69,7 +69,7 @@ const navItems = [
             target={item.href.startsWith('http') ? '_blank' : undefined}
             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           >
-            {item.name}
+            <span set:html={item.name} />
           </a>
         ))}
         <a
