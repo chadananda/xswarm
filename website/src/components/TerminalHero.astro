@@ -1328,6 +1328,10 @@ scenarioIds.forEach(id => {
     color: rgb(150, 150, 255); /* Light purple/blue */
   }
   
+  .terminal-content .agent-dr {
+    color: rgb(255, 215, 0); /* Gold - for deep research */
+  }
+  
   .terminal-content .chat-user-indicator {
     color: var(--terminal-magenta);
     font-weight: 600;
@@ -1383,6 +1387,11 @@ scenarioIds.forEach(id => {
   
   .terminal-content .agent-mk ~ .chat-text {
     color: rgb(150, 150, 255) !important; /* Light purple/blue */
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-dr ~ .chat-text {
+    color: rgb(255, 215, 0) !important; /* Gold */
     opacity: 0.9;
   }
   

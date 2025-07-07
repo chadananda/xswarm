@@ -9,7 +9,8 @@
         "AI": { "name": "AI/ML Engineer", "class": "agent-ai" },
         "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
         "UX": { "name": "UX Designer", "class": "agent-ux" },
-        "MK": { "name": "Marketing Specialist", "class": "agent-mk" }
+        "MK": { "name": "Marketing Specialist", "class": "agent-mk" },
+        "DR": { "name": "Deep Researcher", "class": "agent-dr" }
       },
       "phases": [
         {
@@ -117,7 +118,8 @@
                 "AI/ML Engineer",
                 "Fullstack Developer",
                 "UX Designer",
-                "Marketing Specialist"
+                "Marketing Specialist",
+                "Deep Researcher"
               ]
             },
             {
@@ -152,6 +154,12 @@
               "agent": "MK",
               "text": "Each lesson becomes a blog post! \"500 Most Common Spanish Words - Lesson 1\"",
               "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "I'll analyze competitor sites - Duolingo, Babbel, SpanishDict... find content gaps we can fill!",
+              "duration": 1.6
             },
             {
               "type": "agent",
@@ -333,16 +341,18 @@
             {
               "type": "planningStages",
               "stages": [
+                { "text": "Planning core functionality...", "delay": 2500 },
+                { "text": "Researching competitor landscape and content gaps...", "delay": 2500 },
+                { "text": "Extracting shared functions plan...", "delay": 2500 },
+                { "text": "Mapping to existing functions...", "delay": 2500 },
+                { "text": "Considering possible simplifications...", "delay": 2500 },
+                { "text": "Improving architecture...", "delay": 2500 },
+                { "text": "Extracting pure functions...", "delay": 2500 },
                 { "text": "Researching high-volume Spanish learning keywords...", "delay": 2500 },
-                { "text": "Setting up Astro with SEO optimizations...", "delay": 2500 },
-                { "text": "Creating content collection schemas...", "delay": 2500 },
-                { "text": "Building Svelte interactive components...", "delay": 2500 },
-                { "text": "Integrating ElevenLabs API for audio generation...", "delay": 2500 },
-                { "text": "Implementing synchronized read-along player...", "delay": 2500 },
-                { "text": "Building podcast RSS generation...", "delay": 2500 },
-                { "text": "Creating email capture flows...", "delay": 2500 },
-                { "text": "Implementing audio caching strategy...", "delay": 2500 },
-                { "text": "Optimizing Core Web Vitals...", "delay": 2500 }
+                { "text": "Organizing 487 tasks into parallel sprints...", "delay": 2500 },
+                { "text": "Setting up task assignments...", "delay": 2500 },
+                { "text": "Setting up project dashboard...", "delay": 2500 },
+                { "text": "Initiating project epoch...", "delay": 2500 }
               ]
             },
             {
