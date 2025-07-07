@@ -1,6 +1,4 @@
 ---
-import LogoTypewriter from './LogoTypewriter.astro';
-
 const navItems = [
   { name: 'AI Musings', href: '/blog' },
   { name: 'xSwarm Plans', href: '/roadmap' },
@@ -15,7 +13,9 @@ const navItems = [
       <a href="/" class="flex items-center space-x-3">
         <img src="/xswarm.svg" alt="xSwarm" class="h-12 w-12" />
         <span class="text-3xl font-bold terminal-text glitch-text flex items-center logo-terminal-font" data-text="xSwarm.ai">
-          <LogoTypewriter />
+          <span class="logo-prompt">&gt; </span>
+          <span class="logo-text" id="logo-text">xSwarm.ai</span>
+          <span class="terminal-cursor" id="logo-cursor">_</span>
         </span>
       </a>
 
@@ -304,5 +304,52 @@ const navItems = [
     mobileMenuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+  }
+
+  // Logo typewriter animation
+  const logoText = document.getElementById('logo-text');
+  const glitchText = document.querySelector('.glitch-text');
+  
+  if (logoText) {
+    const texts = ['xSwarm.ai', 'npx xswarm'];
+    let currentTextIndex = 0;
+    let currentText = texts[currentTextIndex];
+    let isDeleting = false;
+    let charIndex = currentText.length;
+    
+    function typeWriter() {
+      if (isDeleting) {
+        charIndex--;
+        logoText.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === 0) {
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+          currentText = texts[currentTextIndex];
+          if (glitchText) {
+            glitchText.setAttribute('data-text', currentText);
+          }
+          setTimeout(typeWriter, 500);
+        } else {
+          setTimeout(typeWriter, 50);
+        }
+      } else {
+        charIndex++;
+        logoText.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(typeWriter, 3000);
+        } else {
+          setTimeout(typeWriter, 100);
+        }
+      }
+    }
+    
+    // Start animation after 2 seconds
+    setTimeout(() => {
+      isDeleting = true;
+      typeWriter();
+    }, 2000);
   }
 </script>
