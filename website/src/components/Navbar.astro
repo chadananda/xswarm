@@ -171,10 +171,19 @@ const navItems = [
     filter: drop-shadow(0 0 3px #00ff00) drop-shadow(0 0 6px #00ff00);
   }
   
-  /* Terminal font for logo */
+  /* Terminal font for logo - IMPORTANT: Force this everywhere */
   .logo-terminal-font {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
     position: relative;
+  }
+  
+  /* Force navbar to always use consistent fonts */
+  nav {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+  }
+  
+  nav * {
+    font-family: inherit !important;
   }
   
   /* Apple II style scanline text effect */

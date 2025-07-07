@@ -80,17 +80,29 @@ blockquote p strong {
 /* Mermaid Diagram Fix for Circular Reference */
 .mermaid[data-processed*="graph"] {
   background: rgba(0, 0, 0, 0.4) !important;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid rgba(139, 92, 246, 0.3);
-  margin: 2rem 0;
-  overflow: auto;
+  margin: 2rem auto;
+  overflow: visible;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+/* Make the mermaid container smaller */
+.mermaid-container {
+  max-width: 450px;
+  margin: 2rem auto;
+}
+/* Scale down the diagram */
+.mermaid {
+  transform: scale(0.6);
+  transform-origin: center center;
 }
 /* Override for the broken circular flow */
 .mermaid svg {
   max-width: 100% !important;
   height: auto !important;
-  min-height: 300px;
 }
 /* Mermaid node styling */
 .mermaid .node rect {
@@ -114,7 +126,8 @@ blockquote p strong {
 }
 .mermaid text {
   fill: #fff !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
 }
 /* Mermaid edges */
 .mermaid .edgePath .path {
