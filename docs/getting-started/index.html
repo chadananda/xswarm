@@ -31,31 +31,45 @@ GitHub
       let charIndex = currentText.length;
       
       function typeWriter() {
-        if (isDeleting) {
-          charIndex--;
-          logoText.textContent = currentText.substring(0, charIndex);
+        try {
+          // Check if element still exists
+          if (!document.getElementById('logo-text')) {
+            console.warn('Logo text element not found, stopping animation');
+            return;
+          }
           
-          if (charIndex === 0) {
-            isDeleting = false;
-            currentTextIndex = (currentTextIndex + 1) % texts.length;
-            currentText = texts[currentTextIndex];
-            if (glitchText) {
-              glitchText.setAttribute('data-text', currentText);
+          if (isDeleting) {
+            charIndex--;
+            logoText.textContent = currentText.substring(0, charIndex);
+            
+            if (charIndex === 0) {
+              isDeleting = false;
+              currentTextIndex = (currentTextIndex + 1) % texts.length;
+              currentText = texts[currentTextIndex];
+              if (glitchText) {
+                glitchText.setAttribute('data-text', currentText);
+              }
+              setTimeout(typeWriter, 500);
+            } else {
+              setTimeout(typeWriter, 50);
             }
-            setTimeout(typeWriter, 500);
           } else {
-            setTimeout(typeWriter, 50);
+            charIndex++;
+            logoText.textContent = currentText.substring(0, charIndex);
+            
+            if (charIndex === currentText.length) {
+              isDeleting = true;
+              setTimeout(typeWriter, 3000);
+            } else {
+              setTimeout(typeWriter, 100);
+            }
           }
-        } else {
-          charIndex++;
-          logoText.textContent = currentText.substring(0, charIndex);
-          
-          if (charIndex === currentText.length) {
-            isDeleting = true;
-            setTimeout(typeWriter, 3000);
-          } else {
-            setTimeout(typeWriter, 100);
-          }
+        } catch (error) {
+          // If any error occurs, restart the animation
+          console.error('Typewriter animation error:', error);
+          charIndex = currentText.length;
+          isDeleting = true;
+          setTimeout(typeWriter, 1000);
         }
       }
       
