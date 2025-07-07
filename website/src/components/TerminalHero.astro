@@ -1696,7 +1696,7 @@ scenarioIds.forEach(id => {
       chatPhase.messages.forEach((message, index) => {
         if (message.type === 'agent') {
           const messageDiv = createAgentMessage(message, scenario.agents[message.agent]);
-          if (index > 0) messageDiv.style.display = 'none';
+          messageDiv.style.display = 'none';
           // Add same-agent class if this is from the same agent as previous
           if (previousAgent === message.agent) {
             messageDiv.classList.add('same-agent');
@@ -2102,18 +2102,19 @@ scenarioIds.forEach(id => {
               }, 300);
             }
             
-            // Sequential chat message system
-            const chatContentArea = element.querySelector('.chat-content-area');
-            const chatMessages = chatContentArea ? chatContentArea.querySelectorAll('.chat-message-line, .agents-joining, .planning-stages') : [];
-            let messageIndex = 0;
-            
-            console.log('Chat messages found:', chatMessages.length);
-            
-            // Hide all messages initially
-            chatMessages.forEach((msg, index) => {
-              msg.style.display = 'none';
-              msg.style.opacity = '0';
-            });
+            // Sequential chat message system - wait a bit for content to be ready
+            setTimeout(() => {
+              const chatContentArea = element.querySelector('.chat-content-area');
+              const chatMessages = chatContentArea ? chatContentArea.querySelectorAll('.chat-message-line, .agents-joining, .planning-stages') : [];
+              let messageIndex = 0;
+              
+              console.log('Chat messages found:', chatMessages.length, 'in', chatContentArea);
+              
+              // Hide all messages initially
+              chatMessages.forEach((msg, index) => {
+                msg.style.display = 'none';
+                msg.style.opacity = '0';
+              });
             
             // Start showing messages after a brief delay
             setTimeout(() => {
@@ -2376,10 +2377,7 @@ scenarioIds.forEach(id => {
                 }
               }
             }
-            
-            
-            // Start the conversation after 1.5 seconds
-            setTimeout(showNextMessage, 1500);
+            }, 100); // Close the setTimeout that waits for content
           }
         }, delay);
       });
