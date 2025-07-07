@@ -2425,14 +2425,21 @@ scenarioIds.forEach(id => {
                 
                 function showNextJoin() {
                   if (joinIndex < joinNotifications.length) {
-                    joinNotifications[joinIndex].style.display = 'block';
-                    joinNotifications[joinIndex].style.opacity = '1';
-                    joinIndex++;
-                    setTimeout(showNextJoin, 600); // Increased delay for readability
-                  } else {
-                    // All agents joined, continue to next message
-                    messageIndex++;
-                    setTimeout(showNextMessage, 1500);
+                    // Add delay before showing each agent, including the first
+                    setTimeout(() => {
+                      joinNotifications[joinIndex].style.display = 'block';
+                      joinNotifications[joinIndex].style.opacity = '1';
+                      joinIndex++;
+                      
+                      // Schedule next agent or continue to next message
+                      if (joinIndex < joinNotifications.length) {
+                        showNextJoin();
+                      } else {
+                        // All agents joined, continue to next message
+                        messageIndex++;
+                        setTimeout(showNextMessage, 1500);
+                      }
+                    }, 600); // Delay before showing each agent
                   }
                 }
                 showNextJoin();
