@@ -1,1 +1,0 @@
-import{s as t,b as a,a as r,S as s}from"./chunk-GOYUR5SG.BJMeJ2Li.js";import{_ as i}from"./BlogLayout.astro_astro_type_script_index_0_lang.QVvbPKgw.js";import"./chunk-HPOVUXKZ.d2MEqzL_.js";var _={parser:r,get db(){return new s(2)},renderer:a,styles:t,init:i(e=>{e.state||(e.state={}),e.state.arrowMarkerAbsolute=e.arrowMarkerAbsolute},"init")};export{_ as diagram};
