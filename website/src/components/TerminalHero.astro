@@ -859,12 +859,20 @@ scenarioIds.forEach(id => {
     margin-bottom: 0;
     text-align: left;
     line-height: 1.0 !important;
+    padding-left: 6rem;
+    text-indent: -6rem;
+    word-wrap: break-word;
+    word-break: break-word;
   }
   
   /* Force tight line spacing within messages */
   .chat-interface .chat-message-line,
   .terminal-content .chat-message-line {
     line-height: 1.0 !important;
+    padding-left: 6rem;
+    text-indent: -6rem;
+    word-wrap: break-word;
+    word-break: break-word;
   }
   
   /* First message doesn't need top margin */
@@ -883,6 +891,7 @@ scenarioIds.forEach(id => {
     margin-right: 0.75rem;
     display: inline;
     vertical-align: baseline;
+    white-space: nowrap;
   }
   
   /* Different colors for each agent */
@@ -920,6 +929,7 @@ scenarioIds.forEach(id => {
     margin-right: 0.75rem;
     display: inline;
     vertical-align: baseline;
+    white-space: nowrap;
   }
   
   .chat-text {
