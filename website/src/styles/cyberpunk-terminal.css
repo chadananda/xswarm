@@ -3,7 +3,7 @@
 
 :root {
   /* Fonts */
-  --terminal-font: 'VT323', 'Courier New', 'Courier', monospace;
+  --terminal-font: 'Share Tech Mono', 'Courier New', 'Courier', monospace;
 }
 
 /* Terminal Window Component Styles */
