@@ -425,6 +425,69 @@
               "duration": 1.3
             },
             {
+              "type": "agent",
+              "agent": "FS",
+              "text": "And every quote links back to their original article?",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "That's the hook! We're not just taking content - we're driving traffic back to them!",
+              "duration": 1.6
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "So they'll actually WANT to share their collection link...",
+              "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "Exactly! 'Get 10,000 new readers", "duration": 0.7 },
+                { "text": " from people memorizing your quotes", "duration": 0.7 },
+                { "text": " - all with backlinks to your site!'", "duration": 0.8 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "They can embed our quote-of-the-day widget too!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Shows their quotes, links to their site, powered by our memorization engine",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "Free traffic for them, free content distribution for us",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "Psychology blogs share their Jung quotes, get traffic from students...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Who then share with classmates, who visit the blog, who find more quotes...",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "It's a self-reinforcing content ecosystem!",
+              "duration": 1.2
+            },
+            {
               "type": "multipart",
               "agent": "MK",
               "parts": [
@@ -508,6 +571,7 @@
                 { "text": "Designing SEO-optimized Astro/Svelte architecture...", "delay": 2500 },
                 { "text": "Building automated content scraping pipeline...", "delay": 2500 },
                 { "text": "Creating outreach automation framework...", "delay": 2500 },
+                { "text": "Building attribution and backlink system for content partners...", "delay": 2500 },
                 { "text": "Designing viral physical-digital loops...", "delay": 2500 },
                 { "text": "Mapping collection generation to target audiences...", "delay": 2500 },
                 { "text": "Building widget embed system for bloggers...", "delay": 2500 },
