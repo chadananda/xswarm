@@ -1576,6 +1576,17 @@ scenarioIds.forEach(id => {
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Function to escape text for HTML attributes
+    function escapeHtmlAttribute(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/'/g, '&#39;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+    
     // Get scenario data from the terminal content element
     const terminalContent = document.querySelector('.terminal-content');
     const allScenarios = JSON.parse(terminalContent.getAttribute('data-scenarios'));
@@ -1609,7 +1620,7 @@ scenarioIds.forEach(id => {
             lineDiv.innerHTML = `
               <span class="terminal-prompt">${item.prompt}</span>
               <span class="terminal-command">
-                <span class="typing-animation" data-text='${item.text}' data-duration='${item.duration}' style="opacity: 0;"></span>
+                <span class="typing-animation" data-text='${escapeHtmlAttribute(item.text)}' data-duration='${item.duration}' style="opacity: 0;"></span>
               </span>
             `;
           }
@@ -1762,7 +1773,7 @@ scenarioIds.forEach(id => {
       div.className = 'chat-message-line';
       div.innerHTML = `
         <span class="chat-agent-indicator ${agent.class}">[${message.agent}]</span>
-        <span class="chat-text typing-animation-chat" data-text='${message.text}' data-duration='${message.duration}'></span>
+        <span class="chat-text typing-animation-chat" data-text='${escapeHtmlAttribute(message.text)}' data-duration='${message.duration}'></span>
         <span class="chat-cursor" style="display: none;"></span>
       `;
       return div;
@@ -1773,7 +1784,7 @@ scenarioIds.forEach(id => {
       div.className = 'chat-message-line user-message';
       div.innerHTML = `
         <span class="chat-user-indicator">[You]</span>
-        <span class="chat-text typing-animation-chat user-typing" data-text='${message.text}' data-duration='${message.duration}'></span>
+        <span class="chat-text typing-animation-chat user-typing" data-text='${escapeHtmlAttribute(message.text)}' data-duration='${message.duration}'></span>
         <span class="chat-cursor user-cursor"></span>
       `;
       return div;
@@ -1809,7 +1820,7 @@ scenarioIds.forEach(id => {
         <span class="chat-agent-indicator ${agent.class}">[${message.agent}]</span>
         <span class="chat-text">
           ${message.parts.map((part, i) => 
-            `<span class="typing-animation-chat" data-text='${part.text}' data-duration='${part.duration}'${i > 0 ? ' style="display: none;"' : ''}></span>`
+            `<span class="typing-animation-chat" data-text='${escapeHtmlAttribute(part.text)}' data-duration='${part.duration}'${i > 0 ? ' style="display: none;"' : ''}></span>`
           ).join('')}
         </span>
         <span class="chat-cursor"></span>
@@ -1822,7 +1833,7 @@ scenarioIds.forEach(id => {
       div.className = 'chat-message-line planning-announcement';
       div.innerHTML = `
         <span class="chat-agent-indicator ${agent.class}">[${message.agent}]</span>
-        <span class="chat-text typing-animation-chat" data-text='${message.text}' data-duration='${message.duration}'></span>
+        <span class="chat-text typing-animation-chat" data-text='${escapeHtmlAttribute(message.text)}' data-duration='${message.duration}'></span>
         <span class="chat-cursor"></span>
       `;
       return div;
@@ -1852,7 +1863,7 @@ scenarioIds.forEach(id => {
         <span class="chat-agent-indicator ${agent.class}">[${message.agent}]</span>
         <span class="chat-text">
           <span class="typing-animation-chat" data-text="Creating branch: " data-duration="0.5"></span>
-          <span class="typing-animation-chat branch-name" data-text='${message.branchName}' data-duration='0.5'></span>
+          <span class="typing-animation-chat branch-name" data-text='${escapeHtmlAttribute(message.branchName)}' data-duration='0.5'></span>
           <span class="typing-animation-chat" data-text="..." data-duration="0.3"></span>
         </span>
         <span class="chat-cursor"></span>
@@ -1865,7 +1876,7 @@ scenarioIds.forEach(id => {
       div.className = 'chat-message-line dashboard-link';
       div.innerHTML = `
         <span class="chat-agent-indicator ${agent.class}">[${message.agent}]</span>
-        <span class="chat-text typing-animation-chat dashboard-url" data-text='${message.url}' data-duration='${message.duration}'></span>
+        <span class="chat-text typing-animation-chat dashboard-url" data-text='${escapeHtmlAttribute(message.url)}' data-duration='${message.duration}'></span>
         <span class="chat-cursor"></span>
       `;
       return div;
