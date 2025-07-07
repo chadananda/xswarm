@@ -11,10 +11,10 @@
 
   /* Semantic Colors using light-dark() function */
   /* Backgrounds */
-  --color-background: light-dark(rgb(255 255 255), rgb(3 7 18)); /* white / gray-950 */
-  --color-surface: light-dark(rgb(249 250 251), rgb(17 24 39)); /* gray-50 / gray-900 */
-  --color-surface-hover: light-dark(rgb(243 244 246), rgb(31 41 55)); /* gray-100 / gray-800 */
-  --color-surface-active: light-dark(rgb(229 231 235), rgb(55 65 81)); /* gray-200 / gray-700 */
+  --color-background: light-dark(rgb(255 255 255), rgb(10 10 10)); /* white / terminal black */
+  --color-surface: light-dark(rgb(249 250 251), rgb(20 20 20)); /* gray-50 / slightly lighter black */
+  --color-surface-hover: light-dark(rgb(243 244 246), rgb(30 30 30)); /* gray-100 / hover black */
+  --color-surface-active: light-dark(rgb(229 231 235), rgb(40 40 40)); /* gray-200 / active black */
 
   /* Borders */
   --color-border: light-dark(rgb(229 231 235), rgb(31 41 55)); /* gray-200 / gray-800 */
