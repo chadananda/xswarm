@@ -2299,7 +2299,7 @@ scenarioIds.forEach(id => {
                         behavior: 'smooth'
                       });
                     }
-                  }, 500);
+                  }, 200); // Faster scrolling for better text wrapping support
                   
                   function typeNextPart() {
                     if (partIndex < typingEls.length) {
@@ -2322,6 +2322,14 @@ scenarioIds.forEach(id => {
                         if (charIndex < text.length) {
                           typingEl.textContent += text[charIndex];
                           if (window.audioContext) playTypingSound();
+                          
+                          // Check for potential line wrap every 10 characters
+                          if (charIndex % 10 === 0 && scrollContainer) {
+                            scrollContainer.scrollTo({
+                              top: scrollContainer.scrollHeight,
+                              behavior: 'smooth'
+                            });
+                          }
                           
                           const char = text[charIndex];
                           const isPunctuation = ['.', ',', ':', ';', '!', '?'].includes(char);
@@ -2375,7 +2383,7 @@ scenarioIds.forEach(id => {
                         top: scrollContainer.scrollHeight,
                         behavior: 'smooth'
                       });
-                    }, 500);
+                    }, 200); // Faster scrolling for better text wrapping support
                   }
                   
                   function typeWithPunctuation() {
@@ -2383,6 +2391,14 @@ scenarioIds.forEach(id => {
                       typingEl.textContent += text[charIndex];
                       if (window.audioContext) {
                         playTypingSound();
+                      }
+                      
+                      // Check for potential line wrap every 10 characters
+                      if (charIndex % 10 === 0 && scrollContainer) {
+                        scrollContainer.scrollTo({
+                          top: scrollContainer.scrollHeight,
+                          behavior: 'smooth'
+                        });
                       }
                       
                       // Check if we just typed punctuation
