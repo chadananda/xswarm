@@ -1,0 +1,84 @@
+---
+export interface Props {
+  variant?: 'info' | 'warning' | 'danger' | 'success';
+  title?: string;
+}
+
+const { variant = 'info', title } = Astro.props;
+---
+
+<div class={`callout callout-${variant}`}>
+  {title && <h4>{title}</h4>}
+  <slot />
+</div>
+
+<style>
+  .callout {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid;
+  }
+  
+  .callout h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .callout :global(ol),
+  .callout :global(ul) {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .callout :global(li) {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+  
+  .callout :global(strong) {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  
+  /* Info variant */
+  .callout-info {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.8);
+  }
+  
+  .callout-info h4 {
+    color: rgba(14, 165, 233, 0.9);
+  }
+  
+  /* Warning variant */
+  .callout-warning {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: rgba(251, 191, 36, 0.8);
+  }
+  
+  .callout-warning h4 {
+    color: rgba(251, 191, 36, 0.9);
+  }
+  
+  /* Danger variant */
+  .callout-danger {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+  
+  .callout-danger h4 {
+    color: rgba(239, 68, 68, 0.9);
+  }
+  
+  /* Success variant */
+  .callout-success {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.8);
+  }
+  
+  .callout-success h4 {
+    color: rgba(34, 197, 94, 0.9);
+  }
+</style>

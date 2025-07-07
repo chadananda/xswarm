@@ -8,85 +8,59 @@ imageAlt: 'Cyberpunk graveyard of duplicated functions with neon tombstones'
 tags: ['AI Development', 'Cyberpunk', 'Code Reuse', 'Pure Functions']
 ---
 
+import BlogGraveyard from '../../components/BlogGraveyard.astro';
+import BlogComparison from '../../components/BlogComparison.astro';
+import TokenVisualization from '../../components/TokenVisualization.astro';
+
 Last week, I found something that made me physically ill. Fifteen different email validation functions. In the same project. All written by AI. Each one slightly different, all essentially identical.
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-8 p-6 bg-gray-900 rounded-lg border border-purple-500/30">
-  <div class="bg-black/60 p-4 rounded-lg border border-red-500/50 text-center transform hover:scale-105 transition-transform">
-    <div class="text-red-400 font-mono text-lg mb-2">validateEmail()</div>
-    <div class="text-gray-500 text-sm">Born: Jan 2024</div>
-    <div class="text-red-300 text-sm">Died: Never used</div>
-  </div>
-  <div class="bg-black/60 p-4 rounded-lg border border-red-500/50 text-center transform hover:scale-105 transition-transform">
-    <div class="text-red-400 font-mono text-lg mb-2">isValidEmail()</div>
-    <div class="text-gray-500 text-sm">Born: Jan 2024</div>
-    <div class="text-red-300 text-sm">Died: Duplicate #2</div>
-  </div>
-  <div class="bg-black/60 p-4 rounded-lg border border-red-500/50 text-center transform hover:scale-105 transition-transform">
-    <div class="text-red-400 font-mono text-lg mb-2">checkEmail()</div>
-    <div class="text-gray-500 text-sm">Born: Feb 2024</div>
-    <div class="text-red-300 text-sm">Died: Forgotten</div>
-  </div>
-  <div class="bg-black/60 p-4 rounded-lg border border-red-500/50 text-center transform hover:scale-105 transition-transform">
-    <div class="text-red-400 font-mono text-lg mb-2">emailIsValid()</div>
-    <div class="text-gray-500 text-sm">Born: Feb 2024</div>
-    <div class="text-red-300 text-sm">Died: Redundant</div>
-  </div>
-  <div class="bg-black/60 p-4 rounded-lg border border-red-500/50 text-center transform hover:scale-105 transition-transform">
-    <div class="text-red-400 font-mono text-lg mb-2">verifyEmail()</div>
-    <div class="text-gray-500 text-sm">Born: Mar 2024</div>
-    <div class="text-red-300 text-sm">Died: Abandoned</div>
-  </div>
-  <div class="bg-black/60 p-4 rounded-lg border border-purple-500/50 text-center animate-pulse">
-    <div class="text-purple-400 font-mono text-lg mb-2">+10 more...</div>
-    <div class="text-gray-500 text-sm">All doing the</div>
-    <div class="text-purple-300 text-sm">same thing</div>
-  </div>
-</div>
+<BlogGraveyard 
+  functions={[
+    { name: "validateEmail()", born: "Jan 2024", died: "Never used" },
+    { name: "isValidEmail()", born: "Jan 2024", died: "Duplicate #2" },
+    { name: "checkEmail()", born: "Feb 2024", died: "Forgotten" },
+    { name: "emailIsValid()", born: "Feb 2024", died: "Redundant" },
+    { name: "verifyEmail()", born: "Mar 2024", died: "Abandoned" },
+    { name: "+10 more...", born: "All doing the", died: "same thing", isPlaceholder: true }
+  ]}
+  columns={3}
+/>
 
-<div class="my-8">
-  <h3 class="text-xl font-bold text-cyan-400 mb-4">Same Function, Different Day</h3>
-  <div class="grid md:grid-cols-3 gap-4">
-    <div class="bg-gray-900 rounded-lg border border-cyan-500/30 overflow-hidden">
-      <div class="bg-cyan-900/30 p-3 border-b border-cyan-500/30">
-        <h4 class="text-cyan-400 font-semibold">Claude (Monday)</h4>
-      </div>
-      <pre class="p-4 text-sm overflow-x-auto"><code class="language-javascript">const validateEmail = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};</code></pre>
-      <div class="bg-gray-800/50 p-3 text-sm text-gray-400 border-t border-cyan-500/30">
-        Complexity: Low | Tokens: 147
-      </div>
-    </div>
-    <div class="bg-gray-900 rounded-lg border border-cyan-500/30 overflow-hidden">
-      <div class="bg-cyan-900/30 p-3 border-b border-cyan-500/30">
-        <h4 class="text-cyan-400 font-semibold">GPT-4 (Tuesday)</h4>
-      </div>
-      <pre class="p-4 text-sm overflow-x-auto"><code class="language-javascript">function isValidEmail(emailAddress) {
-  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+<BlogComparison
+  title="Same Function, Different Day"
+  items={[
+    {
+      label: "Claude (Monday)",
+      code: `const validateEmail = (email) => {
+  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+};`,
+      language: "javascript",
+      metadata: "Complexity: Low | Tokens: 147"
+    },
+    {
+      label: "GPT-4 (Tuesday)",
+      code: `function isValidEmail(emailAddress) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
   return regex.test(emailAddress);
-}</code></pre>
-      <div class="bg-gray-800/50 p-3 text-sm text-gray-400 border-t border-cyan-500/30">
-        Complexity: Medium | Tokens: 156
-      </div>
-    </div>
-    <div class="bg-gray-900 rounded-lg border border-cyan-500/30 overflow-hidden">
-      <div class="bg-cyan-900/30 p-3 border-b border-cyan-500/30">
-        <h4 class="text-cyan-400 font-semibold">Copilot (Wednesday)</h4>
-      </div>
-      <pre class="p-4 text-sm overflow-x-auto"><code class="language-javascript">export const checkEmail = (str) => {
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+}`,
+      language: "javascript",
+      metadata: "Complexity: Medium | Tokens: 156"
+    },
+    {
+      label: "Copilot (Wednesday)",
+      code: `export const checkEmail = (str) => {
+  const emailRegex = /^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/;
   return emailRegex.test(str);
-}</code></pre>
-      <div class="bg-gray-800/50 p-3 text-sm text-gray-400 border-t border-cyan-500/30">
-        Complexity: Medium | Tokens: 152
-      </div>
-    </div>
-  </div>
-  <div class="mt-4 p-4 bg-red-900/20 border-l-4 border-red-500 flex justify-between items-center">
-    <span class="text-red-400 font-bold">Wasted Tokens:</span>
-    <span class="text-xl">455 tokens for the same functionality</span>
-  </div>
-</div>
+}`,
+      language: "javascript",
+      metadata: "Complexity: Medium | Tokens: 152"
+    }
+  ]}
+  footer={{
+    label: "Wasted Tokens:",
+    value: "455 tokens for the same functionality"
+  }}
+/>
 
 Welcome to the AI Function Graveyard, where perfectly good utilities go to die... repeatedly.
 

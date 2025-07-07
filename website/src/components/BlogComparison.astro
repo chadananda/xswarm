@@ -1,0 +1,143 @@
+---
+export interface Props {
+  title?: string;
+  items: Array<{
+    label: string;
+    sublabel?: string;
+    code: string;
+    language?: string;
+    metadata?: string;
+  }>;
+  footer?: {
+    label: string;
+    value: string;
+  };
+}
+
+const { title, items, footer } = Astro.props;
+---
+
+<div class="comparison-container">
+  {title && <h3 class="comparison-title">{title}</h3>}
+  <div class={`comparison-grid grid-cols-${items.length === 2 ? '2' : '3'}`}>
+    {items.map((item) => (
+      <div class="comparison-item">
+        <div class="comparison-header">
+          <h4>{item.label}</h4>
+          {item.sublabel && <span class="comparison-sublabel">{item.sublabel}</span>}
+        </div>
+        <pre class="comparison-code"><code class={`language-${item.language || 'javascript'}`}>{item.code}</code></pre>
+        {item.metadata && (
+          <div class="comparison-metadata">{item.metadata}</div>
+        )}
+      </div>
+    ))}
+  </div>
+  {footer && (
+    <div class="comparison-footer">
+      <span class="footer-label">{footer.label}</span>
+      <span class="footer-value">{footer.value}</span>
+    </div>
+  )}
+</div>
+
+<style>
+  .comparison-container {
+    margin: 2rem 0;
+  }
+  
+  .comparison-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgb(0, 255, 255);
+    margin-bottom: 1rem;
+  }
+  
+  .comparison-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    .grid-cols-2,
+    .grid-cols-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .comparison-item {
+    background-color: rgba(17, 24, 39, 0.9);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    overflow: hidden;
+  }
+  
+  .comparison-header {
+    background-color: rgba(0, 255, 255, 0.1);
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  }
+  
+  .comparison-header h4 {
+    color: rgb(0, 255, 255);
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .comparison-sublabel {
+    display: block;
+    font-size: 0.875rem;
+    color: rgba(0, 255, 255, 0.7);
+    margin-top: 0.25rem;
+  }
+  
+  .comparison-code {
+    padding: 1rem;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    background-color: transparent;
+  }
+  
+  .comparison-code code {
+    color: var(--color-text-primary);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  
+  .comparison-metadata {
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    color: rgba(156, 163, 175, 1);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+  }
+  
+  .comparison-footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid rgba(239, 68, 68, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-label {
+    color: rgba(239, 68, 68, 0.9);
+    font-weight: 700;
+  }
+  
+  .footer-value {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+  }
+</style>

@@ -1,0 +1,228 @@
+---
+export interface Props {
+  variant?: 'waterfall' | 'fire' | 'counter' | 'simple';
+  cost: string;
+  label?: string;
+  description?: string;
+  animate?: boolean;
+}
+
+const { variant = 'simple', cost, label, description, animate = true } = Astro.props;
+---
+
+<div class={`token-viz token-viz-${variant} ${animate ? 'animate' : ''}`}>
+  {variant === 'waterfall' && (
+    <div class="waterfall-container">
+      <div class="cost-display">{cost}</div>
+      {label && <div class="cost-label">{label}</div>}
+      <div class="token-waterfall">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <span class="token-drop" style={`animation-delay: ${i * 0.1}s`}>💰</span>
+        ))}
+      </div>
+    </div>
+  )}
+  
+  {variant === 'fire' && (
+    <div class="fire-container">
+      <div class="cost-display burning">{cost}</div>
+      {label && <div class="cost-label">{label}</div>}
+      <div class="fire-effect"></div>
+    </div>
+  )}
+  
+  {variant === 'counter' && (
+    <div class="counter-container">
+      <div class="counter-label">{label || 'Total Cost'}</div>
+      <div class="counter-value" data-target={cost}>{cost}</div>
+      {description && <div class="counter-description">{description}</div>}
+    </div>
+  )}
+  
+  {variant === 'simple' && (
+    <div class="simple-container">
+      {label && <span class="simple-label">{label}</span>}
+      <span class="simple-value">{cost}</span>
+      {description && <span class="simple-description">{description}</span>}
+    </div>
+  )}
+</div>
+
+<style>
+  .token-viz {
+    margin: 2rem 0;
+  }
+  
+  /* Waterfall variant */
+  .waterfall-container {
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(to bottom, rgba(139, 92, 246, 0.1), rgba(14, 165, 233, 0.1));
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .token-waterfall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .token-drop {
+    position: absolute;
+    top: -20px;
+    font-size: 1.5rem;
+    animation: fall 3s linear infinite;
+    opacity: 0;
+  }
+  
+  @keyframes fall {
+    0% {
+      opacity: 0;
+      transform: translateY(0) rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+  
+  .token-drop:nth-child(odd) {
+    left: calc(var(--i) * 5%);
+  }
+  
+  .token-drop:nth-child(even) {
+    right: calc(var(--i) * 5%);
+  }
+  
+  /* Fire variant */
+  .fire-container {
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    background: radial-gradient(ellipse at bottom, rgba(255, 100, 0, 0.2), transparent);
+  }
+  
+  .burning {
+    animation: burn 1.5s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 100, 0, 0.8);
+  }
+  
+  @keyframes burn {
+    0%, 100% {
+      filter: hue-rotate(0deg);
+      transform: scale(1);
+    }
+    50% {
+      filter: hue-rotate(20deg);
+      transform: scale(1.05);
+    }
+  }
+  
+  .fire-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 200, 0, 0.8), rgba(255, 100, 0, 0.4), transparent);
+    filter: blur(10px);
+    animation: flicker 0.5s ease-in-out infinite;
+  }
+  
+  @keyframes flicker {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.1);
+    }
+  }
+  
+  /* Counter variant */
+  .counter-container {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 191, 36, 0.1));
+    border: 2px solid rgba(239, 68, 68, 0.5);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .counter-label {
+    font-size: 1.125rem;
+    color: rgba(239, 68, 68, 0.9);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .counter-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  
+  .counter-description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 1rem;
+  }
+  
+  /* Simple variant */
+  .simple-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid rgba(239, 68, 68, 0.8);
+    border-radius: 0.25rem;
+  }
+  
+  .simple-label {
+    font-weight: 600;
+    color: rgba(239, 68, 68, 0.9);
+  }
+  
+  .simple-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .simple-description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-left: 0.5rem;
+  }
+  
+  /* Common styles */
+  .cost-display {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cost-label {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.5rem;
+  }
+</style>

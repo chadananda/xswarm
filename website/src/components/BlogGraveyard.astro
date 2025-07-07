@@ -1,0 +1,108 @@
+---
+export interface Props {
+  functions: Array<{
+    name: string;
+    born: string;
+    died: string;
+    isPlaceholder?: boolean;
+  }>;
+  columns?: 2 | 3;
+}
+
+const { functions, columns = 3 } = Astro.props;
+---
+
+<div class={`graveyard-grid columns-${columns}`}>
+  {functions.map((fn) => (
+    <div class={`graveyard-tombstone ${fn.isPlaceholder ? 'placeholder' : ''}`}>
+      <div class="function-name">{fn.name}</div>
+      {!fn.isPlaceholder && (
+        <>
+          <div class="function-born">Born: {fn.born}</div>
+          <div class="function-died">Died: {fn.died}</div>
+        </>
+      )}
+    </div>
+  ))}
+</div>
+
+<style>
+  .graveyard-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: rgba(17, 24, 39, 0.9);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+  
+  .columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    .columns-2,
+    .columns-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .columns-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .graveyard-tombstone {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .graveyard-tombstone:hover {
+    transform: scale(1.05);
+  }
+  
+  .graveyard-tombstone.placeholder {
+    border-color: rgba(139, 92, 246, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .function-name {
+    color: rgba(239, 68, 68, 0.9);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .placeholder .function-name {
+    color: rgba(139, 92, 246, 0.9);
+  }
+  
+  .function-born,
+  .function-died {
+    font-size: 0.875rem;
+    color: rgba(156, 163, 175, 1);
+  }
+  
+  .function-died {
+    color: rgba(239, 68, 68, 0.7);
+  }
+</style>

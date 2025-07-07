@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import readingTime from 'reading-time';
-import '../../styles/blog-index.css';
 
 // Get all blog posts, filter out drafts
 const posts = (await getCollection('blog'))

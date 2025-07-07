@@ -4,19 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import readingTime from 'reading-time';
 import { getCollection } from 'astro:content';
-import '../styles/blog-typography.css';
-import '../styles/blog-header.css';
-import '../styles/blog-visuals.css';
-import '../styles/blog-manifesto.css';
-import '../styles/blog-scrollbar.css';
-import '../styles/blog-share.css';
-import '../styles/blog-metadata.css';
 import '../styles/mermaid.css';
-import '../styles/blog-sandboxed-integration.css';
-import '../styles/blog-sequential-hell.css';
-import '../styles/blog-ai-function-graveyard.css';
-import '../styles/blog-marketing-during-dev.css';
-import '../styles/blog-expensive-ai-intern.css';
 
 export interface Props {
   title: string;
@@ -332,7 +320,6 @@ const relatedPosts = allPosts
 </script>
 
 <style>
-  @import '../styles/blog-visuals.css';
   /* Prose customizations */
   .prose {
     --tw-prose-body: theme('colors.gray.700');
