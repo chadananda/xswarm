@@ -42,7 +42,7 @@ async function generateFavicons() {
   
   // Also generate a .ico file with multiple sizes
   const icoSizes = [16, 32, 48];
-  const icoBuffers = await Promise.all(
+  await Promise.all(
     icoSizes.map(size => 
       sharp(svgBuffer)
         .resize(size, size, {

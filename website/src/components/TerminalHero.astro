@@ -1921,30 +1921,42 @@ scenarioIds.forEach(id => {
     
     // Function to clear and regenerate content for a new scenario
     function loadScenario(scenarioId) {
-      // Clear all existing timeouts
+      // Clear all existing timeouts and intervals
       const highestTimeoutId = setTimeout(() => {}, 0);
       for (let i = 0; i < highestTimeoutId; i++) {
         clearTimeout(i);
       }
+      const highestIntervalId = setInterval(() => {}, 0);
+      for (let i = 0; i < highestIntervalId; i++) {
+        clearInterval(i);
+      }
       
-      // Clear existing content
-      document.querySelector('.terminal-lines').innerHTML = `
-        <div class="terminal-line initial-prompt">
-          <span class="terminal-prompt">$</span>
-          <span class="initial-cursor"></span>
-        </div>
-      `;
-      const chatInterface = document.querySelector('.chat-interface');
-      chatInterface.innerHTML = '';
-      chatInterface.style.display = 'none';
-      chatInterface.classList.remove('active');
+      // Clear ALL elements with data-delay to ensure nothing is left over
+      document.querySelectorAll('[data-delay]').forEach(el => {
+        el.remove();
+      });
       
-      // Reset terminal lines visibility
+      // Clear existing content completely
       const terminalLines = document.querySelector('.terminal-lines');
       if (terminalLines) {
+        terminalLines.innerHTML = `
+          <div class="terminal-line initial-prompt">
+            <span class="terminal-prompt">$</span>
+            <span class="initial-cursor"></span>
+          </div>
+        `;
+        // Reset terminal lines visibility
         terminalLines.style.display = 'block';
         terminalLines.style.opacity = '1';
         terminalLines.style.transition = '';
+      }
+      
+      // Clear and reset chat interface
+      const chatInterface = document.querySelector('.chat-interface');
+      if (chatInterface) {
+        chatInterface.innerHTML = '';
+        chatInterface.style.display = 'none';
+        chatInterface.classList.remove('active');
       }
       
       // Update terminal title
@@ -2010,8 +2022,11 @@ scenarioIds.forEach(id => {
         clearInterval(i);
       }
       
+      // Query ALL current elements with data-delay attribute
+      const currentElements = document.querySelectorAll('[data-delay]');
+      
       // Hide all animated elements
-      elements.forEach(el => {
+      currentElements.forEach(el => {
         el.style.display = 'none';
         el.classList.remove('animate');
         el.style.opacity = '0';
@@ -2039,6 +2054,7 @@ scenarioIds.forEach(id => {
       if (frame2) frame2.style.display = 'none';
       
       // Show initial prompt with cursor
+      const initialPrompt = document.querySelector('.initial-prompt');
       if (initialPrompt) {
         initialPrompt.style.display = 'block';
         initialPrompt.style.opacity = '1';
@@ -2197,11 +2213,26 @@ scenarioIds.forEach(id => {
                 // All messages shown, wait then move to next scenario
                 // Wait extra time to ensure last message typing is complete
                 setTimeout(() => {
-                  // Move to next scenario
-                  currentScenarioIndex = (currentScenarioIndex + 1) % scenarioIds.length;
-                  loadScenario(scenarioIds[currentScenarioIndex]);
-                  // Restart animation with new scenario
-                  runAnimation();
+                  // Fade out the entire terminal for smooth transition
+                  const terminalContent = document.querySelector('.terminal-content');
+                  if (terminalContent) {
+                    terminalContent.style.transition = 'opacity 0.5s ease-out';
+                    terminalContent.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                      // Move to next scenario
+                      currentScenarioIndex = (currentScenarioIndex + 1) % scenarioIds.length;
+                      loadScenario(scenarioIds[currentScenarioIndex]);
+                      
+                      // Fade back in
+                      terminalContent.style.opacity = '1';
+                      
+                      // Restart animation with new scenario
+                      setTimeout(() => {
+                        runAnimation();
+                      }, 100);
+                    }, 500);
+                  }
                 }, 15000); // Increased delay to ensure typing completes
                 return;
               }
