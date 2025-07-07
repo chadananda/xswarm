@@ -1332,6 +1332,10 @@ scenarioIds.forEach(id => {
     color: rgb(255, 215, 0); /* Gold - for deep research */
   }
   
+  .terminal-content .agent-pm {
+    color: rgb(0, 255, 192); /* Teal - for product management */
+  }
+  
   .terminal-content .chat-user-indicator {
     color: var(--terminal-magenta);
     font-weight: 600;
@@ -1392,6 +1396,11 @@ scenarioIds.forEach(id => {
   
   .terminal-content .agent-dr ~ .chat-text {
     color: rgb(255, 215, 0) !important; /* Gold */
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-pm ~ .chat-text {
+    color: rgb(0, 255, 192) !important; /* Teal */
     opacity: 0.9;
   }
   
@@ -1715,14 +1724,23 @@ scenarioIds.forEach(id => {
       let previousAgent = null;
       chatPhase.messages.forEach((message, index) => {
         if (message.type === 'agent') {
-          const messageDiv = createAgentMessage(message, scenario.agents[message.agent]);
-          messageDiv.style.display = 'none';
-          // Add same-agent class if this is from the same agent as previous
-          if (previousAgent === message.agent) {
-            messageDiv.classList.add('same-agent');
+          // Use random welcome message for first BA message
+          if (index === 0 && message.agent === 'BA' && chatPhase.welcomeMessages) {
+            const welcomeMessage = { ...message };
+            welcomeMessage.text = chatPhase.welcomeMessages[Math.floor(Math.random() * chatPhase.welcomeMessages.length)];
+            const messageDiv = createAgentMessage(welcomeMessage, scenario.agents[message.agent]);
+            messageDiv.style.display = 'none';
+            chatContentArea.appendChild(messageDiv);
+          } else {
+            const messageDiv = createAgentMessage(message, scenario.agents[message.agent]);
+            messageDiv.style.display = 'none';
+            // Add same-agent class if this is from the same agent as previous
+            if (previousAgent === message.agent) {
+              messageDiv.classList.add('same-agent');
+            }
+            chatContentArea.appendChild(messageDiv);
           }
           previousAgent = message.agent;
-          chatContentArea.appendChild(messageDiv);
         } else if (message.type === 'user') {
           const messageDiv = createUserMessage(message);
           messageDiv.style.display = 'none';
@@ -2033,6 +2051,10 @@ scenarioIds.forEach(id => {
     
     function runAnimation() {
       resetAnimation();
+      
+      // Re-query elements to include newly generated content
+      const elements = document.querySelectorAll('[data-delay]');
+      const initialPrompt = document.querySelector('.initial-prompt');
       
       elements.forEach((element) => {
         const delay = parseInt(element.getAttribute('data-delay') || '0');
