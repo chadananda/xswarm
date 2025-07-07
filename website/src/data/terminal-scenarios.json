@@ -12,7 +12,8 @@
         "MK": { "name": "Marketing Specialist", "class": "agent-mk" },
         "DR": { "name": "Deep Researcher", "class": "agent-dr" },
         "DO": { "name": "DevOps Engineer", "class": "agent-do" },
-        "PM": { "name": "Product Manager", "class": "agent-pm" }
+        "PM": { "name": "Product Manager", "class": "agent-pm" },
+        "SEO": { "name": "SEO Specialist", "class": "agent-seo" }
       },
       "phases": [
         {
@@ -522,6 +523,36 @@
               "agent": "UX",
               "text": "Collection pages with beautiful card layouts, instant PWA install prompts!",
               "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "SEO",
+              "text": "Hold up - every quote is a resource page, every collection is a hub!",
+              "duration": 1.4
+            },
+            {
+              "type": "multipart",
+              "agent": "SEO",
+              "parts": [
+                { "text": "When bloggers link to their collections,", "duration": 0.7 },
+                { "text": " that's high-quality backlinks to us.", "duration": 0.6 },
+                { "text": " We rank for every quote search!", "duration": 0.7 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "And we link back to them - reciprocal SEO value!",
+              "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "SEO",
+              "parts": [
+                { "text": "'Marcus Aurelius meditation quotes' -", "duration": 0.7 },
+                { "text": " we'll own that SERP with", "duration": 0.5 },
+                { "text": " thousands of resource pages!", "duration": 0.6 }
+              ]
             },
             {
               "type": "agent",

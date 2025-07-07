@@ -1336,6 +1336,10 @@ scenarioIds.forEach(id => {
     color: rgb(0, 255, 192); /* Teal - for product management */
   }
   
+  .terminal-content .agent-seo {
+    color: rgb(255, 128, 0); /* Bright orange - for SEO */
+  }
+  
   .terminal-content .chat-user-indicator {
     color: var(--terminal-magenta);
     font-weight: 600;
@@ -1401,6 +1405,11 @@ scenarioIds.forEach(id => {
   
   .terminal-content .agent-pm ~ .chat-text {
     color: rgb(0, 255, 192) !important; /* Teal */
+    opacity: 0.9;
+  }
+  
+  .terminal-content .agent-seo ~ .chat-text {
+    color: rgb(255, 128, 0) !important; /* Bright orange */
     opacity: 0.9;
   }
   
