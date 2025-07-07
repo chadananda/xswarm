@@ -551,6 +551,68 @@
             },
             {
               "type": "agent",
+              "agent": "AI",
+              "text": "Wait - we need a research bot that continuously crawls for new quote collections!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Running 24/7, finding new content, adding to our database...",
+              "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "And automatically queuing outreach emails:", "duration": 0.7 },
+                { "text": " 'Your Marcus Aurelius quotes are live", "duration": 0.7 },
+                { "text": " - here's your traffic dashboard!'", "duration": 0.7 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Scheduled jobs for content discovery, email campaigns, social media posts...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "Track trending topics - if stoicism is hot, prioritize those collections!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "The entire growth engine runs autonomously?",
+              "duration": 1.1
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "Exactly! Find content,", "duration": 0.5 },
+                { "text": " create collections,", "duration": 0.5 },
+                { "text": " notify sources,", "duration": 0.5 },
+                { "text": " track shares,", "duration": 0.4 },
+                { "text": " repeat forever!", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Partners get weekly reports: '2,847 people memorized your quotes this week!'",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "That's how we hit millions of users - automated promotion never stops!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
               "agent": "BA",
               "text": "Alright team, let's architect this offline-first PWA masterpiece!",
               "duration": 1.5
@@ -570,8 +632,10 @@
                 { "text": "Analyzing competitor landscape (Anki, Quizlet, Bible Memory App)...", "delay": 2500 },
                 { "text": "Designing SEO-optimized Astro/Svelte architecture...", "delay": 2500 },
                 { "text": "Building automated content scraping pipeline...", "delay": 2500 },
+                { "text": "Developing 24/7 research bot for continuous content discovery...", "delay": 2500 },
                 { "text": "Creating outreach automation framework...", "delay": 2500 },
                 { "text": "Building attribution and backlink system for content partners...", "delay": 2500 },
+                { "text": "Setting up autonomous promotion and sharing engine...", "delay": 2500 },
                 { "text": "Designing viral physical-digital loops...", "delay": 2500 },
                 { "text": "Mapping collection generation to target audiences...", "delay": 2500 },
                 { "text": "Building widget embed system for bloggers...", "delay": 2500 },
