@@ -296,9 +296,8 @@ const navItems = [
 </style>
 
 <script is:inline>
-  // This script runs on the client side
+  // Mobile menu toggle
   document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -307,60 +306,66 @@ const navItems = [
         mobileMenu.classList.toggle('hidden');
       });
     }
-
-    // Logo typewriter animation
-    const logoText = document.getElementById('logo-text');
-    const logoCursor = document.getElementById('logo-cursor');
-    const glitchText = logoText?.parentElement;
-    
-    if (logoText && logoCursor && glitchText) {
-      const texts = ['xSwarm.ai', 'npx xswarm'];
-      let currentTextIndex = 0;
-      let currentText = texts[currentTextIndex];
-      let isDeleting = false;
-      let charIndex = currentText.length;
-      
-      // Start with full text displayed
-      logoText.textContent = currentText;
-      
-      // Wait 3 seconds before starting animation
-      setTimeout(() => {
-        function typeWriter() {
-          if (isDeleting) {
-            // Delete character
-            charIndex--;
-            logoText.textContent = currentText.substring(0, charIndex);
-            
-            if (charIndex === 0) {
-              // Switch to next text
-              isDeleting = false;
-              currentTextIndex = (currentTextIndex + 1) % texts.length;
-              currentText = texts[currentTextIndex];
-              // Update the glitch effect data attribute
-              glitchText.setAttribute('data-text', currentText);
-              setTimeout(typeWriter, 500); // Pause before typing
-            } else {
-              setTimeout(typeWriter, 50); // Delete speed
-            }
-          } else {
-            // Type character
-            charIndex++;
-            logoText.textContent = currentText.substring(0, charIndex);
-            
-            if (charIndex === currentText.length) {
-              // Finished typing, wait then start deleting
-              isDeleting = true;
-              setTimeout(typeWriter, 3000); // Wait 3 seconds before deleting
-            } else {
-              setTimeout(typeWriter, 100); // Type speed
-            }
-          }
-        }
-        
-        // Start the deletion
-        isDeleting = true;
-        typeWriter();
-      }, 3000);
-    }
   });
+
+  // Logo typewriter animation - runs immediately when script loads
+  function startTypewriter() {
+    const logoText = document.getElementById('logo-text');
+    const glitchText = document.querySelector('.glitch-text');
+    
+    if (!logoText) return;
+    
+    const texts = ['xSwarm.ai', 'npx xswarm'];
+    let currentTextIndex = 0;
+    let currentText = texts[currentTextIndex];
+    let isDeleting = false;
+    let charIndex = currentText.length;
+    
+    function typeWriter() {
+      if (isDeleting) {
+        // Delete character
+        charIndex--;
+        logoText.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === 0) {
+          // Switch to next text
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+          currentText = texts[currentTextIndex];
+          // Update the glitch effect data attribute
+          if (glitchText) {
+            glitchText.setAttribute('data-text', currentText);
+          }
+          setTimeout(typeWriter, 500); // Pause before typing
+        } else {
+          setTimeout(typeWriter, 50); // Delete speed
+        }
+      } else {
+        // Type character
+        charIndex++;
+        logoText.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === currentText.length) {
+          // Finished typing, wait then start deleting
+          isDeleting = true;
+          setTimeout(typeWriter, 3000); // Wait 3 seconds before deleting
+        } else {
+          setTimeout(typeWriter, 100); // Type speed
+        }
+      }
+    }
+    
+    // Wait 3 seconds before starting animation
+    setTimeout(() => {
+      isDeleting = true;
+      typeWriter();
+    }, 3000);
+  }
+  
+  // Start typewriter when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startTypewriter);
+  } else {
+    startTypewriter();
+  }
 </script>
