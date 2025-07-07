@@ -2107,13 +2107,18 @@ scenarioIds.forEach(id => {
             const chatMessages = chatContentArea ? chatContentArea.querySelectorAll('.chat-message-line, .agents-joining, .planning-stages') : [];
             let messageIndex = 0;
             
-            // Hide all messages initially (except the first one which is already visible)
+            console.log('Chat messages found:', chatMessages.length);
+            
+            // Hide all messages initially
             chatMessages.forEach((msg, index) => {
-              if (index > 0) {
-                msg.style.display = 'none';
-                msg.style.opacity = '0';
-              }
+              msg.style.display = 'none';
+              msg.style.opacity = '0';
             });
+            
+            // Start showing messages after a brief delay
+            setTimeout(() => {
+              showNextMessage();
+            }, 500);
             
             function showNextMessage() {
               if (messageIndex >= chatMessages.length) {
