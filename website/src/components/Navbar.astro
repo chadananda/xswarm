@@ -259,19 +259,17 @@ const navItems = [
 </style>
 
 <style is:global>
-  /* Global override to ensure navbar fonts are never changed by other styles */
+  /* Global override ONLY for navbar - not affecting any other content */
   nav.terminal-window,
-  nav.terminal-window * {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
-  }
-  
-  /* Override blog-specific font changes */
-  .blog-article nav.terminal-window,
-  .blog-article nav.terminal-window *,
-  article nav.terminal-window,
-  article nav.terminal-window *,
-  main nav.terminal-window,
-  main nav.terminal-window * {
+  nav.terminal-window a,
+  nav.terminal-window span,
+  nav.terminal-window div,
+  nav.terminal-window button,
+  nav.terminal-window .logo-terminal-font,
+  nav.terminal-window .logo-prompt,
+  nav.terminal-window .logo-text,
+  nav.terminal-window .terminal-cursor,
+  nav.terminal-window .terminal-text {
     font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
   }
 </style>
