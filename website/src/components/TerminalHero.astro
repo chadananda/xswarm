@@ -90,6 +90,9 @@ scenarioIds.forEach(id => {
     gap: 3rem;
     position: relative;
     overflow: hidden;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: optimizeLegibility;
   }
   
   /* Hero tagline outside terminal */
@@ -159,6 +162,10 @@ scenarioIds.forEach(id => {
     /* Hide scrollbar but keep scroll functionality */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: auto;
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
   
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -176,7 +183,7 @@ scenarioIds.forEach(id => {
   .terminal-prompt {
     color: var(--terminal-cyan);
     margin-right: 0.75rem;
-    text-shadow: 0 0 3px var(--terminal-cyan), 0 0 8px rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 2px var(--terminal-cyan);
     font-weight: 600;
   }
   
@@ -203,7 +210,7 @@ scenarioIds.forEach(id => {
   
   .terminal-command {
     color: var(--terminal-green);
-    text-shadow: 0 0 3px var(--terminal-green), 0 0 8px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 2px var(--terminal-green);
     font-family: inherit;
   }
   
@@ -732,6 +739,10 @@ scenarioIds.forEach(id => {
     height: 100%;
     opacity: 0;
     overflow: hidden;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: auto;
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
   
   /* Ensure all chat content is properly layered */
@@ -1208,7 +1219,7 @@ scenarioIds.forEach(id => {
   .chat-interface .chat-user-indicator,
   .chat-interface .stat-label,
   .chat-interface .stat-value {
-    text-shadow: 0 0 2px currentColor, 0 0 5px rgba(0, 255, 255, 0.2) !important;
+    text-shadow: 0 0 1px currentColor !important;
   }
   
   /* Stats header styling */
