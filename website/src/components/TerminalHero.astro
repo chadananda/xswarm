@@ -102,6 +102,143 @@ scenarioIds.forEach(id => {
     animation: fadeIn 1s ease-out forwards;
   }
   
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--terminal-cyan);
+    text-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.8),
+      0 0 40px rgba(0, 255, 255, 0.6),
+      0 0 60px rgba(0, 255, 255, 0.4);
+    font-family: var(--terminal-font-family);
+  }
+  
+  .text-gradient-cyber {
+    background: linear-gradient(135deg, var(--terminal-magenta), var(--terminal-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.6));
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Glitch effect for hero title */
+  .hero-title.glitch-text {
+    position: relative;
+  }
+  
+  .hero-title.glitch-text::before,
+  .hero-title.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+  
+  .hero-title.glitch-text::before {
+    animation: glitch-anim-1 0.3s infinite linear alternate-reverse;
+    clip: rect(0, 900px, 0, 0);
+    color: var(--terminal-cyan);
+    text-shadow: -2px 0 var(--terminal-magenta);
+  }
+  
+  .hero-title.glitch-text::after {
+    animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+    clip: rect(0, 0, 0, 0);
+    color: var(--terminal-cyan);
+    text-shadow: 2px 0 var(--terminal-green);
+  }
+  
+  /* Terminal Window Base Styles */
+  .terminal-window {
+    background: var(--terminal-bg);
+    border: 1px solid var(--terminal-green);
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.05);
+    font-family: var(--terminal-font-family);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    animation: scanlines 8s linear infinite;
+  }
+  
+  .terminal-header {
+    background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+    border-bottom: 1px solid var(--terminal-green);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .terminal-buttons {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #333;
+  }
+  
+  .terminal-button-red {
+    background: #ff5f56;
+  }
+  
+  .terminal-button-yellow {
+    background: #ffbd2e;
+  }
+  
+  .terminal-button-green {
+    background: #27c93f;
+  }
+  
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    color: var(--terminal-green);
+    font-size: 0.875rem;
+    text-shadow: 0 0 2px var(--terminal-green);
+  }
+  
   .terminal-hero-container .terminal-window {
     width: 100%;
     max-width: 1200px;
@@ -1183,6 +1320,48 @@ scenarioIds.forEach(id => {
   @keyframes typing-chat {
     from { width: 0; }
     to { width: 100%; }
+  }
+  
+  @keyframes glitch-anim-1 {
+    0% {
+      clip: rect(30px, 9999px, 10px, 0);
+      transform: skew(0.5deg);
+    }
+    100% {
+      clip: rect(80px, 9999px, 50px, 0);
+      transform: skew(-0.5deg);
+    }
+  }
+  
+  @keyframes glitch-anim-2 {
+    0% {
+      clip: rect(65px, 9999px, 119px, 0);
+      transform: skew(-0.5deg);
+    }
+    100% {
+      clip: rect(20px, 9999px, 90px, 0);
+      transform: skew(0.5deg);
+    }
+  }
+  
+  @keyframes scanlines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .chat-cursor {
