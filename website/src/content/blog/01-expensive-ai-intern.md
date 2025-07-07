@@ -19,15 +19,22 @@ Welcome to the reality of AI coding assistants in 2024. We've created digital sa
 Let's be brutally honest here. That AI assistant you're paying for? It's basically a brilliant intern with amnesia. Sure, it can implement a red-black tree from memory, but ask it to put that tree in the right file? Good luck. You'll spend the next 20 minutes explaining your project structure. Again. For the fifteenth time today.
 
 ```mermaid
-graph LR
+graph TD
     A[Your Request] --> B[AI Writes Code]
     B --> C[Wrong Location]
-    C --> D[You Explain Structure]
+    C --> D[You Explain<br/>Structure]
     D --> E[AI "Understands"]
     E --> F[Next Request]
-    F --> G[AI Forgets Everything]
+    F --> G[AI Forgets<br/>Everything]
     G --> B
-    style G fill:#ff6b6b
+    
+    style A fill:#8b5cf6,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#ef4444,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#f59e0b,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style F fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+    style G fill:#dc2626,stroke:#fff,stroke-width:3px,color:#fff
 ```
 
 I've been coding since floppy disks were actually floppy, and I've never seen anything quite like this. We've got AIs that can pass technical interviews at FAANG companies but can't figure out that `utils/auth.js` probably shouldn't import from `node_modules/firebase-admin` in a frontend project.

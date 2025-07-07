@@ -16,6 +16,7 @@ import '../styles/blog-sandboxed-integration.css';
 import '../styles/blog-sequential-hell.css';
 import '../styles/blog-ai-function-graveyard.css';
 import '../styles/blog-marketing-during-dev.css';
+import '../styles/blog-expensive-ai-intern.css';
 
 export interface Props {
   title: string;
@@ -276,6 +277,11 @@ const relatedPosts = allPosts
       fontSize: '20px',
       nodeTextSize: '20px',
       edgeLabelSize: '18px',
+    },
+    securityLevel: 'loose',
+    flowchart: {
+      htmlLabels: true,
+      curve: 'basis'
     }
   });
   
@@ -289,12 +295,39 @@ const relatedPosts = allPosts
       if (code) {
         const container = document.createElement('div');
         container.className = 'mermaid-container';
-        container.innerHTML = `<div class="mermaid" id="mermaid-${index}">${code.textContent}</div>`;
-        pre.parentNode.replaceChild(container, pre);
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.id = `mermaid-${index}`;
+        
+        // Clean up the mermaid code
+        let mermaidCode = code.textContent.trim();
+        
+        // Fix common issues with node IDs containing brackets
+        mermaidCode = mermaidCode.replace(/\[([^\]]+)\]/g, (match, content) => {
+          // Keep node labels but ensure IDs are clean
+          return `["${content}"]`;
+        });
+        
+        mermaidDiv.textContent = mermaidCode;
+        container.appendChild(mermaidDiv);
+        
+        // Add error handling
+        try {
+          pre.parentNode.replaceChild(container, pre);
+        } catch (error) {
+          console.error('Mermaid diagram error:', error);
+          container.innerHTML = `<div class="mermaid-error">Unable to render diagram: ${error.message}</div>`;
+          pre.parentNode.replaceChild(container, pre);
+        }
       }
     });
     
-    mermaid.run();
+    // Run mermaid with error handling
+    try {
+      mermaid.run();
+    } catch (error) {
+      console.error('Mermaid initialization error:', error);
+    }
   });
 </script>
 
