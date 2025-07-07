@@ -858,7 +858,13 @@ scenarioIds.forEach(id => {
     margin-top: 1rem;
     margin-bottom: 0;
     text-align: left;
-    line-height: 1.1;
+    line-height: 1.0 !important;
+  }
+  
+  /* Force tight line spacing within messages */
+  .chat-interface .chat-message-line,
+  .terminal-content .chat-message-line {
+    line-height: 1.0 !important;
   }
   
   /* First message doesn't need top margin */
@@ -915,7 +921,8 @@ scenarioIds.forEach(id => {
   .chat-text {
     color: var(--terminal-green);
     display: inline;
-    line-height: 1.15;
+    line-height: 1.05;
+    word-wrap: break-word;
   }
   
   .user-message .chat-text {
@@ -1308,6 +1315,7 @@ scenarioIds.forEach(id => {
   .terminal-content .chat-text {
     color: var(--terminal-green);
     display: inline;
+    line-height: 1.05;
   }
   
   .terminal-content .user-message .chat-text {
