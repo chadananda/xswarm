@@ -10,8 +10,8 @@ const { projectName = 'my-sass' } = Astro.props;
 
 // Get all scenario IDs
 const scenarioIds = Object.keys(terminalScenarios.scenarios);
-// Start with the Spanish learning scenario
-const defaultScenarioId = 'cognate-spanish-learning';
+// Start with the quote memorization scenario
+const defaultScenarioId = 'quote-memorization-pwa';
 const currentScenarioId = scenarioIds.includes(defaultScenarioId) ? defaultScenarioId : scenarioIds[0];
 
 // Prepare all scenarios for rotation
@@ -1921,6 +1921,12 @@ scenarioIds.forEach(id => {
     
     // Function to clear and regenerate content for a new scenario
     function loadScenario(scenarioId) {
+      // Clear all existing timeouts
+      const highestTimeoutId = setTimeout(() => {}, 0);
+      for (let i = 0; i < highestTimeoutId; i++) {
+        clearTimeout(i);
+      }
+      
       // Clear existing content
       document.querySelector('.terminal-lines').innerHTML = `
         <div class="terminal-line initial-prompt">
@@ -1928,7 +1934,18 @@ scenarioIds.forEach(id => {
           <span class="initial-cursor"></span>
         </div>
       `;
-      document.querySelector('.chat-interface').innerHTML = '';
+      const chatInterface = document.querySelector('.chat-interface');
+      chatInterface.innerHTML = '';
+      chatInterface.style.display = 'none';
+      chatInterface.classList.remove('active');
+      
+      // Reset terminal lines visibility
+      const terminalLines = document.querySelector('.terminal-lines');
+      if (terminalLines) {
+        terminalLines.style.display = 'block';
+        terminalLines.style.opacity = '1';
+        terminalLines.style.transition = '';
+      }
       
       // Update terminal title
       const titleElement = document.querySelector('.terminal-title');
@@ -1983,6 +2000,16 @@ scenarioIds.forEach(id => {
     document.addEventListener('click', initAudio, { once: true });
     
     function resetAnimation() {
+      // Clear all existing timeouts and intervals
+      const highestTimeoutId = setTimeout(() => {}, 0);
+      for (let i = 0; i < highestTimeoutId; i++) {
+        clearTimeout(i);
+      }
+      const highestIntervalId = setInterval(() => {}, 0);
+      for (let i = 0; i < highestIntervalId; i++) {
+        clearInterval(i);
+      }
+      
       // Hide all animated elements
       elements.forEach(el => {
         el.style.display = 'none';
@@ -2022,12 +2049,14 @@ scenarioIds.forEach(id => {
       if (terminalLines) {
         terminalLines.style.display = 'block';
         terminalLines.style.opacity = '1';
+        terminalLines.style.transition = '';
       }
       
       // Reset chat interface
       const chatInterface = document.querySelector('.chat-interface');
       if (chatInterface) {
         chatInterface.classList.remove('active');
+        chatInterface.style.display = 'none';
         // Clear all typing animations in chat
         chatInterface.querySelectorAll('.typing-animation-chat').forEach(el => {
           el.textContent = '';
@@ -2166,13 +2195,14 @@ scenarioIds.forEach(id => {
             function showNextMessage() {
               if (messageIndex >= chatMessages.length) {
                 // All messages shown, wait then move to next scenario
+                // Wait extra time to ensure last message typing is complete
                 setTimeout(() => {
                   // Move to next scenario
                   currentScenarioIndex = (currentScenarioIndex + 1) % scenarioIds.length;
                   loadScenario(scenarioIds[currentScenarioIndex]);
                   // Restart animation with new scenario
                   runAnimation();
-                }, 30000);
+                }, 15000); // Increased delay to ensure typing completes
                 return;
               }
               
@@ -2409,9 +2439,9 @@ scenarioIds.forEach(id => {
                     }, 500);
                   }
                   
-                  // Wait longer before restarting
+                  // This is the last message - wait longer to ensure it's visible
                   messageIndex++;
-                  setTimeout(showNextMessage, 5000);
+                  setTimeout(showNextMessage, 10000);
                 } else {
                   // No animation, just continue
                   messageIndex++;

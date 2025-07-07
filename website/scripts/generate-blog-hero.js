@@ -15,7 +15,7 @@ const openai = new OpenAI({
 });
 
 // XSwarm brand style template from DESIGN-SYSTEM.md
-const STYLE_TEMPLATE = `in the style of Studio Ghibli meets cyberpunk meets architectural visualization. Wide cinematic shot with dramatic blue and purple lighting, holographic UI elements floating in space, circuit patterns, data streams, misty atmospheric depth, translucent geometric shapes. Technical and futuristic but with artistic sensibility. Dark background with neon accents.`;
+const STYLE_TEMPLATE = 'in the style of Studio Ghibli meets cyberpunk meets architectural visualization. Wide cinematic shot with dramatic blue and purple lighting, holographic UI elements floating in space, circuit patterns, data streams, misty atmospheric depth, translucent geometric shapes. Technical and futuristic but with artistic sensibility. Dark background with neon accents.';
 
 // Image generation settings
 const IMAGE_CONFIG = {
@@ -80,7 +80,7 @@ async function generateBlogHero(filename, imageDescription) {
     console.log(`   Path: ${outputPath}`);
     console.log(`   Dimensions: ${OUTPUT_CONFIG.finalSize.width}x${OUTPUT_CONFIG.finalSize.height}`);
     console.log(`   Quality: ${OUTPUT_CONFIG.quality}%`);
-    console.log(`   Format: Progressive JPEG`);
+    console.log('   Format: Progressive JPEG');
 
   } catch (error) {
     console.error(`❌ Error generating ${filename}:`, error.message);

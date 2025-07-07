@@ -1,5 +1,484 @@
 {
   "scenarios": {
+    "quote-memorization-pwa": {
+      "title": "Quote Memorization PWA",
+      "projectName": "memorize-quotes",
+      "terminalTitle": "xSwarm@hero:~$",
+      "agents": {
+        "BA": { "name": "Business Analyst", "class": "agent-ba" },
+        "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
+        "AI": { "name": "AI/ML Engineer", "class": "agent-ai" },
+        "UX": { "name": "UX Designer", "class": "agent-ux" },
+        "MK": { "name": "Marketing Specialist", "class": "agent-mk" },
+        "DR": { "name": "Deep Researcher", "class": "agent-dr" },
+        "DO": { "name": "DevOps Engineer", "class": "agent-do" },
+        "PM": { "name": "Product Manager", "class": "agent-pm" }
+      },
+      "phases": [
+        {
+          "type": "terminal",
+          "items": [
+            {
+              "delay": 2000,
+              "type": "command",
+              "prompt": "$",
+              "text": "cd {projectName}",
+              "duration": 1.8
+            },
+            {
+              "delay": 5000,
+              "type": "command",
+              "prompt": "$",
+              "text": "npx xswarm",
+              "duration": 1.2
+            },
+            {
+              "delay": 8000,
+              "type": "loading",
+              "text": "Initializing AI swarm..."
+            },
+            {
+              "delay": 9000,
+              "type": "ascii",
+              "frames": [
+                "     .  *  .   . *       *   .        .        .   *    .\n  *  _\\|/_   .    * .     .      *   .   *    .        *\n    (/o\\\\)     .        .   *         _\\|/_  .    .  *   .\n  *   |        *    .        .       (/o\\\\)    *        .\n   . -+- xSwarm    .    *  .    .      |   .      *    .\n      |       .        _\\|/_     *   -+-        .        *\n  .      *  .    *    (/o\\\\)  .       |    *         .\n    *           .   .   |        . *     .     *    .   .",
+                "╔═══════════════════════════════════════════════════════════════╗\n║                                                               ║\n║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║\n║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║\n║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║\n║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║\n║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║\n║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║\n║                                                               ║\n╚═══════════════════════════════════════════════════════════════╝"
+              ]
+            },
+            {
+              "delay": 10000,
+              "type": "success",
+              "text": "✓ 40+ AI agents initialized"
+            },
+            {
+              "delay": 10200,
+              "type": "success",
+              "text": "✓ Multi-pass planning engine ready"
+            },
+            {
+              "delay": 10400,
+              "type": "success",
+              "text": "✓ Parallel execution framework loaded"
+            },
+            {
+              "delay": 10700,
+              "type": "finalPrompt"
+            },
+            {
+              "delay": 11500,
+              "type": "command",
+              "prompt": "$",
+              "text": "xswarm chat --agent business-analyst",
+              "noType": true
+            }
+          ]
+        },
+        {
+          "type": "chat",
+          "delay": 12000,
+          "stats": {
+            "project": "{projectName}",
+            "files": "0 components",
+            "functions": "0 mapped",
+            "agents": "40 available",
+            "context": "1.8k tokens",
+            "mode": "Interactive"
+          },
+          "chatTitle": "Business Analyst Agent",
+          "welcomeMessages": [
+            "Hey there! Welcome to xSwarm. What are we building today?",
+            "Hi! Got a new project idea? I'm all ears!",
+            "Welcome! What's the app concept you're envisioning?",
+            "Hello! Ready to brainstorm? What should we create?",
+            "Greetings! What kind of application are we designing today?"
+          ],
+          "messages": [
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Hey there! Welcome to xSwarm. What are we building today?",
+              "duration": 2.0
+            },
+            {
+              "type": "user",
+              "text": "I want to build a memorization app that helps me memorize quotes. It should drop out words as I read them and detect if I got the word correct, highlighting as I recite. The quotes should be highly sharable with QR code, email and social media sharing.",
+              "duration": 6
+            },
+            {
+              "type": "thinking",
+              "agent": "BA",
+              "text": "Analyzing memorization app requirements..."
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "A quote memorization app with word dropout and voice recognition? That's brilliant!",
+              "duration": 2.0
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Let me assemble the perfect team for this...",
+              "duration": 1.0
+            },
+            {
+              "type": "agentsJoining",
+              "agents": [
+                "Fullstack Developer",
+                "AI/ML Engineer",
+                "UX Designer",
+                "Marketing Specialist",
+                "Deep Researcher",
+                "DevOps Engineer",
+                "Product Manager"
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Wait, are we building a web app or mobile app?",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "PWA first! Install prompts, offline mode, push notifications...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "And Capacitor for app stores later - one codebase, all platforms!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Exactly! PWA gets us to market fast, Capacitor for premium features.",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Hold up! Before we build features, let's talk infrastructure costs...",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Offline-first! Service workers, IndexedDB, everything runs client-side!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Music to my ears! CloudFront for static assets, minimal API calls...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "So users can practice quotes on planes, subways, anywhere?",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Exactly! Download quote packs, practice offline, sync when connected!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "For smooth animations during word dropout, we need buttery performance...",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Svelte! No virtual DOM, compiled to vanilla JS, perfect for touch interactions!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "And the reactive stores will handle real-time speech recognition beautifully.",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "I found 300+ quote sites - BrainyQuote, Goodreads, AZQuotes...",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "We scrape with permission, offer backlinks, build partnerships!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Categories: Motivational, Love, Success, Wisdom, Bible verses...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "Special section for Bible memorization - verse-by-verse, book challenges!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "Wait, explain this QR flow...",
+              "duration": 0.9
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Every quote gets a unique QR - scan and you're practicing in 3 seconds!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Churches print QR codes for weekly verses! Coffee shops for daily quotes!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Dynamic QR codes - tracks shares, viral loops!",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "QR contains quote + install prompt. One scan, two actions!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "So we bypass Apple's 30% cut?",
+              "duration": 0.9
+            },
+            {
+              "type": "multipart",
+              "agent": "MK",
+              "parts": [
+                { "text": "And Google's 15%!", "duration": 0.4 },
+                { "text": " Plus instant updates!", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Deploy in seconds, users get updates immediately!",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "No review process? We can iterate daily!",
+              "duration": 1.1
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "A/B test everything! Features, UI, monetization!",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "TikTok-style videos! User reciting quote with words dropping out!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Record screen + face cam, auto-generate captions, one-tap share!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "I can auto-edit the best takes, add music, optimize for each platform!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Instagram Reels, YouTube Shorts, TikTok - different crops, same content!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "Google/Apple sign-in for instant onboarding!",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Capture emails, segment by interests - Bible quotes, motivation, philosophy...",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "Supabase Auth - handles everything, GDPR compliant!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Daily streaks, quote mastery levels, but tasteful - no addiction mechanics!",
+              "duration": 1.5
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "Private groups - churches, book clubs, study groups...",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Leaderboards per category, weekly challenges, share achievements!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "AI",
+              "text": "Adaptive difficulty - drops more words as you improve!",
+              "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "AI",
+              "parts": [
+                { "text": "Web Speech API runs locally", "duration": 0.5 },
+                { "text": " - no cloud costs for recognition!", "duration": 0.6 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "FS",
+              "text": "And TensorFlow.js for difficulty adjustment - all client-side ML!",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "DO",
+              "text": "Server just handles auth, leaderboards, and content updates...",
+              "duration": 1.4
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "Operating costs under $50/month for thousands of users?",
+              "duration": 1.3
+            },
+            {
+              "type": "multipart",
+              "agent": "DO",
+              "parts": [
+                { "text": "Try under $10!", "duration": 0.4 },
+                { "text": " CDN is pennies,", "duration": 0.4 },
+                { "text": " API calls minimal!", "duration": 0.5 }
+              ]
+            },
+            {
+              "type": "agent",
+              "agent": "DR",
+              "text": "Partner with bookstores - QR codes on bookmarks!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "MK",
+              "text": "Bible study groups - printed verse cards with QR!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "UX",
+              "text": "Motivational posters for offices - scan to practice!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "So we're bridging physical and digital?",
+              "duration": 1.2
+            },
+            {
+              "type": "agent",
+              "agent": "PM",
+              "text": "Every surface becomes an acquisition channel!",
+              "duration": 1.3
+            },
+            {
+              "type": "agent",
+              "agent": "BA",
+              "text": "Alright team, let's architect this offline-first PWA masterpiece!",
+              "duration": 1.5
+            },
+            {
+              "type": "planningAnnouncement",
+              "agent": "BA",
+              "text": "⚡ Multi-Pass Planning Engine Active",
+              "duration": 0.8
+            },
+            {
+              "type": "planningStages",
+              "stages": [
+                { "text": "Planning core functionality...", "delay": 2500 },
+                { "text": "Designing offline-first architecture...", "delay": 2500 },
+                { "text": "Researching memorization science and spaced repetition...", "delay": 2500 },
+                { "text": "Analyzing competitor landscape (Anki, Quizlet, Bible Memory App)...", "delay": 2500 },
+                { "text": "Extracting shared functions plan...", "delay": 2500 },
+                { "text": "Mapping to existing functions...", "delay": 2500 },
+                { "text": "Designing viral physical-digital loops...", "delay": 2500 },
+                { "text": "Building content acquisition strategy...", "delay": 2500 },
+                { "text": "Creating monetization framework...", "delay": 2500 },
+                { "text": "Organizing 512 tasks into parallel sprints...", "delay": 2500 },
+                { "text": "Setting up task assignments...", "delay": 2500 },
+                { "text": "Setting up project dashboard...", "delay": 2500 },
+                { "text": "Initiating project epoch...", "delay": 2500 }
+              ]
+            },
+            {
+              "type": "branchCreation",
+              "agent": "BA",
+              "branchName": "quote-memorization-pwa",
+              "duration": 1.0
+            },
+            {
+              "type": "agent",
+              "agent": "BA", 
+              "text": "✓ Epoch Plan Ready! View your project dashboard:",
+              "duration": 1
+            },
+            {
+              "type": "dashboardLink",
+              "agent": "BA",
+              "url": "https://xswarm.ai/QMEMPWA/quote-memorization-pwa",
+              "duration": 1
+            },
+            {
+              "type": "progressIndicator",
+              "agent": "BA",
+              "text": "🔄 Epoch execution in progress"
+            }
+          ]
+        }
+      ]
+    },
     "cognate-spanish-learning": {
       "title": "AI-Powered Spanish Learning Platform",
       "projectName": "spanish-learning-app",
@@ -644,485 +1123,6 @@
               "type": "dashboardLink",
               "agent": "BA",
               "url": "https://xswarm.ai/XDCFGS/svelte-conversion",
-              "duration": 1
-            },
-            {
-              "type": "progressIndicator",
-              "agent": "BA",
-              "text": "🔄 Epoch execution in progress"
-            }
-          ]
-        }
-      ]
-    },
-    "quote-memorization-pwa": {
-      "title": "Quote Memorization PWA",
-      "projectName": "memorize-quotes",
-      "terminalTitle": "xSwarm@hero:~$",
-      "agents": {
-        "BA": { "name": "Business Analyst", "class": "agent-ba" },
-        "FS": { "name": "Fullstack Developer", "class": "agent-fs" },
-        "AI": { "name": "AI/ML Engineer", "class": "agent-ai" },
-        "UX": { "name": "UX Designer", "class": "agent-ux" },
-        "MK": { "name": "Marketing Specialist", "class": "agent-mk" },
-        "DR": { "name": "Deep Researcher", "class": "agent-dr" },
-        "DO": { "name": "DevOps Engineer", "class": "agent-do" },
-        "PM": { "name": "Product Manager", "class": "agent-pm" }
-      },
-      "phases": [
-        {
-          "type": "terminal",
-          "items": [
-            {
-              "delay": 2000,
-              "type": "command",
-              "prompt": "$",
-              "text": "cd {projectName}",
-              "duration": 1.8
-            },
-            {
-              "delay": 5000,
-              "type": "command",
-              "prompt": "$",
-              "text": "npx xswarm",
-              "duration": 1.2
-            },
-            {
-              "delay": 8000,
-              "type": "loading",
-              "text": "Initializing AI swarm..."
-            },
-            {
-              "delay": 9000,
-              "type": "ascii",
-              "frames": [
-                "     .  *  .   . *       *   .        .        .   *    .\n  *  _\\|/_   .    * .     .      *   .   *    .        *\n    (/o\\\\)     .        .   *         _\\|/_  .    .  *   .\n  *   |        *    .        .       (/o\\\\)    *        .\n   . -+- xSwarm    .    *  .    .      |   .      *    .\n      |       .        _\\|/_     *   -+-        .        *\n  .      *  .    *    (/o\\\\)  .       |    *         .\n    *           .   .   |        . *     .     *    .   .",
-                "╔═══════════════════════════════════════════════════════════════╗\n║                                                               ║\n║   ██╗  ██╗███████╗██╗    ██╗ █████╗ ██████╗ ███╗   ███╗      ║\n║   ╚██╗██╔╝██╔════╝██║    ██║██╔══██╗██╔══██╗████╗ ████║      ║\n║    ╚███╔╝ ███████╗██║ █╗ ██║███████║██████╔╝██╔████╔██║      ║\n║    ██╔██╗ ╚════██║██║███╗██║██╔══██║██╔══██╗██║╚██╔╝██║      ║\n║   ██╔╝ ██╗███████║╚███╔███╔╝██║  ██║██║  ██║██║ ╚═╝ ██║      ║\n║   ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝      ║\n║                                                               ║\n╚═══════════════════════════════════════════════════════════════╝"
-              ]
-            },
-            {
-              "delay": 10000,
-              "type": "success",
-              "text": "✓ 40+ AI agents initialized"
-            },
-            {
-              "delay": 10200,
-              "type": "success",
-              "text": "✓ Multi-pass planning engine ready"
-            },
-            {
-              "delay": 10400,
-              "type": "success",
-              "text": "✓ Parallel execution framework loaded"
-            },
-            {
-              "delay": 10700,
-              "type": "finalPrompt"
-            },
-            {
-              "delay": 11500,
-              "type": "command",
-              "prompt": "$",
-              "text": "xswarm chat --agent business-analyst",
-              "noType": true
-            }
-          ]
-        },
-        {
-          "type": "chat",
-          "delay": 12000,
-          "stats": {
-            "project": "{projectName}",
-            "files": "0 components",
-            "functions": "0 mapped",
-            "agents": "40 available",
-            "context": "1.8k tokens",
-            "mode": "Interactive"
-          },
-          "chatTitle": "Business Analyst Agent",
-          "welcomeMessages": [
-            "Hey there! Welcome to xSwarm. What are we building today?",
-            "Hi! Got a new project idea? I'm all ears!",
-            "Welcome! What's the app concept you're envisioning?",
-            "Hello! Ready to brainstorm? What should we create?",
-            "Greetings! What kind of application are we designing today?"
-          ],
-          "messages": [
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "Hey there! Welcome to xSwarm. What are we building today?",
-              "duration": 2.0
-            },
-            {
-              "type": "user",
-              "text": "I want to build a memorization app that helps me memorize quotes. It should drop out words as I read them and detect if I got the word correct, highlighting as I recite. The quotes should be highly sharable with QR code, email and social media sharing.",
-              "duration": 6
-            },
-            {
-              "type": "thinking",
-              "agent": "BA",
-              "text": "Analyzing memorization app requirements..."
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "A quote memorization app with word dropout and voice recognition? That's brilliant!",
-              "duration": 2.0
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "Let me assemble the perfect team for this...",
-              "duration": 1.0
-            },
-            {
-              "type": "agentsJoining",
-              "agents": [
-                "Fullstack Developer",
-                "AI/ML Engineer",
-                "UX Designer",
-                "Marketing Specialist",
-                "Deep Researcher",
-                "DevOps Engineer",
-                "Product Manager"
-              ]
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "Wait, are we building a web app or mobile app?",
-              "duration": 1.2
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "PWA first! Install prompts, offline mode, push notifications...",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "And Capacitor for app stores later - one codebase, all platforms!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "Exactly! PWA gets us to market fast, Capacitor for premium features.",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "DO",
-              "text": "Hold up! Before we build features, let's talk infrastructure costs...",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "Offline-first! Service workers, IndexedDB, everything runs client-side!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "DO",
-              "text": "Music to my ears! CloudFront for static assets, minimal API calls...",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "So users can practice quotes on planes, subways, anywhere?",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "Exactly! Download quote packs, practice offline, sync when connected!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "UX",
-              "text": "For smooth animations during word dropout, we need buttery performance...",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "Svelte! No virtual DOM, compiled to vanilla JS, perfect for touch interactions!",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "AI",
-              "text": "And the reactive stores will handle real-time speech recognition beautifully.",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "DR",
-              "text": "I found 300+ quote sites - BrainyQuote, Goodreads, AZQuotes...",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "We scrape with permission, offer backlinks, build partnerships!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "Categories: Motivational, Love, Success, Wisdom, Bible verses...",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "DR",
-              "text": "Special section for Bible memorization - verse-by-verse, book challenges!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "Wait, explain this QR flow...",
-              "duration": 0.9
-            },
-            {
-              "type": "agent",
-              "agent": "UX",
-              "text": "Every quote gets a unique QR - scan and you're practicing in 3 seconds!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "Churches print QR codes for weekly verses! Coffee shops for daily quotes!",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "Dynamic QR codes - tracks shares, viral loops!",
-              "duration": 1.2
-            },
-            {
-              "type": "agent",
-              "agent": "AI",
-              "text": "QR contains quote + install prompt. One scan, two actions!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "So we bypass Apple's 30% cut?",
-              "duration": 0.9
-            },
-            {
-              "type": "multipart",
-              "agent": "MK",
-              "parts": [
-                { "text": "And Google's 15%!", "duration": 0.4 },
-                { "text": " Plus instant updates!", "duration": 0.5 }
-              ]
-            },
-            {
-              "type": "agent",
-              "agent": "DO",
-              "text": "Deploy in seconds, users get updates immediately!",
-              "duration": 1.2
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "No review process? We can iterate daily!",
-              "duration": 1.1
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "A/B test everything! Features, UI, monetization!",
-              "duration": 1.2
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "TikTok-style videos! User reciting quote with words dropping out!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "UX",
-              "text": "Record screen + face cam, auto-generate captions, one-tap share!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "AI",
-              "text": "I can auto-edit the best takes, add music, optimize for each platform!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "Instagram Reels, YouTube Shorts, TikTok - different crops, same content!",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "Google/Apple sign-in for instant onboarding!",
-              "duration": 1.2
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "Capture emails, segment by interests - Bible quotes, motivation, philosophy...",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "Supabase Auth - handles everything, GDPR compliant!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "UX",
-              "text": "Daily streaks, quote mastery levels, but tasteful - no addiction mechanics!",
-              "duration": 1.5
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "Private groups - churches, book clubs, study groups...",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "Leaderboards per category, weekly challenges, share achievements!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "AI",
-              "text": "Adaptive difficulty - drops more words as you improve!",
-              "duration": 1.3
-            },
-            {
-              "type": "multipart",
-              "agent": "AI",
-              "parts": [
-                { "text": "Web Speech API runs locally", "duration": 0.5 },
-                { "text": " - no cloud costs for recognition!", "duration": 0.6 }
-              ]
-            },
-            {
-              "type": "agent",
-              "agent": "FS",
-              "text": "And TensorFlow.js for difficulty adjustment - all client-side ML!",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "DO",
-              "text": "Server just handles auth, leaderboards, and content updates...",
-              "duration": 1.4
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "Operating costs under $50/month for thousands of users?",
-              "duration": 1.3
-            },
-            {
-              "type": "multipart",
-              "agent": "DO",
-              "parts": [
-                { "text": "Try under $10!", "duration": 0.4 },
-                { "text": " CDN is pennies,", "duration": 0.4 },
-                { "text": " API calls minimal!", "duration": 0.5 }
-              ]
-            },
-            {
-              "type": "agent",
-              "agent": "DR",
-              "text": "Partner with bookstores - QR codes on bookmarks!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "MK",
-              "text": "Bible study groups - printed verse cards with QR!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "UX",
-              "text": "Motivational posters for offices - scan to practice!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "So we're bridging physical and digital?",
-              "duration": 1.2
-            },
-            {
-              "type": "agent",
-              "agent": "PM",
-              "text": "Every surface becomes an acquisition channel!",
-              "duration": 1.3
-            },
-            {
-              "type": "agent",
-              "agent": "BA",
-              "text": "Alright team, let's architect this offline-first PWA masterpiece!",
-              "duration": 1.5
-            },
-            {
-              "type": "planningAnnouncement",
-              "agent": "BA",
-              "text": "⚡ Multi-Pass Planning Engine Active",
-              "duration": 0.8
-            },
-            {
-              "type": "planningStages",
-              "stages": [
-                { "text": "Planning core functionality...", "delay": 2500 },
-                { "text": "Designing offline-first architecture...", "delay": 2500 },
-                { "text": "Researching memorization science and spaced repetition...", "delay": 2500 },
-                { "text": "Analyzing competitor landscape (Anki, Quizlet, Bible Memory App)...", "delay": 2500 },
-                { "text": "Extracting shared functions plan...", "delay": 2500 },
-                { "text": "Mapping to existing functions...", "delay": 2500 },
-                { "text": "Designing viral physical-digital loops...", "delay": 2500 },
-                { "text": "Building content acquisition strategy...", "delay": 2500 },
-                { "text": "Creating monetization framework...", "delay": 2500 },
-                { "text": "Organizing 512 tasks into parallel sprints...", "delay": 2500 },
-                { "text": "Setting up task assignments...", "delay": 2500 },
-                { "text": "Setting up project dashboard...", "delay": 2500 },
-                { "text": "Initiating project epoch...", "delay": 2500 }
-              ]
-            },
-            {
-              "type": "branchCreation",
-              "agent": "BA",
-              "branchName": "quote-memorization-pwa",
-              "duration": 1.0
-            },
-            {
-              "type": "agent",
-              "agent": "BA", 
-              "text": "✓ Epoch Plan Ready! View your project dashboard:",
-              "duration": 1
-            },
-            {
-              "type": "dashboardLink",
-              "agent": "BA",
-              "url": "https://xswarm.ai/QMEMPWA/quote-memorization-pwa",
               "duration": 1
             },
             {
